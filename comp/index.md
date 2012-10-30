@@ -1,6 +1,7 @@
 ---
 layout: default
 title: MAB 471 - Compiladores I
+relpath: ..
 ---
 
 MAB 471 - Compiladores I

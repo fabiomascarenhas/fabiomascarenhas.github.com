@@ -1,6 +1,7 @@
 ---
 layout: default
 title: MAB 240 - Computação II
+relpath: ..
 ---
 
 MAB 240 - Computação II

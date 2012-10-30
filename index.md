@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Fabio Mascarenhas
+relpath: .
 ---
 
 Fabio Mascarenhas
