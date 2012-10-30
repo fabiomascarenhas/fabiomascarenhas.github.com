@@ -1,0 +1,17 @@
+class Fibo {
+  fib(n) {
+    var a = 1;
+    var b = 1;
+    while(true) {
+      if(n < 3) break;
+      var c = a + b;
+      a = b; b = c;
+      n = n - 1;
+    }
+    return b;
+  }
+
+  main() {
+    out.print(this.fib(10));
+  }
+}

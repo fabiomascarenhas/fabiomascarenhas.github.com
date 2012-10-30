@@ -1,0 +1,290 @@
+<p><html>
+<head>
+<title>MAB 471 &ndash; Compiladores I</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>MAB 471 - Compiladores I</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2><b>08/07 - As notas finais estão <a href="previsao_notas.html">aqui</a>.</b></h2>
+
+<h2>Apresentação</h2>
+
+<p>Está é a página da disciplina Compiladores I, MAB 471, do professor
+Fabio Mascarenhas, para o semestre de 2012.1. As aulas da disciplina
+são às segundas e quartas, das 15 às 17 horas, no LAB I do DCC.</p>
+
+<h2>Avaliação</h2>
+
+<p>A avaliação será feita por provas e por pequenos trabalhos
+práticos. A nota das provas corresponderá a 80% da nota final (8
+pontos) e a dos trabalhos a 20% (2 pontos). Serão três provas, uma na
+metade do período e as outras duas no final, e será feita uma
+m&eacute;dia aritm&eacute;tica das duas maiores notas. Não haverá
+prova final ou segunda chamada. Ainda não estabeleci a quantidade nem
+a natureza dos trabalhos práticos, mas provavelmente serão versões
+bastante reduzidas dos trabalhos práticos feitos em 2011.2.
+A m&eacute;dia final &eacute; 5,0.</p>
+
+<h2>Datas das Provas</h2>
+
+<p>P1: 25/04/2012</p>
+<p>P2: 25/06/2012</p>
+<p>P3: 04/07/2012</p>
+
+<p>Todas as provas caem na quarta-feira, e serão feitas no mesmo
+horário e local das aulas (LAB 2, 15-17).</p>
+
+<h2>Lista de Discussão</h2>
+
+<p>A lista de discussão para esta disciplina está no o <a
+href="http://www.piazzza.com">Piazzza</a>. Acessem <a
+href="http://www.piazza.com/ufrj.br/spring2012/mab471">esse link</a>
+e sigam as instruções do site para se inscrever (usem seu email da UFRJ).</p>
+
+<p>Tamb&eacute;m temos um grupo no Facebook. Acessem <a href="http://www.facebook.com/groups/compiladoresI/">aqui</a>.</p>
+
+<h2>Livros</h2>
+
+<p>O livro texto da disciplina &eacute; o "Compiladores: princípios e
+práticas", de Kenneth C. Louden. Ele está disponível na biblioteca do
+CCMN.</p>
+
+<p>"Crafting a Compiler with C" de Charles Fischer tamb&eacute;m
+tem uma boa cobertura dos aspectos práticos da construção de um
+compilador, e está disponível na biblioteca do CT e do NCE.</p>
+
+<p>Um excelente livro para quem quiser se aprofundar mais sobre o tema
+&eacute; a segunda edição do "Engineering a Compiler", de Keith
+D. Cooper e Linda Torczon. Infelizmente ele não está disponível em
+nenhuma das bibliotecas da UFRJ.</p>
+
+<p>Existe farto material online sobre construção de compiladores,
+incluindo livros completos. Um bem sint&eacute;tico e com ênfase em construção manual de scanners e
+parsers recursivos &eacute; o livro "Compiler Construction" de Niklaus
+Wirth, disponível <a
+href="http://www.ethoberon.ethz.ch/WirthPubl/CBEAll.pdf">em PDF
+aqui</a>. Outro livro, mais
+detalhista, &eacute; o "Basics of Compiler Design" de Torben Mogensen, disponível 
+<a href="http://www.diku.dk/hjemmesider/ansatte/torbenm/Basics/">nessa
+página</a>.</p>
+
+<h2>Slides</h2>
+
+<ul>
+  <li><a href = "01Intro.pdf">Introdução - Estrutura e Fases de um Compilador</a></li>
+  <li><a href = "02Scanners.pdf">Análise L&eacute;xica</a></li>
+  <li><a href = "03Parsers.pdf">Análise Sintática - Introdução e
+  Análise Top-Down</a></li>
+  <li><a href ="04TINYRec.pdf">Análise Sintática - TINY Recursivo</a></li>
+  <li><a href ="05BottomUp.pdf">Análise Sintática Bottom-Up</a></li>
+  <li><a href ="06ParsersFinal.pdf">Análise Sintática - Final e JACC</a></li>
+  <li><a href ="07Semantica.pdf">Análise Semântica</a></li>
+  <li><a href ="08GerCodigo.pdf">Introdução &agrave; Geração de Código</a></li>
+  <li><a href ="09TINYCodeGen.pdf">Geração de Código para TINY</a></li>
+</ul>
+
+<h2>Listas de Exercícios</h2>
+
+<ul>
+  <li><a href = "lista1.html">Lista 1</a> - análise l&eacute;xica,
+  gramáticas, análise sintática top-down</li>
+</ul>
+
+<ul>
+  <li><a href = "lista2.html">Lista 2</a> - análise sintática
+  bottom-up, análise semântica, ambientes de execução, geração de código</li>
+</ul>
+
+<h2>Provas</h2>
+
+<ul>
+  <li>P1 - <a href = "p1.pdf">prova</a> e <a href = "RespostasP1.pdf">gabarito</a></li>
+</ul>
+
+<ul>
+  <li>P2 - <a href = "p2.pdf">prova</a> e <a href = "p2-gabarito.java">gabarito</a></li>
+</ul>
+
+<ul>
+  <li>P3 - <a href = "p3.pdf">prova</a> e <a href = "p3-gabarito.java">gabarito</a></li>
+</ul>
+
+<h2>Trabalhos Práticos</h2>
+
+<p>Os trabalhos práticos correspondem &agrave;s diferentes fases de um
+compiladora:</p>
+
+<ol>
+  <li>Analisador l&eacute;xico da linguagem <a href = "gossip.html"><i>Gossip</i></a>, usando <a href =
+  "http://jflex.de/">JFlex</a></li>
+  <li>Analisador sintático  da linguagem <a href = "gossip.html"><i>Gossip</i></a>, usando <a href =
+  "http://web.cecs.pdx.edu/~mpj/jacc/">JACC</a></li>
+  <li>Analisador semântico e gerador de código x86 para TINY Tipado</li>
+</ol>
+
+<p>Os trabalhos serão feitos em dupla. As mesmas duplas valerão para todos os
+três trabalhos, exceto em casos de trancamento ou abandono, que serão
+resolvidos caso a caso.</p>
+
+<h3>Analisador L&eacute;xico</h3>
+
+<p>Cada dupla deverá completar a
+especificação de um analisador l&eacute;xico 
+para a linguagem <a href = "gossip.html"><i>Gossip</i></a>. Ela gerará
+uma classe <code>gossip.Scanner</code>, com os tokens
+retornados pelo m&eacute;todo <code>getToken()</code> sendo instâncias
+de <code>gossip.Token</code>. Baixe o esqueleto do projeto Eclipse
+para o trabalho <a href = "trab1/GossipScanner.zip">aqui</a>. O
+projeto tamb&eacute;m inclui uma classe <code>gossip.Driver</code>
+para teste do analisador l&eacute;xico, e um arquivo
+<code>exemplo.gossip</code> que exercita todos os tokens do scanner
+(ele <b>não</b> &eacute; um programa sintaticamente válido!). As
+partes que faltam no analisador estão marcadas com comentários <b>TODO</b>.</p>
+
+<p>A entrega do trabalho deverá ser feita at&eacute; o dia 25/04/2012,
+uma quarta-feira, em formato zip, usando <a href = "http://form.jotformz.com/form/20988103586663">esse formulário</a>.</p>
+
+<p>Se tiver qualquer dúvida sobre a especificação da linguagem ou o
+funcionamento do analisador l&eacute;xico procure o professor antes de inventar.</p>
+
+<h3>Analisador Sintático</h3>
+
+<p>Cada dupla deverá completar a
+especificação de um analisador l&eacute;xico 
+para a linguagem <a href = "gossip.html"><i>Gossip</i></a>. Ela gerará
+uma classe <code>gossip.Parser</code>, com um m&eacute;todo
+<code>parse()</code> que executa a análise. Caso o programa não
+tenha erros sináticos o campo <code>output</code> terá uma árvore
+sintática abstrata (AST) para o programa. O m&eacute;todo
+<code>toString()</code> da raiz da árvore sintática dá uma
+string equivalente ao programa original (a menos de comentários e espaçamento).</p>
+
+<p>Baixe o esqueleto do projeto Eclipse
+para o trabalho <a href = "trab2/GossipParser.zip">aqui</a>, e faça as
+tarefas marcadas com comentários <b>TODO</b> no arquivo <code>gossip/gossip.jacc</code>. O
+projeto tamb&eacute;m inclui uma classe <code>gossip.Driver</code>
+para teste do analisador analisador sintático, programas válidos na
+pasta <code>corretos</code>, e programas com erros sintáticos na pasta
+<code>errados</code>.</p>
+
+<p>A entrega do trabalho deverá ser feita at&eacute; o dia <b>30/05/2012</b>,
+uma quarta-feira, em formato zip, usando <a href = "http://form.jotformz.com/form/20988103586663">esse formulário</a>.</p>
+
+<p>Se tiver qualquer dúvida sobre a especificação da linguagem ou o
+funcionamento do analisador sintático procure o professor antes de inventar.</p>
+
+<h3>Análise Semântica e Geração de Código</h3>
+
+<p>Cada dupla deverá completar a implementação do analisador semântico
+e geração de código x86 (assumindo 32 bits e usando o <a href
+="http://www.nasm.us/">NASM</a> como assembler) para TINY tipado
+estendido com funções e blocos. Baixe o esqueleto do
+projeto Eclipse para o trabalho <a href = "trab3/TinyFunc.zip">aqui</a>, e
+faça as tarefas marcadas com comentários <b>TODO</b> no arquivo
+<code>tiny/AST.java</code>.</p>
+
+<p>As tarefas são basicamente implementar a análise semântica e
+geração de código para funções e blocos (que têm a mesma semântica de
+blocos em C). O projeto inclui um driver para testes,
+que lê um arquivo com extensão <code>.tiny</code>, o executa se ele
+estiver corretamente formatado e tipado, e escreve um arquivo com
+extensão <code>.asm</code> com a tradução dele para x86.</p>
+
+<p>A entrega do trabalho deverá ser feita at&eacute; o dia <b>27/06/2012</b>,
+uma quarta-feira, em formato zip, usando <a href = "http://form.jotformz.com/form/20988103586663">esse formulário</a>.</p>
+
+<p>Se tiver qualquer dúvida sobre a especificação da linguagem ou o
+funcionamento do compilador procure o professor antes de inventar.</p>
+
+<h2>Material Adicional</h2>
+
+<h3>Compilador de expressões aritm&eacute;ticas</h3>
+
+<p>Os fontes para o compilador de expressões aritm&eacute;ticas mostrados
+na aula de 05/03/2012 estão <a
+href="calc.zip">aqui</a>. <code>Calc.java</code> &eacute; o
+compilador, que lê expressões da entrada padrão (separadas com um
+ponto e vírgula) e escreve o código assembler para
+LVM na saída padrão. Os scripts <code>calc</code> e
+<code>calc.bat</code> (para Windows) executam o compilador, gravando a
+saída dele em um arquivo <code>calc.asm</code> e depois montando e
+executando a saída.<p>
+
+<h3>Especificação l&eacute;xica de TINY</h3>
+
+<p>Palavras reservadas: <code>if</code>, <code>then</code>,
+<code>else</code>, <code>end</code>, <code>repeat</code>, <code>until</code>,
+<code>read</code>, <code>write</code>.</p>
+
+<p>Operadores: <code>+</code>, <code>-</code>, <code>*</code>,
+<code>/</code>, <code>=</code>, <code><</code>, <code>(</code>,
+<code>)</code>, <code>;</code>, <code>:=</code>.</p>
+
+<p>Numerais: um ou mais dígitos.</p>
+
+<p>Identificadores: letras seguidas de letras, dígitos ou <code>_</code>.</p>
+
+<p>Comentários: cercados por chaves (<code>{...}</code>), não podem
+ser aninhados.</p>
+
+<p>Baixe o <a href = "Tiny_Scanner.zip">analisador l&eacute;xico</a>.</p>
+
+<p>Baixe o <a href = "Tiny_Scanner_JFlex.zip">analisador l&eacute;xico</a>
+usando o <a href =
+  "http://jflex.de/">JFlex</a>.</p>
+
+<h3>Parser Recursivo para TINY</h3>
+
+<p>O projeto Eclipse do parser recursivo feito na aula de 04/04/2012
+está <a href="Tiny_Parser.zip">aqui</a>.</p>
+
+<h3>Parser JACC para TINY</h3>
+
+<p>O project Eclipse do parser JACC feito na aula de 09/05/2012 está
+<a href="Tiny_Parser_Jacc.zip">aqui</a>.</p>
+
+<h3>Análise semântica para TINY com tipos</h3>
+
+<p>O project Eclipse do analisador semântico feito na aula de 28/05/2012 está
+<a href="Tiny_Tipado.zip">aqui</a>.</p>
+
+<h3>Gerador de código para TINY Tipado (NASM/x86)</h3>
+
+<p>O project Eclipse do gerador de código feito nas aula de 04 a 11/06/2012 está
+<a href="Tiny_GeraCod.zip">aqui</a>.</p>
+
+<h3>Lexical Scanning in Go</h3>
+
+<p>Vídeo do Rob Pike mostrando como construir um analisador
+l&eacute;xico manualmente, usando a linguagem Go, e como isso &eacute;
+preferível em relação a usar um gerador de analisadores l&eacute;xicos.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/HxaD_trXwRE" frameborder="0" allowfullscreen></iframe>
+
+<h3>Embedded in Academia: 57 Small Programs that Crash Compilers</h3>
+
+<p>It’s not clear how many people enjoy looking at programs that make
+compilers crash — but this post is for them (and me). Our paper on
+producing reduced test cases for compiler bugs contained a large table
+of results for crash bugs. Below are all of C-Reduce’s reduced
+programs for those bugs. <a href =
+"http://blog.regehr.org/archives/696">Ler esse artigo...</a></p>
+
+<h2>Contato</h2>
+
+<p>Podem entrar em contato pelo meu <a
+href="mailto:mascarenhas@ufrj.br">email</a> que responderei assim que
+possível. Também tenho um horário de atendimento de alunos na minha
+sala, segundas e quartas de 17 às 18 horas. A sala é a E-2013 do
+DCC.</p>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Fri Jul  6 11:25:57 BRT 2012 <!-- hhmts end -->
+</body> </html>

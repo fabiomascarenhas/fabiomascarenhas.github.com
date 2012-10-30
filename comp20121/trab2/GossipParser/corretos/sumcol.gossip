@@ -1,0 +1,15 @@
+/* Soma uma lista de numeros obtidas do console */
+
+class Sum {
+  main() {
+    var sum = 0;
+    var line = in.readline();
+
+    while(line) {
+      sum = sum + line.tonumber();
+      line = in.readline();
+    }
+   
+    out.print(sum);
+  }
+}

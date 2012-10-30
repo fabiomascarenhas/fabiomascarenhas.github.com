@@ -1,0 +1,8 @@
+/* Inicialização de variável não permitida */
+
+class Hello {
+  var x = 2;
+  main() {
+    out.print("Hello World!\n");
+  }
+}

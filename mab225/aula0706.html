@@ -1,0 +1,284 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 07/06/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Interfaces Gráficas II (07/06/2011)</h2>
+
+<h3>Lista de Opção</h3>
+
+<pre>
+from Tkinter import *
+
+f = Frame()
+
+var = StringVar()
+
+items = [ "456", "123", "Opcao 3", "Item bem longo que espero que apareca" ]
+var.set(items[1])
+
+lista = OptionMenu(f, var, *items)
+lista["font"] = "Arial 24"
+
+def cmd():
+    label["text"] = var.get()
+
+botao = Button(f)
+botao["font"] = "Arial 24"
+botao["command"] = cmd
+botao["text"] = "Ok"
+
+label = Label(f)
+label["font"] = "Arial 24"
+
+lista.pack()
+botao.pack()
+label.pack()
+f.pack()
+
+mainloop()
+</pre>
+
+<h3>Caixa de Lista</h3>
+
+<pre>
+from Tkinter import *
+from contas import *
+
+f = Frame()
+
+lb = Listbox(f)
+lb["font"] = "Courier 16"
+lb["width"] = 70
+sb = Scrollbar(lb)
+
+var = StringVar()
+
+items = [ "456", "123", "Opcao 3", "Item bem longo que espero que apareca" ]
+var.set(items[1])
+
+lista = OptionMenu(f, var, *items)
+lista["font"] = "Arial 16"
+
+def cmd():
+    conta = var.get()
+    if conta in contas:
+        for item in contas[conta].extrato("2011-01-01"):
+            lb.insert(END, item)
+
+botao = Button(f)
+botao["font"] = "Arial 16"
+botao["command"] = cmd
+botao["text"] = "Ok"
+
+lb.pack()
+lista.pack()
+botao.pack()
+f.pack()
+
+mainloop()
+</pre>
+
+<h3>Depósito com extrato (opção, caixa de lista, frames, botões)</h3>
+
+<pre>
+from contas import *
+from Tkinter import *
+
+f1 = Frame()
+
+def deposita():
+    try:
+        val = f1_var.get()
+        contas[conta.get()].deposito(val)
+        f1.pack_forget()
+        f2_label["text"] = "Saldo: %d" % contas[conta.get()].saldo
+        f2.pack()
+    except ValueError:
+        print "nao foi numero"
+        f1_var.set(0)
+
+def extrato():
+    lb.delete(0, END)
+    for item in contas[conta.get()].extrato("2011-01-01"):
+        lb.insert(END, item)
+    f1.pack_forget()
+    f3.pack()
+
+f1_texto = Entry(f1)
+f1_texto["font"] = "Arial 20"
+f1_texto2 = Entry(f1)
+f1_texto2["font"] = "Arial 20"
+f1_botao = Button(f1)
+f1_botao["font"] = "Arial 20"
+f1_botao2 = Button(f1)
+f1_botao2["font"] = "Arial 20"
+f1_var = DoubleVar(f1)
+f1_var.set(0)
+f1_texto["textvariable"] = f1_var
+f1_texto2["textvariable"] = f1_var
+f1_botao["text"] = "Depositar"
+f1_botao["command"] = deposita
+f1_botao2["text"] = "Extrato"
+f1_botao2["command"] = extrato
+conta = StringVar()
+
+items = contas.keys()
+conta.set(items[1])
+
+lista = OptionMenu(f1, conta, *items)
+lista["font"] = "Arial 20"
+
+lista.pack()
+f1_texto.pack()
+f1_texto2.pack()
+f1_botao.pack()
+f1_botao2.pack()
+f1.pack()
+
+def voltar_f2():
+    f1_var.set(0)
+    f2.pack_forget()
+    f1.pack()
+
+def voltar_f3():
+    f3.pack_forget()
+    f1.pack()
+
+f2 = Frame()
+f2_label = Label(f2)
+f2_label["font"] = "Arial 20"
+f2_botao = Button(f2)
+f2_botao["text"] = "Voltar"
+f2_botao["font"] = "Arial 20"
+f2_botao["command"] = voltar_f2
+f2_label.pack()
+f2_botao.pack()
+
+f3 = Frame()
+lb = Listbox(f3)
+lb["font"] = "Courier 16"
+lb["width"] = 70
+f3_botao = Button(f3)
+f3_botao["text"] = "Voltar"
+f3_botao["font"] = "Arial 20"
+f3_botao["command"] = voltar_f3
+lb.pack()
+f3_botao.pack()
+
+mainloop()
+</pre>
+
+<h3>Calculadora</h3>
+
+<pre>
+from Tkinter import *
+
+calc = Frame()
+f_num = Frame(calc)
+f_teclado = Frame(calc)
+
+num = Label(f_num)
+var = IntVar()
+var.set(0)
+num["font"] = "Arial 20"
+num["foreground"] = "red"
+num["textvariable"] = var
+num.pack()
+
+def nada():
+    pass
+
+estado = { "memoria": None, "limpa": True, "acao": nada }
+
+def cmd_num(n):
+    def cmd():
+        if estado["limpa"]:
+            estado["limpa"] = False
+            var.set(n)
+        else:
+            var.set(var.get() * 10 + n)
+    return cmd
+
+def cmd_mais():
+    if estado["memoria"] == None:
+        estado["memoria"] = var.get()
+    else:
+        estado["memoria"] = estado["memoria"] + var.get()
+    var.set(estado["memoria"])
+    estado["limpa"] = True
+    estado["acao"] = cmd_mais
+
+def cmd_menos():
+    if estado["memoria"] == None:
+        estado["memoria"] = var.get()
+    else:
+        estado["memoria"] = estado["memoria"] - var.get()
+    var.set(estado["memoria"])
+    estado["limpa"] = True
+    estado["acao"] = cmd_menos
+
+def cmd_mult():
+    if estado["memoria"] == None:
+        estado["memoria"] = var.get()
+    else:
+        estado["memoria"] = estado["memoria"] * var.get()
+    var.set(estado["memoria"])
+    estado["limpa"] = True
+    estado["acao"] = cmd_mult
+
+def cmd_div():
+    if estado["memoria"] == None:
+        estado["memoria"] = var.get()
+    else:
+        estado["memoria"] = estado["memoria"] / var.get()
+    var.set(estado["memoria"])
+    estado["limpa"] = True
+    estado["acao"] = cmd_div
+
+def cmd_limpa():
+    var.set(0)
+    estado["memoria"] = None
+    estado["limpa"] = True
+    estado["acao"] = nada
+
+def cmd_igual():
+    estado["acao"]()
+    estado["memoria"] = None
+    estado["acao"] = nada
+    
+teclado = [\
+        [(1, nada), (2, nada), (3, nada), ("+", cmd_mais)],\
+        [(4, nada), (5, nada), (6, nada), ("-", cmd_menos)], \
+        [(7, nada), (8, nada), (9, nada), ("*",  cmd_mult)],\
+        [("C", cmd_limpa), (0, nada), ("=", cmd_igual), ("/", cmd_div)]\
+    ]
+botoes = []
+
+for i in range(len(teclado)):
+    for j in range(len(teclado[0])):
+        botao = Button(f_teclado)
+        botao["text"] = str(teclado[i][j][0])
+        if type(teclado[i][j][0]) == int:
+            botao["command"] = cmd_num(teclado[i][j][0])
+        else:
+            botao["command"] = teclado[i][j][1]
+        botao["font"] = "Arial 20"
+        # botoes em grade
+        botao.grid(column = j, row = i)
+        botoes.append(botao)
+
+f_num.pack(anchor = "e")
+f_teclado.pack()
+calc.pack()
+
+mainloop()
+</pre>
+
+</body>
+</html>

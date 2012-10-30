@@ -1,0 +1,78 @@
+<p><html>
+<head>
+<title>MAB 240 &ndash; Computação II</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>MAB 240 - Computação II</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2>Laboratório 2 - 19/03/2012</h2>
+
+<p>Uma dica: baixe o <a href = "Semana2.zip">projeto Eclipse</a> da
+segunda semana de aula e importe ele no Eclipse antes de começar,
+assim você pode ver como os conceitos foram aplicados em sala.</p>
+
+<p>Não esqueça de criar um projeto Eclipse chamado Lab2 para os
+exercícios, e um scrapbook nesse projeto para você poder fazer
+experimentos. O objetivo desse laboratório &eacute; exercitar a
+criação de m&eacute;todos para conjuntos simples de classes, então
+você tamb&eacute;m terá que criar pelo menos uma classe de teste
+(usando <i>File-&gt;New-&gt;JUnit Test Case...</i>) para testar seus m&eacute;todos.</p>
+
+<p>1. Para criar m&eacute;todos precisamos de classes, então crie as
+classes <code>Carro</code> e <code>Dono</code>, onde
+<code>Carro</code> tem os campos modelo, ano, preço e dono, e a classe
+<code>Dono</code> tem os campos nome e idade. Crie pelo menos duas
+instâncias de <code>Dono</code> e quatro instâncias de
+<code>Carro</code> para você usar nos testes.</p>
+
+<p>2. Um carro &eacute; velho se ele foi feito antes de 2002.
+Implemente um m&eacute;todo <code>carroVelho()</code> na classe
+<code>Carro</code> que diz se uma instância de carro &eacute; velha ou
+não. Escreva testes para seu m&eatodo usando as instâncias de carro
+que você criou.</p>
+
+<p>3. Escreva um m&eacute;todo <code>feitoAntes(int ano)</code> que
+diz se um carro foi feito antes de determinado ano. Escreva testes
+para esse m&eacute;todo. Reimplemente <code>carroVelho()</code> usando
+<code>feitoAntes</code> e se assegure que o novo m&eacute;todo
+<code>carroVelho()</code> continua passando os seus testes.</p>
+
+<p>4. Escreva um m&eacute;todo <code>maisVelho(Carro outro)</code> que
+diz se um carro &eacute; mais velho que outro ou não. Tente
+implementar esse m&eacute;todo dos dois jeitos, comparando diretamente
+os campos <code>ano</code> e de cada carro e usando o m&eacute;todo
+<code>feitoAntes</code> de <code>outro</code>. Novamente escreva
+testes e se assegure que suas implementações estão passando esses
+testes.</p>
+
+<p>5. Escreva um m&eacute;todo <code>igual(Dono outro)</code> na
+classe <code>Dono</code> que diz se duas instâncias de dono são
+iguais; duas instâncias de dono são iguais se seus atributos são
+iguais. Números são comparados com o operador <code>==</code>,
+enquanto strings são comparadas com o m&eacute;todo
+<code>equals</code>. Teste o m&eacute;todo <code>igual</code>.</p>
+
+<p>6. Escreva um m&eacute;todo <code>mesmoDono(Carro outro)</code> na
+classe carro que diz se duas instâncias de carro têm o mesmo dono. Use
+o m&eacute;todo da classe <code>Dono</code> definido no exercício
+anterior. Teste.</p>
+
+<p>7. Escreva um m&eacute;todo <code>trocaDono(Dono novo)</code> que
+muda o dono de um carro. Primeiro implemente <code>trocaDono</code>
+criando uma nova instância de <code>Carro</code> igual &agrave; atual
+em tudo exceto o dono e a retorne. Teste. Depois reimplemente
+<code>trocaDono</code> para modificar o dono da instância atual, e
+retorne essa mesma instância. Teste. Se seus testes continuam
+passando, pense em um caso de teste que falha com uma implementação de
+<code>trocaDono</code> e passa com a outra.</p>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Sun Mar 18 19:02:53 BRT 2012 <!-- hhmts end -->
+</body> </html>

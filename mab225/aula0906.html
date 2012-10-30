@@ -1,0 +1,263 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 09/06/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Interfaces Gráficas III (09/06/2011)</h2>
+
+<h3>Caixa de Lista com Barra de Rolagem</h3>
+
+<pre>
+from Tkinter import *
+from contas import *
+
+f = Frame()
+
+frame_caixa = Frame(f)
+lb = Listbox(frame_caixa)
+lb["font"] = "Courier 16"
+lb["width"] = 70
+sb = Scrollbar(frame_caixa)  # barra de rolagem e do FRAME
+sb["command"] = lb.yview
+lb["yscrollcommand"] = sb.set
+
+var = StringVar()
+
+items = [ "456", "123", "Opcao 3", "Item bem longo que espero que apareca" ]
+var.set(items[1])
+
+frame_opbotao = Frame(f)
+lista = OptionMenu(frame_opbotao, var, *items)
+lista["font"] = "Arial 16"
+
+def cmd():
+    conta = var.get()
+    if conta in contas:
+        for item in contas[conta].extrato("2011-01-01"):
+            lb.insert(END, item)
+
+botao = Button(frame_opbotao)
+botao["font"] = "Arial 16"
+botao["command"] = cmd
+botao["text"] = "Ok"
+
+f.pack(expand = True, fill = "both")
+lb.pack(side = "left", expand = True, fill = "both")
+sb.pack(side = "right", fill = "y")
+frame_caixa.pack(expand = True, fill = "both")
+lista.pack(side = "left", expand = True, fill = "x")
+botao.pack(side = "right")
+frame_opbotao.pack(fill = "x")
+
+mainloop()
+</pre>
+
+<h3>Parametrizando um Botão usando funções (função cmd_troca)</h3>
+
+<pre>
+from contas import *
+from Tkinter import *
+
+f1 = Frame()
+
+def troca(frame1, frame2):
+    frame1.pack_forget()
+    frame2.pack()
+
+def deposita():
+    try:
+        val = f1_var.get()
+        f1_var.set(0)
+        contas[conta.get()].deposito(val)
+        f2_label["text"] = "Saldo: %d" % contas[conta.get()].saldo
+        troca(f1, f2)
+    except ValueError:
+        print "nao foi numero"
+        f1_var.set(0)
+
+def extrato():
+    lb.delete(0, END)
+    for item in contas[conta.get()].extrato("2011-01-01"):
+        lb.insert(END, item)
+    troca(f1, f3)
+
+f1_texto = Entry(f1)
+f1_texto["font"] = "Arial 20"
+f1_texto2 = Entry(f1)
+f1_texto2["font"] = "Arial 20"
+f1_botao = Button(f1)
+f1_botao["font"] = "Arial 20"
+f1_botao2 = Button(f1)
+f1_botao2["font"] = "Arial 20"
+f1_var = DoubleVar(f1)
+f1_var.set(0)
+f1_texto["textvariable"] = f1_var
+f1_texto2["textvariable"] = f1_var
+f1_botao["text"] = "Depositar"
+f1_botao["command"] = deposita
+f1_botao2["text"] = "Extrato"
+f1_botao2["command"] = extrato
+conta = StringVar()
+
+items = contas.keys()
+conta.set(items[1])
+
+lista = OptionMenu(f1, conta, *items)
+lista["font"] = "Arial 20"
+
+lista.pack()
+f1_texto.pack()
+f1_texto2.pack()
+f1_botao.pack()
+f1_botao2.pack()
+f1.pack()
+
+def cmd_troca(frame1, frame2):
+    def cmd():
+        troca(frame1, frame2)
+    return cmd
+
+f2 = Frame()
+f2_label = Label(f2)
+f2_label["font"] = "Arial 20"
+f2_botao = Button(f2)
+f2_botao["text"] = "Voltar"
+f2_botao["font"] = "Arial 20"
+f2_botao["command"] = cmd_troca(f2, f1)
+f2_label.pack()
+f2_botao.pack()
+
+f3 = Frame()
+lb = Listbox(f3)
+lb["font"] = "Courier 16"
+lb["width"] = 70
+f3_botao = Button(f3)
+f3_botao["text"] = "Voltar"
+f3_botao["font"] = "Arial 20"
+f3_botao["command"] = cmd_troca(f3, f1)
+lb.pack()
+f3_botao.pack()
+
+mainloop()
+</pre>
+
+<h3>Parametrizando um botão com uma classe (classe BotaoVoltar)</h3>
+
+<pre>
+from contas import *
+from Tkinter import *
+
+f1 = Frame()
+
+def troca(frame1, frame2):
+    frame1.pack_forget()
+    frame2.pack()
+
+def deposita():
+    try:
+        val = f1_var.get()
+        f1_var.set(0)
+        contas[conta.get()].deposito(val)
+        f2_label["text"] = "Saldo: %d" % contas[conta.get()].saldo
+        troca(f1, f2)
+    except ValueError:
+        print "nao foi numero"
+        f1_var.set(0)
+
+def extrato():
+    lb.delete(0, END)
+    for item in contas[conta.get()].extrato("2011-01-01"):
+        lb.insert(END, item)
+    troca(f1, f3)
+
+f1_texto = Entry(f1)
+f1_texto["width"]= 10
+f1_texto["font"] = "Arial 20"
+f1_texto2 = Entry(f1)
+f1_texto2["width"]= 10
+f1_texto2["font"] = "Arial 20"
+f1_botao = Button(f1)
+f1_botao["font"] = "Arial 20"
+f1_botao2 = Button(f1)
+f1_botao2["font"] = "Arial 20"
+f1_var = DoubleVar(f1)
+f1_var.set(0)
+f1_texto["textvariable"] = f1_var
+f1_texto2["textvariable"] = f1_var
+f1_botao["text"] = "Depositar"
+f1_botao["command"] = deposita
+f1_botao2["text"] = "Extrato"
+f1_botao2["command"] = extrato
+conta = StringVar()
+
+items = contas.keys()
+conta.set(items[1])
+
+lista = OptionMenu(f1, conta, *items)
+lista["font"] = "Arial 20"
+
+lista.pack()
+f1_texto.pack()
+f1_texto2.pack()
+f1_botao.pack()
+f1_botao2.pack()
+f1.pack()
+
+class BotaoVoltar:
+    def __init__(self, f_botao, f_ret):
+        self.frame1 = f_botao
+        self.frame2 = f_ret
+        self.botao = Button(f_botao)
+        self.botao["text"] = "Voltar"
+        self.botao["font"] = "Arial 20"
+        self.botao["command"] = self.cmd
+    def cmd(self):
+        troca(self.frame1, self.frame2)
+    def pack(self):
+        self.botao.pack()
+
+f2 = Frame()
+f2_label = Label(f2)
+f2_label["font"] = "Arial 20"
+f2_botao = BotaoVoltar(f2, f1)
+f2_label.pack()
+f2_botao.pack()
+
+f3 = Frame()
+lb = Listbox(f3)
+lb["font"] = "Courier 16"
+lb["width"] = 70
+f3_botao = BotaoVoltar(f3, f1)
+lb.pack()
+f3_botao.pack()
+
+mainloop()
+</pre>
+
+<h3>Vários botões para mostrar como a opção side funciona</h3>
+
+<pre>
+from Tkinter import *
+
+f = Frame()
+
+f.pack()
+bots = [ Button(f), Button(f), Button(f), Button(f), \
+         Button(f), Button(f), Button(f), Button(f) ]
+sides = [ "left", "right", "top", "bottom", \
+          "left", "right", "top", "bottom" ]
+for i in range(len(bots)):
+    bots[i]["text"] = str(i)
+    bots[i]["font"] = "Arial 24"
+    bots[i].pack(side = sides[i])
+
+mainloop()
+</pre>
+
+</body>
+</html>

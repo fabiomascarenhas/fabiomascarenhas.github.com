@@ -1,0 +1,160 @@
+<p><html>
+<head>
+<title>MAB 240 &ndash; Computação II</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>MAB 240 - Computação II</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2>Laboratório 3 - 26/03/2012</h2>
+
+<p>Uma dica: baixe o <a href = "Semana3.zip">projeto Eclipse</a> da
+terceira semana de aula e importe ele no Eclipse antes de começar,
+assim você pode ver como os conceitos foram aplicados em sala.</p>
+
+<p>Não esqueça de criar um projeto Eclipse chamado Lab2 para os
+exercícios, e um scrapbook nesse projeto para você poder fazer
+experimentos. O objetivo deste laboratório &eacute; exercitar a
+criação de m&eacute;todos para interfaces e suas classes; não se
+esqueça de criar pelo menos uma classe de teste
+(usando <i>File-&gt;New-&gt;JUnit Test Case...</i>) para testar seus
+m&eacute;todos.</p>
+
+<p>TINY &eacute; uma linguagem de programação bem simples, mas
+relativamente completa, contendo expressões aritm&eacute;ticas,
+variáveis e atribuição, entrada e saída simples, e comandos de teste e
+laços. Por exemplo, o programa TINY abaixo calcula o fatorial de um
+número pedido na entrada e o mostra na saída:</p>
+
+<b>
+<pre>
+read x; 
+if 0 < x then
+  fact := 1;
+  repeat 
+    fact := fact * x;
+    x := x - 1
+  until x = 0;
+  write fact { saida }
+end
+</pre>
+</b>
+
+<p>Nesse exercício vocês irão implementar classes que modelam a
+estrutura de um programa TINY, e m&eacute;todos para executar
+expressões e comandos TINY. As estruturas de um programa TINY se
+dividem em dois grupos, expressões e comandos, então comece definindo
+as interfaces <code>Expressao</code> e <code>Comando</code>. As classes
+a seguir modelam expressões, e todas elas devem implementar a
+interface <code>Expressao</code>:</p>
+
+<p><code>Num</code> modela um numeral, e cont&eacute;m o
+valor do mesmo (um <code>double</code>).</p>
+
+<p><code>Var</code> modela uma variável, e cont&eacute;m o
+nome da variável e seu valor atual (tamb&eacute;m um
+<code>double</code>). O construtor dessa classe deve receber apenas o
+nome, e inicializar o valor da variável como 0.</p>
+
+<p><code>Soma</code>, <code>Sub</code>, <code>Mul</code> e
+<code>Div</code> modelam as quatro operações aritm&eacute;ticas, e
+contêm duas expressões, para o lado esquerdo e o lado direito da
+operação.</p>
+
+<p><code>Igual</code> e <code>Menor</code> modelam as
+operações de comparação, e tamb&eacute;m contêm expressões para o lado
+esquerdo e direito da operação.</p>
+
+<p>Implemente as classes para todos os tipos de expressão, com seus
+respectivos construtores. Agora vocês irão adicionar um m&eacute;todo
+<code>double valor()</code> &agrave; interface <code>Expressao</code>,
+e implementar esse m&eacute;todo para todas as classes acima. Nas
+operações de comparação <code>valor()</code> deve retornar 0 se a
+operação for falsa e 1 se for verdadeira. Escreva testes para cada
+implementação de <code>valor()</code>.</p>
+
+<p>As classes a seguir modelam os comandos, e todas elas implementam a
+interface <code>Comando</code>:</p>
+
+<p><code>Vazio</code> modela um comando que não faz nada (um
+corpo vazio de um <code>if</code>, por exemplo), e não tem campos.</p>
+
+<p><code>Read</code> modela um comando de leitura, e
+cont&eacute;m a variável na qual o valor lido será armazenado.</p>
+
+<p><code>Write</code> modela um comando de escrita, e
+cont&eacute;m a expressão cujo valor será escrito.</p>
+
+<p><code>Atrib</code> modela um comando de atribuição, e
+cont&eacute;m a variável a ser atribuída e a expressão cujo valor será atribuído.</p>
+
+<p><code>If</code> modela um comando <code>if/then/else</code>, e
+cont&eacute;m a expressão de teste e dois comandos, um para a parte
+<code>then</code> e outro para a parte <code>else</code>.</p>
+
+<p><code>Repeat</code> modela um comando
+<code>repeat/until</code>, e cont&eacute;m um comando para o corpo do
+laço e uma expressão para a condição de parada.</p>
+
+<p><code>Seq</code> modela uma sequência de dois comandos.</p>
+
+<p>Implemente as classes para todos os tipos de comando, com seus
+respectivos construtores. Agora adicionem um m&eacute;todo <code>void
+executa()</code> &agrave; interface <code>Comando</code>, e
+implementem esse m&eacute;todo para todas as classes acima. Usem a sua
+intuição, e não se esqueçam dos testes.</p>
+
+<b>
+<p>Dica: o código abaixo irá te ajudar na implementação do
+m&eacute;todo <code>executa()</code> da classe <code>Read</code>:</p>
+
+<pre>
+  // Variável global para a entrada padrão
+  static java.util.Scanner STDIN = new java.util.Scanner(System.in);
+
+  // Função para ler um double da entrada padrão
+  static double readDouble() {
+    return STDIN.nextDouble();
+  }
+</pre>
+</b>
+
+<p>O trecho de código a seguir instancia um programa TINY com a
+estrutura do programa fatorial acima. Copie-o para o scrapbook e
+execute para ver o resultado:</p>
+
+<b>
+<pre>
+Var x = new Var("x");
+Var fat = new Var("fat");
+Comando prog = 
+  new Seq(new Read(x),
+          new If(new Menor(new Num(0), x),
+                 new Seq(new Atrib(fat, new Num(1)),
+                         new Seq(new Repeat(new Seq(new Atrib(fat, new Mul(fat, x)),
+                                                    new Atrib(x, new Sub(x, new Num(1)))),
+                                            new Igual(x, new Num(0))),
+                                 new Write(fat))),
+                 new Vazio()));
+prog.executa();
+</pre>
+</b>
+
+<h2>Enviando</h2>
+
+<p>Crie um arquivo <code>.zip</code> com todo o projeto que você criou
+e mande para <a href="mailto:fabio_hq2h@sendtodropbox.com">esse
+email</a> at&eacute; o dia 09/04. Esse
+trabalho vale 0,3 na nota de exercícios, e 
+poderá ser feito em dupla. Não esqueça de escrever quem são os autores
+no email, e em um comentário no(s) seu(s) arquivo(s) <code>.java</code>.</p>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Sun Mar 25 03:58:49 BRT 2012 <!-- hhmts end -->
+</body> </html>

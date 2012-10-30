@@ -1,0 +1,12 @@
+/* Sobrando variável em declaração local */
+class Dangling {
+  main() {
+    var a = 1;
+    var b, c = 1;
+    if (a == 1)
+      if (b == 2)
+        out.print("a = 1, b = 2");
+      else
+        out.print("a = 1, b != 2");
+  }
+}

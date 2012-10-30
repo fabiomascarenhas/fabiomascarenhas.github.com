@@ -1,0 +1,201 @@
+<p><html>
+<head>
+<title>MAB 471 &ndash; Compiladores I</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>MAB 471 - Compiladores I</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2>Primeira Lista de Exercícios</h2>
+
+<p>1. Descreva as tarefas efetuadas pelos seguintes programas, e
+explique como eles se assemelham ou se relacionam a compiladores:</p>
+
+<ol>
+  <li>Um pr&eacute;-processador C</li>
+  <li>Um <i>pretty-printer</i></li>
+  <li>Um colorizador de programas de um editor de texto</li>
+  <li>Um montador</li>
+  <li>Um linkeditor do sistema operacional</li>
+</ol>
+
+<p>2. Explique qual a relação e para que servem expressões regulares, autômatos finitos, tokens e lexemas.</p>
+
+<p>3. Construa um autômato finito para aceitar as palavras reservadas
+<b>case</b>, <b>char</b>, <b>const</b> e <b>continue</b>.</p>
+
+<p>4. Considere os tokens:</p>
+
+<ul>
+  <li>Números inteiros não sinalizados</li>
+  <li>Números reais não sinalizados (simples, sem uso de potências de 10 ou “notação de engenharia”)</li>
+  <li>Operadores aritméticos: +, -, /, *, (, )</li>
+  <li>Operador de atribução: =</li>
+  <li>Identificadores, onde são válidas apenas letras</li>
+</ul>
+
+<p>Escreva expressões regulares (usando as extensões do JFlex) e desenhe
+um autômato finito para reconhecer os tokens acima.</p>
+
+<p>5. Adicione constantes inteiras hexadecimais aos analisadores
+l&eacute;xicos de TINY (escrito &agrave; mão e JFlex).</p>
+
+<p>6. Escreva uma gramática sem ambiguidades que gere o conjunto de
+cadeias de caracteres {s;, s;s;, s;s;s;, ...}.</p>
+
+<p>7. Dada a gramática:</p>
+
+<pre>
+  A -&gt; AA | (A) | &lt;vazio&gt;
+</pre>
+
+<p>Descreva a linguagem que ela gera, e mostre que ela é ambígua.</p>
+
+<p>8. Dada a gramática:</p>
+
+<pre>
+  E -&gt; E + T | E - T | T
+  T -&gt; T * F | F
+  F -&gt; (E) | num
+</pre>
+
+<p>Escreva derivações à direita e árvores sintáticas para as expressões a seguir:</p>
+
+<ul>
+  <li>3+4*5-6</li>
+  <li>3*(4-5+6)</li>
+  <li>3-(4+5*6)</li>
+</ul>
+
+<p>9. A gramática a seguir gera todas as expressões regulares para o
+alfabeto de letras (usei aspas simples as marcas dos operadores):</p>
+
+<pre>
+  RE -&gt; RE '|' RE | RE RE | RE '*' | '(' RE ')' | letra
+</pre>
+
+<ul>
+<li>Use essa gramática para apresentar uma derivação da expressão
+regular (ab|b)*.</li>
+<li>Mostre que essa gramática &eacute; ambígua</li>
+<li>Reescreva essa gramática e corrija as precedências dos
+operadores</li>
+<li>Que associatividade &eacute; imposta aos operadores binários pela
+resposta anterior? Por quê?</li>
+</ul>
+
+<p>10. Escreva uma gramática para expressões boolenas contendo as
+constantes <b>true</b> e <b>false</b> e os operadores &&, || e !,
+al&eacute;m de parênteses. O operador || tem precedência menor que &&,
+e este menor que !. A gramática não pode ser ambígua.</p>
+
+<p>11. Mostre que a seguinte tentativa de resolução da ambiguidade do
+else ainda &eacute; ambígua:</p>
+
+<pre>
+  CMD -&gt; if ( exp ) DECL | CASAM-CMD
+  CASAM-CMD -&gt; if ( exp ) CASAM-CMD else CMD | outro
+</pre>
+
+<p>12. Sinais de subtração unários podem ser acrescentados de
+diferentes maneiras a uma gramática de expressões
+aritm&eacute;ticas. Modifique a gramática de acordo com cada uma das
+especificações abaixo:</p>
+
+<ul>
+  <li>No máximo um sinal unário de subtração permitido em cada
+  expressão, e deve aparecer no início (-2-3 &eacute; legal e igual a
+  -5, -2-(-3) &eacute; legal, mas -2--3 &eacute; ilegal).</li>
+  <li>No máximo um sinal unário permitiod antes de qualquer termo,
+  assim -2--3 &eacute; legal (e igual a -1) mas --2 e -2---3 são
+  ilegais.</li>
+  <li>Uma quantidade arbitrária de sinais unários de subtração
+  &eacute; permitida antes de qualquer termo, portanto todas as
+  expressões acima são legais.</li>
+</ul>
+
+<p>13. Em algumas linguagens uma declaração de procedimento deve terminar
+com uma sintaxe que inclua o nome do procedimento. Por exemplo, em
+Modula-2, um procedimento &eacute; declarado assim:</p>
+
+<pre>
+  PROCEDURE FOO;
+  BEGIN
+    ...
+  END FOO;
+</pre>
+
+<p>Observe o uso do nome <code>FOO</code> após o
+<code>END</code>. Isso pode ser verificado por um analisador sintático
+livre de contexto? Como você implementaria isso em um analisador
+sintático recursivo?</p>
+
+<p>14. Dada a gramática <code>A -&gt; (A)A | &lt;vazio&gt;</code>,
+escreva pseudocódigo para analisá-la de forma recursiva.</p>
+
+<p>15. Dada a gramática:
+
+<pre>
+  CMD -&gt; ATRIB | CHAMADA | outro
+  ATRIB -&gt; id := exp
+  CHAMADA -&gt; id ( exp )
+</pre>
+
+<p>Escreva o pseudocódigo para analisar essa gramática de forma
+recursiva.</p>
+
+<p>16. Uma gramática LL(1) pode ser ambígua? Justifique.</p>
+
+<p>17. Uma gramática não ambígua precisa ser LL(1)? Justifique.</p>
+
+<p>18. Dadas as gramáticas a seguir:</p>
+
+<pre>
+  LEXP -&gt; ATOMO | LISTA
+  ATOMO -&gt; num | id
+  LISTA -&gt; (LEXP-SEQ)
+  LEXP-SEQ -&gt; LEXP-SEQ LEXP | LEXP
+</pre>
+
+<pre>
+  DECL -&gt; TIPO VAR-LISTA
+  TIPO -&gt; int | float
+  VAR-LISTA -&gt; id , VAR-LISTA | id
+</pre>
+
+<p>Remova a recursão esquerda, caso seja necessário, e construa os
+conjuntos de lookahead para as produções da gramática. Elas são LL(1)?
+Esboce um analisador recursivo para elas.</p>
+
+<p>19. Da a gramática <code>A -&gt; aAa | &lt;vazio&gt;</code>,
+demostre que essa gramática não &eacute; LL(1), e mostre que o código
+a seguir não implementa corretamente um analisador recursivo para essa
+gramática:</p>
+
+<pre>
+void A() {
+  if(lookAhead.type == 'a') {
+    match('a');
+    A();
+    match('a');
+  } else if(lookAhead.type != Token.EOF) {
+    error("erro de sintaxe!");
+  }
+}
+</pre>
+
+<p>20. Reescreva a gramática de TINY para permitir que somente
+expressões booleanas sejam permitidas como condições em
+<code>if</code> e <code>repeat</code>, e que somente expressões
+aritm&eacute;ticas sejam permitidas do lado direito de atribuições e
+em comandos <code>write</code>.</p>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Tue Apr 10 13:13:23 BRT 2012 <!-- hhmts end -->
+</body> </html>

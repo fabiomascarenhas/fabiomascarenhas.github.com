@@ -1,0 +1,15 @@
+/* Teste de prioridade de operadores */
+
+class Priority {
+  main() {
+    var a = 1;
+    var b = 2;
+    var c = 3;
+    out.print(!(a==0) && 
+              b + -c / 3 * a == 3 ||
+              !c == false &&
+              a <= 3 ||
+              b <= 2);
+  }
+}
+

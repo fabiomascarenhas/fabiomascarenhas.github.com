@@ -1,0 +1,52 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 07/04/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Classe Lista (07/04/2011)</h2>
+
+<pre>
+class Elemento:
+    val = None
+    prox = None
+
+class Lista:
+    val = None
+    def __len__(self):
+        i = 0
+        atual = self.val
+        while atual != None:
+            i = i + 1
+            atual = atual.prox
+        return i
+    def append(self, v):
+        elem = Elemento()
+        elem.val = v
+        if self.val == None:
+            self.val = elem
+            return
+        atual = self.val
+        while atual.prox != None:
+            atual = atual.prox
+        atual.prox = elem
+    def get(self, i):
+        e = self.elem(i)
+        return e.val
+    def elem(self, i):
+        atual = self.val
+        while i > 0:
+            i = i - 1
+            atual = atual.prox
+        return atual
+    def set(self, i, v):
+        elem = self.elem(i)
+        elem.val = v
+</pre>
+
+</body>
+</html>

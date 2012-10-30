@@ -1,0 +1,44 @@
+
+%{
+import java.io.*;
+%}
+
+%class GossipParser
+%interface GossipTokens
+%next getToken()
+%get tokenType
+%semantic String: tokenVal
+
+%token CLASS VAR DEF NEW WHILE IF ELSE TRUE FALSE THIS NULL
+%token BREAK RETURN LEQ CONCAT EQ AND OR ID NUMBER STRING
+
+/* declare as prioridades! */
+
+%%
+
+start: gossip { output = $1; } ;
+
+/* declare a gramática! */
+
+%%
+
+String filename;
+GossipScanner scanner;
+int tokenType;
+String tokenVal;
+GossipToken token;
+String output;
+
+public GossipParser(String filename, Reader input) {
+    this.filename = filename;
+    scanner = new GossipScanner(input);
+    getToken();
+}
+
+int getToken() {
+    /* implemente getToken! */
+}
+
+void yyerror(String msg) {
+     throw new RuntimeException(filename + " (" + token.line + "," + token.col + "): "+ msg);
+}

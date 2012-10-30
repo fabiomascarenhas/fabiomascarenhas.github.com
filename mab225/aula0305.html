@@ -1,0 +1,134 @@
+﻿<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 02/05/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Iterador de S&eacute;ries (02/05/2011)</h2>
+
+<pre>
+import math
+
+# IterSomador soma os termos de uma serie
+# Voce passa pra ele a funcao caracteristica da serie
+# e quantos termos voce quer somar
+# ele te da a serie com 1 termo, com 2, com 3
+class IterSomador:
+    def __init__(self, serie, fim):
+        self.serie = serie
+        self.fim = fim
+        self.pos = 1
+        self.total = 0
+    def __iter__(self):
+        return IterSomador(self.serie, self.fim)
+    def next(self):
+        if self.pos > self.fim:
+            raise StopIteration
+        else:
+            self.total = self.total + (self.serie)(self.pos)
+            self.pos = self.pos + 1
+            return self.total
+
+def impares(n):
+    return 2 * (n - 1) + 1
+
+for i in IterSomador(impares, 5):
+    print i
+
+def pi(n):
+    return 1.0 / (n * n)
+
+for i in IterSomador(pi, 1000):
+    print math.sqrt(i * 6)
+</pre>
+
+<h2>Agenda com Iterador (02/05/2011)</h2>
+
+<pre>
+# Agenda Telefonica
+# Nome -> Telefones
+# Telefone: tipo do telefone e no.
+
+# Iterador na agenda para retornar todos
+# os numeros gravados como uma tripla
+# (nome, local, numero)
+class IterAgenda:
+    def __init__(self, agenda):
+        self.triplas = []
+        for nome in agenda.dic.keys():
+            for local in agenda.dic[nome].keys():
+                for numero in agenda.dic[nome][local]:
+                    self.triplas.append( (nome, local, numero) )
+        self.pos = 0
+    def next(self):
+        if self.pos >= len(self.triplas):
+            raise StopIteration
+        else:
+            tripla = self.triplas[self.pos]
+            self.pos = self.pos + 1
+            return tripla
+
+def le_agenda(nomearq):
+    arq = open(nomearq, "r")
+    agenda = arq.read()
+    arq.close()
+    return eval(agenda)
+
+class Agenda:
+    def __init__(self, nomearq, dic = {}):
+        self.dic = dic
+        self.faz_indice()
+        self.nomearq = nomearq
+        self.salva()
+    def __iter__(self):
+        return IterAgenda(self)
+    def adiciona(self, pessoa, local, numero):
+        self.nums[numero] = (pessoa, local)
+        if pessoa in self.dic:
+            # pessoa ja existe
+            if local in self.dic[pessoa]:
+                (self.dic[pessoa])[local].append(numero)
+            else:
+                (self.dic[pessoa])[local] = [numero]
+        else:
+            self.dic[pessoa] = {}
+            (self.dic[pessoa])[local] = [numero]
+        self.salva()
+    def __getitem__(self, pessoa):
+        try:
+            return self.dic[pessoa]
+        except KeyError:
+            raise KeyError(pessoa + ' nao existe')
+    def __setitem__(self, pessoa, entrada):
+        self.adiciona(pessoa, entrada[0], entrada[1])
+    def __repr__(self):
+        return "Agenda(%s,%s)" % (repr(self.nomearq),repr(self.dic))
+    def __delitem__(self, pessoa):
+        self.faz_indice()
+        del self.dic[pessoa]
+    def apaga_local(self, pessoa, local):
+        self.faz_indice()
+        del self.dic[pessoa][local]
+    def faz_indice(self):
+        self.nums = {}
+        for nome in self.dic.keys():
+            for local in self.dic[nome].keys():
+                for numero in self.dic[nome][local]:
+                    self.nums[numero] = (nome, local)
+    def busca_numero(self, numero):
+        if numero in self.nums:
+            return self.nums[numero]
+        else:
+            return None
+    def salva(self):
+        arq = open(self.nomearq, "w+")
+        arq.write(repr(self))
+        arq.close()
+</pre>
+
+</body>
+</html>

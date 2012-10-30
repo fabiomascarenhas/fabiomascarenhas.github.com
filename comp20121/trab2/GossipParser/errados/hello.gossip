@@ -1,0 +1,7 @@
+/* Duas strings justapostas */
+
+class Hello {
+  main() {
+    out.print("Hello " "World!\n");
+  }
+}

@@ -1,0 +1,89 @@
+﻿<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 26/04/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>try/except/finally com frações (26/04/2011)</h2>
+
+<pre>
+class DenominadorZero(ZeroDivisionError):
+    pass
+
+class Fracao:
+    def __init__(self, num, den=1):
+        if den == 0:
+            raise DenominadorZero('denominador 0')
+        self.num = num
+        self.den = den
+        self.simp()
+    def __div__(self, outro):
+        return Fracao(self.num*outro.den, self.den*outro.num)
+    def __repr__(self):
+        if self.den == 1:
+            return str(self.num)
+        else:
+            return str(self.num) + "/" + str(self.den)
+
+def pede_fracao(n):
+    num = input("Numerador " + str(n) + ": ")
+    den = input("Denominador " + str(n) + ": ")
+    while True:
+        try:
+            f = Fracao(num, den)
+            print f
+            return f
+        except ZeroDivisionError:
+            print "Denominador foi 0, tente de novo"
+            den = input("Denominador " + n + ": ")
+        except TypeError:
+            print "Denominador nao e numero, tente de novo"
+            den = input("Denominador " + str(n) + ": ")
+        finally:
+            print "no finally"
+ 
+while True:
+    try:
+        f1 = pede_fracao(1)
+        f2 = pede_fracao(2)
+        print "f1/f2: " + str(f1/f2)
+    except:
+        print "Erro no programa"
+</pre>
+
+<h2>Níveis de erro (26/04/2011)</h2>
+
+<pre>
+def f3():
+    try:
+        raise Exception
+    except:
+        print "Erro em f3"
+        raise Exception
+
+def f2():
+    try:
+        f3()
+    except:
+        print "Erro em f2"
+        raise Exception
+
+def f1():
+    try:
+        f2()
+    except:
+        print "Erro em f1"
+        raise Exception
+
+try:
+    f1()
+except:
+    print "Erro no nivel superior"
+</pre>
+
+</body>
+</html>

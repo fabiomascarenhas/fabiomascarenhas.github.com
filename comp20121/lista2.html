@@ -1,0 +1,173 @@
+<p><html>
+<head>
+<title>MAB 471 &ndash; Compiladores I</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>MAB 471 - Compiladores I</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2>Segunda Lista de Exercícios</h2>
+
+<p>1. Considere a gramática a seguir:</p>
+
+<pre>
+  E -&gt; ( L ) | a
+  L -&gt; L , E | E
+</pre>
+
+<p>Construa o DFA de itens LR(0) para essa gramática. Ela &eacute;
+LR(0)? Se não for, indentifique o conflito. Construa a
+tabela de análise sintática LR(0) (se possível) ou SLR(1).</p>
+
+<p>2. Considere a gramática a seguir:</p>
+
+<pre>
+  S -&gt; S ( S ) | *vazio*
+</pre>
+
+<p>Construa o DFA de itens LR(0) para essa gramática. Ela &eacute;
+LR(0)? Se não for, indentifique o conflito. Construa a
+tabela de análise sintática LR(0) (se possível) ou SLR(1).</p>
+
+<p>3. Um analisador LR(0) pode efetuar mais ou menos reduções que um
+analisador SLR(1) antes de declarar um erro? Justifique sua resposta.</p>
+
+<p>4. Um analisador SLR(1) pode efetuar mais ou menos reduções que um
+analisador LALR(1) antes de declarar um erro? Justifique sua resposta.</p>
+
+<p>5. Suponha que sejam removidas as especificações de associatividade
+e precedência dos operadores na especificação Jacc da gramática a
+seguir (tornando, portanto, a gramática ambígua). Quais seriam a
+associatividade e precedência dos operadores usando as regras de
+eliminação de ambiguidade de Jacc?</p>
+
+<pre>
+exp        : '(' exp ')'
+           | NUM
+           | ID
+           | exp '&lt;' exp
+           | exp '=' exp
+           | exp '+' exp
+           | exp '-' exp
+           | exp '*' exp
+           | exp '/' exp
+           ;
+</pre>
+
+<p>6. Acrescente os operadores de comparação &lt;=, &gt;, &gt;= e
+&lt;&gt; (diferente de) &agrave; espeficação Jacc do analisador
+sintático TINY.</p>
+
+<p>7. Acrescente os operadores booleanos <b>and</b>, <b>or</b> e
+<b>not</b> &agrave; especificação Jacc do analisador sintático TINY.</p>
+
+<p>8. Considere a gramática a seguir para declarações simples em
+Pascal:</p>
+
+<pre>
+  decl -&gt; var-lista : tipo
+  var-lista -&gt; var-lista , id | id
+  tipo -&gt; integer | real
+</pre>
+
+<p>Escreva a especificação de uma AST Java para termos dessa
+gramática, e implemente a verificação de tipos nessa AST. Assuma que
+já existe a implementação de uma tabela de símbolos nos moldes da que
+foi vista em sala.</p>
+
+<p>9. Apresente uma organização possível para os ambientes de execução
+do programa C a seguir, após entrar nos blocos <b>A</b> da função f e
+<b>B</b> da função g:</p>
+
+<pre>
+int a[10];
+char *s = "hello";
+
+int f(int i, int* b) {
+  int j = i;
+  A:
+  {
+    int i = j;
+    int c = b[i];
+    ...
+  }
+  return 0;
+}
+
+int g(char * s) {
+  char c = s[0];
+  B:
+  {
+    int a[5];
+    ...
+  }
+}
+
+int main() {
+  int x = 1;
+  x = f(x, a);
+  g(s);
+  return 0;
+}
+</pre>
+
+<p>10. Considere o procedimento em C a seguir:</p>
+
+<pre>
+void f(char c, char s[10], double r) {
+  int *x;
+  int y[5];
+}
+</pre>
+
+<p>Com base nas convenções de passagem de parâmetros C x86, e
+assumindo que inteiros e endereços têm 4 bytes, caracteres têm 1 byte
+e doubles têm 8 bytes, determine os deslocamentos a partir de EBP para
+os seguintes casos: c, s[7], y[2]. Lembre-se que os parâmetros são
+passados por valor.</p>
+
+<p>11. Execute o programa em C a seguir e explique sua saída em termos
+do ambiente de execução:</p>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+void g() {
+  {
+    int x;
+    printf("%d\n", x);
+    x = 3;
+  }
+  {
+    int y;
+    printf("%d\n", y);
+  }
+}
+
+int *f() {
+  int x;
+  printf("%d\n", x);
+  return &x;
+}
+
+void main() {
+  int *p;
+  p = f();
+  *p = 1;
+  f();
+  g();
+}
+</pre>
+
+<p>12. Acrescente construções <b>while</b> e <b>do-while</b> ao compilador
+TINY, indo desde o analisador l&eacute;xico at&eacute; a geração de código.</p>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Mon Jun 11 14:31:52 BRT 2012 <!-- hhmts end -->
+</body> </html>

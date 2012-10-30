@@ -1,0 +1,177 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 10/05/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Identidade de Objetos / Iteradores Map, Filtro e Zip (10/05/2011)</h2>
+
+<pre>
+IDLE 2.6.2      
+>>> class Contador:
+    def __init__(self, i=1):
+        self.i = i
+    def inc(self):
+        self.i = self.i + 1
+        return self.i
+    def dec(self):
+        self.i = self.i - 1
+        return self.i
+    def __add__(self, x):
+        return Contador(self.i + x)
+    def __sub__(self, x):
+        return Contador(self.i - x)
+    def __repr__(self):
+        return "Valor do contador: %i" % self.i
+    def __str__(self):
+        return str(self.i)
+
+>>> c1 = Contador()
+>>> c2 = Contador()
+>>> c3 = c2
+>>> c1
+Valor do contador: 1
+>>> c2
+Valor do contador: 1
+>>> c3
+Valor do contador: 1
+>>> c1.inc()
+2
+>>> c1.inc()
+3
+>>> c1
+Valor do contador: 3
+>>> c2.inc()
+2
+>>> c2
+Valor do contador: 2
+>>> c1
+Valor do contador: 3
+>>> c3
+Valor do contador: 2
+>>> c3.inc()
+3
+>>> c3
+Valor do contador: 3
+>>> c2
+Valor do contador: 3
+>>> c4 = c1 + 1
+>>> c4
+Valor do contador: 4
+>>> c1
+Valor do contador: 3
+>>> c4.inc()
+5
+>>> c1.inc()
+4
+>>> c1
+Valor do contador: 4
+>>> c4
+Valor do contador: 5
+>>> ================================ RESTART ================================
+>>> def quadrado(x):
+	return x * x
+
+>>> map(quadrado, [1,2,3])
+[1, 4, 9]
+>>> class IterMap2:
+	def __init__(self, seq, f):
+		self.seq = seq
+		self.f = f
+		self.iter = seq.__iter__()
+	def __iter__(self):
+		return IterMap2(self.seq, self.f)
+	def next(self):
+		elem = self.iter.next()
+		val = (self.f)(elem)
+		return val
+
+>>> for i in IterMap2([1,2,3], quadrado):
+	print i
+
+1
+4
+9
+>>> def impar(x):
+	return x % 2 != 0
+
+>>> filter(impar, [1,2,3,4,5,6])
+[1, 3, 5]
+>>> def filtro(f, seq):
+	res = []
+	pos = 0
+	while pos < len(seq):
+		if f(seq[pos]):
+			res.append(seq[pos])
+		pos = pos + 1
+	return res
+
+>>> filtro(impar, [1,2,3,4,5,6])
+[1, 3, 5]
+>>> class IterFiltro:
+	def __init__(self, f, seq):
+		self.f = f
+		self.seq = seq
+		self.pos = 0
+	def __iter__(self):
+		return IterFiltro(self.f, self.seq)
+	def next(self):
+		while True:
+		    if self.pos >= len(self.seq):
+			raise StopIteration
+		    if (self.f)(self.seq[self.pos]):
+			val = self.seq[self.pos]
+			self.pos = self.pos + 1
+			return val
+	            self.pos = self.pos + 1
+
+>>> for i in IterFiltro(impar, [1,2,3,4,5,6]):
+	print i
+
+1
+3
+5
+>>> zip([1,2,3],[4,5,6])
+[(1, 4), (2, 5), (3, 6)]
+>>> class IterZip:
+	def __init__(self, seq1, seq2):
+		if len(seq1) != len(seq2):
+			raise RangeError
+		self.seq1 = seq1
+		self.seq2 = seq2
+		self.pos = 0
+	def __iter__(self):
+		return IterZip(self.seq1, self.seq2)
+	def next(self):
+		if self.pos >= len(self.seq2):
+			raise StopIteration
+		val = (self.seq1[self.pos], self.seq2[self.pos])
+		self.pos = self.pos + 1
+		return val
+
+>>> for i in IterZip([1,2,3],[4,5,6]):
+	print i
+	
+(1, 4)
+(2, 5)
+(3, 6)
+>>> def zip(seq1, seq2):
+	if len(seq1) != len(seq2):
+		raise RangeError
+	res = []
+	pos = 0
+	while pos < len(seq2):
+		res.append( (seq1[pos], seq2[pos]) )
+		pos = pos + 1
+	return res
+
+>>> zip([1,2,3],[4,5,6])
+[(1, 4), (2, 5), (3, 6)]
+>>> 
+</pre>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 12/04/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Classe Contador (12/04/2011)</h2>
+
+<pre>
+class Contador:
+    def __init__(self, i=1):
+        self.i = i
+    def inc(self):
+        self.i = self.i + 1
+        return self.i
+    def dec(self):
+        self.i = self.i - 1
+        return self.i
+    def __add__(self, x):
+        return Contador(self.i + x)
+    def __sub__(self, x):
+        return Contador(self.i - x)
+    def __repr__(self):
+        return "Valor do contador: %i" % self.i
+    def __str__(self):
+        return str(self.i)
+</pre>
+
+<h2>Classe Lista (12/04/2011)</h2>
+
+<pre>
+class Elemento:
+    def __init__(self, val = None, prox = None):
+        self.val = val
+        self.prox = prox
+
+class Lista:
+    val = None
+    def __init__(self, lp):
+        for v in lp:
+            self.append(v)
+    def __len__(self):
+        i = 0
+        atual = self.val
+        while atual != None:
+            i = i + 1
+            atual = atual.prox
+        return i
+    def append(self, v):
+        elem = Elemento(v)
+        if self.val == None:
+            self.val = elem
+            return
+        atual = self.val
+        while atual.prox != None:
+            atual = atual.prox
+        atual.prox = elem
+    def get(self, i):
+        e = self.elem(i)
+        return e.val
+    def elem(self, i):
+        atual = self.val
+        while i > 0:
+            i = i - 1
+            atual = atual.prox
+        return atual
+    def set(self, i, v):
+        elem = self.elem(i)
+        elem.val = v
+    def __repr__(self):
+        res = "["
+        atual = self.val
+        while atual != None:
+            res = res + (atual.val).__repr__() + ", "
+            atual = atual.prox
+        res = res + "]"
+        return res
+    def __getitem__(self, i):
+        return self.get(i)
+    def __setitem__(self, i, v):
+        self.set(i, v)
+    def __mul__(self, x):
+        lr = Lista([])
+        for i in range(x):
+            for j in range(len(self)):
+                lr.append(self[j])
+        return lr
+</pre>
+
+</body>
+</html>

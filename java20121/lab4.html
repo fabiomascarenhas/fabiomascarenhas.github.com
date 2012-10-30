@@ -1,0 +1,80 @@
+<p><html>
+<head>
+<title>MAB 240 &ndash; Computação II</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>MAB 240 - Computação II</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2>Laboratório 4 - 02/04/2012</h2>
+
+<p>Uma dica: baixe o <a href = "Semana4.zip">projeto Eclipse</a> da
+quarta semana de aula e importe ele no Eclipse antes de começar,
+assim você pode ver como os conceitos foram aplicados em sala.</p>
+
+<p>Não esqueça de criar um projeto Eclipse chamado Lab4 para os
+exercícios, e um scrapbook nesse projeto para você poder fazer
+experimentos. O objetivo deste laboratório &eacute; exercitar a
+criação de m&eacute;todos com listas; não se
+esqueça de criar pelo menos uma classe de teste
+(usando <i>File-&gt;New-&gt;JUnit Test Case...</i>) para testar seus
+m&eacute;todos.</p>
+
+<p>1. Comece implementando uma classe <code>Album</code> para representar
+um álbum de música, com os campos título e artista do tipo string e um
+campo ano do tipo inteiro, para o ano de lançamento do álbum. Todos os
+campos devem ser privados, mas implemente m&eacute;todos
+<code>getTitulo()</code>, <code>getArtista()</code> e
+<code>getAno</code> para obter o título, artista e ano de um
+determinado álbum, respectivamente.</p>
+
+<p>2. Agora você deve implementar a classe <code>Acervo</code>, contendo
+um campo string com o nome do dono do acervo e uma lista de
+álbuns. Os campos devem ser privados. Faça o construtor de
+<code>Acervo</code> poder receber quantos álbuns forem necessários
+(usando ...), e implemente um m&eacute;tido <code>getDono()</code> que
+retorna o dono de um acervo.</p>
+
+<p>3. Implemente o m&eacute;todo <code>Album getAlbum(String
+titulo)</code> na classe <code>Acervo</code>, que retorna a instância
+de álbum com o título passado, ou <code>null</code> caso não
+exista.</p>
+
+<p>4. Implemente o m&eacute;todo <code>List&lt;Album&gt; getAlbuns(int
+ano)</code> na classe <code>Acervo</code>, que retorna todos os álbums
+do acervo lançados em determinado ano.</p>
+
+<p>5. Implemente o m&eacute;todo <code>List&lt;Album&gt;
+getAlbuns(String artista)</code> na classe <code>Acervo</code>, que
+retorna todos os álbums do acervo de determinado artista.</p>
+
+<p>6. Os dois m&eacute;todos acima são bem parecidos. Vamos ver o
+quanto! Implemente uma interface <code>FiltroAlbum</code> com um único
+m&eacute;todo <code>boolean valido(Album a)</code>. Agora defina duas
+classes que implementam essa interface: <code>FiltroAlbumAno</code>
+tem um campo para o ano, e seu m&eacute;todo <code>valido</code>
+retorna <code>true</code> se o álbum passado foi lançado naquele ano e
+<code>false</code> se não for. Defina tamb&eacute;m a classe
+<code>FiltroAlbumArtista</code>, que faz o mesmo para o nome do artista.</p>
+
+<p>7. Implemente na classe <code>Acervo</code> um m&eacute;todo
+<code>List&lt;Album&gt; getAlbuns(FiltroAlbum filtro)</code> que
+retorna todos os álbuns válidos segundo o filtro passado. Reimplemente
+as outras duas versões de <code>getAlbuns</code> em função desse
+m&eacute;todo, usando as duas classes que você definiu no exercício anterior.</p>
+
+<p>8. Implemente na classe <code>Acervo</code> um m&eacute;todo
+<code>List&lt;String&gt; getArtistas()</code> que retorna os nomes de
+todos os artistas com álbuns naquele acervo, em ordem
+alfab&eacute;tica. Você vai precisar ler com atenção a documentação da
+interface <code>List</code> de Java!</p>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Sun Apr  1 18:18:46 BRT 2012 <!-- hhmts end -->
+</body> </html>

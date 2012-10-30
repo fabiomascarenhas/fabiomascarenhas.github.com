@@ -1,0 +1,13 @@
+/* V’rgula a mais em assinatura */
+class Fibo {
+  fib(n,) {
+    if (n < 2)
+      return 1;
+    else
+      return this.fib(n-2) + this.fib(n-1);
+  }
+
+  main() {
+    out.print(this.fib(10));
+  }
+}

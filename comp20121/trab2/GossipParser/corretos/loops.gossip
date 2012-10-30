@@ -1,0 +1,35 @@
+/* Loops aninhados */
+
+class Loops {
+  main() {
+    var x = 0;
+    var n = 3;
+    var a = 0;
+    while(a < n) {
+      var b = 0;
+      while(b < n) {
+        var c = 0;
+        while(c < n) {
+          var d = 0;
+          while(d < n) {
+            var e  = 0;
+            while(e < n) {
+              var f = 0;
+              while(f < n) {
+                x = x + 1;
+                f = f + 1;
+              }
+              e = e + 1;
+            }
+            d = d + 1;
+          }
+          c = c + 1;
+        }
+        b = b + 1;
+      }
+      a = a + 1; 
+    }
+    out.print(x);
+  }
+}
+

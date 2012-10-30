@@ -1,0 +1,7 @@
+/* Falta palavra-chave class */
+
+Hello {
+  main() {
+    out.print("Hello World!\n");
+  }
+}

@@ -1,0 +1,164 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 31/05/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Interfaces Gráficas I (31/05/2011)</h2>
+
+<h3>Label e botão:</h3>
+
+<pre>
+from Tkinter import *
+
+f = Frame()
+
+msg = Label(f)
+f["text"] = "Oi Pessoal"
+msg.pack()
+
+bye = Button(f)
+bye["text"] = "Tchau"
+bye["command"] = f.quit
+bye.pack()
+
+f.pack()
+
+mainloop()
+</pre>
+
+<h3>Label com decorações:</h3>
+
+<pre>
+from Tkinter import *
+
+app = Frame()
+
+rotulo = Label (app) 
+rotulo["text"] = "Rotulo Exemplo"
+rotulo["relief"] = "ridge"
+rotulo["font"] = "Arial 24 bold"
+rotulo["background"] = "yellow"
+rotulo["foreground"] = "blue"
+rotulo["border"] = 5
+rotulo.pack()
+
+app.pack()
+
+mainloop()
+</pre>
+
+<h3>Frames, labels e botão com comando:</h3>
+
+<pre>
+from Tkinter import *
+
+frame1 = Frame()
+frame2 = Frame()
+
+frame1.master.geometry("200x200+100+100")
+
+def bot1():
+    frame1.pack_forget()
+    frame2.pack()
+
+a = Button(frame1, text="A")
+a.pack(side="left")
+b = Button(frame1, text="B")
+b.pack(side="bottom")
+c = Button(frame1, text="C")
+c.pack(side="right")
+d = Button(frame1, text="D")
+d["command"] = bot1
+d.pack(side="top")
+
+for bot in [a,b,c,d]:
+    bot["font"] = "Times 24 bold"
+
+frame1.pack()
+
+rotulo = Label (frame2) 
+rotulo["text"] = "Rotulo Exemplo"
+rotulo["relief"] = "ridge"
+rotulo["font"] = "Arial 24 bold"
+rotulo["background"] = "yellow"
+rotulo["foreground"] = "blue"
+rotulo["border"] = 5
+rotulo.pack()
+
+mainloop()
+</pre>
+
+<h3>Layout mais complexo, usando diversos frames e várias opções pro pack:</h3>
+
+<pre>
+from Tkinter import *
+
+f = Frame()
+ls = []
+ts = []
+fs = []
+
+n = 3
+
+f.master.title("Minha app Tkinter")
+
+f.pack()
+
+texto = ["OI %i"]
+
+for i in range(n):
+    fs.append(Frame(f))
+    ls.append(Label(fs[i]))
+    ts.append(Entry(fs[i]))
+    ts[i]["width"] = 20
+    ts[i]["font"] = "Arial 20"
+    ls[i]["text"] = texto[0] % i
+    ls[i]["foreground"] = "white"
+    ls[i]["background"] = "black"
+    ls[i]["font"] = "Arial 20"
+
+def func():
+    if texto[0] == "OI %i":
+        texto[0] = "Subi no onibus em marrocos %i"
+    else:
+        texto[0] = "OI %i"
+    for i in range(n):
+        ls[i]["text"] = texto[0] % i
+        print ts[i].get()
+
+fb = Frame(f)
+fb1 = Frame(fb)
+fb2 = Frame(fb)
+
+b2 = Button(fb2)
+b2["text"] = "Fechar"
+b2["font"] = "Arial 20"
+b2["command"] = f.quit
+b2.pack()
+
+b1 = Button(fb1)
+b1["text"] = "Muda"
+b1["font"] = "Arial 20"
+b1["command"] = func
+b1.pack()
+
+fb2.pack(side="left", expand = 1)
+fb1.pack(side="left", expand = 1)
+
+for i in range(n-1, -1, -1):
+    ls[i].pack(side="left")
+    ts[i].pack(side="left")
+    fs[i].pack()
+
+fb.pack(fill=X)
+
+mainloop()
+</pre>
+
+</body>
+</html>

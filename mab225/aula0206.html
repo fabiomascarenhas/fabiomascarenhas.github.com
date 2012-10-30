@@ -1,0 +1,67 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 02/06/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Depósito em Conta (02/06/2011)</h2>
+
+<pre>
+from contas import *
+from Tkinter import *
+
+f1 = Frame()
+
+def deposita():
+    try:
+        val = f1_var.get()
+        contas["456"].deposito(val)
+        f1.pack_forget()
+        f2_label["text"] = "Saldo: %d" % contas["456"].saldo
+        f2.pack()
+    except ValueError:
+        print "nao foi numero"
+        f1_var.set(0)
+
+f1_texto = Entry(f1)
+f1_texto["font"] = "Arial 20"
+f1_texto2 = Entry(f1)
+f1_texto2["font"] = "Arial 20"
+f1_botao = Button(f1)
+f1_botao["font"] = "Arial 20"
+f1_var = DoubleVar(f1)
+f1_var.set(0)
+f1_texto["textvariable"] = f1_var
+f1_texto2["textvariable"] = f1_var
+f1_botao["text"] = "Depositar"
+f1_botao["command"] = deposita
+
+f1_texto.pack()
+f1_texto2.pack()
+f1_botao.pack()
+f1.pack()
+
+def voltar():
+    f1_var.set(0)
+    f2.pack_forget()
+    f1.pack()
+
+f2 = Frame()
+f2_label = Label(f2)
+f2_label["font"] = "Arial 20"
+f2_botao = Button(f2)
+f2_botao["text"] = "Voltar"
+f2_botao["font"] = "Arial 20"
+f2_botao["command"] = voltar
+f2_label.pack()
+f2_botao.pack()
+
+mainloop()
+</pre>
+
+</body>
+</html>

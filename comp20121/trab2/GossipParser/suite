@@ -1,0 +1,19 @@
+#!/bin/bash
+
+mkdir out
+mkdir out2
+
+for name in `ls -1 corretos | xargs`; do
+   echo Parsing $name
+   java -cp "." gossip.Driver corretos/$name > out/$name
+done
+
+for name in `ls -1 out | xargs`; do
+   echo Parsing $name
+   java -cp "." gossip.Driver out/$name > out2/$name
+done
+
+for name in `ls -1 out | xargs`; do
+   echo $name
+   diff out/$name out2/$name
+done

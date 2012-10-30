@@ -1,0 +1,13 @@
+{ programa de exemplo
+  tiny  - fatorial }
+
+read x;
+if 0 < x then {nao calcula de x menor que 0}
+  fact := 1;
+  repeat 
+    fact := fact * x;
+    x := x - 1
+  until x = 0;
+  write fact { saida }
+end
+

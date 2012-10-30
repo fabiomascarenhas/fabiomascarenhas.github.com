@@ -1,0 +1,282 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Lista 1 (24/03/2011)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Lista de Exercícios 1 (24/03/2011)</h2>
+
+<p>Funções definidas em sala de aula:</p>
+
+<pre>
+    def primo(num):
+        for d in range(2, num):
+            if num % d == 0:
+                return False
+        return True
+
+    def proximo_primo(num):
+        num = num + 1
+        while not primo(num):
+            num = num + 1
+        return num
+
+    def fatores(num):
+        fat = []
+        p = 2
+        while not num == 1:
+            if num % p == 0:
+                fat.append(p)
+                num = num / p
+            else:
+                p = proximo_primo(p)
+        return fat
+</pre>
+
+<ol>
+<li>Escreva um programa para somar os primeiros "n" elementos de uma
+  progressão aritmética, dados o primeiro elemento "a1" e a diferença
+  "d" entre os elementos: somapa(1, 7, 3) = 1 + 4 + 7 + 10 + 13 + 16 + 19 = 70</li>
+  <pre>
+      def somapa1(a1, n, r):
+          s = 0
+          for i in range(a1, a1 + n*r, r):
+              s = s + i
+          return s
+
+      def somapa2(a1, n, r):
+          return sum(range(a1, a1 + n*r, r))
+
+      a1 = input("Entre o primeiro termo:")
+      r = input("Entre a razao:")
+      n = input("Entre o no. de termos:")
+      print "somapa1: %i" % somapa1(a1, n, r)
+      print "somapa2: %i" % somapa2(a1, n, r)
+  </pre>
+<li>Escreva um programa para somar os primeiros "n" elementos de uma
+  progressão geométrica, dados o primeiro elemento "a1" e a razão "r"
+  entre os elementos: somapg(1, 7, 3) = 1 + 3 + 9 + 27 + 81 + 243 + 729 = 1093</li>
+  <pre>
+      def somapg1(a1, n, r):
+          s = 0
+          for i in range(n):
+              s = s + a1
+              a1 = a1 * r
+          return s
+
+      def pg(a1, n, r):
+          l = []
+          for i in range(n):
+              l.append(a1)
+              a1 = a1 * r
+          return l
+
+      def somapg2(a1, n, r):
+          return sum(pg(a1, n, r))
+
+      a1 = input("Entre o primeiro termo:")
+      r = input("Entre a razao:")
+      n = input("Entre o no. de termos:")
+      print "somapg1: %i" % somapg1(a1, n, r)
+      print "somapg2: %i" % somapg2(a1, n, r)
+  </pre>
+<li>Escreva um programa para converter números escritos em algarismos
+  arábicos de 1 a 3999 para algarismos romanos, usando a seguinte tabela:<br>
+<pre>
+      romanos = {
+          'unidades': [ "",  "I",   "II",   "III",   "IV",   "V",   "VI",   "VII",   "VIII",   "IX" ],
+          'dezenas':  [ "",  "X",   "XX",   "XXX",   "XL",   "L",   "LX",   "LXX",   "LXXX",   "XC" ],
+          'centenas': [ "",  "C",   "CC",   "CCC",   "CD",   "D",   "DC",   "DCC",   "DCCC",   "CM" ],
+          'milhares': [ "",  "M",   "MM",   "MMM" ]
+      }
+    
+      nomes = {
+          1000: 'milhares',
+          100: 'centenas',
+          10: 'dezenas',
+          1: 'unidades'
+      }
+
+      def romano1(n):
+          res = ""
+          for d in [1000,100,10,1]:
+              res = res + romanos[nomes[d]][n / d]
+              n = n % d
+          return res
+
+      def romano2(n):
+          res = ""
+          res, n = res + romanos['milhares'][n / 1000], n % 1000
+          res, n = res + romanos['centenas'][n / 100], n % 100
+          res, n = res + romanos['dezenas'][n / 10], n % 10
+          return res + romanos['unidades'][n / 1]
+
+      n = input("Entre um numero:")
+      print "romano1: %s" % romano1(n)
+      print "romano2: %s" % romano2(n)
+</pre>
+</li>
+<li>Escreva um programa para multiplicar duas matrizes (lembre-se que uma
+matriz &eacute; uma lista de listas, por exemplo, [[1,5],[2,3]]
+&eacute; uma matriz 2x2 com a primeira linha tendo 1 e 5 e a segunda
+linha 2 e 3).</li>
+<pre>
+﻿     def mult_matriz1(m1, m2):
+          lm1, lm2 = len(m1), len(m2)
+          cm1, cm2 = len(m1[0]), len(m2[0])
+          if cm1 != lm2:
+              return None
+          cr, lr = cm2, lm1
+          mr = []
+          for i in range(lr):
+              mr.append([0]*cr)
+          for i in range(lr):
+              for j in range(cr):
+                  for k in range(cm1):
+                      mr[i][j] += m1[i][k]*m2[k][j]
+          return mr
+
+      def coluna(m, i):
+          col = []
+          for linha in m:
+              col.append(linha[i])
+          return col
+
+      def mult_linha_col(linha, col):
+          s = 0
+          for i in range(len(linha)):
+              s = s + linha[i]*col[i]
+          return s
+
+      def mult_matriz2(m1, m2):
+          lm1, lm2 = len(m1), len(m2)
+          cm1, cm2 = len(m1[0]), len(m2[0])
+          if cm1 != lm2:
+              return None
+          cr, lr = cm2, lm1
+          mr = []
+          for i in range(lr):
+              mr.append([0]*cr)
+          for i in range(lr):
+              for j in range(cr):
+                  mr[i][j] = mult_linha_col(m1[i], coluna(m2, j))
+          return mr
+
+      m1 = input("Entre a matriz A:")
+      m2 = input("Entre a matriz B:")
+      mr = mult_matriz1(m1, m2)
+      print "A x B (1):"
+      for l in mr:
+          for item in l:
+              print item," ",
+      print
+      mr = mult_matriz2(m1, m2)
+      print "A x B (2):"
+      for l in mr:
+          for item in l:
+              print item," ",
+      print
+</pre>
+<li>Escreva um programa para encontrar o máximo divisor comum de dois
+inteiros positivos. Por exemplo: o MDC de 35 e 1134 é 7. Dica: <a
+href="http://pt.wikipedia.org/wiki/Algoritmo_de_Euclides">Algoritmo de
+Euclides</a>.</li>
+<pre>
+      def divisores(n):
+          div = []
+          for d in range(1, n+1):
+              if n % d == 0:
+                  div.append(d)
+          return div
+
+      def mdc1(n1, n2):
+          div_n1 = divisores(n1)
+          div_n2 = divisores(n2)
+          comuns = []
+          for d1 in div_n1:
+              for d2 in div_n2:
+                  if d1 == d2:
+                      comuns.append(d1)
+          return max(comuns)
+
+      def mdc2(n1, n2):
+          while n1 % n2 != 0:
+              r = n1 % n2
+              n1 = n2
+              n2 = r
+          return n2
+
+      def mdc3(n1, n2):
+          if n1 % n2 == 0:
+              return n2
+          else:
+              r = n1 % n2
+              return mdc3(n2, r)
+
+      n1 = input("Entre o primeiro numero:")
+      n2 = input("Entre o segundo numero:")
+      print "mdc1: %i" % mdc1(n1,n2)
+      print "mdc2: %i" % mdc2(n1,n2)
+      print "mdc2: %i" % mdc3(n1,n2)
+</pre>
+<li>Escreva um programa que diga se duas palavras são anagramas (são
+escritas com os mesmos caracteres). Dica: use a função sort.</li>
+<pre>
+      def anagrama1(c1, c2):
+          l1, l2 = list(c1), list(c2)
+          l1.sort()
+          l2.sort()
+          return l1 == l2
+
+      def anagrama2(c1, c2):
+          if len(c1) != len(c2):
+              return False
+          d1, d2 = {}, {}
+          for c in c1:
+              d1[c] = d1.get(c, 0) + 1
+          for c in c2:
+              d2[c] = d2.get(c, 0) + 1
+          for c in d1.keys():
+              if not c in d2:
+                  return False
+              if d1[c] != d2[c]:
+                  return False
+          return True
+
+      c1 = raw_input("Entre a cadeia 1:")
+      c2 = raw_input("Entre a cadeia 2:")
+      print "anagrama1:", anagrama1(c1, c2)
+      print "anagrama2:", anagrama2(c1, c2)
+</pre>
+<li>Escreva um programa que leia duas cadeias de caracteres A e B e diga se A é uma sub-seqüência de B. A é uma sub-seqüência de B se todos os elementos de A podem ser encontrados em B na mesma ordem que aparecem em A (possivelmente separados por elementos de B que não aparecem em A). Assim, por exemplo, "abc" é uma sub-seqüência de "xaycbxadc", mas não é sub-seqüência de "ybazcxd".</li>
+<pre>
+      def subseq1(a, b):
+          i = 0
+          for c in b:
+              if i == len(a):
+                  break
+              if a[i] == c:
+                  i = i + 1
+          return i == len(a)
+
+      def subseq2(a, b):
+          i = 0
+          for c in a:
+              i = b.find(c, i) + 1
+              if i == 0:
+                  return False
+          return True
+
+      a = raw_input("Entre a cadeia A:")
+      b = raw_input("Entre a cadeia B:")
+      print "subseq1:", subseq1(a, b)
+      print "subseq2:", subseq2(a, b)
+</pre>
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>MAB 471 &ndash; Compiladores I &ndash; Linguagem Gossip</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<center>
+<h1>MAB 471 - Compiladores I</h1>
+<h2>A Linguagem <i>Gossip</i></h2>
+</center>
+
+<h2>Introdução</h2>
+
+<p>Gossip &eacute; uma linguagem orientada a objetos no estilo de
+<i>Smalltalk</i> (o nome &eacute; uma brincadeira com o nome dessa
+outra linguagem), mas com uma sintaxe parecida com a de
+Java/JavaScript. Apesar de ser poderosa o bastante para se programar
+nela, sua simplicidade a torna mais indicada para fins pedagógicos.</p>
+
+<h2>L&eacute;xico</h2>
+
+<h3>Palavras reservadas</h3>
+
+<table width="200px">
+  <tr><td>class</td><td>true</td></tr>
+  <tr><td>var</td><td>false</td></tr>
+  <tr><td>def</td><td>this</td></tr>
+  <tr><td>new</td><td>null</td></tr>
+  <tr><td>while</td><td>break</td></tr>
+  <tr><td>if</td><td>return</td></tr>
+  <tr><td>else</td></tr>
+</table>
+
+<h3>Operadores (precedência maior para menor)</h3>
+
+<table>
+<tr><td>-</td><td>#</td></tr>
+<tr><td>*</td><td>/</td></tr>
+<tr><td>+</td><td>-</td><td>..</td></tr>
+<tr><td>&lt;</td><td>&lt;=</td></tr>
+<tr><td>==</td></tr>
+<tr><td>&&</td><td>||</td></tr>
+<tr><td>!</td></tr>
+</table>
+
+<h3>Identificadores</h3>
+
+<p>Qualquer sequência de letras, dígitos e o caractere _ (underscore), começando
+por letra ou _ (underscore).</p>
+
+<h3>Numerais</h3>
+
+<p>Decimais <b>sem sinal</b> e parte científica opcional com ou sem sinal (Exs: 2, 3,
+4.5, 2.29E-5, 2.32, 5E2, 10.2E+4). Isso implica que números como -5 e
++3 são dois
+tokens!</p>
+
+<h3>Literais</h3>
+
+<p>Cadeias de caracteres literais são delimitadas através do uso
+de aspas duplas, não podem ter quebras de linha, e podem ter as seguintes
+seqüências de escape no estilo de C: '\n' (quebra de linha),
+'\r' (retorno de carro), '\t' (tabulação horizontal),
+'\\' (barra invertida) e '\"' (aspas duplas). Qualquer outro uso de
+uma barra invertida dentro de uma cadeia não &eacute; permitido.</p>
+
+<h3>Comentários</h3>
+
+<p>Comentários começam com /* e terminam com */ (não podem ser aninhados).</p>
+
+<h3>Outros itens</h3>
+
+<table>
+  <tr><td>=</td><td>[</td><td>]</td><td>(</td><td>)</td><td>{</td><td>}</td><td>,</td><td>;</td><td>.</td></tr>
+</table>
+
+<h2>Sintaxe</h2>
+
+<p>Um parser recursivo pode ser
+construído facilmente para essa gramática ela, mas requer fatoração (ou uso de
+truques) nas regras <code>lvalue</code> e
+<code>methodcall</code>, al&eacute;m, &eacute; claro, da eliminação de
+recursão usual na regra <code>exp</code> (ou uso de um parser
+recursivo de precedência de operadores para essa parte da gramática).</p>
+
+<pre>
+gossip ::= {class-decl}
+class-decl ::= CLASS ID '{' {member-decl} '}'
+member-decl ::= var-decl | method-decl
+var-decl ::= VAR ID ';'
+method-decl ::= DEF ID '(' [param-list] ')' '{' {cmd} '}'
+param-list ::= ID {',' ID}
+cmd ::= '{' {cmd} '}' | IF '(' exp ')' cmd [ELSE cmd]
+        | WHILE '(' exp ')' cmd | BREAK ';'
+        | RETURN exp ';' | lvalue '=' exp ';'
+        | methodcall ';' | VAR ID ';'
+        | VAR ID '=' exp ';' | ';'
+lvalue ::= ID | simple '[' exp ']'
+simple ::= atom {suffix}
+atom ::= THIS | NULL | FALSE | TRUE | NUMBER | STRING | ID
+         | '(' exp ')' 
+suffix ::= '.' ID '(' [exp-list] ')' | '[' exp ']'
+methodcall ::= simple '.' ID '(' [exp-list] ')'
+exp ::=  simple | NEW ID '(' [exp-list] ')' | exp binop exp | unop exp
+exp-list ::= exp {',' exp}
+unop ::= '-' | '!'
+binop ::= '+' | '-' | '*' | '/' | '&&' | '||' | '&lt;' | '&lt;='
+          | '==' | '..'
+</pre>
+
+<h2>Semântica Estática</h2>
+
+<p>Gossip &eacute; uma linguagem com escopo l&eacute;xico, ou escopo
+de bloco; o corpo da classe conta como um bloco para efeitos de
+escopo, mas as variáveis nesse caso são variáveis de instância do
+objeto em questão. Variáveis que não foram declaradas em nenhum escopo
+são assumidas como globais, e são visíveis em qualquer
+m&eacute;todo. Como exemplo de aplicação dessas regras, veja o
+programa abaixo:</p>
+
+<pre>
+class Foo {
+  var x;
+  def bar(y) {
+    var z = y;
+    if(x > 0) {      /* campo x */
+      var y = 2;
+      out.print(y);  /* y local do if */
+    } else {
+      out.print(y);  /* parâmetro y */
+    }
+    /* out &eacute; uma global */
+  }
+}
+</pre>
+
+<p>O compilador Gossip deve fazer as seguintes checagens estáticas:
+não se pode ter duas variáveis com o mesmo nome no mesmo nível de
+escopo; não se pode declarar dois m&eacute;todos com o mesmo nome em
+uma mesma classe; não se pode ter duas classes com o mesmo nome; não
+se pode usar o operador <code>new</code> em uma classe não existente
+(mas a classe pode ser declarada em qualquer ponto do programa); 
+apenas uma classe no programa pode ter um m&eacute;todo chamado
+<code>main</code>. O analisador deve poder receber uma lista de
+classes "pr&eacute;-definidas".</p>
+
+<p>O espaço de nomes de variáveis e de classes &eacute; diferente, ou
+seja, pode-se ter uma classe chamada <code>Foo</code> e uma variável
+chamada <code>Foo</code> que não há conflito (lembre que as classes só
+são usadas no operador <code>new</code>).</p>
+
+<h2>Gossip na <i>Lua Virtual Machine</i></h2>
+
+<p>Cada m&eacute;todo de cada classe de um programa Gossip deve ser
+compilado para uma função Lua com o nome
+<code>NomeClasse_NomeM&eacute;todo</code>. O registrador 0 do
+m&eacute;todo &eacute; sempre <code>this</code>, e os argumentos
+recebidos pelo m&eacute;todo ficam nos registradores seguintes
+(primeiro argumento no registrador 1, segundo no registrador 2, e
+assim por diante).<p>
+
+<p>A função <code>main</code> do programa assembler deve registrar
+todas as classes e m&eacute;todos, e rodar o programa indicando qual
+classe tem o m&eacute;todo <code>main</code>. Existem funções
+auxiliares (acessadas via <code>GETGLOBAL</code>) para isso. A função
+<code>__GOSSIP_CLASS</code> recebe o nome de uma classe e a
+registra. A função <code>__GOSSIP_METHOD</code> recebe o nome de uma
+classe, o nome de um m&eacute;todo, e o m&eacute;todo em si (criado
+usando <code>CLOSURE</code>) e o registra. A função
+<code>__GOSSIP_RUN</code> recebe o nome de uma classe (que deve ter um
+m&eacute;todo <code>main</code>), instancia um objeto dessa classe e
+executa seu m&eacute;todo main.</p>
+
+<p>Por exemplo, seja o programa a seguir:</p>
+
+<pre>
+class Foo {
+  def foo() { return "foo"; }
+}
+
+class Bar {
+  def main() {
+    var foo = new Foo();
+    out.print(foo.foo());
+  }
+}
+</pre>
+
+<p>Ele deve ser compilado para o seguinte programa assembler (corpos
+dos m&eacute;todos foram omitidos):</p>
+
+<pre>
+function Foo_foo:
+  ; corpo de foo da classe Foo
+  RETURN R0 1
+
+function Bar_main:
+  ; corpo de main da classe Bar
+  RETURN R0 1
+
+function main:
+  ; Registro da classe Foo
+  GETGLOBAL R0 __GOSSIP_CLASS
+  LOADK R1 Foo
+  CALL R0 2 1
+  ; Registro do m&eacute;todo foo da classe Foo
+  GETGLOBAL R0 __GOSSIP_METHOD
+  LOADK R1 Foo
+  LOADK R2 foo
+  CLOSURE R3 Foo_foo 1
+  CALL R0 4 1
+  ; Registro da classe Bar
+  GETGLOBAL R0 __GOSSIP_CLASS
+  LOADK R1 Bar
+  CALL R0 2 1
+  ; Registro do m&eacute;todo main da classe Bar
+  GETGLOBAL R0 __GOSSIP_METHOD
+  LOADK R1 Bar
+  LOADK R2 main
+  CLOSURE R3 Bar_main 1
+  CALL R0 4 1
+  ; Execução do programa
+  GETGLOBAL R0 __GOSSIP_RUN
+  LOADK R1 Bar
+  CALL R0 2 1
+  RETURN R0 1
+</pre>
+
+<p>Lembre-se de passar o número correto de parâmetros para
+<code>CLOSURE</code>, e que <code>this</code> conta como um parâmetro.
+Declarações de variáveis de classes não geram nenhum
+código. Declarações de variáveis locais <code>var id;</code>
+devem gerar um <code>LOADNIL</code> no registrador correspondente.</p>
+
+<p>O corpo dos m&eacute;todo sempre deve terminar com uma instrução
+<code>RETURN R0 1</code>, com o resto dos comandos compilados em
+sequência antes dele. A geração de código para a maior parte dos
+comandos &eacute; semelhante &agrave; de TINY.</p>
+
+<pre>
+methodcall : simple '.' ID '(' exp_list ')'
+</pre>
+
+<p>A geração de uma chamada de m&eacute;todo usada como um comando,
+dada pela produção acima, segue o seguinte esquema (você deve reservar
+Rx, R(x+1), etc. antes de gerar o código das subexpressões):</p>
+
+<pre>
+  &lt;código para simple em Rx&gt;
+  SELF Rx Rx &lt;nome do m&eacute;todo&gt;
+  &lt;código para primeira exp de exp_list em R(x+2)&gt;
+  &lt;código para segunda exp de exp_list em R(x+3)&gt;
+  ...
+  CALL Rx &lt;tamanho de exp_list + 2&gt; 1
+</pre>
+
+<p>A geração de uma atribuição <code>lvalue '=' exp</code> quando
+<code>lvalue</code> &eacute; um <code>ID</code> &eacute; depende do
+tipo de escopo da variável. Se ela for global, o código gerado deve
+ser o seguinte (você deve reservar o temporário Rx):</p>
+
+<pre>
+  &lt;código para exp em Rx&gt;
+  SETGLOBAL Rx &lt;nome da var&gt;
+</pre>
+
+</p>Quando a variável &eacute; do objeto, o código gerado deve ser o
+seguinte (você deve reservar o temporário Rx):</p>
+
+<pre>
+  &lt;código para exp em Rx&gt;
+  SETTABLE R0 &lt;nome da var&gt; Rx
+</pre>
+
+<p>Finalmente, uma variável local &eacute; como em TINY:</p>
+
+<pre>
+  &lt;código para exp no registrador da var&gt;
+</pre>
+
+<p>Quando </code>lvalue</code> &eacute; uma indexação
+<code>simple '[' exp ']'</code> a atribuição segue o seguinte
+esquema (você deve reservar os temporários Rx, Ry e Rz antes de gerar
+o código das subexpressões):</p>
+
+<pre>
+  &lt;código para simple em Rx&gt;
+  &lt;código para exp da indexação em Ry&gt;
+  &lt;código para exp da atribuição em Rz&gt;
+  SETTABLE Rx Ry Rz
+</pre>
+
+<p>A geração de um <code>atom</code> para um alvo Rx depende do átomo
+específico:</p>
+
+<pre>
+  ; NULL
+  LOADNIL Rx Rx
+  ; THIS
+  MOVE Rx R0
+  ; TRUE
+  LOADBOOL Rx TRUE 0
+  ; FALSE
+  LOADBOOL Rx FALSE 0
+  ; NUMBER
+  LOADK Rx &lt;número&gt;
+  ; STRING
+  LOADK Rx &lt;string&gt;
+  ; ID - variável global
+  GETGLOBAL Rx &lt;nome da var&gt;
+  ; ID - variável do objeto
+  GETTABLE Rx R0 &lt;nome da var&gt; 
+  ; ID - variável local
+  MOVE Rx R&lt;reg. da var&gt;
+  ; '(' exp ')'
+  &lt;código para gerar exp em Rx&gt;
+</pre>
+
+<p>A geração de um <code>simple</code> composto por outro
+<code>simple</code> e um <code>suffix</code> depende do tipo do
+sufixo. Se for um sufixo de chamada de m&eacute;todo e o alvo &eacute;
+Rx o código tem o seguinte esquema (você deve reservar
+Ry, R(y+1), etc. antes de gerar o código das subexpressões):</p>
+
+<pre>
+  &lt;código para lado esquerdo em Ry&gt;
+  SELF Ry Ry &lt;nome do m&eacute;todo&gt;
+  &lt;código para primeira exp de exp_list em R(y+2)&gt;
+  &lt;código para segunda exp de exp_list em R(y+3)&gt;
+  ...
+  CALL Ry &lt;tamanho de exp_list + 2&gt; 2
+  MOVE Rx Ry
+</pre>
+
+<p>Se for um sufixo de indexação e o alvo for Rx o código tem o
+seguinte esquema (você deve reservar Ry e Rz antes de gerar o código
+das subexpressões):</p>
+
+<pre>
+  &lt;código para lado esquerdo em Ry&gt;
+  &lt;código para exp em Rz&gt;
+  GETTABLE Rx Ry Rz
+</pre>
+
+<p>A geração da maioria das expressões binárias e das expressões
+unárias &eacute; semelhante &agrave; de TINY (ao contrário de TINY,
+você pode usar a instrução <code>DIV</code> para divisão). A instrução
+<code>CONCAT</code>, para concatenação de strings, funciona de modo um
+pouco diferente, e deve usar o seguinte esquema (assumindo o alvo em
+Rx, você deve reservar Ry e R(y+1) antes de gerar as subexpressões):</p>
+
+<pre>
+  &lt;código para o lado esquerdo em Ry&gt;
+  &lt;código para o lado direito em R(y+1)&gt;
+  CONCAT Rx Ry R(y+1)
+</pre>
+
+<p>O código para o operador <code>new</code> usa o seguinte esquema,
+novamente assumindo que Rx &eacute; o alvo (você deve reservar
+Ry, R(y+1), etc. antes de gerar o código das subexpressões):</p>
+
+<pre>
+  GETGLOBAL Ry __GOSSIP_NEW
+  LOADK R(y+1) &lt;nome da classe&gt;
+  &lt;código para primeira exp de exp_list em R(y+2)&gt;
+  &lt;código para segunda exp de exp_list em R(y+3)&gt;
+  ...
+  CALL Ry &lt;tamanho de exp_list + 2&gt; 2
+  MOVE Rx Ry
+</pre>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Wed Dec  7 16:21:22 BRST 2011 <!-- hhmts end -->
+</body> </html>

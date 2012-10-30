@@ -1,0 +1,71 @@
+﻿<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 19/04/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Classe Agenda (19/04/2011)</h2>
+
+<pre>
+def le_agenda(nomearq):
+    arq = open(nomearq, "r")
+    agenda = arq.read()
+    arq.close()
+    return eval(agenda)
+
+class Agenda:
+    def __init__(self, nomearq, dic = {}):
+        self.dic = dic
+        self.faz_indice()
+        self.nomearq = nomearq
+        self.salva()
+    def adiciona(self, pessoa, local, numero):
+        self.nums[numero] = (pessoa, local)
+        if pessoa in self.dic:
+            # pessoa ja existe
+            if local in self.dic[pessoa]:
+                (self.dic[pessoa])[local].append(numero)
+            else:
+                (self.dic[pessoa])[local] = [numero]
+        else:
+            self.dic[pessoa] = {}
+            (self.dic[pessoa])[local] = [numero]
+        self.salva()
+    def __getitem__(self, pessoa):
+        if pessoa in self.dic:
+            return self.dic[pessoa]
+        else:
+            return {}
+    def __setitem__(self, pessoa, entrada):
+        self.adiciona(pessoa, entrada[0], entrada[1])
+    def __repr__(self):
+        return "Agenda(%s,%s)" % (repr(self.nomearq),repr(self.dic))
+    def __delitem__(self, pessoa):
+        self.faz_indice()
+        del self.dic[pessoa]
+    def apaga_local(self, pessoa, local):
+        self.faz_indice()
+        del self.dic[pessoa][local]
+    def faz_indice(self):
+        self.nums = {}
+        for nome in self.dic.keys():
+            for local in self.dic[nome].keys():
+                for numero in self.dic[nome][local]:
+                    self.nums[numero] = (nome, local)
+    def busca_numero(self, numero):
+        if numero in self.nums:
+            return self.nums[numero]
+        else:
+            return None
+    def salva(self):
+        arq = open(self.nomearq, "w+")
+        arq.write(repr(self))
+        arq.close()
+</pre>
+
+</body>
+</html>

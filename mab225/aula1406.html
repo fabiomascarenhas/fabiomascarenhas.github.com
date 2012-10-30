@@ -1,0 +1,140 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 14/06/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Interfaces Gráficas IV (14/06/2011)</h2>
+
+<h3>Layout usando subframes e side = "left"</h3>
+
+<pre>
+from Tkinter import *
+
+f = Frame()
+
+sf1 = Frame(f)
+sf2 = Frame(f)
+l1 = Label(sf1)
+l1["text"] = "Label1"
+l2 = Label(sf2)
+l2["text"] = "Label2"
+e1 = Entry(sf1)
+e2 = Entry(sf2)
+for ctrl in [l1, l2, e1, e2]:
+    ctrl["font"] = "Arial 20"
+
+l1.pack(side = "left")
+e1.pack()
+l2.pack(side = "left")
+e2.pack()
+sf1.pack()
+sf2.pack()
+f.pack()
+
+mainloop()
+</pre>
+
+<h3>Conversão de números romanos, layout com grid</h3>
+
+<p>Arquivo <code>romano.py</code>:</p>
+
+<pre>
+romanos = {
+  'unidades': [ "",  "I",   "II",   "III",   "IV",   "V",   "VI",   "VII",   "VIII",   "IX" ],
+  'dezenas':  [ "",  "X",   "XX",   "XXX",   "XL",   "L",   "LX",   "LXX",   "LXXX",   "XC" ],
+  'centenas': [ "",  "C",   "CC",   "CCC",   "CD",   "D",   "DC",   "DCC",   "DCCC",   "CM" ],
+  'milhares': [ "",  "M",   "MM",   "MMM" ]
+}
+    
+nomes = {
+  1000: 'milhares',
+  100: 'centenas',
+  10: 'dezenas',
+  1: 'unidades'
+}
+
+def romano(n):
+  res = ""
+  for d in [1000,100,10,1]:
+      res = res + romanos[nomes[d]][n / d]
+      n = n % d
+  return res
+
+def arabico(r):
+    n = 0
+    j = 0
+    for num in [1000, 100, 10, 1]:
+        nome = nomes[num]
+        for i in range(-1, -len(romanos[nome])-1, -1):
+            parte = romanos[nome][i]
+            if r.find(parte, j, j+len(parte)) != -1:
+                n = n + num * (len(romanos[nome]) + i)
+                j = j + len(parte)
+    return n
+
+for i in range(1, 4000):
+    assert(i == arabico(romano(i)))
+</pre>
+
+<p>Arquivo <code>grid.py</code>:</p>
+
+<pre>
+from Tkinter import *
+from romano import *
+
+f = Frame()
+
+titulo = Label(f)
+titulo["text"] = "Conversor"
+titulo.pack()
+sf = Frame(f)
+l1 = Label(sf)
+l1["text"] = "Arabico"
+l2 = Label(sf)
+l2["text"] = "Romano"
+e1 = Entry(sf)
+e2 = Entry(sf)
+b1 = Button(sf)
+b2 = Button(sf)
+b1["text"] = "->"
+b2["text"] = "<-"
+for ctrl in [l1, l2, e1, e2, b1, b2, titulo]:
+    ctrl["font"] = "Arial 20"
+
+l1.grid(column = 0, row = 0)
+e1.grid(column = 1, row = 0)
+l2.grid(column = 0, row = 1)
+e2.grid(column = 1, row = 1)
+b1.grid(column = 2, row = 0)
+b2.grid(column = 2, row = 1)
+sf.pack()
+f.pack()
+
+var_e1 = IntVar()
+var_e1.set(1)
+e1["textvariable"] = var_e1
+var_e2 = StringVar()
+e2["textvariable"] = var_e2
+
+def cmd_b1():
+    n = var_e1.get()
+    r = romano(n)
+    var_e2.set(r)
+
+b1["command"] = cmd_b1
+
+def cmd_b2():
+    var_e1.set(arabico(var_e2.get()))
+
+b2["command"] = cmd_b2
+
+mainloop()
+</pre>
+
+</body>
+</html>

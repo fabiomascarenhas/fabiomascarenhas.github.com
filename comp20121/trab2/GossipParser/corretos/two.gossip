@@ -1,0 +1,12 @@
+/* Duas classes trabalhando em conjunto */
+
+class Foo {
+  foo() { return "foo"; }
+}
+
+class Bar {
+  main() {
+    var foo = new Foo();
+    out.print(foo.foo());
+  }
+}

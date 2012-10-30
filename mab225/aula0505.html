@@ -1,0 +1,87 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 05/05/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Laço x Iterador e Implementação de for (05/05/2011)</h2>
+
+<pre>
+import math
+
+def impares(n):
+    return 2 * (n - 1) + 1
+
+def pi(n):
+    return 1.0 / (n * n)
+
+def somaserie(serie, n):
+    soma = 0
+    pos = 1
+    while not pos > n:
+        soma = soma + serie(pos)
+        pos = pos + 1
+        print soma
+    return soma
+
+class IterSerie:
+    def __init__(self, serie, n):
+        self.serie = serie
+        self.n = n
+        self.pos = 1
+        self.soma =0
+    def __iter__(self):
+        return IterSerie(self.serie, self.n)
+    def next(self):
+        if self.pos > self.n:
+            raise StopIteration
+        else:
+            self.soma = self.soma + (self.serie)(self.pos)
+            self.pos = self.pos + 1
+            return self.soma
+
+print "Laco:"
+            
+somaserie(impares, 5)
+print math.sqrt(somaserie(pi, 1000) * 6)
+
+print "For usando iterador:"
+
+for i in IterSerie(impares, 5):
+    print i
+
+def meufor(var, obj, corpo):
+    # Dicionario de variaveis
+    locais = locals()
+    # Prepara corpo do for para execucao
+    corpo = compile(corpo, "corpo.py", "exec")
+    # Pede iterador
+    iter = obj.__iter__()
+    try:
+        while True:
+            # Pega o proximo valor do iterador e guarda em var
+            locais[var] = iter.next()
+            # Executa o corpo
+            eval(corpo, globals(), locais)
+    except StopIteration:
+        # Segue adiante
+        pass
+
+print "Meu for:"
+
+meufor("i", IterSerie(impares, 5), "print i")
+</pre>
+
+</body>
+</html>
+
+
+
+
+
+
+

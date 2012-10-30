@@ -1,0 +1,74 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Lista 1 (24/03/2011)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Lista de Exercícios 3 - Iteradores (04/05/2011)</h2>
+
+<ol>
+
+<li>Escreva um iterador que recebe uma sequência e uma função de filtro e
+  fornece todos os itens dessa sequência para o qual filtro(item) ==
+  True. Dica: veja como está implementado o IterContador, outro
+  iterador que recebe uma função.</li>
+
+<li>Escreva um iterador que "zipa" duas sequências, ele recebe duas
+  sequências a e b retorna pares com (a[0], b[0]), (a[1], b[1]) etc. O
+  iterador deve disparar um erro RangeError no momento de sua criação
+  se as sequências tiverem tamanhos diferentes.</li>
+
+<li>Para os dois iteradores acima, se você escreveu eles acessando as
+  sequências via [] e len então reescreva usando o iterador de cada
+  sequência, e se você escreveu usando o iterador então reescreva
+  usando [] e len. Como exemplo, o iterador a seguir recebe uma
+  sequência e uma função f e fornece os elementos da sequência depois
+  de transformados por f. IterMap1 usa [] e len, IterMap2 usa o
+  iterador da sequência.
+
+<pre>
+class IterMap1:
+    def __init__(self, seq, f):
+        self.seq = seq
+        self.f = f
+        self.pos = 0
+    def __iter__(self):
+        return IterMap1(self.seq, self.f)
+    def next(self):
+        if self.pos >= len(self.seq):
+            raise StopIteration
+        else:
+            val = (self.f)(self.seq[self.pos])
+            self.pos = self.pos + 1
+            return val
+
+class IterMap2:
+    def __init__(self, seq, f):
+        self.seq = seq
+        self.f = f
+        self.iter = seq.__iter__()
+    def __iter__(self):
+        return IterMap2(self.seq, self.f)
+    def next(self):
+        return (self.f)(self.iter.next())
+
+def quadrado(x):
+    return x * x
+
+for i in IterMap1([1,2,3,4], quadrado):
+    print i
+
+for i in IterMap2([1,2,3,4], quadrado):
+    print i
+</pre>
+
+  </li>
+ 
+</ol>
+
+</body>
+</html>

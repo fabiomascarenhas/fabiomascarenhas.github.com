@@ -1,0 +1,69 @@
+
+Exception in thread "main" java.lang.RuntimeException: errados/ack.gossip (4,5): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/ack_var.gossip (5,3): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/arr.gossip (10,11): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/arr_nolval.gossip (9,5): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/arr_nometh.gossip (3,3): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/arr_wronglval.gossip (14,18): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/ary.gossip (6,25): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/blocks.gossip (9,17): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/dangling.gossip (5,10): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/fibo.gossip (3,9): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/hello.gossip (5,24): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/hello_nobody.gossip (5,1): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/hello_noclass.gossip (3,1): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/hello_varinit.gossip (4,9): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/loops.gossip (14,19): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/priority.gossip (9,18): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)
+Exception in thread "main" java.lang.RuntimeException: errados/sumcol.gossip (10,27): syntax error
+	at gossip.Parser.yyerror(Parser.java:4204)
+	at gossip.Parser.parse(Parser.java:1719)
+	at gossip.Driver.main(Driver.java:9)

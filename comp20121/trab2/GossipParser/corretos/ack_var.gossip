@@ -1,0 +1,15 @@
+class Ack {
+  var res;
+
+  ackermann(M, N) {
+    if (M == 0) return N + 1;
+    if (N == 0) return this.ackermann(M - 1, 1);
+    return this.ackermann(M - 1, this.ackermann(M, (N - 1)));
+  }
+
+  main() {
+    res = this.ackermann(3,7);
+    out.print("Ack(3,7): ", res);
+  }
+}
+

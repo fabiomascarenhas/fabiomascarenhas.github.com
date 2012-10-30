@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo > erros.txt
+
+for name in `ls -1 errados/*.gossip | xargs`; do
+   echo $name
+   java -cp "." gossip.Driver $name 2>> erros.txt
+done
+
+diff erros.txt errados/erros.txt

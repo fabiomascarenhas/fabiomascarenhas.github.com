@@ -1,0 +1,182 @@
+<p><html>
+<head>
+<title>MAB 240 &ndash; Computação II</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>MAB 240 - Computação II</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2>Laboratório 7 - 07/05/2012</h2>
+
+<p><b>AVISO IMPORTANTE: baixe a última versão da biblioteca de acesso a banco de
+dados <a href = "almonds.jar">aqui</a>, salve no diretório <b>lib</b>
+do projeto RegistroNotas. A última atualização foi em <b>14/05 9:25</b>.</b></p>
+
+<p>O objetivo desse e do próximo laboratório será construir uma
+aplicação Java completa, inclusive sua interface gráfica. Não se
+assuste com o escopo da aplicação, ela &eacute; mais simples do
+que pode parecer, e vocês terão 3 semanas para concluir esse trabalho.</p>
+
+<p>Para começar você precisará instalar o plugin
+ WindowBuilder do Eclipse. Vá à página 
+ <a href="https://developers.google.com/java-dev-tools/download-wbpro">
+ WindowBuilder Pro</a> e copie a URL relativa à sua
+ versão do Eclipse. Para 3.7 ela é <b>http://dl.google.com/eclipse/inst/d2wbpro/latest/3.7</b>.
+ Agora abra o Eclipse e vá ao menu <b>Help-&gt;Install New Software...</b>. Cole
+ a URL na caixa "Work with:" e clique em "Add:". Marque
+ a checkbox ao lado de "Swing Designer" e "WindowBuilder Engine"
+ na caixa de lista, depois clique em "Next", "Next" de novo,
+ "I accept..." e "Finish".
+ </p>
+ 
+ <p>Recomendo que vocês façam primeiro toda a aplicação
+ sem o uso do banco de dados, com dados de teste, e
+ depois implementem a ligação com o banco de dados.
+ O projeto tem instruções específicas para não haver
+ conflito entre as aplicações de cada grupo, mas se quiser
+ um acesso melhor ao banco de dados crie uma conta
+ em <a href="http://parse.com">parse.com</a> e uma
+ aplicação lá, e copie a </b>"Application Key"</b> e <b>"REST API Key"</b>
+ para as variáveis correspondentes no projeto (<b>APP_KEY</b>
+ e <b>API_KEY</b>).</p>
+
+ <p>O arquivo LEIAME.txt faz referência ao diário
+ de aulas, ele acabou não sendo incluído no .zip do
+ projeto, baixe ele <a href="diario.pdf">aqui</a>.</p>
+
+<p>Você deve baixar o projeto Eclipse da aplicação <a href =
+"RegistroNotas.zip">aqui</a> e usá-lo como ponto de partida. Esse
+projeto cont&eacute;m as bibliotecas que você irá precisar, as classes
+da interface gráfica da aplicação já desenhadas.</p>
+
+<p>Tamb&eacute;m será de grande ajuda baixar a última versão da
+aplicação Fotograma que está sendo desenvolvida em sala, pegue ela na
+página da disciplina. A aplicação &eacute; bem diferente, mas a
+estrutura de vários pedaços de código pode ser reaproveitada.</p>
+
+<p><b>Leia com atenção as instruções detalhadas abaixo!</b></p>
+
+<h2>Conceito básico</h2>
+
+<p>A aplicação abre na janela para seleção de turmas, onde o professor
+também pode cadastrar novas turmas para a disciplina. Uma vez escolhida
+uma turma a aplicação prossegue para a janela dos alunos daquela turma,
+com uma tabela com todos os alunos, suas notas e a média final.</p>
+
+<p>Na janela dos alunos o professor pode cadastrar um novo aluno, ou
+editar os dados de um aluno já existente.</p>
+
+<p>Todos os dados são armazenados no banco de dados <a href
+="http://parse.com">parse.com</a>, o
+mesmo que estamos usando na aplicação Fotograma. Assim os dados gravados
+lá poderão ser usados nas próximas aplicações que faremos, uma
+aplicação de celular para um aluno consultar suas notas, e uma
+aplicação web que servirá tanto para edição das turmas e notas pelo
+professor quanto para um aluno ver as suas notas.</p>
+
+<h2>Estrutura do banco de dados</h2>
+
+<p>O nome das tabelas no banco de dados deve ser prefixado com G_n1_n2_, onde
+n1 e n2 são os números dos membros da dupla no Diário de Aulas (veja o arquivo
+diario.pdf). Por exemplo, um grupo composto pelo ALLAN MONTEIRO DAVID e o
+JULIO CESAR DA SILVA PEREIRA deve prefixar suas tabelas com G_4_27_, assim:
+G_4_27_Alunos, G_4_27_Turmas, G_4_27_Notas. Para facilitar edite as variáveis
+ALUNOS, TURMAS e NOTAS em RegistroNotas.java com os nomes das tabelas para seu
+grupo, e use essas variáveis no seu programa.</p>
+
+<h3>Alunos</h3>
+<ul>
+  <li>id (gerado pelo Parse)</li>
+  <li>DRE (deve ser único)</li>
+  <li>nome</li>
+</ul>
+
+<h3>Turmas</h3>
+<ul>
+  <li>id (gerado pelo Parse)</li>
+  <li>nome (2012.1, por exemplo, deve ser único)</li>
+</ul>
+ 
+<h3>Notas</h3>
+<ul>
+<li>id</li>
+<li>turma (nome da turma)</li>
+<li>aluno (DRE do aluno)</li>
+<li>P1</li>
+<li>P2</li>
+<li>P3</li>
+</ul>
+
+<h2>Estrutura da Aplicação</h2>
+
+<p>Para facilitar eu já criei e desenhei as classes correspondentes às
+janelas da aplicação, você deve usá-las, conectando a interface às
+classes que darão a funcionalidade do programa. Você é livre para
+organizar o resto do programa do jeito que quiser.</p>
+
+<p>Uma dica é uma classe Aluno representando o registro de notas um aluno
+em uma determinada turma, com dados como DRE, nome do aluno, nome da
+turma, P1, P2, e P3 e métodos para atualizar notas e calcular a média
+final, e uma classe Turma que tem o nome da turma e uma lista dos alunos
+daquela turma, com um método para adicionar um aluno e obter o registro
+de um aluno específico.</p>
+
+<h2>Lista de alunos de uma turma</h2>
+
+<pre>
+public static List&lt;Aluno&gt; alunos(String turma) throws ParseException {
+	List&lt;Aluno&gt; res = new ArrayList&lt;Aluno&gt;();
+	ParseQuery qNotas = new ParseQuery(RegistroNotas.NOTAS);
+	qNotas.whereEqualTo("turma", turma);
+	List&lt;ParseObject&gt; notas = qNotas.find();
+	List&lt;String&gt; dres = new ArrayList&lt;String&gt;();
+	Map&lt;String, ParseObject&gt; nAlunos = new
+			HashMap&lt;String, ParseObject&gt;();
+	for(ParseObject nota : notas) {
+		String dre = nota.getString("aluno");
+		dres.add(dre);
+		nAlunos.put(dre, nota);
+	}
+	ParseQuery qAlunos = new ParseQuery(RegistroNotas.ALUNOS);
+	qAlunos.whereContainedIn("dre", (List)dres);
+	qAlunos.addAscendingOrder("nome");
+	List&lt;ParseObject&gt; alunos = qAlunos.find();
+	for(ParseObject aluno : alunos) {
+		String dre = aluno.getString("dre");
+		res.add(new Aluno(aluno, nAlunos.get(dre)));
+	}
+	return res;
+}
+</pre>
+
+<h2>Preenchendo uma JTable</h2>
+
+<p>Baixe os arquivos <a href="regnotas/Aluno.java">Aluno.java</a> e <a
+href="regnotas/JanelaAlunos.java">JanelaAlunos.java</a> para ver um
+exemplo de como preencher uma JTable implementando uma classe derivada
+de AbstractTableModel.</p>
+
+<h2>Preenchendo uma JList</h2>
+
+<p>Baixe os arquivos <a href="regnotas/Turma.java">Turma.java</a> e <a
+href="regnotas/JanelaTurmas.java">JanelaTurmas.java</a> para ver um
+exemplo de como preencher uma JList usando a classe DefaultListModel.</p>
+
+<h2>Enviando</h2>
+
+<p>Crie um arquivo <code>.zip</code> com todo o projeto que você criou
+e mande para <a href="mailto:fabio_hq2h@sendtodropbox.com">esse
+email</a> at&eacute; o dia <b>30/05</b> (uma quarta-feira). Esse
+trabalho vale <b>0,7</b> na nota de exercícios, e 
+poderá ser feito em dupla. Não esqueça de escrever quem são os autores
+no email, e em um comentário no(s) seu(s) arquivo(s) <code>.java</code>.</p>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Wed May 16 10:00:35 BRT 2012 <!-- hhmts end -->
+</body> </html>

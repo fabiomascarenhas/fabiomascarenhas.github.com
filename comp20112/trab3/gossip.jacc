@@ -1,0 +1,155 @@
+
+%{
+import java.io.*;
+%}
+
+%class GossipParser
+%interface GossipTokens
+%next getToken()
+%get tokenType
+%semantic String: tokenVal
+
+%token CLASS VAR DEF NEW WHILE IF ELSE TRUE FALSE THIS NULL
+%token BREAK RETURN LEQ CONCAT EQ AND OR ID NUMBER STRING
+
+%left '!'
+%left AND OR
+%left EQ
+%left '<' LEQ
+%left '+' '-' CONCAT
+%left '*' '/'
+%left UNM '#'
+
+%%
+
+start: gossip { output = $1; } ;
+
+gossip : gossip class_decl { $$ = $1 + $2 + "\n"; } 
+       | /* vazio */ { $$ = ""; } 
+       ;
+
+class_decl : CLASS ID '{' members '}' { $$ = "class " + $2 + "{\n" + $4 + "}"; } ;
+
+members : members member_decl { $$ = $1 + $2 + "\n"; } 
+        | /* vazio */ { $$ = ""; } 
+        ;
+
+member_decl : var_decl 
+            | method_decl 
+            ;
+
+var_decl : VAR ID ';' { $$ = "var " + $2 + ";"; } ;
+
+method_decl : DEF ID '(' param_list ')' '{' cmds '}' { $$ = "def " + $2 + "(" + $4 + ") {\n" + $7 + "}"; } ;
+
+param_list : ids 
+           | /* vazio */ { $$ = ""; } 
+           ;
+
+ids : ids ',' ID { $$ = $1 + "," + $3; } 
+    | ID 
+    ;
+
+cmds : cmds cmd { $$ = $1 + $2 + "\n"; } 
+     | /* vazio */ { $$ = ""; } 
+     ;
+
+cmd : '{' cmds '}' { $$ = "{\n" + $2 + "}"; } 
+      | IF '(' exp ')' cmd else_part { $$ = "if(" + $3 + ")\n" + $5 + $6; }
+      | WHILE '(' exp ')' cmd { $$ = "while(" + $3 + ")\n" + $5; }
+      | BREAK ';' { $$ = "break;"; }
+      | RETURN exp ';' { $$ = "return " + $2 + ";"; } 
+      | lvalue '=' exp ';'  { $$ = $1 + " = " + $3 + ";"; }
+      | methodcall ';' { $$ = $1 + ";"; } 
+      | VAR ID ';' { $$ = "var " + $2 + ";"; }
+      | VAR ID '=' exp ';' { $$ = "var " + $2 + " = " + $4 + ";"; } 
+      | ';' { $$ = ";"; } 
+      ;
+
+else_part : ELSE cmd { $$ = "\nelse\n" + $2; } 
+          | /* vazio */ { $$ = ""; } 
+          ;
+
+lvalue : ID 
+       | simple '[' exp ']' { $$ = $1 + "[" + $3 + "]"; } 
+       ;
+
+simple : simple suffix { $$ = $1 + $2; } 
+       | atom 
+       ;
+
+atom : THIS 
+     | NULL 
+     | FALSE 
+     | TRUE 
+     | NUMBER 
+     | STRING 
+     | ID
+     | '(' exp ')' { $$ = $2; } 
+     | '[' exp_list ']' { $$ = "[" + $2 + "]"; } 
+     ;
+
+suffix : '.' ID '(' exp_list ')' { $$ = "." + $2 + "(" + $4 + ")"; } 
+       | '[' exp ']' { $$ = "[" + $2 + "]"; } 
+       ;
+
+methodcall : simple '.' ID '(' exp_list ')' { $$ = $1 + "." + $3 + "(" + $5 + ")"; } ;
+
+exp : simple 
+    | NEW ID '(' exp_list ')' { $$ = "new " + $2 + "(" + $4 + ")"; } 
+    | exp '+' exp  { $$ = "(" + $1 + "+" + $3 + ")"; }
+    | exp '-' exp  { $$ = "(" + $1 + "-" + $3 + ")"; }
+    | exp '/' exp  { $$ = "(" + $1 + "/" + $3 + ")"; }
+    | exp '*' exp  { $$ = "(" + $1 + "*" + $3 + ")"; }
+    | exp AND exp  { $$ = "(" + $1 + "&&" + $3 + ")"; }
+    | exp OR exp   { $$ = "(" + $1 + "||" + $3 + ")"; }
+    | exp '<' exp  { $$ = "(" + $1 + "<" + $3 + ")"; }
+    | exp LEQ exp  { $$ = "(" + $1 + "<=" + $3 + ")"; }
+    | exp EQ exp   { $$ = "(" + $1 + "==" + $3 + ")"; }
+    | exp CONCAT exp { $$ = "(" + $1 + ".." + $3 + ")"; }
+    | '-' exp %prec UNM { $$ = "(-" + $2 + ")"; }
+    | '#' exp { $$ = "(#" + $2 + ")"; }
+    | '!' exp { $$ = "(!" + $2 + ")"; }
+    ;
+
+exp_list : exps 
+         | /* vazio */ { $$ = ""; } 
+         ;
+
+exps : exps ',' exp { $$ = $1 + "," + $3; } 
+     | exp 
+     ;
+
+%%
+
+String filename;
+GossipScanner scanner;
+int tokenType;
+String tokenVal;
+GossipToken token;
+String output;
+
+public GossipParser(String filename, Reader input) {
+    this.filename = filename;
+    scanner = new GossipScanner(input);
+    getToken();
+}
+
+int getToken() {
+    try {
+        GossipToken tok = scanner.getToken();
+        if(tok != null) {
+          tokenType = tok.type;
+          tokenVal = tok.toVal();
+          token = tok;
+        } else
+          tokenType = ENDINPUT;
+        return tokenType;
+    } catch(Exception e) {
+        throw new RuntimeException(e);
+    }
+}
+
+void yyerror(String msg) {
+     throw new RuntimeException(filename + " (" + token.line + "," + token.col + "): "+ msg);
+}

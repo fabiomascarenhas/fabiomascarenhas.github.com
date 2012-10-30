@@ -1,0 +1,16 @@
+/* Blocos aninhados */
+
+class Blocks {
+  main() {
+    var a = 2;
+    {
+      var a = 3;
+      {
+        var a = 0;
+        out.print(a);
+      }
+      out.print(a);
+    }
+    out.print(a);
+  }
+}

@@ -1,0 +1,97 @@
+<p><html>
+<head>
+<title>MAB 240 &ndash; Computação II</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>MAB 240 - Computação II</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2>Laboratório 1 - 12/03/2012</h2>
+
+<p>1. Crie um projeto Eclipse chamado Lab1, e dentro da pasta
+<code>src</code> desse projeto crie um arquivo <code>Ola.java</code> e
+digite o seguinte código Java nele:</p>
+
+<pre>
+  public class Ola {
+
+    static int soma(int a, int b) {
+      return a + b;
+    }
+
+    public static void main(String[] args) {
+      System.out.println("A soma de 2 e 3 &eacute;: " + soma(2,3));
+    }
+
+  }
+</pre>
+
+<p>Execute o projeto e veja o resultado. Crie um <i>scrapbook</i> para esse
+projeto (um arquivo chamado <b><code>scrapbook.jpage</code></b> e 
+inspecione
+o resultado de algumas expressões. Use esse mesmo projeto para o
+resto dos exercícios desse laboratório.</p>
+
+<p>2. Um programa de uma loja de carros precisa das seguintes
+informações sobre cada carro: o modelo, o preço, o consumo
+m&eacute;dio de combustível e se o carro &eacute; novo ou
+usado. Projete e implemente uma classe <code>Carro</code> que agrupe
+essas informações: represente a classe com um diagrama, escreva o
+código Java da classe, incluindo seu construtor, e crie e inspecione
+algumas instâncias de <code>Carro</code> no <i>scrapbook</i>.</p>
+
+<p>3. Um programa para um agente imobiliário precisa guardar para cada
+imóvel a sua metragem, o número de quartos, o número de vagas de
+garagem, seu endereço, e os dados do proprietário atual. O endereço
+consiste do logradouro, do número, de um complemento e do bairro. Os
+dados do proprietário são seu nome e telefone. Modele e implemente
+esse problema como um conjunto de três classes, <code>Imovel</code>,
+<code>Endereco</code> e <code>Proprietario</code>.</p>
+
+<p>4. Modifique a classe <code>Onibus</code> feita em sala para que
+ônibus executivos e convencionais sejam classes separadas
+<code>Executivo</code> e <code>Convencional</code> que implementam a
+mesma interface <code>Onibus</code>. A lista de paradas existe apenas
+nos ônibus convencionais.</p>
+
+<p>5. Um programa assistente financeiro controla as contas bancárias
+de determinada pessoa. Cada conta tem um número e o nome do
+correntista, e existem três tipos de conta: contas correntes, contas
+poupança, e certificados de depósito (CDs). Contas correntes
+tamb&eacute;m têm a informação do saldo atual e do limite mínimo,
+contas poupança têm o saldo atual e a taxa de juros, e CDs o valor
+depositado, a taxa de juros, e a data de vencimento. Modele e
+implemente esse problema usando três classes derivadas de uma
+interface comum.</code>
+
+<p>6. O programa de um website de vendas de ingressos vende ingressos
+para eventos, para exposições e para teatros. O ingresso de um evento
+guarda a data do evento, o local ("Pista", "Arquibancada", "Pista
+Premium", etc.), e o preço. O ingresso de uma exposição guarda a data
+e o preço, e o ingresso de teatro guarda a data, o horário, o preço, e
+a poltrona. Modele os três tipos de ingresso como classes derivadas de
+uma interface <code>Ingresso</code>. Modele datas e horários como
+classes separadas.</p>
+
+<p>7. Modifique o programa da questão 5 para manter, para cada conta
+corrente, um registro de lançamentos. Cada lançamento tem uma data,
+uma descrição e um valor.</p>
+
+<h2>Enviando</h2>
+
+<p>Crie um arquivo <code>.zip</code> com todo o projeto que você criou
+e mande para <a href="mailto:fabio_hq2h@sendtodropbox.com">esse
+email</a> at&eacute; a próxima aula de laboratório (19/03/2012). Esse
+trabalho já contará para a nota de exercícios, e excepcionalmente
+poderá ser feito em dupla. Não esqueça de escrever quem são os autores
+no email, e em um comentário no(s) seu(s) arquivo(s) <code>.java</code>.</p>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Mon Mar 12 00:27:51 BRT 2012 <!-- hhmts end -->
+</body> </html>

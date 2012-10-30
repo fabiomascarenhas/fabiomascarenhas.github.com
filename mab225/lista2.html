@@ -1,0 +1,287 @@
+<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Lista 1 (24/03/2011)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Lista de Exercícios 2 (14/04/2011)</h2>
+
+<p>Para cada uma das classes abaixo lembre de definir um m&eacute;todo
+__init__ apropriado!</p>
+
+<ol>
+<li>Crie uma classe que modele uma bola:
+<ul>
+<li>Atributos: cor, raio</li>
+<li>Métodos: trocaCor e mostraCor, area, volume</li>
+</ul>
+<pre>
+import math
+
+class Bola:
+    def __init__(self, cor, raio):
+        self.cor = cor
+        self.raio = raio
+    def trocaCor(self, cor):
+        self.cor = cor
+    def mostraCor(self):
+        print "Minha cor e %s" % self.cor
+    def area(self):
+        return 4 * math.pi * self.raio * self.raio
+    def volume(self):
+        return (4 * math.pi * (self.raio ** 3)) / 3
+
+bola = Bola("azul", 2)
+bola.mostraCor()
+bola.trocaCor("verde")
+bola.mostraCor()
+print "Area: %f Volume: %f" % (bola.area(), bola.volume())
+</pre>
+</li>
+
+<li>
+Crie uma classe que modele um quadrado:
+<ul>
+<li>Atributos: lado</li>
+<li>M&eacute;todos: trocaLado, mostraLado, perimetro, area</li>
+</ul>
+<pre>
+class Quadrado:
+    def __init__(self, lado):
+        self.lado = lado
+    def trocaLado(self, lado):
+        self.lado = lado
+    def mostraLado(self):
+        print "Meu lado e %s" % self.lado
+    def perimetro(self):
+        return 4 * self.lado
+    def area(self):
+        return self.lado * self.lado
+
+quad = Quadrado(2)
+quad.mostraLado()
+quad.trocaLado(3)
+quad.mostraLado()
+print "Perimetro: %i Area: %i" % (quad.perimetro(), quad.area())
+</pre>
+</li>
+
+<li>
+Crie uma classe que modele um retangulo:
+<ul>
+<li>ladoA, ladoB (ou comprimento e largura, ou base e altura, você escolhe)</li>
+<li>M&eacute;todos: trocaLados (dois parâmetros), retornaLados (em uma tupla),
+perimetro, area</li>
+</ul>
+<pre>
+class Retangulo:
+    def __init__(self, ladoA, ladoB):
+        self.ladoA = ladoA
+        self.ladoB = ladoB
+    def trocaLados(self, ladoA, ladoB):
+        self.ladoA = ladoA
+        self.ladoB = ladoB
+    def retornaLados(self):
+        return (self.ladoA, self.ladoB)
+    def perimetro(self):
+        return 2 * self.ladoA + 2 * self.ladoB
+    def area(self):
+        return self.ladoA * self.ladoB
+
+ret = Retangulo(2,3)
+print "Lados: %i, %i" % ret.retornaLados()
+ret.trocaLados(3,4)
+print "Lados: %i, %i" % ret.retornaLados()
+print "Perimetro: %i Area: %i" % (ret.perimetro(), ret.area())
+</pre>
+</li>
+
+<li>Crie um programa que utilize a classe Retangulo. Ele deve pedir ao
+usuário (com input) que informe as medidas de um local. Depois deve
+pedir a medida do piso que ele quer usar. O programa então deve
+calcular quantas unidades do piso o local vai precisar.
+<pre>
+compl = input("Informe o comprimento do local: ")
+largl = input("Informe a largura do local: ")
+local = Retangulo(compl, largl)
+compp = input("Informe o comprimento do piso: ")
+largp = input("Informe a largura do piso: ")
+piso = Retangulo(compp, largp)
+npisos = local.area() * 1.0 / piso.area()
+print "Voce vai precisar de %f pisos" % npisos
+</pre>
+</li>
+
+<li>Crie uma classe para modelar uma conta corrente. A classe deve
+possuir os atributos numero, correntista e saldo. Os métodos são
+alterarNome, deposito, saque e transferencia; No construtor
+(__init__), saldo é opcional, com valor default zero e os outros
+atributos são obrigatórios.
+<pre>
+class Conta:
+    def __init__(self, numero, nome, saldo = 0):
+        self.numero = numero
+        self.correntista = nome
+        self.saldo = saldo
+    def alterarNome(self, nome):
+        self.correntista = nome
+    def deposito(self, valor):
+        self.saldo = self.saldo + valor
+    def saque(self, valor):
+        self.saldo = self.saldo - valor
+    def transferencia(self, outra, valor):
+        self.saque(valor)
+        outra.deposito(valor)
+
+c1 = Conta(123, "Fulano")
+c2 = Conta(456, "Beltrano")
+c1.deposito(50)
+c1.saque(10)
+c1.deposito(100)
+c1.transferencia(c2, 50)
+c2.saque(30)
+print "Saldo c1: %i, Saldo c2: %i" % (c1.saldo, c2.saldo)
+c1.alterarNome("Fulano de Tal")
+print c1.correntista
+</pre>
+</li>
+
+<li>Faça um programa completo que:
+<ul>
+<li>Possua uma classe chamada Ponto, com os atributos x e y.</li>
+<li>Possua uma classe chamada Retangulo, com os atributos canto1 e
+canto2, que devem ser pontos (canto1 &eacute; o canto inferior
+esquerdo, canto 2 o superior direito).</li>
+<li>Escreva um m&eacute;todo __repr__ para a classe Ponto.</li>
+<li>Escreva um m&eacute;todo centro para a classe Retangulo que retorne o
+ponto central do retângulo (você vai ter que criar um novo ponto).</li>
+<li>Pergunte ao usuário as coordenadas de dois pontos, crie os pontos,
+crie um retângulo com esses pontos e depois mostre as coordenadas do
+centro desse retângulo</li>
+</ul>
+<pre>
+class Ponto:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __repr__(self):
+        return "Ponto(%s, %s)" % (repr(self.x), repr(self.y))
+
+class Retangulo:
+    def __init__(self, canto1, canto2):
+        self.canto1 = canto1
+        self.canto2 = canto2
+    def centro(self):
+        x_centro = (self.canto1.x + self.canto2.x) / 2.0
+        y_centro = (self.canto1.y + self.canto2.y) / 2.0
+        return Ponto(x_centro, y_centro)
+
+x1 = input("Entre a coordenada x do canto inferior esquerdo: ")
+y1 = input("Entre a coordenada y do canto inferior esquerdo: ")
+canto1 = Ponto(x1, y1)
+x2 = input("Entre a coordenada x do canto superior direito: ")
+y2 = input("Entre a coordenada y do canto superior direito: ")
+canto2 = Ponto(x2, y2)
+ret = Retangulo(canto1, canto2)
+print "Ponto central e %s" % repr(ret.centro())
+</pre>
+</li>
+
+<li>Crie uma classe que modele uma bomba de combustível com dois
+atributos, capacidade e preco, para a quantidade de combustível na bomba em litros e
+o preço por litro do combustível, e os seguintes
+m&eacute;todos:
+<ul>
+<li>abastecerPorValor: recebe um valor e retorna a quantidade de
+litros que saiu da bomba para completar aquele valor (lembre de
+reduzir a capacidade)</li>
+<li>abastecerPorLitro: recebe uma quantidade de litros e retorna
+quanto custou (novamente, lembre de reduzir a capacidade)</li>
+<li>alterarPreco: muda o preço do combustível na bomba</li>
+<li>encherBomba: recebe uma quantidade de litros e adiciona &agrave;
+capacidade da comba</li>
+</ul>
+<pre>
+class Bomba:
+    def __init__(self, capacidade, preco):
+        self.capacidade = capacidade
+        self.preco = preco
+    def abastecerPorValor(self, valor):
+        litros = valor / self.preco
+        self.capacidade = self.capacidade - litros
+        return litros
+    def abastecerPorLitro(self, litros):
+        valor = litros * self.preco
+        self.capacidade = self.capacidade - litros
+        return valor
+    def alterarPreco(self, preco):
+        self.preco = preco
+    def encherBomba(self, litros):
+        self.capacidade = self.capacidade + litros
+
+bomba = Bomba(2000, 2.87)
+print "Abasteceu %f litros" % bomba.abastecerPorValor(100)
+print "Abasteceu %f reais" % bomba.abastecerPorLitro(100)
+bomba.alterarPreco(2.55)
+print "Abasteceu %f reais" % bomba.abastecerPorLitro(100)
+bomba.encherBomba(100)
+print "Capacidade: %f litros" % bomba.capacidade
+</pre>
+</li>
+
+<li>Crie uma classe para modelar um número complexo. Defina os
+m&eacute;todos especiais aritm&eacute;ticos para ela (__add__,
+__sub__, __mul__, __div__), e um m&eacute;todo para retornar o
+conjugado e o módulo do número complexo.
+<pre>
+import math
+
+class Complexo:
+    def __init__(self, re, im):
+        self.re = re
+        self.im = im
+    def __repr__(self):
+        return "Complexo(%s, %s)" % (repr(self.re), repr(self.im))
+    def __add__(self, outro):
+        return Complexo(self.re + outro.re, self.im + outro.im)
+    def __sub__(self, outro):
+        return Complexo(self.re - outro.re, self.im - outro.im)
+    def __mul__(self, outro):
+        if isinstance(outro, Complexo):
+            re = self.re * outro.re - self.im * outro.im
+            im = self.im * outro.re + self.re * outro.im
+            return Complexo(re, im)
+        else:
+            return Complexo(self.re * outro, self.im * outro)
+    def norma(self):
+        return self.re ** 2 + self.im ** 2
+    def __div__(self, outro):
+        re = (self.re * outro.re + self.im * outro.im) * 1.0 / outro.norma()
+        im = (self.im * outro.re - self.re * outro.im) * 1.0 / outro.norma()
+        return Complexo(re, im)
+    def conjugado(self):
+        return Complexo(self.re, -self.im)
+    def modulo(self):
+        return math.sqrt(self.norma())
+
+c1 = Complexo(2, 3)
+c2 = Complexo(4, 7)
+print "c1: %s, c2: %s" % (repr(c1), repr(c2))
+print "Soma: %s" % repr(c1 + c2)
+print "Sub: %s" % repr(c1 - c2)
+print "Mul: %s" % repr(c1 * c2)
+print "Mul escalar: %s" % repr(c1 * 3)
+print "Div: %s" % repr(c1 / c2)
+print "Conjugado c1: %s" % repr(c1.conjugado())
+print "Modulo c1: %s" % repr(c1.modulo())
+</pre>
+</li>
+
+</ol>
+
+</body>
+</html>

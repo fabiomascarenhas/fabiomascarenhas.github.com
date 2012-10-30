@@ -1,0 +1,129 @@
+
+%package gossip
+
+%{
+import java.io.*;
+import java.util.*;
+%}
+
+%class Parser
+%interface Tokens
+%next getToken()
+%get tokenType
+%semantic Object: token
+
+%token <Token> CLASS VAR NEW WHILE IF ELSE TRUE FALSE THIS NULL
+%token <Token> BREAK RETURN LEQ EQ AND OR ID NUMBER STRING
+
+%type <List> gossip exp_list exps cmds
+%type <gossip.Class> class_decl
+%type <Command> cmd methodcall else_part
+%type <Member> member_decl
+%type <Expression> lvalue simple atom exp
+%type <Suffix> suffix
+
+// TODO: especifique a precedência e associatividade dos operadores
+
+%%
+
+start: gossip { output = new Program($1); } ;
+
+gossip : gossip class_decl { $1.add($2); $$ = $1; } 
+       | /* vazio */ { $$ = new ArrayList<gossip.Class>(); } 
+       ;
+
+class_decl : CLASS ID '{' members '}' { $$ = new gossip.Class($2.toVal(), $4, $1.line, $1.col); } ;
+
+// TODO: especifique a regra para o não-terminal "members"
+
+member_decl : var_decl 
+            | method_decl 
+            ;
+
+var_decl : VAR ID ';' { $$ = new Field($2.toVal(), $1.line, $1.col); } ;
+
+method_decl : ID '(' param_list ')' '{' cmds '}' { $$ = new Method($1.toVal(), $3, $6, $1.line, $1.col); } ;
+
+// TODO: especifique a regra para o não-terminal "param_list"
+
+cmds : cmds cmd { $1.add($2); $$ = $1; } 
+     | /* vazio */ { $$ = new ArrayList<Command>(); } 
+     ;
+
+// TODO: especifique a regra para o não-terminal "cmd"
+
+lvalue : ID                 { $$ = new VarExp($1.toVal()); }
+       | simple '[' exp ']' { $$ = new Simple($1, new Index($3)); } 
+       ;
+
+// TODO: especifique a regra para o não-terminal "simple"
+
+atom : THIS     { $$ = new This(); }
+     | NULL     { $$ = new Null(); }
+     | FALSE    { $$ = new False(); }
+     | TRUE     { $$ = new True(); }
+     | NUMBER   { $$ = new Number(Double.parseDouble($1.toVal())); }
+     | STRING   { $$ = new Literal($1.toVal()); }
+     | ID       { $$ = new VarExp($1.toVal()); }
+     | '(' exp ')' { $$ = $2; } 
+     ;
+
+suffix : '.' ID '(' exp_list ')' { $$ = new MethodCall($2.toVal(), $4); } 
+       | '[' exp ']' { $$ = new Index($2); } 
+       ;
+
+methodcall : simple '.' ID '(' exp_list ')' { $$ = new MethodCallCmd($1, $3.toVal(), $5); } ;
+
+exp : simple 
+    | NEW ID '(' exp_list ')' { $$ = new New($2.toVal(), $4, $1.line, $1.col); } 
+    | exp '+' exp  { $$ = new Arith("ADD", $1, $3); }
+    | exp '-' exp  { $$ = new Arith("SUB", $1, $3); }
+    | exp '/' exp  { $$ = new Arith("DIV", $1, $3); }
+    | exp '*' exp  { $$ = new Arith("MUL", $1, $3); }
+    | exp AND exp  { $$ = new And($1, $3); }
+    | exp OR exp   { $$ = new Or($1, $3); }
+    | exp '<' exp  { $$ = new Rel("LT", $1, $3); }
+    | exp LEQ exp  { $$ = new Rel("LEQ", $1, $3); }
+    | exp EQ exp    { $$ = new Rel("EQ", $1, $3); }
+    | '-' exp %prec UNM { $$ = new Arith("SUB", new Number(0), $2); }
+    | '!' exp { $$ = new Not($2); }
+    ;
+
+exp_list : exps 
+         | /* vazio */ { $$ = new ArrayList<Expression>(); } 
+         ;
+
+exps : exps ',' exp { $1.add($3); $$ = $1; } 
+     | exp          { List<Expression> exps = new ArrayList<Expression>(); exps.add($1); $$ = exps; }
+     ;
+
+%%
+
+String filename;
+Scanner scanner;
+int tokenType;
+Object token;
+Program output;
+
+public Parser(String filename, Reader input) {
+    this.filename = filename;
+    scanner = new Scanner(input);
+    getToken();
+}
+
+int getToken() {
+    try {
+        token = scanner.getToken();
+        if(token != null) {
+          tokenType = ((Token)token).type;
+        } else
+          tokenType = ENDINPUT;
+        return tokenType;
+    } catch(Exception e) {
+        throw new RuntimeException(e);
+    }
+}
+
+void yyerror(String msg) {
+     throw new RuntimeException(filename + " (" + (((Token)token).line+1) + "," + (((Token)token).col+1) + "): "+ msg);
+}

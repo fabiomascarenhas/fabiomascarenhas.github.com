@@ -1,0 +1,90 @@
+<p><html>
+<head>
+<title>MAB 240 &ndash; Computação II</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>MAB 240 - Computação II</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2>Laboratório 5 - 09/04/2012</h2>
+
+<p>Uma dica: baixe o <a href = "Semana5.zip">projeto Eclipse</a> da
+quinta semana de aula e importe ele no Eclipse antes de começar,
+assim você pode ver como os conceitos foram aplicados em sala.</p>
+
+<p>Comece baixando tamb&eacute;m o <a href = "Semana4.zip">projeto
+Eclipse</a> da quarta semana de aula e importando-o no Eclipse
+tamb&eacute;m, ele servirá de base para o esse laboratório, &eacute;
+nele que você irá trabalhar. O objetivo deste laboratório &eacute; exercitar a
+criação de superclasses e de fatorar m&eacute;todos comuns para essas
+superclasses.</p>
+
+<p>Lembre que
+tínhamos uma interface <code>Forma</code> e quatro classes
+implementando essa interface, <code>Quadrado</code>,
+<code>Circulo</code>, <code>Ponto</code> e
+<code>Composicao</code>. Tamb&eacute;m havia uma classe
+<code>Coord</code> para representar coordenadas cartesianas. Se
+refamilizarize com o código delas e com os testes em
+<code>TesteFormas</code>, depois faça as tarefas abaixo.</p>
+
+<p>1. As classes <code>Quadrado</code>, <code>Circulo</code> e
+<code>Ponto</code> têm uma coisa em comum: todas elas são definidas em
+função de um <i>ponto de controle</i>, só que com diferentes
+nomes, <code>cse</code> para os quadrados, <code>centro</code> para
+círculos e <code>local</code> para ponto. Comece renomeando todos
+esses campos para <code>pc</code>, e modificando todos os locais
+necessários no programa para os testes continuarem passando.</p>
+
+<p>2. Vamos agora criar uma nova <i>classe abstrata</i> para fatorar as partes em comum entre as classes
+<code>Quadrado</code>, <code>Circulo</code> e <code>Ponto</code>. Crie
+uma nova classe chamada <code>FormaPC</code>. Essa
+classe abstrata irá implementar a interface <code>Forma</code>, e
+<code>Quadrado</code>, <code>Circulo</code> e <code>Ponto</code> irão
+estender essa nova classe ao inv&eacute;s de implementar
+<code>Forma</code> diretamente. A classe <code>Composicao</code>
+continua implementando <code>Forma</code> diretamente; ela <b>não</b>
+deve estender <code>FormaPC</code>!</p>
+
+<p>3. Mova o campo <code>pc</code> para a classe
+<code>FormaPC</code>. Crie um construtor para a classe
+<code>FormaPC</code> que inicializa esse campo, e ajuste os
+construtores das três classes derivadas dela para chamar o construtor
+da superclasse com <code>super</code>.</p>
+
+<p>4. Quais dos m&eacute;todos de <code>Quadrado</code>,
+<code>Circulo</code> e <code>Ponto</code> podem ser movidos para
+<code>FormaPC</code>? Procure por m&eacute;todos que dependem apenas
+do campo <code>pc</code>. Mova-os para a superclasse.</p>
+
+<p>5. Adicione um m&eacute;todo <code>void mover(int dx, int dy)</code> &agrave; interface
+<code>Forma</code>, esse m&eacute;todo deve mover a forma as
+distâncias passadas no eixo x e y. Onde as implementações desse
+m&eacute;todo podem ficar? Implemente o m&eacute;todo, e escreva casos
+de teste.</p>
+
+<p>6. Adicione uma nova classe <code>Retangulo</code>. Comece
+implementando <code>Retangulo</code> como uma classe que implementa diretamente a
+interface <code>Forma</code> (não deriva <code>FormaPC</code>). Depois
+reimplemente <code>Retangulo</code> como uma classe derivada de
+<code>FormaPC</code>, aproveitando as implementações dos
+m&eacute;todos de <code>Forma</code> em <code>FormaPC</code> quando possível.</p>
+
+<h2>Enviando</h2>
+
+<p>Crie um arquivo <code>.zip</code> com todo o projeto que você criou
+e mande para <a href="mailto:fabio_hq2h@sendtodropbox.com">esse
+email</a> at&eacute; o dia <b>20/04</b> (uma sexta-feira). Esse
+trabalho vale 0,2 na nota de exercícios, e 
+poderá ser feito em dupla. Não esqueça de escrever quem são os autores
+no email, e em um comentário no(s) seu(s) arquivo(s) <code>.java</code>.</p>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Sun Apr  8 10:54:05 BRT 2012 <!-- hhmts end -->
+</body> </html>

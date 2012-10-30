@@ -1,0 +1,124 @@
+<p><html>
+<head>
+<title>MAB 240 &ndash; Computação II</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>MAB 240 - Computação II</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2>Laboratório 6 - 16/04/2012</h2>
+
+<p>O objetivo desse laboratório &eacute; exercitar o uso de exceções
+em Java. Use o material sobre exceções que está em nosso site para te
+ajudar. Não se esqueça de criar um projeto Eclipse para esse
+laboratório.</p>
+
+<h3>Parte 1</h3>
+
+<p>O uso e tratamento de exceções &eacute; ortogonal &agrave;
+orientação a objetos (tirando o fato de que Java usa a posição da
+exceção na hierarquia de exceções para determinar se ela está coberta
+por uma cláusula <code>catch</code> ou <code>throws</code>), portanto
+as questões abaixo não aplicam conceitos OO.</p>
+
+<p>A primeira tarefa &eacute; escrever um programa que lê dois números
+do teclado e mostra a divisão entre eles. Crie uma classe
+<code>Divide</code> com uma função <code>public static void
+main(String[] args)</code>. Essa função será chamada quando o programa
+for executado.</p>
+
+<p>1. A leitura de uma linha &eacute; feita atrav&eacute;s do
+m&eacute;todo <code>readLine()</code>, da classe
+<code>java.io.BufferedReader</code>. O código para ler uma linha do
+console &eacute; o seguinte:</p>
+
+<pre>
+  BufferedReader ent = new BufferedReader(new InputStreamReader(System.in));
+  String linha = ent.readLine();
+</pre>
+
+<p>Para converter uma string em um número inteiro use a
+função. <code>Integer.parseInt</code>. Agora você pode implementar a
+função <code>main</code> de <code>Divide</code>.</p>
+
+<p>Repare que o
+compilador vai reclamar do não tratamento de
+<code>IOException</code>. Essa &eacute; uma exceção <i>checada</i>,
+então lembre que ela deve ser sempre tratada ou sinalizada com uma
+cláusula <code>throws</code> na assinatura. Conserte o código usando a
+cláusula <code>throws</code>. Execute o programa e teste algumas entradas.</p>
+
+<p>2. O que acontece quando você passa um denominador de 0? Conserte o
+seu programa para tratar a <code>ArithmeticException</code> que
+acontece nesse caso, imprimindo uma mensagem de erro para o usuário
+ao inv&eacute;s do stack trace.</p>
+
+<p>3. Faça um tratamento diferente da <code>ArithmeticException</code>
+no programa acima; agora o programa deve reclamar e pedir outro
+denominador. Esse segundo denominador tamb&eacute;m pode ser zero,
+capture e trate essa segunda <code>ArithmeticException</code> do jeito
+que você fez no exercício 2.</p>
+
+<p>4. O que acontece quando o usuário entra alguma coisa que não
+&eacute; um número para no numerador ou o denominador? Trate
+tamb&eacute;m este erro com outra cláusula <code>catch</code>.</p>
+
+<p>5. Fatore a leitura de um número do teclado para uma função
+<code>static int leNumero()</code>. Repare o que acontece com a
+<code>IOException</code>.</p>
+
+<h3>Parte 2</h3>
+
+<p>A principal utilidade de uma exceção &eacute; para sinalização e
+tratamento de erros, mas tamb&eacute;m podemos usar exceções para
+controle de fluxo que seria trabalhoso de maneira convencional. Vamos
+voltar ao nosso exemplo de formas geom&eacute;tricas em um programa de
+desenho. Baixe novamente o <a href = "Semana4.zip">projeto Eclipse</a>
+da quarta semana de aula e faça os exercícios abaixo:</p>
+
+<p>1. Adicione um m&eacute;todo <code>boolean primitiva()</code>
+&agrave; interface <code>Forma</code> que retorna <code>false</code> se
+essa &eacute; uma composição e <code>true</code> se não for uma
+composição.</p>
+
+<p>2. Adicione um m&eacute;todo <code>Forma clicada(Coord
+pos)</code>. A ideia desse m&eacute;todo &eacute; retornar qual a
+forma primitiva de uma composicao cont&eacute;m a coordenada
+passada. Para as formas simples o m&eacute;todo vai apenas retornar a
+própria forma se ela cont&eacute;m a coordenada ou <code>null</code>
+se não cont&eacute;m. Para uma composição ela deve retornar a forma
+simples que cont&eacute;m aquela coordenada, ou <code>null</code> se
+nenhuma das formas da composição tem aquela coordenada. Implemente o
+m&eacute;todo usando os conceitos que você já sabe. Pense com
+cuidado!</p>
+
+<p>3. Agora vamos resolver o problema anterior de um modo diferente. A
+assinatura de <code>clicada</code> vai ser <code>void clicada(Coord
+pos)</code>. Para as formas simples ele não vai fazer nada se a forma
+não cont&eacute;m <code>pos</code>, mas se ela cont&eacute;m vai
+sinalizar com uma exceção <code>FormaEncontrada</code>, derivada de
+<code>RuntimeException</code>, contendo a própria forma. Implemente a
+classe <code>FormaEncontrada</code>, e a nova versão de
+<code>clicada</code>. Teste-a assim:</p>
+
+<pre>
+  try {
+   // c &eacute; uma composição complicada
+   c.clicada(pos);
+   // se chegou aqui &eacute; porque a busca falhou
+   fail("forma não encontrada");
+  } catch(FormaEncontrada fe) {
+    // f &eacute; a forma dentro de c que a gente está procurando
+    Assert.assertEquals(f, fe.forma);
+  }
+</pre>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Sun Apr 15 19:11:29 BRT 2012 <!-- hhmts end -->
+</body> </html>

@@ -1,0 +1,18 @@
+class Arr {
+  main() {
+    var a; 
+    var b;
+    var c = new Array(5);
+    c[0] = 1; c[1] = 2; c[2] = 3;
+    c[3] = 4; c[4] = 5;
+    var i = c.length() - 1;
+    while(0 <= i) {
+      a = c[i];
+      b = a + 1;
+      c[i] = b;
+      i = i - 1;
+    }
+
+    out.print(c);
+  }
+}

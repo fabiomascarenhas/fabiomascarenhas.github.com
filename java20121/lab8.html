@@ -1,0 +1,115 @@
+<p><html>
+<head>
+<title>MAB 240 &ndash; Computação II</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>MAB 240 - Computação II</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2>Laboratório 8 - 27/05/2012</h2>
+
+<p>O objetivo desse e do próximo laboratório será construir uma
+aplicação Java Android. Não se
+assuste com o escopo da aplicação, ela &eacute; mais simples do
+que pode parecer, e vocês terão 2 semanas para concluir esse trabalho.</p>
+
+<p>Para começar você deverá instalar o plugin Android no Eclipse. Siga
+as instruções em <a
+href="http://developer.android.com/sdk/eclipse-adt.html#installing">Installing
+the ADT Plugin</a>. O professor e o monitor irão fazer isso nas
+máquinas do laboratório.</p>
+
+<p>Se quiser
+ um acesso melhor ao banco de dados crie (ou reutilize) uma conta
+ em <a href="http://parse.com">parse.com</a> e uma
+ aplicação lá, e copie a </b>"Application Key"</b> e <b>"Client Key"</b>
+ para as variáveis correspondentes no projeto (<b>APP_KEY</b>
+ e <b>CLIENT_KEY</b>).</p>
+
+ <p>O arquivo LEIAME.txt faz referência ao diário
+ de aulas, ele acabou não sendo incluído no .zip do
+ projeto, baixe ele <a href="diario.pdf">aqui</a>.</p>
+
+<p>Você deve baixar o projeto Eclipse da aplicação <a href =
+"NotasAndroid.zip">aqui</a> e usá-lo como ponto de partida. Esse
+projeto cont&eacute;m as bibliotecas que você irá precisar, e o
+desenho da interface da aplicação.</p>
+
+<p>Tamb&eacute;m será de grande ajuda baixar a última versão da
+aplicação FotogramaAndroid que está sendo desenvolvida em sala, pegue ela na
+página da disciplina. A aplicação &eacute; bem diferente, mas a
+estrutura de vários pedaços de código pode ser reaproveitada.</p>
+
+<p><b>Leia com atenção as instruções detalhadas abaixo!</b></p>
+
+<h2>Conceito básico</h2>
+
+<p>A aplicação abre e pede o DRE do aluno usando um Dialog
+(ver <a href="http://www.androidsnippets.com/prompt-user-input-with-an-alertdialog">Prompt User Input with an AlertDialog</a>),
+então busca as notas do aluno para a turma mais recente, e
+as mostra, junto com os dados do aluno, na tela principal.</p>
+
+<p>A tela principal também tem um botão para abrir novamente
+o Dialog de entrada de DRE e mostrar as notas de outro aluno.</p>
+
+<p>Todos os dados são armazenados no mesmo banco de dados
+da aplicação RegistroNotas. Os dados são mostrados
+usando caixas de texto apenas para ter melhor aparência,
+editar as informações nas caixas de texto não tem nenhum
+efeito.</p>
+
+<h2>Estrutura do banco de dados</h2>
+
+<p>O nome das tabelas no banco de dados deve ser prefixado com G_n1_n2_, onde
+n1 e n2 são os números dos membros da dupla no Diário de Aulas (veja o arquivo
+diario.pdf). Por exemplo, um grupo composto pelo ALLAN MONTEIRO DAVID e o
+JULIO CESAR DA SILVA PEREIRA deve prefixar suas tabelas com G_4_27_, assim:
+G_4_27_Alunos, G_4_27_Turmas, G_4_27_Notas. Para facilitar edite as variáveis
+ALUNOS, TURMAS e NOTAS em NotasActivity.java com os nomes das tabelas para seu
+grupo, e use essas variáveis no seu programa.</p>
+
+<h3>Alunos</h3>
+<ul>
+  <li>id (gerado pelo Parse)</li>
+  <li>DRE (deve ser único)</li>
+  <li>nome</li>
+</ul>
+
+<h3>Turmas</h3>
+<ul>
+  <li>id (gerado pelo Parse)</li>
+  <li>nome (2012.1, por exemplo, deve ser único)</li>
+</ul>
+ 
+<h3>Notas</h3>
+<ul>
+<li>id</li>
+<li>turma (nome da turma)</li>
+<li>aluno (DRE do aluno)</li>
+<li>P1</li>
+<li>P2</li>
+<li>P3</li>
+</ul>
+
+<h2>Esqueleto de NotasActivity.java com os callbacks</h2>
+
+<p>Baixe <a href = "regnotas/NotasActivity.java">aqui</a>.</p>
+
+<h2>Enviando</h2>
+
+<p>Crie um arquivo <code>.zip</code> com todo o projeto que você criou
+e mande para <a href="mailto:fabio_hq2h@sendtodropbox.com">esse
+email</a> at&eacute; o dia <b>18/06</b> (uma segunda-feira). Esse
+trabalho vale <b>0,7</b> na nota de exercícios, e 
+poderá ser feito em dupla. Não esqueça de escrever quem são os autores
+no email, e em um comentário no(s) seu(s) arquivo(s) <code>.java</code>.</p>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Wed May 30 10:12:52 BRT 2012 <!-- hhmts end -->
+</body> </html>

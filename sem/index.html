@@ -1,0 +1,426 @@
+<p><html>
+<head>
+<title>Semântica de Linguagens de Programação</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<center>
+<h1>Semântica de Linguagens de Programação</h1>
+<h2>Fabio Mascarenhas</h2>
+</center>
+
+<h2>Apresentação</h2>
+
+<p>Está é a página da disciplina "Semântica de Linguagens de
+Programação" (turma 2853 de "Tópicos em Programação"), do professor
+Fabio Mascarenhas, para o semestre de 2011.2. As aulas da disciplina
+são às sextas, das 09:00 (pontualmente!) &agrave;s 12:00, no LAB II do DCC.</p>
+
+<p>Esse curso pretende mostrar os conceitos de linguagens de
+programação atrav&eacute;s da implementação de interpretadores para
+pequenas linguagens que ilustram cada conceito, e como mudanças
+simples na implementação dos interpretadores têm implicações profundas
+no comportamento dos programas. Mesmo a semântica de linguagens tão
+simples como expressões aritm&eacute;ticas tem vários graus de
+liberdade. Ao final do curso o aluno terá aprendido como várias
+escolhas do projeto de uma linguagem influenciam o comportamento dos
+programas nessa linguagem, e terá sido exposto ao mecanismo por trás
+dos principais paradigmas de linguagens de programação.</p>
+
+<p>Por ser focado em implementação de interpretadores esse curso
+envolverá bastante programação, e espera-se que o aluno tenha
+alguma desenvoltura em programação. A linguagem usada em quase todo
+curso será <a href = "http://www.racket-lang.org">Racket</a>, um
+dialeto de Scheme (mais especificamente a IDE DrRacket), mas não
+&eacute; necessário conhecimento pr&eacute;vio nesse linguagem. A
+escolha de Scheme &eacute; pela sua facilidade na escrita de
+interpretadores, mas os conceitos aprendidos na aula poderão ser
+aplicados em qualquer linguagem.</p>
+
+<h2>Avaliação</h2>
+
+<p>Esse &eacute; um curso eletivo, então eu assumo que todo aluno
+matriculado tem interesse na disciplina, e portanto a presença
+&eacute; <b>obrigatória</b>. A maior parte das aulas possui um
+encadeamento lógico com as aulas antes e depois dela, e faltas são
+muito prejudiciais ao entendimento do assunto.</p>
+
+<p>Al&eacute;m da presença, tamb&eacute;m passarei exercícios
+individuais de uma semana para outra, e esses exercícios podem ser
+revisados em sala. Eles serão avaliados por esforço e corretude.</p>
+
+<h2>Livros</h2>
+
+<p>O livro texto da disciplina &eacute; o "Programming Languages:
+Application and Interpretation" (PLAI), de Shriram Krishnamurthi. O autor o
+disponibilizou online em formato PDF
+<a href = "http://www.cs.brown.edu/~sk/Publications/Books/ProgLangs/">nessa página</a>.</p>
+
+<h2>Aulas</h2>
+
+<h3>12/08/2011</h3>
+
+<p>Introdução, Aritm&eacute;tica,
+  <code>with</code>, funções de primeira ordem (PLAI caps. 1 a
+  4). Veja os <a href = "aula1.pdf">slides</a>.</p>
+
+<p>Interpretadores (pequenas variantes em comentários no próprio código):</p>
+
+<ul>
+  <li><a href = "interp/ae.rkt">Expressões Aritm&eacute;ticas (AE)</a></li>
+  <li><a href = "interp/wae.rkt">Expressões Aritm&eacute;ticas com
+  <code>with (WAE)</code></a></li>
+  <li><a href = "interp/f1wae.rkt">Funções de primeira ordem (usando
+  substituição) (F1WAE)</a></li>
+</ul>
+
+<p>Como dever de casa, estude a <a href = "quick-ref.rkt">referência
+rápida de Racket</a> e então adicione ao interpretador F1WAE a
+expressão <code>if0</code>, com sintaxe <code>{if0 &lt;F1WAE&gt;
+&lt;F1WAE&gt; &lt;F1WAE&gt;}</code>. Você deve: estender o tipo F1WAE
+com o novo tipo de nó; estender a função <code>parse</code> para
+transformar a sintaxe acima em um nó do novo tipo; estender a função
+<code>subst</code> para efetuar a substituição nas subexpressões dessa
+expressão; estender <code>interp</code> para interpretar a
+expressão. Para interpretar <code>if0</code> o interpretador deve
+avaliar a primeira subexpressão, e se o resultado dela for 0 avaliar a
+segunda expressão; se for diferente de 0 ele deve avaliar a terceira expressão.</p>
+
+<p>Casos de teste para <code>if0</code>:</p>
+
+<pre>
+  (test (interp (parse '{if0 0 1 2})
+                (list))
+        1)
+  (test (interp (parse '{if0 1 1 2})
+                (list))
+        2)
+  (test (interp (parse '{if0 {f 5} 1 2})
+                (list (fundef 'f 'x (parse '{- x 5}))))
+        1)
+</pre>
+
+<p>Prepare o dever de casa como um arquivo <code>f1wae-if0.rkt</code>
+contendo o interpretador modificado, e traga na próxima aula
+(19/08/2011).</code> <b>Qualquer dúvida me mande um email, que
+responderei prontamente!</b></p>
+
+<h3>19/08/2011</h3>
+
+<p>Ambientes e F1WAE usando ambientes (PLAI cap. 5), identificadores como posições
+ no ambiente (índices de De Brujin) (PLAI seção 3.5), funções de
+ primeira classe via substituição (PLAI cap. 6 at&eacute; 6.3).
+Veja os <a href = "aula2.pdf">slides</a>.</p>
+
+<p>Interpretadores:</p>
+
+<ul>
+  <li><a href = "interp/f1wae-env.rkt">Funções de primeira ordem
+  (usando ambientes) (F1WAE)</a></li>
+  <li><a href = "interp/cf1wae.rkt">Funções de primeira ordem (usando
+  ambientes e compilando identificadores para posições) (CF1WAE)</a></li>
+  <li><a href = "interp/fwae.rkt">Funções de primeira classe (usando
+  substituição e <code>clos</code>) (FWAE)</a></li>
+</ul>
+
+<p>Como dever de casa, remova a cláusula <code>with</code> do
+interpretador FWAE, tanto da AST, quanto das funções de
+substituição/interpretação. O parser ainda deve tratar expressões
+<code>with</code> gerando uma aplicação de função que tenha o mesmo efeito:</p>
+
+<pre>
+  {with {&lt;name&gt; &lt;exp&gt;} &lt;body&gt;} =>
+    {{fun {&lt;name&gt;} &lt;body&gt;} &lt;exp&gt;}
+</pre>
+
+<p>Prepare o dever de casa como um arquivo <code>fae.rkt</code>
+contendo o interpretador modificado, e traga na próxima aula
+(26/08/2011).</p>
+
+<h3>26/08/2011</h3>
+
+<p>Funções de primeira classe via ambientes (PLAI cap. 6 de 6.4 em
+diante), recursão (capítulos 9 e 10, seção 22.4 do capítulo 22).
+Veja os <a href = "aula3.pdf">slides</a>.</p>
+
+<p>Interpretadores:</p>
+
+<ul>
+ <li><a href = "interp/cfae.rkt">Funções de primeira classe (usando
+ ambientes) + fix/rec (CFAE)</a></li>
+</ul>
+
+<h3>02/09/2011</h3>
+
+<p>Recursão: definindo <code>fix</code> como uma função de
+CFAE. Currying como açúcar sintático para funções de múltiplos
+parâmetros em CFAE. Pares e listas em CFAE e programação funcional
+usando maps e folds. Introdução a IMP, uma linguagem imperativa
+simples. Veja os <a href="aula4.pdf">slides</a>.</p>
+
+<p>Interpretadores:</p>
+
+<ul>
+  <li><a href = "interp/cfae-extra.rkt">CFAE com currying,
+  pares/listas e map</a></li>
+</ul>
+
+<p>Como dever de casa faça as seguintes tarefas:</p>
+
+<ul><li><p>Introduza o seguinte açúcar sintático na versão
+de CFAE acima:</p>
+
+<pre>
+  {+ e1 e2 e3...} = {+ {+ {+ e1 e2} e3} ...}
+</pre>
+
+<p>A soma deve ser associativa &agrave; esquerda, como a aplicação
+(dica: use foldl como no parsing de aplicação). Implemente esse açúcar
+sintático para as operações + e -, depois implemente operações * e /
+nos mesmos moldes.</p></li>
+
+<li>Troque a operação <code>if0</code> por uma <code>if</code> que
+funciona como o if de C (0 &eacute; falso, qualquer outro valor
+&eacute; verdadeiro). Defina primitivas = e &lt; para comparação de
+números.</li>
+
+<li>Redefina <code>MAP</code> para usar <code>if</code> ao
+inv&eacute;s de <code>if0</code>, e defina as funções FOLDR e FOLDL
+nos moldes de suas versões Scheme.</li>
+</ul>
+
+<h3>09/09/2011</h3>
+
+<p>Continuando com IMP, uma linguagem imperativa
+simples. Interpretador funcional para IMP. Interpretador para IMP
+usando c&eacute;lulas (boxes). IMP com escopo local via
+<code>with</code>: WIMP. Interpretador para WIMP usando
+c&eacute;lulas. Interpretador funcional para WIMP: ambientes
+vs. memória. Locais como valores de primeira classe: PWIMP.</p>
+
+<p>Interpretadores:</p>
+
+<ul>
+  <li><a href = "interp/imp.rkt">IMP puramente funcional</a></li>
+  <li><a href = "interp/imp-box.rkt">IMP usando c&eacute;lulas</a></li>
+  <li><a href = "interp/wimp-box.rkt">WIMP usando c&eacute;lulas</a></li>
+  <li><a href = "interp/wimp.rkt">WIMP puramente funcional</a></li>
+</ul>
+
+<h3>16/09/2011</h3>
+
+<p>Locais como valores de primeira classe: PWIMP. Aritm&eacute;tica de
+endereços e arrays. Funções de primeira ordem imperativas:
+F1PWIMP.</p>
+
+<p>Interpretadores:</p>
+
+<ul>
+  <li><a href = "interp/pwimp.rkt">PWIMP</a></li>
+  <li><a href = "interp/f1pwimp.rkt">F1PWIMP</a></li>
+</ul>
+
+<h3>23/09/2011</h3>
+
+<p>Computações imperativas como valores e composição de computações:
+<code>unit</code> e <code>bind</code>. Reestruturação de F1PWIMP para
+usar composição de computações. Uso de um vetor imperativo como
+memória de F1PWIMP. Açúcar sintático para <code>bind</code>:
+<code>mdo</code>. Mudando <code>ret</code> para sair da função
+atual.</p>
+
+<p>Interpretadores:</p>
+
+<ul>
+  <li><a href = "interp/f1pwimp-bind.rkt">F1PWIMP usando <code>bind</code></a></li>
+  <li><a href = "interp/f1pwimp-vec.rkt">F1PWIMP com vetor como memória</a></li>
+  <li><a href = "interp/f1pwimp-mdo.rkt">F1PWIMP com <code>mdo</code></a></li>
+  <li><a href = "interp/f1pwimp-ret.rkt">F1PWIMP retorno de funções</a></li>
+</ul>
+
+<p>Como exercício de casa modifique F1PWIMP para poder ter funções com
+múltiplos parâmetros. Isso compreende quatro partes: modificar os nós
+<code>app</code> e <code>capp</code> da árvore sintática para operar
+em listas de argumentos ao inv&eacute;s de só um argumento (tipo
+<code>PIAE?</code> para <code>list?</code>); modificar o parser de
+expressões e comandos; modificar o tipo <code>FunDef</code> para ter
+uma lista de parâmetros; modificar a interpretação das aplicações nos
+interpretadores para avaliar os argumentos e associar seus valores aos
+nomes.</p>
+
+<p>A quarta tarefa &eacute; a mais difícil, uma dica para ela &eacute;
+definir uma função auxiliar <code>allocn</code> que aloca um espaço
+contíguo na pilha, retornando o endereço do início do espaço alocado:</p>
+
+<pre>
+(define (allocn n)
+  (mdo (free &lt;- (mget 0))
+       (mset 0 (+ free n))
+       (unit free)))
+</pre>
+
+<p>Uma outra função auxiliar gera um ambiente a partir de uma lista de
+variáveis e um endereço inicial:</p>
+
+<pre>
+(define (make-env init-env vars base)
+  (if (null? vars)
+      init-env
+      (env-entry (first vars)
+                 base
+                 (make-env init-env (rest vars) (+ base 1)))))
+</pre>
+
+<p>Tamb&eacute;m pode-se fazer um <code>foldr</code> para produzir a
+computação que avalia e empilha os argumentos e depois chama a
+função:</p>
+
+<pre>
+(foldr (lambda (arg loc/comp)
+         (list (- 1 (first loc/comp))
+               (mdo (varg &lt;- (interp-exp arg funs env))
+                    (mset (first loc/comp) varg)
+                    (second loc/comp))))
+       (list (+ base (- (length args) 1))  ; endereço do último argumento
+             (interp-cmd body (make-env (env-empty) vars base)))
+       args)
+</pre>
+
+<p>O segundo elemento do resultado desse fold &eacute; a computação
+que avalia e empilha os argumentos, depois executa a função. Agora
+&eacute; juntar as peças! Vocês terão duas semanas para pensar bem no assunto.</p>
+
+<h3>14/10/2011</h3>
+
+<p>Funções de primeira classe em uma linguagem imperativa. Interação
+de closures com a pilha. Unificando as linguagens funcional e
+imperativa: FIMP. Usando computações com escape não-local para
+representar <code>return</code> e tratamento de exceções.</p>
+
+<p>Interpretadores:</p>
+
+<ul>
+  <li><a href = "interp/pwimp-clos.rkt">PWIMP com closures</a></li>
+  <li><a href = "interp/fimp.rkt">FIMP - unificando comandos e
+  expressões</a></li>
+  <li><a href = "interp/fimp-try.rkt">FIMP com exceções</a></li>
+</ul>
+
+<p>A aritm&eacute;tica de endereços permitida por <code>deref</code>
+&eacute; poderosa mas bastante perigosa na prática (vide os problemas
+de segurança da linguagem C). Modifique o interpretador FIMP com
+exceções para restringir <code>deref</code> para funcionar apenas em
+valores do tipo endereço e não qualquer número. A primitiva
+<code>ref</code> tamb&eacute;m deverá ser modificada para retornar
+valores desse tipo. Naturalmente vocês precisarão de um novo caso na
+definição de <code>Value</code>. Teste seu interpretador com exemplos
+que não usam aritm&eacute;tica de endereços, que devem continuar
+funcionando, e com exemplos que usam, que devem causar erros.</p>
+
+<h3>21/10/2011</h3>
+
+<p>Avaliação preguiçosa e sua interação com características
+imperativas.</p>
+
+<p>Interpretadores:</p>
+
+<ul>
+  <li><a href = "interp/fimp-lazy.rkt">FIMP/L - FIMP com avaliação preguiçosa</a></li>
+</ul>
+
+<p>Adicione funções lazy a FIMP com uma nova forma sintática <code>lfun</code>. Você
+vai precisar criar um novo valor <code>closl</code> para uma closure
+de uma função lazy para poder implementar o comportamento correto em
+<code>app</code>, al&eacute;m do valor <code>expV</code> do
+interpretador FIMP/L. Reutilize <code>force</code> e
+<code>delay</code> de FIMP/L. Teste com esse programa que deve mostrar
+a sequência de Fibonacci:</p>
+
+<pre>
+(eval '{do {set pair {lfun {x y}
+                          {fun {z}
+                               {if z y x}}}}
+         {set zipWith {fun {op l1 l2}
+                           {pair {op {l1 0} {l2 0}}
+                                 {zipWith op {l1 1} {l2 1}}}}}
+         {set fibs {pair 1 
+                         {pair 1 
+                               {zipWith {fun {x y} {+ x y}}
+                                        fibs {fibs 1}}}}}
+         {set l fibs}
+         {set x 10}
+         {while x
+                {print {l 0}}
+                {set x {- x 1}}
+                {set l {l 1}}}} '(pair zipWith fibs l x))
+</pre>
+
+<h3>28/10/2011 e 04/11/2011</h3>
+
+<p>Orientação a objetos simples: objetos, classes, mensagens. Um
+interpretador para uma linguagem OO dinâmica simples. Paralelos entre
+objetos e funções de primeira classe. Contrastando objetos e tipos
+abstratos de dados.</p>
+
+<p>Interpretadores:</p>
+
+<ul>
+  <li><a href = "interp/class.rkt">CLASS - OO com classes e tipagem dinâmica</a></li>
+</ul>
+
+<h3>25/11/2011</h3>
+
+<p>Noções básicas de verificação de tipos para linguagens
+funcionais. Julgamentos de tipos e árvores de verificação. Implementando
+um verificador de tipos para CFAE. Limitações da verificação de tipos:
+tipando <code>fix</code> e tipos recursivos.</p>
+
+<p>Interpretadores:</p>
+
+<ul>
+  <li><a href = "interp/tcfae.rkt">TCFAE - CFAE com anotações e
+  verificação de tipos</a></li>
+</ul>
+
+<p>A tipagem dos pares de TCFAE não permite expressar listas usando
+pares pelo mesmo motivo que não podemos expressar coisas <code>{{fun
+{x} {x x}} {fun {x} {x x}}</code> e a implementação de
+<code>fix</code> na própria CFAE mostrada <a
+href="aula4.pdf">aqui</a>. O exercício final &eacute; alterar a
+verificação de tipos dos pares para transformá-los em listas.</p>
+
+<p>Substitua o tipo <code>(pairT t1 t2)</code> que denota um par de um
+elemento de tipo <code>t1</code> e um elemento de tipo
+</code>t2</code>  pelo tipo <code>(listT t)</code> que irá denotar uma
+lista de elementos de tipo <code>t</code>. A tipagem do termo
+<code>{pair e1 e2}</code> agora deverá verificar que o tipo de
+<code>e1</code> &eacute; <code>t</code> e o tipo de <code>e2</code>
+&eacute; <code>(listT t)</code> para concluir que o tipo de
+<code>{pair e1 e2}</code> &eacute; <code>(listT t)</code>. A tipagem
+de <code>{first e}</code> deverá verificar que <code>e</code> tem o
+tipo <code>(listT t)</code> para concluir que <code>{first e}</code>
+tem tipo <code>t</code>, e a tipagem de <code>{rest e}</code> deverá verificar que <code>e</code> tem o
+tipo <code>(listT t)</code> para concluir que <code>{rest e}</code>
+tem tipo <code>(listT t)</code>. Finalmente, a tipagem de
+<code>if0</code> tamb&eacute;m deverá aceitar uma expressão de tipo
+<code>(listT t)</code> na condição.</p>
+
+<p>A linguagem precisará de um novo termo <code>{nil t}</code> para
+indicar uma lista vazia de tipo <code>(listT t)</code>. Faça extensões
+no parser (use a função <code>parse-type</code> no parse de
+<code>nil</code>), no verificador de tipos e no interpretador para incluir
+esse termo. Teste seu interpretador com as funções <code>map</code> e
+<code>flatten</code> definidas no final do arquivo com a implementação de TCFAE.</p>
+
+<h2>Contato</h2>
+
+<p>Podem entrar em contato pelo meu <a
+href="mailto:mascarenhas@ufrj.br">email</a> que responderei assim que
+possível.</p>
+
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Tue Nov 29 14:23:00 BRST 2011 <!-- hhmts end -->
+</body> </html>

@@ -1,0 +1,177 @@
+﻿<p><html>
+<head>
+<title>MAB225 &ndash; Computação II &ndash; Aula 28/04/2011</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h2>MAB 225 - Computação II - Fabio Mascarenhas</h2>
+
+<h2>Iterador de Listas (28/04/2011)</h2>
+
+<pre>
+class Elemento:
+    def __init__(self, val = None, prox = None):
+        self.val = val
+        self.prox = prox
+
+# Iterador de tras pra frente
+class IterLista:
+    def __init__(self, lista):
+        self.lista = lista
+        self.pos = len(lista)-1
+    def next(self):
+        if self.pos == -1:
+             raise StopIteration
+        else:
+            val = self.lista[self.pos]
+            self.pos = self.pos - 1
+            return val
+
+# for i in UsaMeuIter(sequencia):
+#     print i
+class UsaMeuIter:
+	def __init__(self, seq):
+		self.seq = seq
+	def __iter__(self):
+		return IterLista(self.seq)
+
+class Lista:
+    val = None
+    def __init__(self, lp):
+        for v in lp:
+            self.append(v)
+    def __iter__(self):
+        # Cria um iterador pra essa lista
+        return IterLista(self)
+    def __len__(self):
+        i = 0
+        atual = self.val
+        while atual != None:
+            i = i + 1
+            atual = atual.prox
+        return i
+    def append(self, v):
+        elem = Elemento(v)
+        if self.val == None:
+            self.val = elem
+            return
+        atual = self.val
+        while atual.prox != None:
+            atual = atual.prox
+        atual.prox = elem
+    def get(self, i):
+        e = self.elem(i)
+        return e.val
+    def elem(self, i):
+        atual = self.val
+        while i > 0:
+            i = i - 1
+            atual = atual.prox
+        return atual
+    def set(self, i, v):
+        elem = self.elem(i)
+        elem.val = v
+    def __repr__(self):
+        res = "["
+        atual = self.val
+        while atual != None:
+            res = res + (atual.val).__repr__() + ", "
+            atual = atual.prox
+        res = res + "]"
+        return res
+    def __getitem__(self, i):
+        return self.get(i)
+    def __setitem__(self, i, v):
+        self.set(i, v)
+    def __mul__(self, x):
+        lr = Lista([])
+        for i in range(x):
+            for j in range(len(self)):
+                lr.append(self[j])
+        return lr
+</pre>
+
+<h2>Outros iteradores (28/04/2011):</h2>
+
+<pre>
+import lista
+
+def primo(num):
+    for d in range(2, num):
+        if num % d == 0:
+            return False
+    return True
+
+def proximo_primo(num):
+    num = num + 1
+    while not primo(num):
+        num = num + 1
+    return num
+
+# Numeros primos
+class IterPrimo:
+    def __init__(self, fim):
+        self.i = 2
+        self.fim = fim
+    def __iter__(self):
+        return IterPrimo(self.fim)
+    def next(self):
+        p = self.i
+        if p > self.fim:
+            raise StopIteration
+        else:
+            self.i = proximo_primo(self.i)
+            return p
+
+# Iterador com entrada do usuario
+class IterPede:
+    def __init__(self, msg, fim):
+        self.msg = msg
+        self.fim = fim
+    def __iter__(self):
+        return IterPede(self.msg, self.fim)
+    def next(self):
+        val = input(self.msg)
+        if val == self.fim:
+            raise StopIteration
+        else:
+            return val
+
+# Contador
+class IterContador:
+    def __init__(self, inicio, fim, op):
+        self.fim = fim
+        self.inicio = inicio
+        self.i = inicio
+        self.op = op
+    def __iter__(self):
+        return IterContador(self.inicio, self.fim, self.op)
+    def next(self):
+        if self.i >= self.fim:
+            raise StopIteration
+        else:
+            self.i = (self.op)(self.i)
+            return self.i
+
+l = lista.Lista([1,2,3,4])
+
+print "For:"
+
+for i in l:
+    print i
+
+print "Iterador:"
+
+it = l.__iter__()
+try:
+    while True:
+        i = it.next()
+        print i
+except StopIteration:
+    pass
+</pre>
+
+</body>
+</html>
