@@ -98,7 +98,9 @@ Vídeo do Rob Pike mostrando como construir um analisador léxico
 manualmente, usando a linguagem Go, e como isso é preferível em relação
 a usar um gerador de analisadores léxicos.
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/HxaD_trXwRE" frameborder="0" allowfullscreen="1"></iframe>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/HxaD_trXwRE" frameborder="0" allowfullscreen="1">
+dummy
+</iframe>
 
 ### Embedded in Academia: 57 Small Programs that Crash Compilers
 
