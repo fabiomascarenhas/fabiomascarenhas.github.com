@@ -80,4 +80,4 @@ velocidades diferentes. O sapo também tem um número de vidas.
 
 * * * * *
 
-Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M }}
+Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}

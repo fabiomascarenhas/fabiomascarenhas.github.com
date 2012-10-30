@@ -110,4 +110,4 @@ a E-2013 do DCC.
 
 * * * * *
 
-Last modified: Mon Oct 29 07:49:53 BRST 2012
+Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}

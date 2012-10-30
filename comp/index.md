@@ -118,4 +118,4 @@ a E-2013 do DCC.
 
 * * * * *
 
-Last modified: Mon Oct 29 17:27:45 BRST 2012
+Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}
