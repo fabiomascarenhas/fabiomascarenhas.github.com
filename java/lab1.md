@@ -15,7 +15,7 @@ Laboratório 1 - 29/10/2012
 1. Crie um projeto Eclipse chamado Lab1, e dentro da pasta `src` desse
 projeto crie um arquivo `Ola.java` e digite o seguinte código Java nele:
 
-```java
+{% highlight java %}
 public class Ola {
 
     public static int soma(int a, int b) {
@@ -27,7 +27,7 @@ public class Ola {
     }
 
 }
-```
+{% endhighlight %}
 
 Execute o projeto e veja o resultado. Crie um *scrapbook* para esse
 projeto (um arquivo chamado **`scrapbook.jpage`** e inspecione o
@@ -35,7 +35,7 @@ resultado de algumas expressões. Escreva os seguintes trechos de código
 Java, selecione-os com o mouse e escolha "Inspect" no menu que aparece
 no clique do botão direito:
 
-```java
+{% highlight java %}
 2 + 3
 
 new Ola()
@@ -47,7 +47,7 @@ System.out.println(Ola.soma(2,3));
 String a = "Olá";
 String b = " Mundo";
 return a + b;
-```
+{% endhighlight %}
 
 Use esse mesmo projeto Eclipse para o resto dos exercícios desse
 laboratório.
