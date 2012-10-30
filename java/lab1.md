@@ -6,9 +6,6 @@ title: Lab I de MAB 240
 MAB 240 - Computação II
 =======================
 
-Fabio Mascarenhas
------------------
-
 Laboratório 1 - 29/10/2012
 --------------------------
 
@@ -83,4 +80,4 @@ velocidades diferentes. O sapo também tem um número de vidas.
 
 * * * * *
 
-Last modified: Mon Oct 29 08:44:57 BRST 2012
+Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M }}

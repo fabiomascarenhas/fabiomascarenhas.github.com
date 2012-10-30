@@ -6,9 +6,6 @@ title: MAB 240 - Computação II
 MAB 240 - Computação II
 =======================
 
-Fabio Mascarenhas
------------------
-
 Apresentação
 ------------
 
