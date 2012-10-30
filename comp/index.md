@@ -1,3 +1,8 @@
+---
+layout: default
+title: MAB 471 - Compiladores I
+---
+
 MAB 471 - Compiladores I
 ========================
 
