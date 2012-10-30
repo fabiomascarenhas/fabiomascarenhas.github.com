@@ -1,9 +1,0 @@
-body {margin:50px; font: 14px/1.5 Verdana, Geneva, Tahoma, sans-serif;}
-p {margin:0 0 20px 0;}
-h1, h2, h3 {margin:30px 0 5px 0; font-weight: normal;}
-h1 {color:#6D6847; font:3.6em "Palatino", "Palatino Linotype", "Hoefler Text", "Times", "Times New Roman", serif;
-	text-transform: uppercase; letter-spacing: 12px;  font-weight: bold;}
-h2 {color:#76892B; font-size:2.0em;}
-h3 {color:#897D2C; font-style: italic; font-size:1.6em}
-ul {margin:30px; padding:0; list-style: none;}
-ul li {margin: 2px 0; color:#444; font-size: 0.85em}
