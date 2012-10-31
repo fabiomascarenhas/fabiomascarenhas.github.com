@@ -85,7 +85,8 @@ tem código que exercita as classes.
 
 ### Notas de Aula
 
-As notas da aula de 29/10/2012 estão [aqui](Lexico.zip).
+* [29/10/2012](Lexico_29102012.zip)
+* [31/10/2012](Lexico_31102012.zip)
 
 Curiosidades
 ------------
