@@ -96,6 +96,8 @@ Notas de Aula
 
 ### 26/10/2012 - [Vários construtores, incialização fora do construtor, variáveis de classe, ligações entre objetos de objetos](Aula3.zip)
 
+### 31/10/2012 - [Revisão, classes e construtores simples](RegistroNotas.zip), [Listas, inicialização de vetores, introdução a métodos](Aula4.zip)
+
 Laboratórios
 ------------
 
