@@ -85,8 +85,8 @@ tem código que exercita as classes.
 
 ### Notas de Aula
 
-* [29/10/2012](Lexico_29102012.zip)
-* [31/10/2012](Lexico_31102012.zip)
+* [29/10/2012](Lexico_29102012.zip) - Análise Léxica: expressões regulares
+* [31/10/2012](Lexico_31102012.zip) - Análise Léxica: autômatos
 
 Curiosidades
 ------------
