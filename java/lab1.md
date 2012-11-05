@@ -79,6 +79,12 @@ representado por um círculo e os carros por retângulos com tamanhos
 diferentes, e que podem se mover em direções diferentes e com
 velocidades diferentes. O sapo também tem um número de vidas.
 
+Enviando
+--------
+
+O envio do Laboratório 1 deve ser junto com o [Laboratório 2](lab2.html). Siga o
+link para instruções e prazos.
+
 * * * * *
 
 Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}

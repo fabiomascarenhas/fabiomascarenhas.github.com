@@ -50,6 +50,16 @@ que a tela tem 800 pixels de largura.
 dummy
 </iframe>
 
+Enviando
+--------
+
+Use o formulário abaixo para enviar os Laboratórios 1 e 2. O prazo para envio é sexta-feira, dia 09/11/2012.
+O trabalho pode ser feito em dupla, e já vale nota!
+
+<script type="text/javascript" src="http://form.jotformz.com/jsform/23093439523656">
+// dummy
+</script>
+
 * * * * *
 
 Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}
