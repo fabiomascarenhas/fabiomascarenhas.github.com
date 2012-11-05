@@ -103,6 +103,8 @@ Laboratórios
 
 ### 29/10/2012 - [Lab 1](lab1.html)
 
+### 05/11/2012 - [Lab 2](lab2.html)
+
 Contato
 -------
 
