@@ -17,15 +17,17 @@ utilizando o mesmo projeto Eclipse.
 
 1\. Queremos que os carros do exercício 2 do laboratório da semana passada
 tenham donos. Para isso crie uma classe `Dono` com os campos nome e idade, e
-adicione um campo dono à classe `Carro`. Não esqueça de corrigir o construtor
-`Carro` para inicializar o novo campo!
+adicione um campo dono à classe `Carro`. Queremos também que os carros tenham um 
+de fabricação (um campo `ano` do tipo `int`) *ao invés de* um campo que diz se
+ele é novo ou usado. Faça essas alterações na classe `Carro`.
+Não esqueça de corrigir o construtor `Carro` para inicializar os novos campos!
 
-2\. Um carro é velho se ele foi feito antes de 2002. Implemente um
+2\. Um carro é velho se ele foi fabricado antes de 2002. Implemente um
 método `public boolean carroVelho()` na classe `Carro` que diz se uma instância de
 carro é velha ou não. 
 
 3\. Escreva um método `public boolean feitoAntes(int ano)` que diz se um carro foi
-feito antes de determinado ano.
+fabricado antes de determinado ano.
 
 4\. Escreva um método `public boolean maisVelho(Carro outro)` que diz se um carro é
 mais velho que outro ou não. Use o método que você implementou no

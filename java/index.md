@@ -98,6 +98,8 @@ Notas de Aula
 
 ### 31/10/2012 - [Revisão, classes e construtores simples](RegistroNotas.zip), [Listas, inicialização de vetores, introdução a métodos](Aula4.zip)
 
+### 07/11/2012 - [Métodos, iteração, uso de bibliotecas](Aula5.zip)
+
 Laboratórios
 ------------
 
