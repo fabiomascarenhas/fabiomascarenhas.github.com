@@ -5,7 +5,7 @@ relpath: .
 ---
 
 <div markdown="1" class = "hero-unit">
-<div class = "row">
+<div class = "row-fluid">
 <div class = "span3">
 <img class = "media-object pull-left" src="mascarenhas.jpg"/>
 </div>
@@ -22,8 +22,8 @@ comunidade da [linguagem Lua](http://www.lua.org) desde 2003 e autor de diversas
 </div>
 </div>
 
-<div markdown="1" class = "row">
-<div class = "span5">
+<div markdown="1" class = "row-fluid">
+<div class = "span6">
 
 Redes Sociais
 -------------
@@ -40,7 +40,7 @@ Redes Sociais
 
 </div>
 
-<div class = "span5 offset2">
+<div class = "span4">
 
 Disciplinas
 -----------

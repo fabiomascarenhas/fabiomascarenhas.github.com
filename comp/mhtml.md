@@ -111,7 +111,7 @@ para os trechos da linguagem de script entre `<%` e `%>`.
 * Comentários: começa com `<!--`, termina com `-->`, sem aninhamento
 * Abertura de tags: `<`, `</`
 * Palavras: um ou mais de qualquer coisa que não seja um espaço ou os caracteres `<` e `>`
-* Abertura de script: `<%`
+* Abertura de script: `<%` e `<%=`
 
 ### MHTML tags
 

@@ -61,7 +61,7 @@ a linguagem [MHTML](mhtml.html). Baixe o esqueleto do projeto Eclipse
 para o trabalho [aqui](trab1/MHTML.zip), e leia com atenção o arquivo
 `mhtml.jpage`. 
 
-A entrega do trabalho deverá ser feita até o dia 23/04/2012, uma
+A entrega do trabalho deverá ser feita até o dia 23/11/2012, uma
 sexta-feira, em formato zip, usando [esse
 formulário](http://form.jotformz.com/form/23113756377658).
 
