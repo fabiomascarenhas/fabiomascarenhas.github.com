@@ -117,6 +117,7 @@ tem código que exercita as classes.
 * [29/10/2012](Lexico_29102012.zip) - Análise Léxica: expressões regulares
 * [31/10/2012](Lexico_31102012.zip) - Análise Léxica: autômatos
 * [05/11/2012](Lexico_05112012.zip) - Análise Léxica: autômatos e JFlex
+* [07/11/2012](Lexico_07112012.zip) - Análise Léxica: limitações
 
 Curiosidades
 ------------
