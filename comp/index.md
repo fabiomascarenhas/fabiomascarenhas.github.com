@@ -24,8 +24,7 @@ A avaliação será feita por provas e por pequenos trabalhos práticos. A
 nota das provas corresponderá a 80% da nota final (8 pontos) e a dos
 trabalhos a 20% (2 pontos). Serão três provas, uma na metade do período
 e as outras duas no final, e será feita uma média aritmética das duas
-maiores notas. Não haverá prova final ou segunda chamada. Ainda não
-estabeleci a quantidade nem a natureza dos trabalhos práticos. A média
+maiores notas. Não haverá prova final ou segunda chamada. A média
 final é 5,0.
 
 Datas das Provas
@@ -39,6 +38,36 @@ P3: 06/03/2013
 
 Todas as provas caem na quarta-feira, e serão feitas no mesmo horário e
 local das aulas (LAB I, 15-17).
+
+Trabalhos Práticos
+------------------
+
+Os trabalhos práticos correspondem às diferentes fases de um
+compilador de [MHTML](mhtml.html) para HTML:
+
+1. Analisador léxico da linguagem, usando [JFlex](http://jflex.de/)
+2. Analisador sintático, usando [JACC](http://web.cecs.pdx.edu/~mpj/jacc/)
+3. Interpretador para MHTML script
+4. Macroexpansor (gerador de HTML a partir de MHTML)
+
+Os trabalhos serão feitos em dupla. As mesmas duplas valerão para todos
+os quatro trabalhos, exceto em casos de trancamento ou abandono, que serão
+resolvidos caso a caso.
+
+### Analisador Léxico
+
+Cada dupla deverá fazer a especificação de um analisador léxico para
+a linguagem [MHTML](mhtml.html). Baixe o esqueleto do projeto Eclipse
+para o trabalho [aqui](trab1/MHTML.zip), e leia com atenção o arquivo
+`mhtml.jpage`. 
+
+A entrega do trabalho deverá ser feita até o dia 23/04/2012, uma
+sexta-feira, em formato zip, usando [esse
+formulário](http://form.jotformz.com/form/23113756377658).
+
+Se tiver qualquer dúvida sobre a especificação da linguagem ou o
+funcionamento do analisador léxico é só perguntar e terei o prazer
+em esclarecer.
 
 Lista de Discussão
 ------------------
