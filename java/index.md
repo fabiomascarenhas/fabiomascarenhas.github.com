@@ -100,6 +100,8 @@ Notas de Aula
 
 ### 07/11/2012 - [Métodos, iteração, uso de bibliotecas](Aula5.zip)
 
+### 09/11/2012 - [Mais métodos, space invaders v1, controle visibilidade](Aula6.zip)
+
 Laboratórios
 ------------
 
