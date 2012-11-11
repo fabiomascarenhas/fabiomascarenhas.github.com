@@ -109,6 +109,8 @@ Laboratórios
 
 ### 05/11/2012 - [Lab 2](lab2.html)
 
+### 12/11/2012 - [Lab 3](lab3.html)
+
 Contato
 -------
 
