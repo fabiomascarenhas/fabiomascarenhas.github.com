@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lab I de MAB 240
+title: Lab 1 de MAB 240
 relpath: ..
 ---
 

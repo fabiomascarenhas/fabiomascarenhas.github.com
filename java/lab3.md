@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lab I de MAB 240
+title: Lab 3 de MAB 240
 relpath: ..
 ---
 
@@ -31,7 +31,7 @@ o próximo laboratório. O tabuleiro do jogo consiste de:
 * Quatro faixas de carros; a primeira faixa tem 2 carros com 100 pixels de comprimento, e
   que atravessam a tela em 5 segundos, a segunda faixa tem 1 carro com 150 pixels de comprimento
   e que atravessa e tela em 2 segundos, a terceira faixa tem 3 carros com 60 pixels de comprimento
-  e que atravessem a tela em 8 segundos, e a quarta faixa tem 4 carros com 60 pixels de
+  e que atravessem a tela em 8 segundos, e a quarta faixa tem 3 carros com 60 pixels de
   comprimento e que atravessam a tela em 6 segundos. Todos os carros têm 75 pixels de altura, e
   cores aleatórias;
 * O sapo, com 60 pixels de diâmetro, e cor verde, começa no centro da calçada de baixo;
