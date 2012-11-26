@@ -23,14 +23,21 @@ as setas. Quando uma das setas é pressionada o motor de jogo chama o método `t
 `Jogo`, passando "up", "down", "left", ou "right", a depender se a tecla foi seta para cima, para baixo,
 para a esquerda ou para a direita.
 
-O sapo se move em "saltos" de 100 pixels, mas o salto não é instantâneo, ele leva cerca de 1 segundo
-para completar. Uma maneira simples de implementar isso é fazer o sapo ter dois conjuntos de posições,
-uma onde ele está agora e outra indicando onde ele deve estar. Qualquer uma das teclas de salto atualiza
+O sapo se move em "saltos" de 100 pixels, mas o salto não é instantâneo, ele leva cerca de *1/3* de segundo
+para completar. Uma maneira simples de implementar isso é fazer o sapo ter
+ dois conjuntos de posições, uma onde ele está agora e outra indicando onde ele deve estar. Qualquer uma das teclas de salto atualiza
 a posição onde ele deve estar, e em cada atualização do quadro o sapo se move na direção da posição onde
-deve estar com uma velocidade de 100 pixels por segundo em cada componente. Se as duas posições são
+deve estar com uma velocidade de 300 pixels por segundo em cada componente. Se as duas posições são
 idênticas então o sapo simplesmente fica imóvel.
 
-A colisão também deve ser verificada no método de atualização. Uma colisão do sapo com um dos carros
+Caso o sapo salte além dos cantos esquerdo ou direito da tela ele deve aparecer do outro lado, do mesmo
+modo que os carros. A solução para esse problema não é difícil, mas é sutil. Pensem bem a respeito. O modo
+mais fácil é implementar essa lógica no método que faz o sapo se mover em direção à sua "meta". Se o sapo já
+chegou na calçada superior um salto para cima não deve fazer ele se mover mais para cima. O mesmo em relação
+à calçada inferior e saltos para baixo.
+
+A colisão deve ser verificada no método de atualização do jogo, após todo o movimento daquele
+quadro ter sido feito. Uma colisão do sapo com um dos carros
 faz o contador de vidas diminuir em 1 e o sapo deve retornar para a posição inicial. Se o contador estiver em
 0 no momento da colisão deve ser exibida uma mensagem de "GAME OVER" no centro da tela, e o sapo some (os
 carros continuam se movendo).
