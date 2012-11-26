@@ -48,7 +48,7 @@ O movimento do sapo será implementado no próximo laboratório.
 Enviando
 --------
 
-Use o formulário abaixo para enviar o Laboratório 3. O prazo para envio é sexta-feira, dia 23/11/2012.
+Use o formulário abaixo para enviar o Laboratório 3. O prazo para envio é quarta-feira, dia 28/11/2012.
 
 <script type="text/javascript" src="http://form.jotformz.com/jsform/23135153352646">
 dummy

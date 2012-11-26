@@ -111,6 +111,8 @@ Laboratórios
 
 ### 12/11/2012 - [Lab 3](lab3.html)
 
+### 26/11/2012 - [Lab 4](lab4.html)
+
 Contato
 -------
 
