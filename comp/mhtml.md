@@ -134,6 +134,53 @@ para os trechos da linguagem de script entre `<%` e `%>`.
   `.`, `,`, `..`
 * Fechamento de script: `%>`
 
+Sintaxe
+-------
+
+### MHTML Script
+
+<pre>
+chunk ::= block
+
+block ::= {stat} [retstat]
+
+stat ::= var '=' exp | 
+	 functioncall | 
+	 break | 
+	 do block end |
+         while exp do block end |
+         function id funcbody |
+	 if exp then block {elseif exp then block} [else block] end | 
+	 local id ['=' exp] 
+
+retstat ::= return [exp]
+
+var ::=  id | prefixexp '.' id 
+
+idlist ::= id {',' id}
+
+explist ::= exp {',' exp}
+
+exp ::=  nil | false | true | number | string | anonfunc |
+	 prefixexp | tableconstructor | exp binop exp | unop exp 
+
+prefixexp ::= var | functioncall | '(' exp ')'
+
+functioncall ::=  prefixexp '(' [explist] ')' 
+
+anonfunc ::= function funcbody
+
+funcbody ::= '(' [idlist] ')' block end
+
+tableconstructor ::= '{' '}'
+
+binop ::= '+' | '-' | '*' | '/' | '..' | 
+ 	 '&lt;' | '==' | '~=' | and | or
+
+unop ::= '-' | not
+</pre>
+
+
 * * * * *
 
 Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}

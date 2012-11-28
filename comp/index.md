@@ -119,6 +119,7 @@ tem código que exercita as classes.
 * [05/11/2012](Lexico_05112012.zip) - Análise Léxica: autômatos e JFlex
 * [07/11/2012](Lexico_07112012.zip) - Análise Léxica: limitações
 * [11/11/2012](Parsing_11112012.zip) - Análise Sintática: gramáticas e árvores de parse
+* [26/11/2012 e 28/11/2012](Parsing_28112012.zip) - Análise Sintática: revisão, ambiguidade, padrões
 
 Curiosidades
 ------------
