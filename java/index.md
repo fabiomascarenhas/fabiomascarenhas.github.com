@@ -113,6 +113,8 @@ Laboratórios
 
 ### 26/11/2012 - [Lab 4](lab4.html)
 
+### 03/12/2012 - [Lab 5](lab5.html)
+
 Contato
 -------
 
