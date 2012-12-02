@@ -102,6 +102,8 @@ Notas de Aula
 
 ### 09/11/2012 - [Mais métodos, space invaders v1, controle visibilidade](Aula6.zip)
 
+### 23 e 28/11/2012 - [Introdução à interfaces: funções reais](Funcoes.zip), [Interfaces no Space Invaders](Aula8.zip)
+
 Laboratórios
 ------------
 
