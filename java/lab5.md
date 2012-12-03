@@ -117,7 +117,7 @@ pensar sobre como cada comando funciona..
 ****
 
 Dica: o código abaixo irá te ajudar na implementação do método
-`executa()` da classe `LeNumero`:
+`valor()` da classe `LeNumero`:
 
 {% highlight java %}
       // Variável global para a entrada padrão
