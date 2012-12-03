@@ -36,7 +36,7 @@ mostra na saída:
     x = readDouble(); 
     if(0 < x) {
       fact = 1;
-      while(0 < fact) { 
+      while(0 < x) { 
         fact = fact * x;
         x = x - 1;
       }
@@ -66,7 +66,7 @@ são instâncias de `Var`.
 `Soma`, `Sub`, `Mul` e `Div` modelam as quatro operações aritméticas, e
 contêm duas expressões, para o lado esquerdo e o lado direito da
 operação. No programa acima, `fact * x` é uma instância de `Mul` e `x - 1`
-é uma instância de `Div`.
+é uma instância de `Sub`.
 
 `Igual` e `Menor` modelam as operações de comparação, e também contêm
 expressões para o lado esquerdo e direito da operação. No programa acima, 
@@ -140,7 +140,7 @@ do programa fatorial acima. Note como é passado um bloco vazio para o lado `els
       new Bloco(new Atrib(x, new LeNumero()),
                 new If(new Menor(new Num(0), x),
                        new Bloco(new Atrib(fat, new Num(1)),
-                                 new While(new Menor(new Num(0), fact),
+                                 new While(new Menor(new Num(0), x),
                                            new Bloco(new Atrib(fat, new Mul(fat, x)),
                                                      new Atrib(x, new Sub(x, new Num(1))))),
                                  new Imprime(fat)),
