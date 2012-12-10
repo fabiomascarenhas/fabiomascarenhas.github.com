@@ -121,6 +121,7 @@ tem código que exercita as classes.
 * [11/11/2012](Parsing_11112012.zip) - Análise Sintática: gramáticas e árvores de parse
 * [26/11/2012 e 28/11/2012](Parsing_28112012.zip) - Análise Sintática: revisão, ambiguidade, padrões
 * [03/12/2012](Parsing_03122012.zip) - Análise Sintática Top-Down: analisador LL(1) genérico
+* [05/12/2012](Parsing_05122012.zip) - Análise Sintática Top-Down: fatoração à esquerda e eliminação de recursão à esquerda
 
 Curiosidades
 ------------
