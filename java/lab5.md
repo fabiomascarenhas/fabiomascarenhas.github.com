@@ -139,12 +139,12 @@ do programa fatorial acima. Note como é passado um bloco vazio para o lado `els
     Comando prog = 
       new Bloco(new Atrib(x, new LeNumero()),
                 new If(new Menor(new Num(0), x),
-                       new Bloco(new Atrib(fat, new Num(1)),
-                                 new While(new Menor(new Num(0), x),
-                                           new Bloco(new Atrib(fat, new Mul(fat, x)),
-                                                     new Atrib(x, new Sub(x, new Num(1))))),
-                                 new Imprime(fat)),
-                       new Bloco()));
+                       new Bloco(new Comando[] { new Atrib(fat, new Num(1)),
+                                                 new While(new Menor(new Num(0), x),
+                                                           new Bloco(new Comando[] { new Atrib(fat, new Mul(fat, x)),     
+                                                                                     new Atrib(x, new Sub(x, new Num(1))) })),
+                                                 new Imprime(fat) }),
+                       new Bloco(new Comando[] { })));
     prog.executa();
 {% endhighlight %}
 
@@ -173,20 +173,20 @@ nossas regras de avaliação:
     Var p1 = new Var("p1");
     Var p2 = new Var("p2");
     Var p3 = new Var("p3");
-    Comando prog = new Bloco(new Atrib(p1, new LeNumero()),
-                             new Atrib(p2, new LeNumero()),
-                             new Atrib(p3, new LeNumero()),
-                             new If(new Menor(p1,p2),
-                                    new If(new Menor(p1,p3),
-                                           new Imprime(new Div(new Soma(p2,p3),
-                                                               new Num(2))),
-                                           new Imprime(new Div(new Soma(p1,p2),
-                                                               new Num(2)))),
-                                    new If(new Menor(p2,p3),
-                                           new Imprime(new Div(new Soma(p1,p3),
-                                                               new Num(2))),
-                                           new Imprime(new Div(new Soma(p1,p2),
-                                                               new Num(2))))));
+    Comando prog = new Bloco(new Comando[] { new Atrib(p1, new LeNumero()),
+                                             new Atrib(p2, new LeNumero()),
+                                             new Atrib(p3, new LeNumero()),
+                                             new If(new Menor(p1,p2),
+                                                    new If(new Menor(p1,p3),
+                                                           new Imprime(new Div(new Soma(p2,p3),
+                                                                               new Num(2))),
+                                                           new Imprime(new Div(new Soma(p1,p2),
+                                                                               new Num(2)))),
+                                                    new If(new Menor(p2,p3),
+                                                           new Imprime(new Div(new Soma(p1,p3),
+                                                                               new Num(2))),
+                                                           new Imprime(new Div(new Soma(p1,p2),
+                                                                               new Num(2))))) });
 
     prog.executa();
 {% endhighlight %}
