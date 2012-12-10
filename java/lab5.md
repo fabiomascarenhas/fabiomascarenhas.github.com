@@ -137,14 +137,15 @@ do programa fatorial acima. Note como é passado um bloco vazio para o lado `els
     Var x = new Var("x");
     Var fat = new Var("fat");
     Comando prog = 
-      new Bloco(new Atrib(x, new LeNumero()),
-                new If(new Menor(new Num(0), x),
-                       new Bloco(new Comando[] { new Atrib(fat, new Num(1)),
-                                                 new While(new Menor(new Num(0), x),
-                                                           new Bloco(new Comando[] { new Atrib(fat, new Mul(fat, x)),     
-                                                                                     new Atrib(x, new Sub(x, new Num(1))) })),
-                                                 new Imprime(fat) }),
-                       new Bloco(new Comando[] { })));
+      new Bloco(new Comando[] {
+                  new Atrib(x, new LeNumero()),
+                  new If(new Menor(new Num(0), x),
+                         new Bloco(new Comando[] { new Atrib(fat, new Num(1)),
+                                                   new While(new Menor(new Num(0), x),
+                                                             new Bloco(new Comando[] { new Atrib(fat, new Mul(fat, x)),     
+                                                                                       new Atrib(x, new Sub(x, new Num(1))) })),
+                                                   new Imprime(fat) }),
+                         new Bloco(new Comando[] { })) });
     prog.executa();
 {% endhighlight %}
 
