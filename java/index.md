@@ -106,6 +106,8 @@ Notas de Aula
 
 ### 05 e 07/12/2012 - [Mais interfaces: implementando múltiplas interfaces, classes anônimas, herança de interfaces](Interpretador.zip), [Desacoplando Motor e Jogo](Aula10.zip)
 
+### 12/12/2012 - [Herança de classes, classes e métodos abstratos, subclasses e superclasses](Aula11.zip)
+
 Laboratórios
 ------------
 
