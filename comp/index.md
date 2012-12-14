@@ -124,6 +124,10 @@ tem código que exercita as classes.
 * [05/12/2012](Parsing_05122012.zip) - Análise Sintática Top-Down: fatoração à esquerda e eliminação de recursão à esquerda
 * [10/12/2012 e 12/12/2012](Parsing_12122012.zip) - Análise Sintática Top-Down: analisador recursivo
 
+### Listas de Exercício
+
+* [Lista 1](lista1.html)
+
 Curiosidades
 ------------
 
