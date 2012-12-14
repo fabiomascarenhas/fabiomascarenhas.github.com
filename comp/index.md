@@ -123,6 +123,8 @@ tem código que exercita as classes.
 * [03/12/2012](Parsing_03122012.zip) - Análise Sintática Top-Down: analisador LL(1) genérico
 * [05/12/2012](Parsing_05122012.zip) - Análise Sintática Top-Down: fatoração à esquerda e eliminação de recursão à esquerda
 * [10/12/2012 e 12/12/2012](Parsing_12122012.zip) - Análise Sintática Top-Down: analisador recursivo
+* [17/12/2012](Parsing_17122012.zip) - Análise Sintática Top-Down: notas de aula mais completas
+
 
 ### Listas de Exercício
 
