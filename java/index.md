@@ -121,6 +121,8 @@ Laboratórios
 
 ### 03/12/2012 - [Lab 5](lab5.html)
 
+### 17/12/2012 - [Lab 6](lab6.html)
+
 Contato
 -------
 
