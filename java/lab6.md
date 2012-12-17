@@ -21,7 +21,7 @@ manipular as formas no editor:
         // Redimensiona a forma por um fator de escala
         void redimensionar(float escala);
         // Rotaciona a forma em tantos graus
-        void rotacionr(int graus);
+        void rotacionar(int graus);
       }
 {% endhighlight %}
 
@@ -46,11 +46,13 @@ marcados com TODO), que implementa parte do recurso desfazer/refazer do
 editor gráfico:
 
 {% highlight java %}
+      import java.util.Stack;
+
       class Editor {
         // Ações feitas
-        Stack<Acao> feitas;
+        Stack<Acao> feitas = new Stack<Acao>();
         // Ações desfeitas
-        Stack<Acao> desfeitas;
+        Stack<Acao> desfeitas = new Stack<Acao>();;
 
         void fazer(Acao a) {
           // TODO: faz uma ação nova
@@ -85,7 +87,7 @@ seguinte interface:
 {% highlight java %}
     interface Enumerador {
       int proximo();
-      boolean final(); 
+      boolean fim(); 
     }
 {% endhighlight %}
 
@@ -96,20 +98,43 @@ seguir mostra um uso desse enumerador:
 {% highlight java %}
     Enumerador e = new EnumVetor(new int[] { 1, 3, 5 });
     System.out.println(e.proximo()); // imprime 1
-    System.out.println(e.final()); // imprime false
+    System.out.println(e.fim()); // imprime false
     System.out.println(e.proximo()); // imprime 2
     System.out.println(e.proximo()); // imprime 3
-    System.out.println(e.final()); // imprime true
+    System.out.println(e.fim()); // imprime true
 {% endhighlight %}
 
 2\.2\. Escreva o corpo da função abaixo, que recebe um enumerador e retorna uma
 lista com todos os elementos que ele pode produzir:
 
 {% highlight java %}
-    static List<Integer> listaDeEnum(Enumerador e) {
+    static java.util.List<Integer> listaDeEnum(Enumerador e) {
       // corpo
     }
 {% endhighlight %}
+
+* * * * *
+
+Se você quiser testar o código que escreveu para a questão 1 pode usar a implementação teste de `Forma` abaixo:
+
+{% highlight java %}
+public class FormaParaTeste implements Forma {
+  public FormaParaTeste() { }
+
+  public void mover(int dx, int dy) {
+    System.out.println("MOVER: " + dx + ", " + dy);
+  }
+
+  public void redimensionar(float escala) {
+    System.out.println("REDIMENSIONAR: " + escala);
+  }
+  
+  public void rotacionar(int graus) {
+    System.out.println("ROTACIONAR: " + graus);
+  }
+}
+{% endhighlight %}
+
 
 * * * * *
 
