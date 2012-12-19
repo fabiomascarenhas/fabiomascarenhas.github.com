@@ -126,7 +126,7 @@ para os trechos da linguagem de script entre `<%` e `%>`.
 * Espaços em branco: `[ \n\t\r]`
 * Comentários: começa com `--`, vai até o final da linha
 * Palavras reservadas: `function`, `end`, `while`, `local`, `true`, `false`,
-  `and`, `else`, `if`, `elseif`, `not`, `nil`, `or`, `return`, `then`
+  `and`, `else`, `if`, `elseif`, `not`, `nil`, `or`, `return`, `then`, `do`
 * Identificadores: uma letra ou `_`, seguido de zero ou mais letras, dígitos ou `_`. Um único `_` é um identificador válido.
 * Numerais: inteiros e decimais, dígitos à direita ou à esquerda do ponto decimal são opcionais (`123.` e `.4` são numerais, mas `.` não é)
 * Strings: qualquer sequência de caracteres entre aspas duplas (inclusive quebras de linha!)
@@ -137,47 +137,88 @@ para os trechos da linguagem de script entre `<%` e `%>`.
 Sintaxe
 -------
 
+### MHTML
+
+<pre>
+MHTML -> ELEM
+
+ELEM  -> ATAG CORPO FTAG
+ELEM  -> <% SCRIPT %>
+ELEM  -> <%= EXP %>
+ELEM  -> AFTAG
+
+CORPO -> {ELEM | word}
+
+ATAG  -> < id {ATRIB} >
+
+FTAG  -> </ id >
+
+AFTAG -> < id {ATRIB} />
+
+ATRIB -> id = string
+</pre>
+
 ### MHTML Script
 
 <pre>
-chunk ::= block
+SCRIPT -> BLOCO
 
-block ::= {stat} [retstat]
+BLOCO  -> {STAT} [RET]
 
-stat ::= var '=' exp | 
-	 functioncall | 
-	 break | 
-	 do block end |
-         while exp do block end |
-         function id funcbody |
-	 if exp then block {elseif exp then block} [else block] end | 
-	 local id ['=' exp] 
+STAT   -> do BLOCO end
+STAT   -> while EXP do BLOCO end
+STAT   -> function id ( [IDS] ) BLOCO end
+STAT   -> if exp then BLOCO {elseif exp then BLOCO} [else BLOCO] end
+STAT   -> local id [= EXP]
+STAT   -> LVAL = EXP
+STAT   -> PEXP ( [EXPS] )
 
-retstat ::= return [exp]
+RET    -> return EXP
 
-var ::=  id | prefixexp '.' id 
+LVAL   -> id
+LVAL   -> PEXP . id
 
-idlist ::= id {',' id}
+IDS    -> id {, id}
 
-explist ::= exp {',' exp}
+EXPS   -> EXP {, EXP}
 
-exp ::=  nil | false | true | number | string | anonfunc |
-	 prefixexp | tableconstructor | exp binop exp | unop exp 
+EXP    -> EXP or LEXP
+EXP    -> LEXP
 
-prefixexp ::= var | functioncall | '(' exp ')'
+LEXP   -> LEXP and REXP
+LEXP   -> REXP
 
-functioncall ::=  prefixexp '(' [explist] ')' 
+REXP   -> REXP &lt; CEXP
+REXP   -> REXP == CEXP
+REXP   -> REXP ~= CEXP
+REXP   -> CEXP
 
-anonfunc ::= function funcbody
+CEXP   -> CEXP .. AEXP
+CEXP   -> AEXP
 
-funcbody ::= '(' [idlist] ')' block end
+AEXP   -> AEXP + MEXP
+AEXP   -> AEXP - MEXP
+AEXP   -> MEXP
 
-tableconstructor ::= '{' '}'
+MEXP   -> MEXP * PEXP
+MEXP   -> MEXP / PEXP
+MEXP   -> SEXP
 
-binop ::= '+' | '-' | '*' | '/' | '..' | 
- 	 '&lt;' | '==' | '~=' | and | or
+SEXP   -> - SEXP
+SEXP   -> not SEXP
+SEXP   -> nil
+SEXP   -> false
+SEXP   -> true
+SEXP   -> num
+SEXP   -> string
+SEXP   -> { }
+SEXP   -> function ( [IDS] ) BLOCO end
+SEXP   -> PEXP
 
-unop ::= '-' | not
+PEXP   -> PEXP ( [EXPS] )
+PEXP   -> PEXP . id 
+PEXP   -> ( EXP )
+PEXP   -> id
 </pre>
 
 

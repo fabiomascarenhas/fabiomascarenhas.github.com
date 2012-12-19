@@ -125,10 +125,13 @@ tem código que exercita as classes.
 * [10/12/2012 e 12/12/2012](Parsing_12122012.zip) - Análise Sintática Top-Down: analisador recursivo
 * [17/12/2012](Parsing_17122012.zip) - Análise Sintática Top-Down: notas de aula mais completas
 
-
 ### Listas de Exercício
 
 * [Lista 1](lista1.html)
+
+### Provas
+
+* 19/12/2012 - [P1](p1.pdf)
 
 Curiosidades
 ------------
