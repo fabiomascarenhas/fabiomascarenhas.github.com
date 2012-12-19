@@ -90,7 +90,7 @@ parênteses. O operador || tem precedência menor que &&, e este menor que
 ainda é ambígua:
 
 {% highlight ragel %}
-      CMD -> if ( exp ) DECL | CASAM-CMD
+      CMD -> if ( exp ) CMD | CASAM-CMD
       CASAM-CMD -> if ( exp ) CASAM-CMD else CMD | outro
 {% endhighlight %}
 
