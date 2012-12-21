@@ -143,17 +143,17 @@ Sintaxe
 MHTML -> ELEM
 
 ELEM  -> ATAG CORPO FTAG
-ELEM  -> <% SCRIPT %>
-ELEM  -> <%= EXP %>
+ELEM  -> &lt;% SCRIPT %
+ELEM  -> &lt;%= EXP %&gt;
 ELEM  -> AFTAG
 
 CORPO -> {ELEM | word}
 
-ATAG  -> < id {ATRIB} >
+ATAG  -> &lt; id {ATRIB} &gt;
 
-FTAG  -> </ id >
+FTAG  -> &lt;/ id &gt;
 
-AFTAG -> < id {ATRIB} />
+AFTAG -> &lt; id {ATRIB} /&gt;
 
 ATRIB -> id = string
 </pre>
