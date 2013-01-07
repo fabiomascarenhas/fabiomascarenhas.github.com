@@ -39,6 +39,22 @@ o campo primeiro, de tipo `int`, que é o primeiro elemento da lista, e o campo 
 que é o resto da lista. Novamente, você também vai precisar implementar `Enumerador`. O enumerador
 de uma `ListaCons` produz o primeiro elemento, depois "vira" o elemento do resto da lista.
 
+Um exemplo de uso de `ListaCons` e `ListaVazia`, para representar a lista 1, 3, 5:
+
+{% highlight java %}
+Lista l = new ListaCons(1, new ListaCons(3, new ListaCons(5, new ListaVazia())));
+System.out.println(l.soma()); // 9
+System.out.println(l.quantos()); // 3
+Enumerador e = l.enumerador();
+System.out.println(e.fim()) // false
+System.out.println(e.proximo()); // 1
+System.out.println(e.fim()) // false
+System.out.println(e.proximo()); // 3
+System.out.println(e.fim()) // false
+System.out.println(e.proximo()); // 5
+System.out.println(e.fim()) // true
+{% endhighlight %}
+
 3\. Implemente a classe `ListaConcat`, que também implementa `Lista`, e possui dois campos, lista1
 e lista2, ambos do tipo `Lista`. `ListaConcat` representa a concatenação dessas duas listas. Pense
 em como implementar um enumerador para essa lista.
@@ -69,6 +85,15 @@ public interface OpBin {
 Adicione o método `int foldr(OpBin op, int z)` à interface `Lista`. Esse método deve fazer um fold à direita
 na lista, usando `op` como a operação e `z` como o zero. Implemente `foldr` nas classes que você implementou
 que implementam `Lista`.
+
+Enviando
+--------
+
+Use o formulário abaixo para enviar o Laboratórios 7. O prazo para envio é sexta-feira, dia 14/01/2012.
+
+<script type="text/javascript" src="http://form.jotformz.com/jsform/30063133820642">
+// dummy
+</script>
 
 * * * * *
 
