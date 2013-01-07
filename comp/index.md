@@ -124,6 +124,7 @@ tem código que exercita as classes.
 * [05/12/2012](Parsing_05122012.zip) - Análise Sintática Top-Down: fatoração à esquerda e eliminação de recursão à esquerda
 * [10/12/2012 e 12/12/2012](Parsing_12122012.zip) - Análise Sintática Top-Down: analisador recursivo
 * [17/12/2012](Parsing_17122012.zip) - Análise Sintática Top-Down: notas de aula mais completas
+* [07/01/2013](Parsing_07012013.zip) - Análise Sintática Bottom-Up: introdução ao analisador shift-reduce
 
 ### Listas de Exercício
 
@@ -131,7 +132,12 @@ tem código que exercita as classes.
 
 ### Provas
 
-* 19/12/2012 - [P1](p1.pdf)
+* 19/12/2012 - [P1](p1.pdf) e [gabarito](Prova1.zip)
+
+### Artigos
+
+* [Top-down Syntax Analysis](knuth_topdown.pdf) - artigo tutorial de Donald Knuth sobre análise sintática top-down.
+Didático, mas bem detalhado, inclusive com teoremas e provas. Para quem quiser se aprofundar mais no assunto.
 
 Curiosidades
 ------------
