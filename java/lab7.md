@@ -25,7 +25,7 @@ Imagine que temos a seguinte interface `Lista` para listas de inteiros:
 public interface Lista {
   int quantos();     // quantos elementos a lista tem
   int soma();        // soma dos elementos da lista
-  Enumerador enum(); // um enumerador para essa lista
+  Enumerador enumerador(); // um enumerador para essa lista
 }
 {% endhighlight %}
 
@@ -44,9 +44,9 @@ e lista2, ambos do tipo `Lista`. `ListaConcat` representa a concatenação dessa
 em como implementar um enumerador para essa lista.
 
 4\. Implemente a classe `ListaPG`, que também implementa `Lista` e representa uma progressão geométrica.
-`ListaPA` tem três campos, a0, do tipo `int`, que é o elemento inicial, `q`, a razão da progressão, e n, também
+`ListaPG` tem três campos, a0, do tipo `int`, que é o elemento inicial, `q`, a razão da progressão, e n, também
 do tipo `int`, o número de termos. Novamente, também implemente um enumerador
-para essa lisra.
+para essa lista.
 
 5\. Um *fold à direita* (right fold) é uma construção em que pegamos uma operação binária `op`, uma lista
 de elementos l1, l2, ..., ln, e um elemento *zero* z e fazemos o seguinte:
