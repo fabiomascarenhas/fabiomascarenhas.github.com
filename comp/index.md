@@ -46,7 +46,7 @@ Os trabalhos práticos correspondem às diferentes fases de um
 compilador de [MHTML](mhtml.html) para HTML:
 
 1. Analisador léxico da linguagem, usando [JFlex](http://jflex.de/)
-2. Analisador sintático, usando [JACC](http://web.cecs.pdx.edu/~mpj/jacc/)
+2. Analisador sintático recursivo
 3. Interpretador para MHTML script
 4. Macroexpansor (gerador de HTML a partir de MHTML)
 
@@ -68,6 +68,20 @@ formulário](http://form.jotformz.com/form/23113756377658).
 Se tiver qualquer dúvida sobre a especificação da linguagem ou o
 funcionamento do analisador léxico é só perguntar e terei o prazer
 em esclarecer.
+
+### Analisador Sintático
+
+Cada dupla deverá completar a implementação de um analisador sintático para
+a linguagem [MHTML](mhtml.html). Baixe o esqueleto do projeto Eclipse
+para o trabalho [aqui](trab2/MHTML.zip), e leia com atenção o arquivo
+`mhtml.jpage`. 
+
+A entrega do trabalho deverá ser feita até o dia 30/01/2012, uma
+quarta-feira, em formato zip, usando [esse
+formulário](http://form.jotformz.com/form/30086060522645).
+
+Se tiverem quaisquer dúvidas sobre a especificação da linguagem ou o
+funcionamento do analisador sintático é só perguntarem.
 
 Lista de Discussão
 ------------------
@@ -125,6 +139,7 @@ tem código que exercita as classes.
 * [10/12/2012 e 12/12/2012](Parsing_12122012.zip) - Análise Sintática Top-Down: analisador recursivo
 * [17/12/2012](Parsing_17122012.zip) - Análise Sintática Top-Down: notas de aula mais completas
 * [07/01/2013](Parsing_07012013.zip) - Análise Sintática Bottom-Up: introdução ao analisador shift-reduce
+* [09/01/2013](Parsing_09012013.zip) - Análise Sintática Bottom-Up: reduções e derivações à direita, handles
 
 ### Listas de Exercício
 
