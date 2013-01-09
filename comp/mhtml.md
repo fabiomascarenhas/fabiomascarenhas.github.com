@@ -200,8 +200,8 @@ AEXP   -> AEXP + MEXP
 AEXP   -> AEXP - MEXP
 AEXP   -> MEXP
 
-MEXP   -> MEXP * PEXP
-MEXP   -> MEXP / PEXP
+MEXP   -> MEXP * SEXP
+MEXP   -> MEXP / SEXP
 MEXP   -> SEXP
 
 SEXP   -> - SEXP
