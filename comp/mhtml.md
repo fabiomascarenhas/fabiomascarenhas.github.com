@@ -143,7 +143,7 @@ Sintaxe
 MHTML -> ELEM
 
 ELEM  -> ATAG CORPO FTAG
-ELEM  -> &lt;% SCRIPT %
+ELEM  -> &lt;% SCRIPT %&gt;
 ELEM  -> &lt;%= EXP %&gt;
 ELEM  -> AFTAG
 
@@ -168,7 +168,7 @@ BLOCO  -> {STAT} [RET]
 STAT   -> do BLOCO end
 STAT   -> while EXP do BLOCO end
 STAT   -> function id ( [IDS] ) BLOCO end
-STAT   -> if exp then BLOCO {elseif exp then BLOCO} [else BLOCO] end
+STAT   -> if EXP then BLOCO {elseif EXP then BLOCO} [else BLOCO] end
 STAT   -> local id [= EXP]
 STAT   -> LVAL = EXP
 STAT   -> PEXP ( [EXPS] )
@@ -193,7 +193,7 @@ REXP   -> REXP == CEXP
 REXP   -> REXP ~= CEXP
 REXP   -> CEXP
 
-CEXP   -> CEXP .. AEXP
+CEXP   -> AEXP .. CEXP
 CEXP   -> AEXP
 
 AEXP   -> AEXP + MEXP
