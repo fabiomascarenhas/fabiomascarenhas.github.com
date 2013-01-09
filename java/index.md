@@ -110,8 +110,7 @@ Notas de Aula
 
 ### 19/12/2012 - Revisão: [formas e ações](Editor.zip) e [enumeradores](Enumerador.zip)
 
-### 09/01/2012 - [Herança de classes, subclasses e superclasses, redefinição de métodos, *super*](Aula12.zip),
-    [classes e métodoa abstratos, padrão *inner*](Interpretador_09012013.zip)
+### 09/01/2012 - [Herança de classes, subclasses e superclasses, redefinição de métodos, *super*](Aula12.zip), [classes e métodoa abstratos, padrão *inner*](Interpretador_09012013.zip)
 
 Laboratórios
 ------------
