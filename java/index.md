@@ -129,6 +129,8 @@ Laboratórios
 
 ### 07/01/2013 - [Lab 7](lab7.html)
 
+### 14/01/2013 - [Lab 8](lab8.html)
+
 Provas
 ------
 
