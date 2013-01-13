@@ -89,7 +89,7 @@ que implementam `Lista`.
 Enviando
 --------
 
-Use o formulário abaixo para enviar o Laboratórios 7. O prazo para envio é sexta-feira, dia 14/01/2012.
+Use o formulário abaixo para enviar o Laboratório 7. O prazo para envio é segunda-feira, dia 14/01/2013.
 
 <script type="text/javascript" src="http://form.jotformz.com/jsform/30063133820642">
 // dummy
