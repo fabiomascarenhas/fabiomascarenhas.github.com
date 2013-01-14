@@ -39,6 +39,25 @@ o campo primeiro, de tipo `int`, que é o primeiro elemento da lista, e o campo 
 que é o resto da lista. Novamente, você também vai precisar implementar `Enumerador`. O enumerador
 de uma `ListaCons` produz o primeiro elemento, depois "vira" o elemento do resto da lista.
 
+Não é estritamente necessário dar nome para uma nova classe para implementar o enumerador de `ListaCons`, 
+você pode usar uma classe anônima:
+
+{% highlight java %}
+  public Enumerador enumerador() {
+    return new Enumerador() {
+      // campos
+
+      public int proximo() {
+        // implementação de proximo
+      }
+
+      public boolean fim() {
+        // implementação de fim
+      }
+    };
+  }
+{% endhighlight %}
+
 Um exemplo de uso de `ListaCons` e `ListaVazia`, para representar a lista 1, 3, 5:
 
 {% highlight java %}
