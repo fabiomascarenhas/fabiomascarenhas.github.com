@@ -33,7 +33,7 @@ class ContaCorrente {
         this.saldo -= valor;
     }
 
-    public void transfere(Conta destino, double valor) {
+    public void transfere(ContaCorrente destino, double valor) {
         this.retira(valor);
         destino.deposita(valor);
     }
