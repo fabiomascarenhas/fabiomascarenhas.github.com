@@ -37,7 +37,8 @@ precisar de uma implementação para `Enumerador`, experimente usar tanto a pró
 2\. Implemente a classe `ListaCons`, que também implementa `Lista`. Essa classe deve ter dois campos:
 o campo primeiro, de tipo `int`, que é o primeiro elemento da lista, e o campo resto, de tipo `Lista`, 
 que é o resto da lista. Novamente, você também vai precisar implementar `Enumerador`. O enumerador
-de uma `ListaCons` produz o primeiro elemento, depois "vira" o elemento do resto da lista.
+de uma `ListaCons` produz o primeiro elemento, depois "vira" o enumerador do resto da lista (passa
+a delegar `proximo()` e `fim()` para esse enumerador).
 
 Não é estritamente necessário dar nome para uma nova classe para implementar o enumerador de `ListaCons`, 
 você pode usar uma classe anônima:

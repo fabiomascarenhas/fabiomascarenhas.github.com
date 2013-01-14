@@ -134,7 +134,7 @@ Laboratórios
 Provas
 ------
 
-### 19/12/2012 - [P1](p1.pdf) e [gabarito](p1.html)
+### 21/12/2012 - [P1](p1.pdf) e [gabarito](p1.html)
 
 Contato
 -------
