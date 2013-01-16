@@ -140,6 +140,7 @@ tem código que exercita as classes.
 * [17/12/2012](Parsing_17122012.zip) - Análise Sintática Top-Down: notas de aula mais completas
 * [07/01/2013](Parsing_07012013.zip) - Análise Sintática Bottom-Up: introdução ao analisador shift-reduce
 * [09/01/2013](Parsing_09012013.zip) - Análise Sintática Bottom-Up: reduções e derivações à direita, handles
+* [14/01/2013 e 16/01/2013](Parsing_09012013.zip) - Análise Sintática Bottom-Up: autômato LR(0), analisador SLR, ACTION e GOTO, conflitos SLR e tratamento de associatividade e precedência
 
 ### Listas de Exercício
 
