@@ -16,7 +16,7 @@ laboratório 9 é incluir sinalização e tratamento de erros nas classes do úl
 
 1\. A primeira tarefa é impedir que contas fiquem no vermelho. Crie uma nova exceção **não-checada**
 chamada `SaldoInsuficiente`. Uma tentativa de retirar dinheiro além do saldo da conta deve 
-lançar essa exceção. Modifique a classe `Conta` para fazer isso. O que acontece caso se tente transferir
+lançar essa exceção. Modifique a classe `ContaCorrente` para fazer isso. O que acontece caso se tente transferir
 um valor maior que o saldo restante da conta?
 
 Relacionado à última pergunta: qual o problema com a seguinte implementação do método `transfere`?
@@ -43,7 +43,7 @@ da leitura de `buf`.
 Teste `processa` com o seguinte código:
 
 {% highlight java %}
-Conta c = new Conta(1234, "Fulano", 200);
+ContaCorrente c = new ContaCorrente(1234, "Fulano", 200);
 String trans = "50\n-100.25\nFOO\n-200\n125.25\n-200\n-90\n-50\n";
 // o processamento deve imprimir duas mensagens de saldo insuficiente
 c.processa(new java.io.BufferedReader(new java.io.StringReader(trans)));
@@ -84,7 +84,7 @@ public class Transacoes extends JFrame {
         processar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				// tratar exceção NumberFormatException
-				Conta conta = new Conta(Integer.parseInt(numero.getText()),
+				ContaCorrente conta = new Conta(Integer.parseInt(numero.getText()),
 							            correntista.getText(),
 							            Double.parseDouble(saldo.getText());
 				JFileChooser abreArq = new JFileChooser();
