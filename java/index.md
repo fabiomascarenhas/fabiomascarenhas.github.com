@@ -114,9 +114,11 @@ Notas de Aula
 
 ### 11/01/2013 - [Mais herança, subclasses e superclasses](Aula13.zip), [métodos de *Object*: equals, hashCode, toString](Interpretador_11012013.zip)
 
-### 16/01/2012 - [Exceções não checadas](Aula14.zip)
+### 16/01/2013 - [Exceções não checadas](Aula14.zip)
 
-### 18/01/2012 - [Exceções checadas](Aula14_Checada.zip), [introdução a classes genéricas ou parametrizadas](Aula15.zip)
+### 18/01/2013 - [Exceções checadas](Aula14_Checada.zip), [introdução a classes genéricas ou parametrizadas](Aula15.zip)
+
+### 23/01/2013 - [Classes genéricas ou parametrizadas: múltiplos parâmetros, parâmetros com restrições (extends)](Aula16.zip)
 
 Laboratórios
 ------------
