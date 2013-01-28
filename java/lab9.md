@@ -88,13 +88,14 @@ public class Transacoes extends JFrame {
 							            correntista.getText(),
 							            Double.parseDouble(saldo.getText());
 				JFileChooser abreArq = new JFileChooser();
+				abreArq.showOpenDialog(null);
 				// tratar exceção FileNotFoundException
 				File arq = abreArq.getSelectedFile();
 				FileReader leitor = new FileReader(arq);
 				// Tratar exceção IOException e garantir que arquivo será
 				// sempre fechado com finally
 				conta.processar(new BufferedReader(new FileReader(arq)));
-				saldo.setText(conta.saldo);
+				saldo.setText("" + conta.saldo);
 				leitor.close();
 			}
         });
