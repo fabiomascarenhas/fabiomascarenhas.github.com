@@ -120,8 +120,7 @@ Notas de Aula
 
 ### 23/01/2013 - [Classes genéricas ou parametrizadas: múltiplos parâmetros, parâmetros com restrições (extends)](Aula16.zip)
 
-### 25/01/2013 e 30/01/2013 - [Interfaces gráficas: padrão MVC, modelo de uma Calculadora, VC da Calculadora
-usando Swing](Calculadora.zip)
+### 25/01/2013 e 30/01/2013 - [Interfaces gráficas: padrão MVC, modelo de uma Calculadora, VC da Calculadora usando Swing](Calculadora.zip)
 
 Laboratórios
 ------------
