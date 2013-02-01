@@ -122,8 +122,7 @@ Notas de Aula
 
 ### 25/01/2013 e 30/01/2013 - [Interfaces gráficas: padrão MVC, modelo de uma Calculadora, VC da Calculadora usando Swing](Calculadora.zip)
 
-### 01/02/2013 - [Interfaces gráficas: VC da calculadora em Android](CalcAndroid.zip), [APK para instalação em
-dispositivos](CalcAndroid.apk)
+### 01/02/2013 - [Interfaces gráficas: VC da calculadora em Android](CalcAndroid.zip), [APK para instalação em dispositivos](CalcAndroid.apk)
 
 Laboratórios
 ------------
