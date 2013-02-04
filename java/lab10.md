@@ -95,7 +95,6 @@ class ContaCorrente implements Elemento {
 envolvendo a memória: `limpa`, que zera a memória, `msoma`, que adiciona o valor do display à memória,
 `msub`, que subtrai o valor do display da memória, e `recupera`, que substitui o que está no display
 pelo valor da memória. O funcionamento da memória é o mesmo não importa qual o estado da calculadora.
-A operação de `reset` da calculadora também limpa a memória.
 
 3\. Adicione uma operação `trocaSinal` ao modelo da calculadora do exercício anterior, que inverte o sinal
 do que está no display (negativo para positivo, positivo para negativo).
