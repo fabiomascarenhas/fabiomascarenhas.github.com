@@ -87,7 +87,7 @@ funcionamento do analisador sintático é só perguntarem.
 
 Cada dupla deverá completar a implementação da especificação de [MHTML Script](mhtml.html).
 Baixe o esqueleto do projeto Eclipse
-para o trabalho [aqui](trab3/MHTMScriptL.zip), e leia com atenção o arquivo
+para o trabalho [aqui](trab3/MHTMScript.zip), e leia com atenção o arquivo
 `mhtml.jpage`. 
 
 A entrega do trabalho deverá ser feita até o dia 27/02/2013, uma quarta-feira,
