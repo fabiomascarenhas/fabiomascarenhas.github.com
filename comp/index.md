@@ -76,12 +76,24 @@ a linguagem [MHTML](mhtml.html). Baixe o esqueleto do projeto Eclipse
 para o trabalho [aqui](trab2/MHTML.zip), e leia com atenção o arquivo
 `mhtml.jpage`. 
 
-A entrega do trabalho deverá ser feita até o dia 30/01/2012, uma
+A entrega do trabalho deverá ser feita até o dia 30/01/2013, uma
 quarta-feira, em formato zip, usando [esse
 formulário](http://form.jotformz.com/form/30086060522645).
 
 Se tiverem quaisquer dúvidas sobre a especificação da linguagem ou o
 funcionamento do analisador sintático é só perguntarem.
+
+### Interpretador para MHTML Script
+
+Cada dupla deverá completar a implementação da especificação de [MHTML Script](mhtml.html).
+Baixe o esqueleto do projeto Eclipse
+para o trabalho [aqui](trab3/MHTMScriptL.zip), e leia com atenção o arquivo
+`mhtml.jpage`. 
+
+A entrega do trabalho deverá ser feita até o dia 27/02/2013, uma quarta-feira,
+em formato zip, usando [esse formulário](http://form.jotformz.com/form/30363980245656).
+
+Se tiverem quaisquer dúvidas sobre a especificação da linguagem é só perguntarem.
 
 Lista de Discussão
 ------------------
