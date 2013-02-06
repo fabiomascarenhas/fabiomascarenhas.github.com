@@ -145,6 +145,7 @@ tem código que exercita as classes.
 * [23/01/2013](Semantic_23012013.zip) - Árvores Sintáticas Abstratas: variáveis e comandos
 * [28/01/2013](Semantic_28012013.zip) - Árvores Sintáticas Abstratas: escopo e funções
 * [30/01/2013](Semantic_30012013.zip) - Árvores Sintáticas Abstratas: funções anônimas, Tipagem Estática
+* 04/02/2013 - [Tipagem estática com inferência](Semantic_04022013_inference.zip), [inferência de tipos genéricos](Semantic_04022013_generics.zip)
 
 ### Listas de Exercício
 

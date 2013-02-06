@@ -124,6 +124,8 @@ Notas de Aula
 
 ### 01/02/2013 - [Interfaces gráficas: VC da calculadora em Android](CalcAndroid.zip), [APK para instalação em dispositivos](CalcAndroid.apk)
 
+### 06/02/2013 - [Interfaces gráficas: busca na API pública do Twitter](BuscaTwitter.zip), [APK](BuscaTwitter.apk)
+
 Laboratórios
 ------------
 
