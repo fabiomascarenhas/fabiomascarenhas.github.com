@@ -32,12 +32,12 @@ Datas das Provas
 
 P1: 19/12/2012
 
-P2: 27/02/2013
+P2: 11/03/2013
 
-P3: 06/03/2013
+P3: 13/03/2013
 
-Todas as provas caem na quarta-feira, e serão feitas no mesmo horário e
-local das aulas (LAB I, 15-17).
+As provas serão feitas ou na sala DLC ou na sala DCC, a depender da disponibilidade,
+no mesmo horário da aula.
 
 Trabalhos Práticos
 ------------------
@@ -159,6 +159,18 @@ tem código que exercita as classes.
 * [30/01/2013](Semantic_30012013.zip) - Árvores Sintáticas Abstratas: funções anônimas, Tipagem Estática
 * 04/02/2013 - [Tipagem estática com inferência](Semantic_04022013_inference.zip), [inferência de tipos genéricos](Semantic_04022013_generics.zip)
 * [06/02/2013](Semantic_06022013.zip) - Tipagem estática com inferência: sobrecarga e recursão nos tipos
+
+A seção 6.5.4 da 2a. edição do livro "Compiladores: Princípios, Técnicas e Ferramentas", de Aho, 
+Sethi, Ullman e Lam, fazem um resumo da técnica de inferência de tipos dada nos dias 04 e 06/02/2013.
+A seção 6.5.5 dá uma outra versão do algoritmo de unificação de tipos. O algoritmo implementado nos projetos
+acima é uma adaptação do algoritmo de Luca Cardelli em [Basic Polymorphic Typechecking](http://web.cecs.pdx.edu/~antoy/Courses/TPFLP/lectures/TYPE/BasicTypechecking.pdf).
+
+* 18/02/2013 - [Tipagem explícita](Semantic_18022013.zip), [Geração de código: conversão de fechos](Codegen_18022013.zip)
+
+Uma exposição didática do problema de conversão de fecho está [nessa página](http://matt.might.net/articles/closure-conversion/). Conversão de fecho é uma variante do problema de [lambda lifting](http://en.wikipedia.org/wiki/Lambda_lifting)
+para linguagens com funções de primeira classe, onde o lifting puro não é suficiente. Uma exposição mais detalhada
+está [nessa página](http://matt.might.net/articles/compiling-scheme-to-c/). A [versão para Java](http://matt.might.net/articles/compiling-to-java/) do compilador dessa última referência não faz conversão de fecho, delegando a maior parte
+do trabalho para o compilador Java.
 
 ### Listas de Exercício
 
