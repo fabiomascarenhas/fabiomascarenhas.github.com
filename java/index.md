@@ -151,6 +151,8 @@ Laboratórios
 
 ### 04/02/2013 - [Lab 11](lab11.html)
 
+### 18/02/2013 - [Lab 12](lab12.html)
+
 Provas
 ------
 
