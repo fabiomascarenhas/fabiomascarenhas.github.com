@@ -10,9 +10,11 @@ MAB 240 - Computação II
 Laboratório 12 - 18/02/2013
 ---------------------------
 
-0\. Instale o [Android Development Tools](http://marketplace.eclipse.org/content/android-development-tools-eclipse#.UR-7-auY5a4) via Eclipse Marketplace. Depois de instalado você irá precisar instalar todos os pacotes da versão 4.0.3 do Android
+0\. Instale o [Android SDK Tools](http://dl.google.com/android/installer_r21.1-windows.exe). Agora instale o [Android Development Tools](http://marketplace.eclipse.org/content/android-development-tools-eclipse#.UR-7-auY5a4) via Eclipse Marketplace. Depois de instalado você irá precisar instalar todos os pacotes da versão 4.0.3 do Android
 usando o "Android SDK Manager" dentro do menu "Window" do Eclipse. Também no menu Window, crie uma máquina virtual
 no "Android Virtual Device Manager", escolhendo "3.2" QVGA" em "Device", "Android 4.0.3" em "Target", e "Intel Atom" em "CPU/ABI".
+
+**Se você quiser economizar alguns dos passos acima, pode baixar [um pacote](http://dl.google.com/android/adt/adt-bundle-windows-x86.zip) que já inclui um Eclipse pré-configurado com os pacotes de desenvolvimento Android. Nesse caso você precisará apenas instalar a versão 4.0.3 do Android pelo SDK Manager e criar uma máquina virtual pelo AVD Manager.**
 
 1\. Baixe o [projeto da calculadora](CalcAndroid.zip). Modifique o modelo da calculadora para incluir a memória,
 e inclua os novos botões necessários em mais uma fileira de botões logo abaixo do display. Não se esqueça de
