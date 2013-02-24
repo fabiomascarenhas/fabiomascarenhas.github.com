@@ -1,0 +1,115 @@
+//
+//    jacc exp.jacc
+//    javac Calc.java CalcTokens.java
+//    java  Calc
+//
+
+%class     Calc
+%interface CalcTokens
+%semantic  parse.Tree : yylval
+%get       token
+%next      yylex()
+
+%token '+' '-' '*' '/' '(' ')' INTEGER
+%left  '+' '-'
+%left  '*' '/'
+
+%%
+
+prog : expr             { parse.Tree t = new parse.Tree("S"); 
+                          t.child($1); $$ = t; yylval = t; }
+     ;
+     
+expr : expr '+' expr    	{ parse.Tree t = new parse.Tree("E");
+                           t.child($1); t.child("+"); t.child($3);
+                           $$ = t; }
+     | expr '-' expr	    { parse.Tree t = new parse.Tree("E");
+                           t.child($1); t.child("-"); t.child($3);
+                           $$ = t; }
+     | expr '*' expr   	{ parse.Tree t = new parse.Tree("E");
+                           t.child($1); t.child("*"); t.child($3);
+                           $$ = t; }
+     | expr '/' expr	    { parse.Tree t = new parse.Tree("E");
+                           t.child($1); t.child("/"); t.child($3);
+                           $$ = t; }
+     | '(' expr ')'     { parse.Tree t = new parse.Tree("E");
+                           t.child("("); t.child($2); t.child(")");
+                           $$ = t; }
+     | INTEGER          { parse.Tree t = new parse.Tree("num");
+     					 $$ = t; }
+     ;
+
+%%
+
+  private void yyerror(String msg) {
+    System.out.println("ERROR: " + msg);
+    System.exit(1);
+  }
+
+  private int c;
+
+  /** Read a single input character from standard input.
+   */
+  private void nextChar() {
+    if (c>=0) {
+      try {
+        c = System.in.read();
+      } catch (Exception e) {
+        c = (-1);
+      }
+    }
+  }
+
+  int token;
+  parse.Tree yylval;
+
+  /** Read the next token and return the
+   *  corresponding integer code.
+   */
+  int yylex() {
+    for (;;) {
+      // Skip whitespace
+      while (c==' ' || c=='\n' || c=='\t' || c=='\r') {
+        nextChar();
+      }
+      if (c<0) {
+        return (token=ENDINPUT);
+      }
+      switch (c) {
+        case '+' : nextChar();
+                   return token='+';
+        case '-' : nextChar();
+                   return token='-';
+        case '*' : nextChar();
+                   return token='*';
+        case '/' : nextChar();
+                   return token='/';
+        case '(' : nextChar();
+                   return token='(';
+        case ')' : nextChar();
+                   return token=')';
+        case ';' : nextChar();
+                   return token=';';
+        default  : if (Character.isDigit((char)c)) {
+                     int n = 0;
+                       do {
+                         n = 10*n + (c - '0');
+                         nextChar();
+                       } while (Character.isDigit((char)c));
+                       //yylval = n;
+                       return token=INTEGER;
+                     } else {
+                       yyerror("Illegal character "+c);
+                       nextChar();
+                     }
+      }
+    }
+  }
+
+  public static void main(String[] args) throws java.io.IOException {
+    Calc calc = new Calc();
+    calc.nextChar(); // prime the character input stream
+    calc.yylex();    // prime the token input stream
+    calc.parse();    // parse the input
+    calc.yylval.printDot("expjacc.gv");
+  }

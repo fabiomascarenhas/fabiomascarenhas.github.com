@@ -178,6 +178,8 @@ do trabalho para o compilador Java.
 
 * [Lista 1](lista1.html)
 
+* [Lista 2](lista2.html)
+
 ### Provas
 
 * 19/12/2012 - [P1](p1.pdf) e [gabarito](Prova1.zip)
