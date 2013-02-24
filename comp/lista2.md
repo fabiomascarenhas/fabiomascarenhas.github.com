@@ -74,7 +74,30 @@ implemente a verificação de tipos nessa AST. Assuma que já existe a
 implementação de uma tabela de símbolos nos moldes da que foi vista em
 sala (como uma interface `Environment<T>`).
 
-7\. Acrescente um comando `repeat-until` ao compilador MHTML. A sintaxe é
+7\. Considere o seguinte programa MHTML:
+
+{% highlight java %}
+    local a: num = 0
+    local b: num = 0
+    local c: num = 0
+
+    function f(y: num, z: num) -> num
+      local a: num = y
+      while a < z do
+         local b: int = readnum()
+         a = a + b   -- aqui
+      end
+      return a
+    end
+
+    print(f(0,10))
+{% endhighlight %}
+
+Desenhe o ambiente de verificação de tipos no ponto do programa marcado pelo
+comentário. Lembre que o ambiente mapeia nomes de variável em tipos, e a função *f*
+é parte do ambiente.
+
+8\. Acrescente um comando `repeat-until` ao compilador MHTML. A sintaxe é
 
 {% highlight ragel %}
        STAT -> repeat BLOCO until EXP
@@ -82,7 +105,7 @@ sala (como uma interface `Environment<T>`).
 
 O comportamento de um comando repeat é executar `BLOCO` até que a expressão `EXP` seja verdade. Faça todo o trabalho: modificação do analisador léxico para incluir as palavras chave `repeat `e `until`, modificação do analisador sintático para gerar o nó apropriado, implementação da classe Java que representa esse nó, incluindo interpretação (método `run`), verificação de tipos (método `tcStat`), conversão de fecho (método `ccStat`) e geração de código (método `cgStat`).
 
-8\. A geração de código para uma linguagem de máquina não é muito diferente da geração de código para uma linguagem de alto nível.
+9\. A geração de código para uma linguagem de máquina não é muito diferente da geração de código para uma linguagem de alto nível.
 
 A JVM é uma máquina de pilha, ou seja, as instruções operam não sobre
 registradores mas sobre valores em uma pilha. A instrução **ldc** *n*
