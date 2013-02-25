@@ -90,7 +90,7 @@ Baixe o esqueleto do projeto Eclipse
 para o trabalho [aqui](trab3/MHTMLScript.zip), e leia com atenção o arquivo
 `mhtml.jpage`. 
 
-A entrega do trabalho deverá ser feita até o dia 27/02/2013, uma quarta-feira,
+A entrega do trabalho deverá ser feita até o dia 06/03/2013, uma quarta-feira,
 em formato zip, usando [esse formulário](http://form.jotformz.com/form/30363980245656).
 
 Se tiverem quaisquer dúvidas sobre a especificação da linguagem é só perguntarem.
