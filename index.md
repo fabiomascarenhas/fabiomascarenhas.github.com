@@ -48,6 +48,11 @@ Redes Sociais
 Disciplinas
 -----------
 
+### 2013.1
+
+* Compiladores I
+* Linguagens de Programação
+
 ### 2012.2
 
 * [Compiladores I](comp)
