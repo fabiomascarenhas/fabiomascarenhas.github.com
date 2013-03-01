@@ -28,7 +28,10 @@ estruturas de dados e funções recursivas. Não é necessário conhecimento da 
 de linguagens formais, ou de técnicas de compilação; o enfoque desse curso é o 
 comportamento das linguagens e não análise sintática ou geração de código.
 
-Ementa: introdução à programação funcional pura; programação funcional com
+Ementa
+------
+
+Introdução à programação funcional pura; programação funcional com
 *Scala*: funções como valores, case classes, pattern matching; padrões de programação
 funcional: listas, mapas e folds; o interpretador de *fun*, uma mini-linguagem funcional;
 regras de escopo de seu efeito em funções de primeira classe; acrescentando tipos
