@@ -51,7 +51,7 @@ Disciplinas
 ### 2013.1
 
 * Compiladores I
-* Linguagens de Programação
+* [Linguagens de Programação](lp)
 
 ### 2012.2
 
