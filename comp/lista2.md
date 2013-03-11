@@ -84,7 +84,7 @@ sala (como uma interface `Environment<T>`).
     function f(y: num, z: num) -> num
       local a: num = y
       while a < z do
-         local b: int = readnum()
+         local b: num = readnum()
          a = a + b   -- aqui
       end
       return a
