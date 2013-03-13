@@ -186,6 +186,8 @@ do trabalho para o compilador Java.
 
 * 11/03/2013 - [P2](p2.pdf) e [gabarito](p2.html)
 
+* 13/03/2013 - [P3](p3.pdf) e [gabarito](p3.html)
+
 ### Artigos
 
 * [Top-down Syntax Analysis](knuth_topdown.pdf) - artigo tutorial de Donald Knuth sobre análise sintática top-down.
