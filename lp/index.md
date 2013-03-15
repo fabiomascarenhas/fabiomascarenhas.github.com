@@ -12,7 +12,7 @@ Apresentação
 
 Está é a página da disciplina Linguagens de Programação, do professor
 Fabio Mascarenhas, para o semestre de 2013.1. As aulas da disciplina são
-às segundas e quartas, das 13 às 15 horas, na sala DCC.
+às segundas e quartas, das 10 às 12 horas.
 
 O objetivo dessa disciplina é expor os alunos aos diferentes paradigmas
 de programação, mostrando a eles o que está "atrás da cortina" desses
