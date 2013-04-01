@@ -62,6 +62,13 @@ página](http://www.diku.dk/hjemmesider/ansatte/torbenm/Basics/).
 Se conhecer algum outro livro e/ou material e quiser saber quanto à sua
 aplicabilidade venha conversar comigo, poderei ajudá-lo.
 
+Notas de Aula
+-------------
+
+### Slides
+
+* [Introdução](01Introducao.pdf)
+
 Curiosidades
 ------------
 

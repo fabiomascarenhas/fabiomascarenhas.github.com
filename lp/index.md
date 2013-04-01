@@ -76,6 +76,20 @@ Provavelmente o melhor livro para uma visão de alto nível dos conceitos de lin
 programação é o [Programming Language Pragmatics](http://www.cs.rochester.edu/~scott/pragmatics/), de
 Michael Scott. É uma boa referência para resumos de vários temas que serão cobertos em sala.
 
+Notas de Aula
+-------------
+
+### Slides
+
+* [01/04/2013](Aula1.pdf)
+
+Instalando Scala
+----------------
+
+As instruções completas para instalação da distribuição de Scala estão em [Typesafe Stack Download](http://typesafe.com/stack/download-agreed). A IDE Scala para Eclipse está [aqui](http://www.typesafe.com/stack/downloads/scala-ide).
+
+Se quiser um links diretso para Windows, baixe o instalador do `sbt` [aqui](http://downloads.typesafe.com/typesafe-stack/2.0.2/typesafe-stack-2.0.2.exe), e a IDE Scala [aqui](http://downloads.typesafe.com/scalaide-pack/3.0.0.vfinal-210-20130326/scala-SDK-3.0.0-vfinal-2.10-win32.win32.x86.zip).
+
 Contato
 -------
 
