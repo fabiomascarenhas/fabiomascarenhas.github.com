@@ -50,12 +50,12 @@ Disciplinas
 
 ### 2013.1
 
-* Compiladores I
+* [Compiladores I](comp)
 * [Linguagens de Programação](lp)
 
 ### 2012.2
 
-* [Compiladores I](comp)
+* [Compiladores I](comp20122)
 * [Computação II (Computação)](java)
 
 ### 2012.1
