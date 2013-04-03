@@ -91,6 +91,10 @@ Notas de Aula
 
 * [03/04/2013](aula2_log.txt)
 
+### Projetos Eclipse
+
+* [Código das aulas](aulas.zip) - atualizado a cada aula
+
 Instalando Scala
 ----------------
 
