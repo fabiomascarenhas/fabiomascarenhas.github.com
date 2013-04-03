@@ -1,0 +1,203 @@
+bash-3.2$ sbt console
+[info] Loading global plugins from /Users/mascarenhas/.sbt/plugins
+[info] Loading project definition from /Users/mascarenhas/Work/UFRJ/LP/workspace/aulas/project
+[info] Set current project to aulas (in build file:/Users/mascarenhas/Work/UFRJ/LP/workspace/aulas/)
+[info] Starting scala interpreter...
+[info] 
+Welcome to Scala version 2.9.2 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_10).
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+scala> import br.ufrj.aula2._
+import br.ufrj.aula2._
+
+scala> quadrado(5)
+res0: Double = 25.0
+
+scala> primeiro(1, loop)
+res1: Int = 1
+
+scala> def raio = 5
+raio: Int
+
+scala> def pi = 3.14159
+pi: Double
+
+scala> def circ = 2 * pi * raio
+circ: Double
+
+scala> circ /2
+res2: Double = 15.70795
+
+scala> val circ = 2 * pi * raio
+circ: Double = 31.4159
+
+scala> def circ = 2 * pi * raio
+circ: Double
+
+scala> circ
+res3: Double = 31.4159
+
+scala> def raio = 10
+raio: Int
+
+scala> circ
+res4: Double = 31.4159
+
+scala> def circ2 = 2 * pi * raio
+circ2: Double
+
+scala> circ2
+res5: Double = 62.8318
+
+scala> val circ = 2 * pi * raio
+circ: Double = 62.8318
+
+scala> circ = 5
+<console>:13: error: reassignment to val
+       circ = 5
+            ^
+
+scala> (1 + 2/1)/2
+res6: Int = 1
+
+scala> (1.0 + 2.0/1.0)/2.0
+res7: Double = 1.5
+
+scala> (1.5 + 2.0/1.5)/2.0
+res8: Double = 1.4166666666666665
+
+scala> (1.4166666666666665 + 2.0/1.4166666666666665)/2.0
+res9: Double = 1.4142156862745097
+
+scala> (1.4142156862745097 + 2.0/1.4142156862745097)/2.0
+res10: Double = 1.4142135623746899
+
+scala> math.sqrt(2)
+res11: Double = 1.4142135623730951
+
+scala> def melhora(est: Double, x: Double): Double = (est + x/est)/2
+melhora: (est: Double, x: Double)Double
+
+scala> melhora(1.0, 2.0)
+res12: Double = 1.5
+
+scala> melhora(1.5, 2.0)
+res13: Double = 1.4166666666666665
+
+scala> melhora(1.4166666666666665, 2.0)
+res14: Double = 1.4142156862745097
+
+scala> melhora(1.4142156862745097, 2.0)
+res15: Double = 1.4142135623746899
+
+scala> def raizIter(est: Double, x: Double) =
+     | if (quadrado(est) - x < 0.000001)
+     |   est
+raizIter: (est: Double, x: Double)AnyVal
+
+scala> def raizIter(est: Double, x: Double) =
+     | if (quadrado(est) - x < 0.000001) est else raizIter(melhora(est, x)
+     | , x)
+<console>:13: error: recursive method raizIter needs result type
+       if (quadrado(est) - x < 0.000001) est else raizIter(melhora(est, x)
+                                                  ^
+
+scala> :quit
+
+[success] Total time: 1625 s, completed Apr 3, 2013 10:59:53 AM
+bash-3.2$ sbt console
+[info] Loading global plugins from /Users/mascarenhas/.sbt/plugins
+[info] Loading project definition from /Users/mascarenhas/Work/UFRJ/LP/workspace/aulas/project
+[info] Set current project to aulas (in build file:/Users/mascarenhas/Work/UFRJ/LP/workspace/aulas/)
+[info] Compiling 1 Scala source to /Users/mascarenhas/Work/UFRJ/LP/workspace/aulas/target/scala-2.9.2/classes...
+[info] Starting scala interpreter...
+[info] 
+Welcome to Scala version 2.9.2 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_10).
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+scala> raizIter(1, 2)
+<console>:8: error: not found: value raizIter
+              raizIter(1, 2)
+              ^
+
+scala> import br.ufrj.aula2._
+import br.ufrj.aula2._
+
+scala> raizIter(1, 2)
+res1: Double = 1.4142135623746899
+
+scala> def raiz(x: Double) = raizIter(1, x)
+raiz: (x: Double)Double
+
+scala> raiz(2)
+res2: Double = 1.4142135623746899
+
+scala> raiz(3)
+res3: Double = 1.7320508100147274
+
+scala> raiz(10)
+res4: Double = 3.162277665175675
+
+scala> 3.162277665175675 * 3.162277665175675
+res5: Double = 10.000000031668918
+
+scala> val x = 0
+x: Int = 0
+
+scala> def f(y: Int) = y + 1
+f: (y: Int)Int
+
+scala> val result = {
+     | val x = f(3)
+     | x * x
+     | }
+result: Int = 16
+
+scala> x
+res6: Int = 0
+
+scala>  def f(x: Int) = x + 1
+f: (x: Int)Int
+
+scala> val result = {
+     | val x = f(3)
+     | x * x
+     | }
+result: Int = 16
+
+scala> def fat(x: Int): Int = if (x < 2) 1 else x * fat(x - 1)
+fat: (x: Int)Int
+
+scala> fat(40)
+res7: Int = 0
+
+scala> fat(4)
+res8: Int = 24
+
+scala> def fat(x: Double): Double = if (x < 2) 1 else x * fat(x - 1)
+fat: (x: Double)Double
+
+scala> fat(40)
+res9: Double = 8.159152832478977E47
+
+scala> fat(50)
+res10: Double = 3.0414093201713376E64
+
+scala> fat(100)
+res11: Double = 9.33262154439441E157
+
+scala> fat(150)
+res12: Double = 5.7133839564458505E262
+
+scala> fat(1000)
+res13: Double = Infinity
+
+scala> :quit
+
+[success] Total time: 2901 s, completed Apr 3, 2013 11:48:23 AM
+bash-3.2$ exit
+exit
+
+Script done on Wed Apr  3 11:48:25 2013

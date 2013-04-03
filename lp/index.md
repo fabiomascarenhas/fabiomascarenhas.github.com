@@ -58,6 +58,9 @@ Acessem [aqui](https://www.facebook.com/groups/lpufrj).
 Livros
 ------
 
+Uma boa referência para os assuntos das nossas primeiras aulas, sobre programação funcional,
+é o capítulo 1 do [Structure of Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/full-text/book/book.html), de Abelson e Sussman. Algumas seções do resto do livro têm informações sobre outros assuntos que vamos ver durante o curso, que irei passando aqui à medida que forem sendo cobertos.
+
 Não existe um livro texto único para essa disciplina. O que mais se aproxima disso é
 o [Programming Languages: Application and Interpretation](http://cs.brown.edu/~sk/Publications/Books/ProgLangs/),
 de Shriram Krishnamurthi, por adotar a estratégia de explicar conceitos de linguagens
@@ -82,6 +85,11 @@ Notas de Aula
 ### Slides
 
 * [01/04/2013](Aula1.pdf)
+* [03/04/2013](Aula2.pdf)
+
+### Logs do console
+
+* [03/04/2013](aula2_log.txt)
 
 Instalando Scala
 ----------------
