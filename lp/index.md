@@ -86,6 +86,7 @@ Notas de Aula
 
 * [01/04/2013](Aula1.pdf)
 * [03/04/2013](Aula2.pdf)
+* [08/04/2013](Aula3.pdf)
 
 ### Logs do console
 

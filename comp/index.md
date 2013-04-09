@@ -68,6 +68,7 @@ Notas de Aula
 ### Slides
 
 * [Introdução](01Introducao.pdf)
+* [Análise Léxica](02AnaliseLexica.pdf)
 
 ### Código fonte
 
