@@ -68,11 +68,13 @@ Notas de Aula
 ### Slides
 
 * [Introdução](01Introducao.pdf)
-* [Análise Léxica](02AnaliseLexica.pdf)
+* [Análise Léxica - Expressões Regulares](02AnaliseLexica.pdf)
+* [Análise Léxica - Autômatos](03Automatos.pdf)
 
 ### Código fonte
 
 * 03/04/2013 - [Compilador de sequência de comandos simples](CmdSimp.zip)
+* 10/04/2013 - [Análise Léxica](Lexico.zip)
 
 Curiosidades
 ------------
