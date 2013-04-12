@@ -79,6 +79,11 @@ Provavelmente o melhor livro para uma visão de alto nível dos conceitos de lin
 programação é o [Programming Language Pragmatics](http://www.cs.rochester.edu/~scott/pragmatics/), de
 Michael Scott. É uma boa referência para resumos de vários temas que serão cobertos em sala.
 
+Exercícios e Trabalhos
+----------------------
+
+* [Primeira lista](lista1.html) - prazo de entrega: **26/04/2013**
+
 Notas de Aula
 -------------
 
