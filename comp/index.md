@@ -74,7 +74,8 @@ Notas de Aula
 ### Código fonte
 
 * 03/04/2013 - [Compilador de sequência de comandos simples](CmdSimp.zip)
-* 10/04/2013 - [Análise Léxica](Lexico.zip)
+* 10/04/2013 - [Análise Léxica](Lexico.zip) - **atualizado 15/04/2013**
+* 15/04/2013 - [Compilador de sequência de comandos simples com scanner usando JFlex](CmdSimp_JFlex.zip)
 
 Curiosidades
 ------------
