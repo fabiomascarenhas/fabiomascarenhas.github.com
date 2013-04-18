@@ -70,12 +70,15 @@ Notas de Aula
 * [Introdução](01Introducao.pdf)
 * [Análise Léxica - Expressões Regulares](02AnaliseLexica.pdf)
 * [Análise Léxica - Autômatos](03Automatos.pdf)
+* [Análise Léxica - JFlex](04JFlex.pdf)
+* [Análise Sintática - Gramáticas](05Gramaticas.pdf)
 
 ### Código fonte
 
 * 03/04/2013 - [Compilador de sequência de comandos simples](CmdSimp.zip)
 * 10/04/2013 - [Análise Léxica](Lexico.zip) - **atualizado 15/04/2013**
 * 15/04/2013 - [Compilador de sequência de comandos simples com scanner usando JFlex](CmdSimp_JFlex.zip)
+* 17/04/2013 - [Análise Sintática](Parsing.zip)
 
 Curiosidades
 ------------
