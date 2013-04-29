@@ -72,6 +72,7 @@ Notas de Aula
 * [Análise Léxica - Autômatos](03Automatos.pdf)
 * [Análise Léxica - JFlex](04JFlex.pdf)
 * [Análise Sintática - Gramáticas](05Gramaticas.pdf)
+* [Análise Sintática - Especificação e Analisador Recursivo](06Sintaxe.pdf)
 
 ### Código fonte
 
@@ -79,6 +80,7 @@ Notas de Aula
 * 10/04/2013 - [Análise Léxica](Lexico.zip) - **atualizado 15/04/2013**
 * 15/04/2013 - [Compilador de sequência de comandos simples com scanner usando JFlex](CmdSimp_JFlex.zip)
 * 17/04/2013 - [Análise Sintática](Parsing.zip)
+* 29/04/2013 - [Analisador sintático recursivo para Tiny](Tiny_Rec.zip)
 
 Curiosidades
 ------------
