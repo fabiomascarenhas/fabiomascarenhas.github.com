@@ -95,6 +95,7 @@ Notas de Aula
 * [10/04/2013](Aula4.pdf)
 * [15/04/2013](Aula5.pdf)
 * [17/04/2013](Aula6.pdf)
+* [17/04/2013](Aula7.pdf)
 
 ### Logs do console
 
@@ -102,7 +103,7 @@ Notas de Aula
 
 ### Projetos Eclipse
 
-* [Código das aulas](aulas.zip) - atualizado a cada aula
+* [Código das aulas](aulas.zip) - **atualizado a cada aula**
 
 Instalando Scala
 ----------------
