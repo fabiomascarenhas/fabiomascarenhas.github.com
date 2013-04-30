@@ -25,6 +25,42 @@ maiores notas. Não haverá prova final ou segunda chamada. A média
 final é 5,0. As datas das provas, assim como os detalhes dos trabalhos
 práticos, serão definidos posteriormente.
 
+Datas das Provas
+----------------
+
+P1: 29/05/2013
+
+P2: 29/07/2013
+
+P3: 31/07/2013
+
+As provas serão feitas ou na sala DLC ou na sala DCC, a depender da disponibilidade,
+no mesmo horário da aula.
+
+Trabalhos Práticos
+------------------
+
+Os trabalhos práticos correspondem às diferentes fases de um
+compilador de [MiniJava](minijava.html). Os trabalhos podem ser feitos
+individualmente ou em dupla. As mesmas duplas valerão para todos
+os quatro trabalhos, exceto em casos de trancamento ou abandono, que serão
+resolvidos caso a caso.
+
+### Analisador Léxico
+
+Cada dupla deverá fazer a especificação de um analisador léxico para
+a linguagem [MiniJava](minijava.html). Baixe o esqueleto do projeto Eclipse
+para o trabalho [aqui](trab1/MiniJavaLex.zip), e leia com atenção o arquivo
+`minijava.jpage`. 
+
+A entrega do trabalho deverá ser feita até o dia 22/05/2013, uma
+quarta-feira, em formato zip, usando [esse
+formulário](http://form.jotformz.com/form/23113756377658).
+
+Se tiver qualquer dúvida sobre a especificação da linguagem ou o
+funcionamento do analisador léxico é só perguntar por email ou no
+nosso grupo.
+
 Lista de Discussão
 ------------------
 
