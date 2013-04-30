@@ -55,7 +55,7 @@ para o trabalho [aqui](trab1/MiniJavaLex.zip), e leia com atenção o arquivo
 
 A entrega do trabalho deverá ser feita até o dia 22/05/2013, uma
 quarta-feira, em formato zip, usando [esse
-formulário](http://form.jotformz.com/form/23113756377658).
+formulário](http://form.jotformz.com/form/31195169709664).
 
 Se tiver qualquer dúvida sobre a especificação da linguagem ou o
 funcionamento do analisador léxico é só perguntar por email ou no
