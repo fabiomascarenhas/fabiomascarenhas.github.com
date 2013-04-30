@@ -49,6 +49,18 @@ e as outras duas no final, e será feita uma média aritmética das duas
 maiores notas. Não haverá prova final ou segunda chamada. A média
 final é 5,0.
 
+Datas das Provas
+----------------
+
+P1: 29/05/2013
+
+P2: 29/07/2013
+
+P3: 31/07/2013
+
+As provas serão feitas ou na sala DLC ou na sala DCC, a depender da disponibilidade,
+no mesmo horário da aula.
+
 Lista de Discussão
 ------------------
 
