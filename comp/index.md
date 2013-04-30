@@ -28,7 +28,7 @@ práticos, serão definidos posteriormente.
 Datas das Provas
 ----------------
 
-P1: 29/05/2013
+P1: 27/05/2013
 
 P2: 29/07/2013
 

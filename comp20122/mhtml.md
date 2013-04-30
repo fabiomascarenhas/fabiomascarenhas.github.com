@@ -216,7 +216,7 @@ SEXP   -> function ( [IDS] ) BLOCO end
 SEXP   -> PEXP
 
 PEXP   -> PEXP ( [EXPS] )
-PEXP   -> PEXP . id 
+PEXP   -> PEXP . id
 PEXP   -> ( EXP )
 PEXP   -> id
 </pre>
