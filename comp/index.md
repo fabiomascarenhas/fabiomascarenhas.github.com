@@ -109,7 +109,7 @@ Notas de Aula
 * [Análise Léxica - JFlex](04JFlex.pdf)
 * [Análise Sintática - Gramáticas](05Gramaticas.pdf)
 * [Análise Sintática - Especificação e Analisador Recursivo](06Sintaxe.pdf)
-* [Análise Sintática - Analisador Preditivo](07Preditivo.pdf)
+* [Análise Sintática - Analisador Preditivo](07Preditiva.pdf)
 
 ### Código fonte
 
