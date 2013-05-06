@@ -107,7 +107,8 @@ Notas de Aula
 * [10/04/2013](Aula4.pdf)
 * [15/04/2013](Aula5.pdf)
 * [17/04/2013](Aula6.pdf)
-* [17/04/2013](Aula7.pdf)
+* [29/04/2013](Aula7.pdf)
+* [06/05/2013](Aula8.pdf)
 
 ### Logs do console
 
