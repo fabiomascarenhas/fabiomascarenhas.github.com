@@ -110,15 +110,16 @@ Notas de Aula
 * [Análise Sintática - Gramáticas](05Gramaticas.pdf)
 * [Análise Sintática - Especificação e Analisador Recursivo](06Sintaxe.pdf)
 * [Análise Sintática - Analisador Preditivo](07Preditiva.pdf)
+* [Análise Sintática - Análise LL(1)](08LL1.pdf)
 
 ### Código fonte
 
 * 03/04/2013 - [Compilador de sequência de comandos simples](CmdSimp.zip)
 * 10/04/2013 - [Análise Léxica](Lexico.zip) - **atualizado 15/04/2013**
 * 15/04/2013 - [Compilador de sequência de comandos simples com scanner usando JFlex](CmdSimp_JFlex.zip)
-* 17/04/2013 - [Análise Sintática](Parsing.zip)
 * 29/04/2013 - [Analisador sintático recursivo para Tiny](Tiny_Rec.zip)
-* 06/05/2013 - [Analisador sintático recursivo preditivo para Tiny](Tiny_Pred.zip)
+* 08/05/2013 - [Analisador sintático recursivo preditivo para Tiny](Tiny_Pred.zip)
+* 08/05/2013 - [Análise Sintática](Parsing.zip)
 
 Curiosidades
 ------------
