@@ -121,6 +121,14 @@ Notas de Aula
 * 08/05/2013 - [Analisador sintático recursivo preditivo para Tiny](Tiny_Pred.zip)
 * 08/05/2013 - [Análise Sintática](Parsing.zip)
 
+Exercícios e Provas
+-------------------
+
+### Listas de Exercício
+
+* [Lista 1](lista1.html)
+
+
 Curiosidades
 ------------
 
