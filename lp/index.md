@@ -71,7 +71,11 @@ Livros
 ------
 
 Uma boa referência para os assuntos das nossas primeiras aulas, sobre programação funcional,
-é o capítulo 1 do [Structure of Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/full-text/book/book.html), de Abelson e Sussman. Algumas seções do resto do livro têm informações sobre outros assuntos que vamos ver durante o curso, que irei passando aqui à medida que forem sendo cobertos.
+é o capítulo 1 do
+[Structure of Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/full-text/book/book.html),
+de Abelson e Sussman. Algumas seções do resto do livro têm informações
+sobre outros assuntos que vamos ver durante o curso, que irei passando aqui
+à medida que forem sendo cobertos.
 
 Não existe um livro texto único para essa disciplina. O que mais se aproxima disso é
 o [Programming Languages: Application and Interpretation](http://cs.brown.edu/~sk/Publications/Books/ProgLangs/),
@@ -110,6 +114,7 @@ Notas de Aula
 * [29/04/2013](Aula7.pdf)
 * [06/05/2013](Aula8.pdf)
 * [08/05/2013](Aula9.pdf)
+* [13/05/2013](Aula10.pdf)
 
 ### Logs do console
 
@@ -122,9 +127,14 @@ Notas de Aula
 Instalando Scala
 ----------------
 
-As instruções completas para instalação da distribuição de Scala estão em [Typesafe Stack Download](http://typesafe.com/stack/download-agreed). A IDE Scala para Eclipse está [aqui](http://www.typesafe.com/stack/downloads/scala-ide).
+As instruções completas para instalação da distribuição de Scala estão em
+ [Typesafe Stack Download](http://typesafe.com/stack/download-agreed). A
+ IDE Scala para Eclipse está [aqui](http://www.typesafe.com/stack/downloads/scala-ide).
 
-Se quiser um links diretso para Windows, baixe o instalador do `sbt` [aqui](http://downloads.typesafe.com/typesafe-stack/2.0.2/typesafe-stack-2.0.2.exe), e a IDE Scala [aqui](http://downloads.typesafe.com/scalaide-pack/3.0.0.vfinal-210-20130326/scala-SDK-3.0.0-vfinal-2.10-win32.win32.x86.zip).
+Se quiser um links diretso para Windows, baixe o instalador do `sbt`
+ [aqui](http://downloads.typesafe.com/typesafe-stack/2.0.2/typesafe-stack-2.0.2.exe), e 
+ a IDE Scala
+ [aqui](http://downloads.typesafe.com/scalaide-pack/3.0.0.vfinal-210-20130326/scala-SDK-3.0.0-vfinal-2.10-win32.win32.x86.zip).
 
 Contato
 -------
