@@ -99,6 +99,7 @@ Exercícios e Trabalhos
 ----------------------
 
 * [Primeira lista](lista1.html) - prazo de entrega: **26/04/2013**
+* [Segunda lista](lista2.html) - prazo de entrega: **31/05/2013**
 
 Notas de Aula
 -------------
