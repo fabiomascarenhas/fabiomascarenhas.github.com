@@ -147,7 +147,7 @@ não-terminais assim: P, L, C, E, T):
 * Reescreva a gramática para remover recursão à esquerda e fatorar prefixos comuns
 
 15\. A gramática a seguir descreve um subconjunto das expressões regulares (o
-`|` do lado direito da primeira regra é o token do operador $|$):
+`|` do lado direito da primeira regra é o token do operador |):
 
 {% highlight ragel %}
     RE -> RE | RE
@@ -159,7 +159,7 @@ não-terminais assim: P, L, C, E, T):
 
 * Use essa gramática para apresentar uma derivação da expressão regular `(ab|b)*`.
 * Mostre que essa gramática é ambígua.
-* Reescreva essa gramática para não ser mais ambígua, corrigindo as precedências dos operadores. Lembre-se que a concatenação tem precedência sobre o $|$, e a repetição ($*$) tem precedência sobre esses dois. Faça a operação de concatenação ser associativa à **direita**.
+* Reescreva essa gramática para não ser mais ambígua, corrigindo as precedências dos operadores. Lembre-se que a concatenação tem precedência sobre o |, e a repetição (\*) tem precedência sobre esses dois. Faça a operação de concatenação ser associativa à **direita**.
 
 16\. Dada a gramática `A -> (A)A | *vazio*`, escreva pseudocódigo para
 analisá-la de forma recursiva com retrocesso local e sem retrocesso (LL(1)).
