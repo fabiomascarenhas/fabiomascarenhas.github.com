@@ -135,21 +135,21 @@ c) Escreva agora as três funções acima para o interpretador call-by-name do c
 	  ???
 	}
 
-Questão 6 - uma biblioteca padrão para *fun*
+Questão 5 - uma biblioteca padrão para *fun*
 --------------------------------------------
 
 Implemente os padrões de recursão em listas que usamos em Scala: `map`, `filter`,
 `foldRight`, `foldLeft` e `flatMap` como funções de *fun* definidas usando o método
 do slide 19 da [aula de 15/05](Aula11.pdf)
 
-Questão 7 - Coleta de lixo nos ambientes
+Questão 6 - Coleta de lixo nos ambientes
 ----------------------------------------
 
 O ambiente base das funções anônimas de *fun* com ambientes não precisa ter todas
 as entradas do ambiente em que a função anônima foi definida, mas apenas as entradas para
 variáveis livres no corpo da função. Implemente essa otimização no interpretador.
 
-Questão 8 - Ambientes e escopo
+Questão 7 - Ambientes e escopo
 ---------------------------------------
 
 a) Em *fun* com ambientes e escopo dinâmico a expressão `letrec` ainda é necessária
