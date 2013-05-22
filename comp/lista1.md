@@ -103,16 +103,16 @@ ainda é ambígua:
 
 13\. Sinais de subtração unários podem ser acrescentados de diferentes
 maneiras a uma gramática de expressões aritméticas. Modifique a gramática
-da questão 9 de acordo com cada uma das especificações abaixo:
+da questão 10 de acordo com cada uma das especificações abaixo:
 
-* No máximo um sinal unário de subtração permitido em cada expressão,
-  e deve aparecer no início (-2-3 é legal e igual a -5, -2-(-3) é
-  legal, mas -2--3 é ilegal).
-* No máximo um sinal unário permitido antes de qualquer termo, assim
-  -2--3 é legal (e igual a -1) mas --2 e -2---3 são ilegais.
 * Uma quantidade arbitrária de sinais unários de subtração é permitida
   antes de qualquer termo, portanto todas as expressões acima são
   legais.
+* No máximo um sinal unário permitido antes de qualquer termo, assim
+  -2--3 é legal (e igual a -1) mas --2 e -2---3 são ilegais.
+* **Desafio**: no máximo um sinal unário de subtração permitido em cada expressão,
+  e deve aparecer no início (-2-3 é legal e igual a -5, -2-(-3) é
+  legal, mas -2--3 é ilegal).
 
 14\. Na gramática a seguir os não-terminais estão em maiúsculas e os
 terminais em minúsculas, todos separados por espaços (estilo BNF):

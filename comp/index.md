@@ -112,7 +112,7 @@ Notas de Aula
 * [Análise Sintática - Analisador Preditivo](07Preditiva.pdf)
 * [Análise Sintática - Análise LL(1)](08LL1.pdf)
 * [Análise Sintática - Análise Ascendente](09Ascendente.pdf)
-* [Análise Sintática - Análise SLR](10SLR.pdf)
+* [Análise Sintática - Análise SLR](10SLR.pdf) - **atualizado 22/05/2013**
 
 ### Código fonte
 
@@ -121,7 +121,8 @@ Notas de Aula
 * 15/04/2013 - [Compilador de sequência de comandos simples com scanner usando JFlex](CmdSimp_JFlex.zip)
 * 29/04/2013 - [Analisador sintático recursivo para Tiny](Tiny_Rec.zip)
 * 08/05/2013 - [Analisador sintático recursivo preditivo para Tiny](Tiny_Pred.zip)
-* 08/05/2013 - [Análise Sintática](Parsing.zip) - **atualizado 20/05/2013**
+* 08/05/2013 - [Análise Sintática](Parsing.zip) - **atualizado 22/05/2013**
+* 22/05/2013 - [Analisador sintático SLR para Tiny](Tiny_SLR.zip)
 
 Exercícios e Provas
 -------------------
