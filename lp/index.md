@@ -98,7 +98,7 @@ Michael Scott. É uma boa referência para resumos de vários temas que serão c
 Exercícios e Trabalhos
 ----------------------
 
-* [Primeira lista](lista1.html) - prazo de entrega: **26/04/2013**
+* [Primeira lista](lista1.html) - prazo de entrega: **26/04/2013**, [respostas](Lista1Res.zip)
 * [Segunda lista](lista2.html) - prazo de entrega: **31/05/2013**
 
 Notas de Aula
@@ -118,7 +118,7 @@ Notas de Aula
 * [13/05/2013](Aula10.pdf)
 * [15/05/2013](Aula11.pdf)
 * [20/05/2013](Aula12.pdf)
-* [22/05/2013](Aula12.pdf)
+* [22/05/2013](Aula13.pdf)
 
 ### Logs do console
 
