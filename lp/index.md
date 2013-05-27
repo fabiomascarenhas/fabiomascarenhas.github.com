@@ -99,7 +99,7 @@ Exercícios e Trabalhos
 ----------------------
 
 * [Primeira lista](lista1.html) - prazo de entrega: **26/04/2013**, [respostas](Lista1Res.zip)
-* [Segunda lista](lista2.html) - prazo de entrega: **31/05/2013**
+* [Segunda lista](lista2.html) - prazo de entrega: **02/06/2013**
 
 Notas de Aula
 -------------
@@ -119,6 +119,7 @@ Notas de Aula
 * [15/05/2013](Aula11.pdf)
 * [20/05/2013](Aula12.pdf)
 * [22/05/2013](Aula13.pdf)
+* [27/05/2013](Aula14.pdf)
 
 ### Logs do console
 
