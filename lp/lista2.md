@@ -166,7 +166,7 @@ Entrega da lista
 ----------------
 
 Use o formulário abaixo para enviar a sua lista. Lembre de enviar apenas o arquivo `package.scala` que
-você modificou. O prazo para envio é sexta-feira, dia 31/05/2013.
+você modificou. O prazo para envio é domingo, dia 02/06/2013.
 
 <script type="text/javascript" src="http://form.jotformz.com/jsform/31336195797667">
 // dummy
