@@ -113,6 +113,7 @@ Notas de Aula
 * [Análise Sintática - Análise LL(1)](08LL1.pdf)
 * [Análise Sintática - Análise Ascendente](09Ascendente.pdf)
 * [Análise Sintática - Análise SLR](10SLR.pdf) - **atualizado 22/05/2013**
+* [Análise Sintática - JACC](11JACC.pdf)
 
 ### Código fonte
 
@@ -123,6 +124,7 @@ Notas de Aula
 * 08/05/2013 - [Analisador sintático recursivo preditivo para Tiny](Tiny_Pred.zip)
 * 08/05/2013 - [Análise Sintática](Parsing.zip) - **atualizado 22/05/2013**
 * 22/05/2013 - [Analisador sintático SLR para Tiny](Tiny_SLR.zip)
+* 29/05/2013 - [Analisador sintático JACC para Tiny](Tiny_JACC.zip)
 
 Exercícios e Provas
 -------------------
@@ -131,6 +133,9 @@ Exercícios e Provas
 
 * [Lista 1](lista1.html)
 
+### Provas
+
+* [P1](p1.pdf) e [gabarito](p1_gabarito.pdf)
 
 Curiosidades
 ------------
