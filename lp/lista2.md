@@ -13,11 +13,18 @@ Introdução
 Baixe o [projeto da lista](lista2.zip), que está preparado para funcionar tanto com o SBT quanto
 com o eclipse, para funcionar como base para implementar o que for necessário.
 
-Algumas das questões pedem para extender os interpretadores vistos em sala, para isso use o [código
-fonte dos interpretadores](aulas.zip), copiando a pasta correspondente para dentro do projeto
-da lista.
+Algumas das questões pedem para extender os interpretadores vistos em sala, para isso use o 
+código que está nos pacotes `subst`, para o interpretador de substituição, e `env`,
+para o interpretador de ambientes.
 
 Questões que não são de codificação devem ser respondidas dentro do arquivo `README.md` do projeto.
+
+Para rodar os interpretadores, veja o screencast (ligue a visualização em full screen):
+
+<iframe width="640" height="360"
+ src="http://www.youtube.com/embed/KNDWLPu0BxU?feature=player_detailpage" frameborder="0" allowfullscreen="1">
+dummy
+</iframe>
 
 Questão 1 - Conjuntos usando funções de primeira classe
 -------------------------------------------------------
@@ -62,7 +69,7 @@ equivalente no `map` de listas?
 Questão 2 - Sintaxe melhor para chamar funções locais
 -----------------------------------------------------
 
-No intrepretador de fun da aula 10 (pacote `br.ufrj.aula10`), uma função definida localmente
+No intrepretador de fun da aula 11 (pacote `subst`), uma função definida localmente
 com `let` ou `letrec` precisa ser chamada com parênteses em volta do seu nome, para que o
 parser use um nó `Ap` ao invés de um nó `Ap1`, que só pode chamar funções globais.
 
@@ -78,6 +85,7 @@ resultado:
 	letrec fat = fun (x)
 	  if menor(x, 2) then 1
 	  else x * fat(x-1) end
+	end
 	in fat(5) end
 
 Questão 3 - Let como açúcar sintático
@@ -85,6 +93,8 @@ Questão 3 - Let como açúcar sintático
 
 Retire o caso do nó `Let` da função `eval`, e implemente o `let` como açúcar sintático 
 para uma chamada de função anônima na função `desugar` (veja o segundo slide da [aula de 15/05](Aula11.pdf)).
+Você pode fazer essa mudança tanto no interpretador que está no pacote `subst` quanto no que
+está no pacote `env`, mas indique onde está sua resposta.
 
 Questão 4 - Cálculo lambda
 --------------------------
@@ -147,7 +157,8 @@ Questão 6 - Coleta de lixo nos ambientes
 
 O ambiente base das funções anônimas de *fun* com ambientes não precisa ter todas
 as entradas do ambiente em que a função anônima foi definida, mas apenas as entradas para
-variáveis livres no corpo da função. Implemente essa otimização no interpretador.
+variáveis livres no corpo da função. Implemente essa otimização no interpretador que está
+no pacote `env`.
 
 Questão 7 - Ambientes e escopo
 ---------------------------------------
@@ -160,7 +171,7 @@ variávieis com escopo dinâmico? Justifique dando um esboço de sintaxe abstrat
 estratégia de avaliação para essa linguagem.
 
 c) Implemente uma mudança equivalente à da questão 2 no interpretador de *fun* com ambientes e escopo
-estático.
+estático (pacote `env`).
 
 Entrega da lista
 ----------------
