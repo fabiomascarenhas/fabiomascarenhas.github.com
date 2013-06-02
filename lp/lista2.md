@@ -123,7 +123,7 @@ livres para o cálculo lambda call-by-value:
       ???
 	}	
     
-	def subst(nome: String, val: Abs): LC = {
+	def subst(nome: String, valor: Abs): LC = {
       ???
 	}
 	
@@ -137,7 +137,7 @@ c) Escreva agora as três funções acima para o interpretador call-by-name do c
       ???
 	}
     
-	def subst(nome: String, val: LC): LC = {
+	def subst(nome: String, valor: LC): LC = {
       ???
 	}
 	
