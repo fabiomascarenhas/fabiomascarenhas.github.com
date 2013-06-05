@@ -101,6 +101,11 @@ Exercícios e Trabalhos
 * [Primeira lista](lista1.html) - prazo de entrega: **26/04/2013**, [respostas](Lista1Res.zip)
 * [Segunda lista](lista2.html) - prazo de entrega: **02/06/2013**
 
+Provas
+------
+
+* [P1](p1.pdf) e [gabarito](p1_gabarito.html)
+
 Notas de Aula
 -------------
 
@@ -120,6 +125,8 @@ Notas de Aula
 * [20/05/2013](Aula12.pdf)
 * [22/05/2013](Aula13.pdf)
 * [27/05/2013](Aula14.pdf)
+* 29/05/2013 - revisão para P1
+* [05/06/2013](Aula15.pdf)
 
 ### Logs do console
 
