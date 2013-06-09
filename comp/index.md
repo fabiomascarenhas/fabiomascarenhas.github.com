@@ -61,6 +61,21 @@ Se tiver qualquer dúvida sobre a especificação da linguagem ou o
 funcionamento do analisador léxico é só perguntar por email ou no
 nosso grupo.
 
+### Analisador Sintático
+
+Cada dupla deverá fazer a especificação de um analisador sintático para
+a linguagem [MiniJava](minijava.html). Baixe o esqueleto do projeto Eclipse
+para o trabalho [aqui](trab2/MiniJavaParse.zip), e leia com atenção o arquivo
+`minijava.jpage`. 
+
+A entrega do trabalho deverá ser feita até o dia 26/06/2013, uma
+quarta-feira, em formato zip, usando [esse
+formulário](http://form.jotformz.com/form/31595194036659).
+
+Se tiver qualquer dúvida sobre a especificação da linguagem ou o
+funcionamento do analisador sintático é só perguntar por email ou no
+nosso grupo.
+
 Lista de Discussão
 ------------------
 
