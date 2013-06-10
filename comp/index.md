@@ -130,6 +130,7 @@ Notas de Aula
 * [Análise Sintática - Análise SLR](10SLR.pdf) - **atualizado 22/05/2013**
 * [Análise Sintática - JACC](11JACC.pdf)
 * [Análise Semântica - ASTs e Escopo](12Semantica.pdf)
+* [Análise Semântica - Tipos](13Tipos.pdf)
 
 ### Código fonte
 
@@ -142,6 +143,7 @@ Notas de Aula
 * 22/05/2013 - [Analisador sintático SLR para Tiny](Tiny_SLR.zip)
 * 29/05/2013 - [Analisador sintático JACC para Tiny](Tiny_JACC.zip)
 * 05/06/2013 - [Análise de escopo para Tiny com variáveis e procedimentos](Tiny_Escopo.zip)
+* 10/06/2013 - [Análise de tipos para Tiny com variáveis e procedimentos](Tiny_Tipos.zip)
 
 Exercícios e Provas
 -------------------
