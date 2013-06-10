@@ -127,6 +127,7 @@ Notas de Aula
 * [27/05/2013](Aula14.pdf)
 * 29/05/2013 - revisão para P1
 * [05/06/2013](Aula15.pdf)
+* [10/06/2013](Aula16.pdf)
 
 ### Logs do console
 
