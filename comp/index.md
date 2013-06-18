@@ -131,6 +131,7 @@ Notas de Aula
 * [Análise Sintática - JACC](11JACC.pdf)
 * [Análise Semântica - ASTs e Escopo](12Semantica.pdf)
 * [Análise Semântica - Tipos](13Tipos.pdf)
+* [Geração de Código - Ativações, Organização da Memória e Introdução](14Codigo.pdf)
 
 ### Código fonte
 
