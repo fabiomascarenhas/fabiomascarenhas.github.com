@@ -132,6 +132,7 @@ Notas de Aula
 * [12/06/2013](Aula17.pdf)
 * [17/06/2013](Aula18.pdf)
 * [19/06/2013](Aula19.pdf)
+* [24/06/2013](Aula20.pdf)
 
 ### Logs do console
 
