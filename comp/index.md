@@ -145,6 +145,7 @@ Notas de Aula
 * 29/05/2013 - [Analisador sintático JACC para Tiny](Tiny_JACC.zip)
 * 05/06/2013 - [Análise de escopo para Tiny com variáveis e procedimentos](Tiny_Escopo.zip)
 * 10/06/2013 - [Análise de tipos para Tiny com variáveis e procedimentos](Tiny_Tipos.zip)
+* 10/06/2013 - [Geração de códigio para Tiny com variáveis e procedimentos - apenas inteiros e bools](Tiny_Codigo.zip)
 
 Exercícios e Provas
 -------------------
