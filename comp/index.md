@@ -76,6 +76,21 @@ Se tiver qualquer dúvida sobre a especificação da linguagem ou o
 funcionamento do analisador sintático é só perguntar por email ou no
 nosso grupo.
 
+### Analisador de Tipos
+
+Cada dupla deverá terminar a implementação da análise de tipos para
+a linguagem [MiniJava](minijava.html). Baixe o esqueleto do projeto Eclipse
+para o trabalho [aqui](trab3/MiniJavaType.zip), e leia com atenção o arquivo
+`minijava.jpage`. 
+
+A entrega do trabalho deverá ser feita até o dia **12/07/2013**, uma
+sexta-feira, em formato zip, usando [esse
+formulário](http://form.jotformz.com/form/31795773652668).
+
+Se tiver qualquer dúvida sobre a especificação da linguagem ou o
+funcionamento do analisador sintático é só perguntar por email ou no
+nosso grupo.
+
 Lista de Discussão
 ------------------
 
@@ -145,7 +160,7 @@ Notas de Aula
 * 29/05/2013 - [Analisador sintático JACC para Tiny](Tiny_JACC.zip)
 * 05/06/2013 - [Análise de escopo para Tiny com variáveis e procedimentos](Tiny_Escopo.zip)
 * 10/06/2013 - [Análise de tipos para Tiny com variáveis e procedimentos](Tiny_Tipos.zip)
-* 10/06/2013 - [Geração de códigio para Tiny com variáveis e procedimentos - apenas inteiros e bools](Tiny_Codigo.zip)
+* 24/06/2013 - [Geração de código para Tiny com variáveis e procedimentos - apenas inteiros e bools](Tiny_Codigo.zip)
 
 Exercícios e Provas
 -------------------

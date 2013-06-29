@@ -72,6 +72,7 @@ TIPO   -> int '[' ']'
         | int
         | id
 CMD    -> '{' {CMD} '}'
+        | if '(' EXP ')' CMD
         | if '(' EXP ')' CMD else CMD
         | while '(' EXP ')' CMD
         | System.out.println '(' EXP ')' ;
