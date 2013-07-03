@@ -100,7 +100,7 @@ Exercícios e Trabalhos
 
 * [Primeira lista](lista1.html) - prazo de entrega: **26/04/2013**, [respostas](Lista1Res.zip)
 * [Segunda lista](lista2.html) - prazo de entrega: **02/06/2013**
-* [Terceira lista](lista3.html) - prazo de entrega: **10/07/2013**
+* [Terceira lista](lista3.html) - prazo de entrega: **15/07/2013**
 
 Provas
 ------
@@ -134,7 +134,8 @@ Notas de Aula
 * [19/06/2013](Aula19.pdf)
 * [24/06/2013](Aula20.pdf)
 * [26/06/2013](Aula21.pdf)
-* [01/07/2013](Aula22.pdf)
+* [01/07/2013](Aula22.pdf) - **slides novos**
+* [03/07/2013](Aula23.pdf) - **slides novos**
 
 ### Logs do console
 
