@@ -11,6 +11,9 @@ Feel free to run the following chunks in the interpreter, but it is
 better if you try to guess first what the output will be, from what
 you have learned in class.
 
+This homework is worth 15 points in the final grade. Each question
+is worth 3 points.
+
 1\. What is the output of the following chunk, and why?
 
 {% highlight lua %}
@@ -51,3 +54,9 @@ print(i)
 4\. Write a chunk that counts odd numbers backwards from 99 to 1 
 (99, 97, 95, ..., 5, 3, 1), printing each number and them printing their sum.
 Do it in three ways: with a while loop, with a repeat loop, and using the numeric for.
+
+5\. Write a function `quadratic(a, b, c)` that returns the two solutions
+of the quadratic equation with coeficients `a`, `b`, and `c`. Use
+the [quadratic formula](http://0.tqn.com/d/create/1/0/i/9/9/-/Quadratic.formula.jpg).
+You can take the square root of a number in Lua with the `math.sqrt` function.
+Do not worry about the case where the input to the square root is negative.

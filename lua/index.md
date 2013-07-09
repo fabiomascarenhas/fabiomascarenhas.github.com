@@ -52,18 +52,22 @@ Lecture Notes
 
 Lecture notes for the classes will be posted here, after each class.
 
-[Introduction to Lua](00Introduction.pdf)
-[Getting Started](01GettingStarted.pdf)
-[Types and Values](02Types.pdf)
+* [Introduction to Lua](00Introduction.pdf)
+* [Getting Started](01GettingStarted.pdf)
+* [Types and Values](02Types.pdf)
+* [Control Flow](03ControlFlow.pdf)
+* [Functions](04Functions.pdf)
+
+* [Code for class 1](class1.zip)
+* [Code for class 2](class2.zip)
 
 Homework
 --------
 
-Homework will be posted here, during the course. Doing the homework is required,
-and will help you study for the final examination.
+I will not grade the homework, but doing it is recommended, as it is good
+preparation for the final exam.
 
-Homework counts for half of the final grade; students who turn in their homework on time
-receive full points.
+* [Homework 1](homework1.html)
 
 Contact
 -------
