@@ -30,9 +30,9 @@ Datas das Provas
 
 P1: 27/05/2013
 
-P2: 29/07/2013
+P2: 31/07/2013
 
-P3: 31/07/2013
+P3: 07/08/2013
 
 As provas serão feitas ou na sala DLC ou na sala DCC, a depender da disponibilidade,
 no mesmo horário da aula.
