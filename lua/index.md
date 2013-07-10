@@ -50,13 +50,15 @@ unchanged in Lua 5.2.
 Lecture Notes
 -------------
 
-Lecture notes for the classes will be posted here, after each class.
+Lecture notes for the classes will be posted here, after each class:
 
 * [Introduction to Lua](00Introduction.pdf)
 * [Getting Started](01GettingStarted.pdf)
 * [Types and Values](02Types.pdf)
 * [Control Flow](03ControlFlow.pdf)
 * [Functions](04Functions.pdf)
+
+You can also download the Lua source files for each class:
 
 * [Code for class 1](class1.zip)
 * [Code for class 2](class2.zip)
