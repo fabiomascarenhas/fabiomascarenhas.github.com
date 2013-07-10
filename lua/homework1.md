@@ -11,9 +11,6 @@ Feel free to run the following chunks in the interpreter, but it is
 better if you try to guess first what the output will be, from what
 you have learned in class.
 
-This homework is worth 15 points in the final grade. Each question
-is worth 3 points.
-
 1\. What is the output of the following chunk, and why?
 
 {% highlight lua %}
