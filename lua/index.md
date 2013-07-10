@@ -57,11 +57,14 @@ Lecture notes for the classes will be posted here, after each class:
 * [Types and Values](02Types.pdf)
 * [Control Flow](03ControlFlow.pdf)
 * [Functions](04Functions.pdf)
+* [Data Structures](05DataStructures.pdf)
+* [More Functions](06MoreFunctions.pdf)
 
 You can also download the Lua source files for each class:
 
 * [Code for class 1](class1.zip)
 * [Code for class 2](class2.zip)
+* [Code for class 3](class3.zip)
 
 Homework
 --------
