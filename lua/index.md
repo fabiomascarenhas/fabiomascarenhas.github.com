@@ -59,12 +59,14 @@ Lecture notes for the classes will be posted here, after each class:
 * [Functions](04Functions.pdf)
 * [Data Structures](05DataStructures.pdf)
 * [More Functions](06MoreFunctions.pdf)
+* [Iterators](07Iterators.pdf)
 
 You can also download the Lua source files for each class:
 
 * [Code for class 1](class1.zip)
 * [Code for class 2](class2.zip)
 * [Code for class 3](class3.zip)
+* [Code for class 4](class4.zip)
 
 Homework
 --------
@@ -73,6 +75,7 @@ I will not grade the homework, but doing it is recommended, as it is good
 preparation for the final exam.
 
 * [Homework 1](homework1.html)
+* [Homework 2](homework2.html)
 
 Contact
 -------
