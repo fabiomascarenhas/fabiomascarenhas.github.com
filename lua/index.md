@@ -60,6 +60,9 @@ Lecture notes for the classes will be posted here, after each class:
 * [Data Structures](05DataStructures.pdf)
 * [More Functions](06MoreFunctions.pdf)
 * [Iterators](07Iterators.pdf)
+* [Handling Errors](08HandlingErrors.pdf)
+* [Modules](09Modules.pdf)
+* [Metatables](10Metatables.pdf)
 
 You can also download the Lua source files for each class:
 
@@ -67,6 +70,7 @@ You can also download the Lua source files for each class:
 * [Code for class 2](class2.zip)
 * [Code for class 3](class3.zip)
 * [Code for class 4](class4.zip)
+* [Code for class 5](class5.zip)
 
 Homework
 --------
