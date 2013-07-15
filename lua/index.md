@@ -63,6 +63,7 @@ Lecture notes for the classes will be posted here, after each class:
 * [Handling Errors](08HandlingErrors.pdf)
 * [Modules](09Modules.pdf)
 * [Metatables](10Metatables.pdf)
+* [Objects](11Objects.pdf)
 
 You can also download the Lua source files for each class:
 
@@ -71,6 +72,7 @@ You can also download the Lua source files for each class:
 * [Code for class 3](class3.zip)
 * [Code for class 4](class4.zip)
 * [Code for class 5](class5.zip)
+* [Code for class 6](class6.zip)
 
 Homework
 --------
@@ -78,8 +80,9 @@ Homework
 I will not grade the homework, but doing it is recommended, as it is good
 preparation for the final exam.
 
-* [Homework 1](homework1.html)
-* [Homework 2](homework2.html)
+* [Homework 1](homework1.html) - **answer key in the page**
+* [Homework 2](homework2.html) - **answer key in the page**
+* [Homework 3](homework3.html)
 
 Contact
 -------
