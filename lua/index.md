@@ -64,6 +64,8 @@ Lecture notes for the classes will be posted here, after each class:
 * [Modules](09Modules.pdf)
 * [Metatables](10Metatables.pdf)
 * [Objects](11Objects.pdf)
+* [C API Basics](12APIBasics.pdf)
+* [Embedding Lua](13Embedding.pdf)
 
 You can also download the Lua source files for each class:
 
@@ -73,6 +75,7 @@ You can also download the Lua source files for each class:
 * [Code for class 4](class4.zip)
 * [Code for class 5](class5.zip)
 * [Code for class 6](class6.zip)
+* [Code for class 7](class7.zip) - you need the `cl.exe` Visual Studio command-line compiler
 
 Homework
 --------
