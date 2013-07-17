@@ -66,6 +66,8 @@ Lecture notes for the classes will be posted here, after each class:
 * [Objects](11Objects.pdf)
 * [C API Basics](12APIBasics.pdf)
 * [Embedding Lua](13Embedding.pdf)
+* [Extending Lua](14Extending.pdf)
+* [User-defined Types](15Userdata.pdf)
 
 You can also download the Lua source files for each class:
 
@@ -76,6 +78,7 @@ You can also download the Lua source files for each class:
 * [Code for class 5](class5.zip)
 * [Code for class 6](class6.zip)
 * [Code for class 7](class7.zip) - you need the `cl.exe` Visual Studio command-line compiler
+* [Code for class 8](class8.zip) - you need the `cl.exe` Visual Studio command-line compiler
 
 Homework
 --------
@@ -85,7 +88,8 @@ preparation for the final exam.
 
 * [Homework 1](homework1.html) - **answer key in the page**
 * [Homework 2](homework2.html) - **answer key in the page**
-* [Homework 3](homework3.html)
+* [Homework 3](homework3.html) - **answer key in the page**
+* [Homework 3](homework4.html) - **[answers](homework4_ans.html)**
 
 Contact
 -------

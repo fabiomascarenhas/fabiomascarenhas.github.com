@@ -42,7 +42,7 @@ the Fibonacci sequence:
 
 {% highlight lua %}
 > print(fibs(5))
-> 1    1    2    3    5	
+> 1    1    2    3    5 
 {% endhighlight %}
 
 Each number in the Fibonacci sequence is the sum of the two
@@ -57,7 +57,7 @@ function fibs(n)
   local function fibs_list(a, b, n)
     if n > 0 then
       return a, fibs_list(b, a + b, n - 1)
-	end
+    end
   end
   return fibs_list(1, 1, n)
 end
@@ -80,12 +80,12 @@ function poly(...)
   local cs = { ... }
   return function(x)
            local sum = 0
-		   local power = #cs - 1
-		   for _, c in ipairs(cs) do
-		     sum = sum + c * (x ^ power)
-			 power = power - 1
-		   end
-		   return sum
+           local power = #cs - 1
+           for _, c in ipairs(cs) do
+             sum = sum + c * (x ^ power)
+             power = power - 1
+           end
+           return sum
          end
 end
 {% endhighlight %}
@@ -111,12 +111,12 @@ function triang(n)
   local index = 1
   return function () -- iterator
            if index > n then
-		     return nil
-		   else
-		     next = next + index
-			 index = index + 1
-			 return next
-		   end
+             return nil
+           else
+             next = next + index
+             index = index + 1
+             return next
+           end
          end
 end
 {% endhighlight %}
