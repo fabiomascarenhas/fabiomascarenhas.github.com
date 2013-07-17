@@ -89,7 +89,7 @@ preparation for the final exam.
 * [Homework 1](homework1.html) - **answer key in the page**
 * [Homework 2](homework2.html) - **answer key in the page**
 * [Homework 3](homework3.html) - **answer key in the page**
-* [Homework 3](homework4.html) - **[answers](homework4_ans.html)**
+* [Homework 4](homework4.html) - **[answers](homework4_ans.html)**
 
 Contact
 -------
