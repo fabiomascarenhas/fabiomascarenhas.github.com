@@ -68,6 +68,7 @@ Lecture notes for the classes will be posted here, after each class:
 * [Embedding Lua](13Embedding.pdf)
 * [Extending Lua](14Extending.pdf)
 * [User-defined Types](15Userdata.pdf)
+* [The Implementation of Lua](16Implementation.pdf)
 
 You can also download the Lua source files for each class:
 
@@ -79,6 +80,7 @@ You can also download the Lua source files for each class:
 * [Code for class 6](class6.zip)
 * [Code for class 7](class7.zip) - you need the `cl.exe` Visual Studio command-line compiler
 * [Code for class 8](class8.zip) - you need the `cl.exe` Visual Studio command-line compiler
+* [Code for class 9](class9.zip) - you need the `cl.exe` Visual Studio command-line compiler
 
 Homework
 --------
