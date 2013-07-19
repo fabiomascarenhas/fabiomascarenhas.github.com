@@ -93,6 +93,11 @@ preparation for the final exam.
 * [Homework 3](homework3.html) - **answer key in the page**
 * [Homework 4](homework4.html) - **[answers](homework4_ans.html)**
 
+Final Exam
+----------
+
+The answer key for the final exam is [here](exam.html).
+
 Contact
 -------
 
