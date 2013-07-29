@@ -18,7 +18,7 @@ Professor Adjunto do [DCC/UFRJ](http://www.dcc.ufrj.br). Pesquisador na área de
 atuando nas sub-áreas de parsers, sistemas de tipos e sistemas de execução para linguagens dinâmicas. Membro ativo da
 comunidade da [linguagem Lua](http://www.lua.org) desde 2003 e autor de diversas bibliotecas de código livre.
 
-*"Os programas que usamos para conjurar processos são como os feitiços de um feiticeiro. Eles são cuidadosamente compostos a partir de expressões simbólicas em *linguagens de programação* arcanas e esotéricas que prescrevem as
+*"Os programas que usamos para conjurar processos são como os feitiços de um feiticeiro. Eles são cuidadosamente compostos a partir de expressões simbólicas em linguagens de programação arcanas e esotéricas que prescrevem as
 tarefas que queremos que nossos processos executem."* &mdash; Abelson, Sussman e Sussman. [*Structure and interpretation of Computer Programs*](http://mitpress.mit.edu/sicp/).
 
 </div>

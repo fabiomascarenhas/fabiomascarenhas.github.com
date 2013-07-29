@@ -19,7 +19,7 @@ in the areas of parsers, type systems and runtime environments for dynamic langu
 the [Lua programming language](http://www.lua.org) community sinze 2003 and author of several free
 software libraries.
 
-*"The programs we use to conjure processes are like a sorcerer's spells. They are carefully composed from symbolic expressions in arcane and esoteric *programming languages* that prescribe the tasks we want our processes to perform."* &mdash; Abelson, Sussman, and Sussman. [*Structure and interpretation of Computer Programs*](http://mitpress.mit.edu/sicp/).
+*"The programs we use to conjure processes are like a sorcerer's spells. They are carefully composed from symbolic expressions in arcane and esoteric programming languages that prescribe the tasks we want our processes to perform."* &mdash; Abelson, Sussman, and Sussman. [*Structure and interpretation of Computer Programs*](http://mitpress.mit.edu/sicp/).
 
 </div>
 </div>
