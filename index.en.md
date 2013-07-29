@@ -14,9 +14,10 @@ relpath: .
 Fabio Mascarenhas
 -----------------
 
-Professor Adjunto do [DCC/UFRJ](http://www.dcc.ufrj.br). Pesquisador na área de Compiladores e Linguagens de Programação, 
-atuando nas sub-áreas de parsers, sistemas de tipos e sistemas de execução para linguagens dinâmicas. Membro ativo da
-comunidade da [linguagem Lua](http://www.lua.org) desde 2003 e autor de diversas bibliotecas de código livre.
+Assistant Professor at [DCC/UFRJ](http://www.dcc.ufrj.br). Programming Languages and Compilers researcher,
+in the areas of parsers, type systems and runtime environments for dynamic languages. Active member of
+the [Lua programming language](http://www.lua.org) community sinze 2003 and author of several free
+software libraries.
 
 *"Os programas que usamos para conjurar processos são como os feitiços de um feiticeiro. Eles são cuidadosamente compostos a partir de expressões simbólicas em linguagens de programação arcanas e esotéricas que prescrevem as
 tarefas que queremos que nossos processos executem."* &mdash; Abelson, Sussman e Sussman. [*Structure and interpretation of Computer Programs*](http://mitpress.mit.edu/sicp/).
@@ -28,30 +29,30 @@ tarefas que queremos que nossos processos executem."* &mdash; Abelson, Sussman e
 <div markdown="1" class = "row-fluid">
 <div class = "span6">
 
-Redes Sociais
--------------
+Social Networks
+---------------
 
 ### [Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4755986D9) - curriculum vitae
 
-### [Github 1](https://github.com/mascarenhas)/[Github 2](https://github.com/fabiomascarenhas) - código livre
+### [Github 1](https://github.com/mascarenhas)/[Github 2](https://github.com/fabiomascarenhas) - free software
 
-### [Facebook](https://www.facebook.com/mascarenhasufrj) - grupos das disciplinas
+### [Facebook](https://www.facebook.com/mascarenhasufrj) - groups for courses at UFRJ
 
-### [Google Scholar](http://scholar.google.com/citations?user=kdEMTYkAAAAJ) - artigos
+### [Google Scholar](http://scholar.google.com/citations?user=kdEMTYkAAAAJ) - papers
 
 ### [Google Plus](https://plus.google.com/106095493628335523079/about)
 
-Cursos de Extensão
-------------------
+External Courses
+----------------
 
-### [Programming in Lua](lua) - Nankai University, Tianjin, China, Julho de 2013
+### [Programming in Lua](lua) - Nankai University, Tianjin, China, July 2013
 
 </div>
 
 <div class = "span4">
 
-Disciplinas
------------
+Courses at UFRJ
+---------------
 
 ### 2013.1
 
@@ -83,4 +84,4 @@ Disciplinas
 
 * * * * *
 
-Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}
+Last update: {{ site.time | date: "%Y-%m-%d %H:%M" }}
