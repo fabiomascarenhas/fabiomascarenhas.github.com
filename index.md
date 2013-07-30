@@ -28,58 +28,55 @@ tarefas que queremos que nossos processos executem."* &mdash; Abelson, Sussman e
 <div markdown="1" class = "row-fluid">
 <div class = "span6">
 
-Redes Sociais
--------------
+### Redes Sociais
 
-### [Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4755986D9) - curriculum vitae
+#### [Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4755986D9) - curriculum vitae
 
-### [Github 1](https://github.com/mascarenhas)/[Github 2](https://github.com/fabiomascarenhas) - código livre
+#### [Github 1](https://github.com/mascarenhas)/[Github 2](https://github.com/fabiomascarenhas) - código livre
 
-### [Facebook](https://www.facebook.com/mascarenhasufrj) - grupos das disciplinas
+#### [Facebook](https://www.facebook.com/mascarenhasufrj) - grupos das disciplinas
 
-### [Google Scholar](http://scholar.google.com/citations?user=kdEMTYkAAAAJ) - artigos
+#### [Google Scholar](http://scholar.google.com/citations?user=kdEMTYkAAAAJ) - artigos
 
-### [Google Plus](https://plus.google.com/106095493628335523079/about)
+#### [Google Plus](https://plus.google.com/106095493628335523079/about)
 
-Cursos de Extensão
-------------------
+### Cursos de Extensão
 
+<div class="lead">
 Mande-me um [email](mascarenhas@ufrj.br) se você quiser me contratar
 para um curso em sua escola ou empresa.
+</div>
 
-* [Programming in Lua](lua) - Nankai University, Tianjin, China, Julho de 2013
+#### [Programming in Lua](lua) - Nankai University, Tianjin, China, Julho de 2013
 
+</div>
+
+<div class = "span1">
 </div>
 
 <div class = "span4">
 
-Disciplinas
------------
+### Disciplinas
 
-### 2013.1
+#### 2013.1
 
-* [Compiladores I](comp)
-* [Linguagens de Programação](lp)
+##### [Compiladores I](comp) / [Linguagens de Programação](lp)
 
-### 2012.2
+#### 2012.2
 
-* [Compiladores I](comp20122)
-* [Computação II (Computação)](java)
+##### [Compiladores I](comp20122) / [Computação II (Computação)](java)
 
-### 2012.1
+#### 2012.1
 
-* [Compiladores I](comp20121)
-* [Computação II (Computação)](java20121)
+##### [Compiladores I](comp20121) / [Computação II (Computação)](java20121)
 
-### 2011.2
+#### 2011.2
 
-* [Compiladores I](comp20112)
-* [Semântica de Linguagens de Programação](sem)
+##### [Compiladores I](comp20112) / [Semântica de Linguagens de Programação](sem)
 
-### 2011.1
+#### 2011.1
 
-* [Computação II (Engenharia)](mab225)
-* Compiladores II
+##### [Computação II (Engenharia)](mab225) / Compiladores II
 
 </div>
 </div>

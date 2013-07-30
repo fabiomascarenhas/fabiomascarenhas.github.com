@@ -28,58 +28,54 @@ software libraries.
 <div markdown="1" class = "row-fluid">
 <div class = "span6">
 
-Social Networks
----------------
+### Social Networks
 
-### [Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4755986D9) - curriculum vitae
+#### [Lattes](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4755986D9) - curriculum vitae
 
-### [Github 1](https://github.com/mascarenhas)/[Github 2](https://github.com/fabiomascarenhas) - free software
+#### [Github 1](https://github.com/mascarenhas)/[Github 2](https://github.com/fabiomascarenhas) - free software
 
-### [Facebook](https://www.facebook.com/mascarenhasufrj) - groups for courses at UFRJ
+#### [Facebook](https://www.facebook.com/mascarenhasufrj) - groups for courses at UFRJ
 
-### [Google Scholar](http://scholar.google.com/citations?user=kdEMTYkAAAAJ) - papers
+#### [Google Scholar](http://scholar.google.com/citations?user=kdEMTYkAAAAJ) - papers
 
-### [Google Plus](https://plus.google.com/106095493628335523079/about)
+#### [Google Plus](https://plus.google.com/106095493628335523079/about)
 
-External Courses
-----------------
+### External Courses
 
-Send me an [email](mascarenhas@ufrj.br) if you would like to contract me for
-a short course at your school or company, in one of my specialties.
+<div class="lead">
+Send me an [email](mailto:mascarenhas@ufrj.br) if you would like to contract me for a short course at your school or company, in one of my specialties.
+</div>
 
-### [Programming in Lua](lua) - Nankai University, Tianjin, China, July 2013
+#### [Programming in Lua](lua) - Nankai University, Tianjin, China, July 2013
 
+</div>
+
+<div class = "span1">
 </div>
 
 <div class = "span4">
 
-Courses at UFRJ
----------------
+### Courses at UFRJ
 
-### 2013.1
+#### 2013.1
 
-* [Compiladores I](comp)
-* [Linguagens de Programação](lp)
+##### [Compiladores I](comp) / [Linguagens de Programação](lp)
 
-### 2012.2
+#### 2012.2
 
-* [Compiladores I](comp20122)
-* [Computação II (Computação)](java)
+##### [Compiladores I](comp20122) / [Computação II (Computação)](java)
 
-### 2012.1
+#### 2012.1
 
-* [Compiladores I](comp20121)
-* [Computação II (Computação)](java20121)
+##### [Compiladores I](comp20121) / [Computação II (Computação)](java20121)
 
-### 2011.2
+#### 2011.2
 
-* [Compiladores I](comp20112)
-* [Semântica de Linguagens de Programação](sem)
+##### [Compiladores I](comp20112) / [Semântica de Linguagens de Programação](sem)
 
-### 2011.1
+#### 2011.1
 
-* [Computação II (Engenharia)](mab225)
-* Compiladores II
+##### [Computação II (Engenharia)](mab225) / Compiladores II
 
 </div>
 </div>
