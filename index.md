@@ -44,7 +44,10 @@ Redes Sociais
 Cursos de Extensão
 ------------------
 
-### [Programming in Lua](lua) - Nankai University, Tianjin, China, Julho de 2013
+Mande-me um [email](mascarenhas@ufrj.br) se você quiser me contratar
+para um curso em sua escola ou empresa.
+
+* [Programming in Lua](lua) - Nankai University, Tianjin, China, Julho de 2013
 
 </div>
 

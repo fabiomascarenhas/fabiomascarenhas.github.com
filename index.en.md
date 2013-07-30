@@ -44,6 +44,9 @@ Social Networks
 External Courses
 ----------------
 
+Send me an [email](mascarenhas@ufrj.br) if you would like to contract me for
+a short course at your school or company, in one of my specialties.
+
 ### [Programming in Lua](lua) - Nankai University, Tianjin, China, July 2013
 
 </div>
