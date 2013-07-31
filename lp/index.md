@@ -137,6 +137,7 @@ Notas de Aula
 * [26/06/2013](Aula21.pdf)
 * [01/07/2013](Aula22.pdf) - **slides novos**
 * [03/07/2013](Aula23.pdf) - **slides novos**
+* [31/07/2013](aula3107.html) - revisão para P2
 
 ### Logs do console
 
