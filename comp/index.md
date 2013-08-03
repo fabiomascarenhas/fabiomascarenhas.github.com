@@ -173,6 +173,7 @@ Exercícios e Provas
 ### Provas
 
 * [P1](p1.pdf) e [gabarito](p1_gabarito.pdf)
+* [P2](p2.pdf) e [gabarito](p2_gabarito.pdf)
 
 Curiosidades
 ------------
