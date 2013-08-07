@@ -108,6 +108,7 @@ Provas
 
 * [P1](p1.pdf) e [gabarito](p1_gabarito.html)
 * [P2](p2.pdf) e [gabarito](p2_gabarito.html)
+* [P3](p3.pdf) e [gabarito](p3_gabarito.html)
 
 Notas de Aula
 -------------
