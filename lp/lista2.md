@@ -46,6 +46,10 @@ a) Defina uma função `unitario` que cria um conjunto unitário:
 
     def unitario[T](elem: T): Conjunto[T] = ???
 
+> Resposta:
+
+    def unitario[T](elem: T): Conjunto[T] = x => x == elem    
+    
 b) Defina as funções `uniao`, `intesercao` e `diferenca`, que faz a união,
 interseção e diferença de dois conjuntos:
 
@@ -53,18 +57,40 @@ interseção e diferença de dois conjuntos:
     def intersecao[T](c1: Conjunto[T], c2: Conjunto[T]): Conjunto[T] = ??? 	
     def diferenca[T](c1: Conjunto[T], c2: Conjunto[T]): Conjunto[T] = ??? 
 
+> Resposta:
+
+    def uniao[T](c1: Conjunto[T], c2: Conjunto[T]): Conjunto[T] = x => c1(x) || c2(x) 	
+    def intersecao[T](c1: Conjunto[T], c2: Conjunto[T]): Conjunto[T] = x => c1(x) && c2(x) 	
+    def diferenca[T](c1: Conjunto[T], c2: Conjunto[T]): Conjunto[T] = x => c1(x) && !c2(x) 
+    
 c) Defina a função `filtro` que retorna um conjunto contendo apenas os elementos do
 conjunto que passam pelo filtro:
 
     def filtro[T](c: Conjunto[T], f: T => Boolean): Conjunto[T] = ???	
 
+> Resposta:
+
+    def filtro[T](c: Conjunto[T], f: T => Boolean): Conjunto[T] = x => c(x) && f(x)	
+
+> Note que o filtro `f` na verdade também é um conjunto, pela nossa definição!
+> Estamos fazendo a interseção desses dois conjuntos.
+    
 d) Defina a função `map` que transforma um conjunto de elementos de tipo `T` em um
 conjunto de elementos de tipo `U`, dada uma função de mapeamento `U => T`:
 
     def map[T, U](c: Conjunto[T], f: U => T): Conjunto[U] = ???	
 
+> Resposta:
+
+    def map[T, U](c: Conjunto[T], f: U => T): Conjunto[U] = x => c(f(x))	
+    
 e) Por que a função de mapeamento para conjuntos tem os tipos trocados em relação à sua
 equivalente no `map` de listas?
+
+> Porque uma lista é um "produtor" de elementos, e um conjunto é um "consumidor",
+> então a função de mapeamento pega os elementos produzidos pela lista e os mapeia
+> em outros, enquanto a função de mapeamento precisa mapear elementos para serem
+> fornecidos com conjunto.
 	
 Questão 2 - Sintaxe melhor para chamar funções locais
 -----------------------------------------------------
@@ -88,6 +114,13 @@ resultado:
 	end
 	in fat(5) end
 
+> Resposta:
+
+      case Ap1(n, as) => m.get(n) match {
+        case Some(f) => Ap(f.subst(m), as.map(e => e.subst(m))) 
+        case None => Ap1(n, as.map(e => e.subst(m)))
+      }
+    
 Questão 3 - Let como açúcar sintático
 -------------------------------------
 
@@ -96,10 +129,17 @@ para uma chamada de função anônima na função `desugar` (veja o segundo slid
 Você pode fazer essa mudança tanto no interpretador que está no pacote `subst` quanto no que
 está no pacote `env`, mas indique onde está sua resposta.
 
+> Resposta abaixo. Note que precisamos mexer em `LetM` também:
+
+      case Let(n, e, c) => Ap(Fun(List(n), c.desugar), List(e.desugar))
+      case LetM(es, c) => Ap(Fun(es.map({ case (n, _) => n }), c.desugar),
+                             es.map({ case (_, e) => e.desugar }))
+
+
 Questão 4 - Cálculo lambda
 --------------------------
 
-O *cálculo lambda* é um modelo de computação bastante que é uma das bases da programação
+O *cálculo lambda* é um modelo de computação que é uma das bases da programação
 funcional, e pode ser visto como uma linguagem de programação bastante simples.
 
 Uma expressão do cálculo lambda pode ser uma variável (um nome), uma aplicação (um par de expressões),
@@ -108,6 +148,13 @@ As abstrações também são os valores da linguagem.
 
 a) Defina um tipo algébrico para expressões no cálculo lambda, usando um trait `CL` e três construtores
 `Var`, `Ap`, e `Abs`.
+
+> Resposta:
+
+    trait CL
+    case class Var(nome: String) extends CL
+    case class Ap(exp1: CL, exp2: CL) extends CL
+    case class Abs(param: String, corpo: CL) extends CL
 
 A semântica do cálculo lambda call-by-value é dada por substituição: o valor de uma variável é um 
 erro; o valor de uma abstração é ela mesma; para obter o valor de uma aplicação obtemos o valor do seu
@@ -119,30 +166,54 @@ Para evitar capturas, um valor sendo substituído com variáveis livres também 
 b) Escreva o interpretador `eval`, a substituição `subst` e a função que dá as variáveis
 livres para o cálculo lambda call-by-value:
 
+> Respostas:
+
     def eval: Abs = {
-      ???
+      case Var(n) => sys.error("variável livre")
+      case Ap(e1, e2) => e1.eval match {
+        case Abs(p, c) => c.subst(p, e2.eval).eval
+      }
+      case Abs(p, c) => Abs(p, c)
 	}	
     
 	def subst(nome: String, valor: Abs): LC = {
-      ???
+      case Var(n) => if (n == nome) valor else Var(n)
+      case Ap(e1, e2) => Ap(e1.subst(nome, valor), e2.subst(nome, valor))
+      case Abs(p, c) => if (p == nome) Abs(p, c) else Abs(p, c.subst(nome, valor))
 	}
 	
 	def fvs: Set[String] = {
-	  ???
+	  case Var(n) => Set(n)
+      case Ap(e1, e2) => e1.fvs ++ e2.fvs
+      case Abs(p, c) => c.fvs - p
 	}
 
 c) Escreva agora as três funções acima para o interpretador call-by-name do cálculo lambda:
 
+> Respostas:
+
     def eval: Abs = {
-      ???
-	}
+      case Var(n) => sys.error("variável livre")
+      case Ap(e1, e2) => e1.eval match {
+        case Abs(p, c) => c.subst(p, e2).eval
+      }
+      case Abs(p, c) => Abs(p, c)
+    }
     
 	def subst(nome: String, valor: LC): LC = {
-      ???
+      case Var(n) => if (n == nome) 
+                       if (!valor.fvs.isEmpty)
+                         sys.error("expressão com variáveis livres: " + e + ", fvs: " + e.fvs)
+                       else valor
+                     else Var(n)
+      case Ap(e1, e2) => Ap(e1.subst(nome, valor), e2.subst(nome, valor))
+      case Abs(p, c) => if (p == nome) Abs(p, c) else Abs(p, c.subst(nome, valor))
 	}
 	
 	def fvs: Set[String] = {
-	  ???
+	  case Var(n) => Set(n)
+      case Ap(e1, e2) => e1.fvs ++ e2.fvs
+      case Abs(p, c) => c.fvs - p
 	}
 
 Questão 5 - uma biblioteca padrão para *fun*
@@ -152,6 +223,59 @@ Implemente os padrões de recursão em listas que usamos em Scala: `map`, `filte
 `foldRight`, `foldLeft` e `flatMap` como funções de *fun* definidas usando o método
 do slide 19 da [aula de 15/05](Aula11.pdf)
 
+    fun Cons(h, t)
+      fun (v, c)
+        (c)(h, t)
+      end
+    end
+    
+    fun Vazia()
+      fun (v, c)
+        (v)()
+      end
+    end
+    
+    fun map(f, l)
+      (l)(fun () Vazia() end,
+          fun (h, t) Cons((f)(h), map(f, t)) end)
+    end
+    
+    fun filter(p, l)
+      (l)(fun () Vazia() end,
+          fun (h, t) 
+            if (p)(h) then
+              Cons(h, filter(f, t))
+            else
+              filter(f, t)
+            end
+          end)
+    end
+    
+    fun foldLeft(z, op, l)
+      (l)(fun () z end,
+          fun (h, t)
+            foldLeft(op(z, h), op, t)
+          end)
+    end
+    
+    fun foldRight(z, op, l)
+      (l)(fun () z end,
+          fun (h, t)
+            op(h, foldRight(z, op, t))
+          end)
+    end
+
+    fun append(l1, l2)
+      foldRight(l2, fun (a, b) Cons(a, b) end, l1)
+    end
+    
+    fun flatMap(f, l)
+      (l)(fun () Vazia() end,
+          fun (h, t)
+            append((f)(h), flatMap(f, t))
+          end)
+    end
+
 Questão 6 - Coleta de lixo nos ambientes
 ----------------------------------------
 
@@ -160,18 +284,49 @@ as entradas do ambiente em que a função anônima foi definida, mas apenas as e
 variáveis livres no corpo da função. Implemente essa otimização no interpretador que está
 no pacote `env`.
 
+> Reposta:
+
+      case Fun(params, corpo) => {
+        val fvs = this.fvs
+        FunV(env.filter({ case (n, _) => fvs.contains(n) }), params, corpo)
+      }
+
 Questão 7 - Ambientes e escopo
 ---------------------------------------
 
 a) Em *fun* com ambientes e escopo dinâmico a expressão `letrec` ainda é necessária
 para definir funções recursivas locais? E recursão mútua? Justifique.
 
+> Não, pois quando chamamos a função recursiva a sua definição vai estar no
+> ambiente usado na chamada de função, pois no escopo dinâmico o ambiente
+> do corpo da função é uma extensão do ambiente do ponto onde ela foi
+> chamada, e não do ambiente onde foi definida.
+
 b) Seria possível definir uma linguagem que mistura variáveis com escopo léxico e
 variávieis com escopo dinâmico? Justifique dando um esboço de sintaxe abstrata e
 estratégia de avaliação para essa linguagem.
 
+> Sim, para isso precisamos de dois ambientes, um ambiente estático e um
+> ambiente dinâmico, e um "let dinâmico" que introduz variáveis dinâmicas.
+> A primeira prova (e seu gabarito) tem um esboço mais completo do que seria necessário.
+
 c) Implemente uma mudança equivalente à da questão 2 no interpretador de *fun* com ambientes e escopo
 estático (pacote `env`).
+
+> A modificação caso `Ap1` de `eval` é relaticamente simples:
+
+      case Ap1(func, args) => 
+        funs.filter({ 
+          case Fun1(nome, _, _) => nome == func
+        }).headOption match {
+          case Some(f) => f.apply(funs, args)
+          case None => sys.error("função " + func + " não existe ")
+        }
+
+> Mas ela interage com a otimização da questão 6, então também precisamos mudar `fvs`:
+
+      case Ap1(n, es) => es.foldRight[Set[String]](Set())(
+        (e, s) => e.fvs ++ s)
 
 Entrega da lista
 ----------------

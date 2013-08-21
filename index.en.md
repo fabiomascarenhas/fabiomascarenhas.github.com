@@ -57,9 +57,13 @@ Send me an [email](mailto:mascarenhas@ufrj.br) if you would like to contract me 
 
 ### Courses at UFRJ
 
+#### 2013.2
+
+##### [Compiladores I](comp) / [Computação I (Engenharia)](python)
+
 #### 2013.1
 
-##### [Compiladores I](comp) / [Linguagens de Programação](lp)
+##### [Compiladores I](comp20131) / [Linguagens de Programação](lp)
 
 #### 2012.2
 
