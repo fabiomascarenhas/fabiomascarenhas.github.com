@@ -40,7 +40,7 @@ a largura do rio e a velocidade do barco perpendicular à correnteza.
 considerando o uso de juros simples. O operador de exponenciação de Python é `**`.
 
 9\. Calcule o erro entre o valor da soma de uma PG infinita começada com 1 (dada por `1/(1-q)`,
-onde `q` é a razão com `0 <= q < 1`) e a soma dos 3 primeiros e 4 primeiros termos dessa PG.
+onde `q` é a razão com `0 <= q < 1`) e a soma dos 3 primeiros termos dessa PG.
 
-10\. Dados a hora, minuto e segundo em que um corredor de uma maratona partiu, e dados a hora, minuto e segundos em que este mesmo corredor cruzou a linha de chegada, calcule o tempo total de prova deste corredor em horas, minutos e segundos.
+10\. Dados a hora, minuto e segundo em que um corredor de uma maratona partiu, e dados a hora, minuto e segundos em que este mesmo corredor cruzou a linha de chegada, calcule o tempo total de prova deste corredor em segundos.
 

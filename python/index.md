@@ -42,6 +42,19 @@ Acessem [aqui](http://www.facebook.com/groups/compipython/).
 #### 19/08/2013 - [Laboratório 1](lab1.html)
 #### 26/08/2013 - [Laboratório 2](lab2.html)
 
+### Notas de Aula
+
+#### 19/08/2013 - [Código](defs1908.py)
+#### 26/08/2013 - [Código](defs2608.py)
+
+### Instalando Python
+
+Baixa o [instalador](http://python.org/ftp/python/2.7.5/python-2.7.5.msi) e siga as intruções
+para instalar a versão do Python que usamos em sala. Depois de instalado é só executar o
+IDLE. Também há um interpretador de Python que roda no browser [nessa página](http://repl.it/KJQ/1),
+é só entrar definições de constantes e funções no lado esquerdo, e no lado direito temos um
+shell parecido com o do IDLE. Para executar o arquivo de definições é só clicar no botão de "play".
+
 * * * * *
 
 Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}
