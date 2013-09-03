@@ -74,12 +74,14 @@ aplicabilidade venha conversar comigo, poderei ajudá-lo.
 
 * [Introdução](01Introducao.pdf)
 * [Análise Léxica - Expressões Regulares](02AnaliseLexica.pdf)
-* [Análise Léxica - Autômatos Finitos](02AnaliseLexica.pdf)
+* [Análise Léxica - Autômatos Finitos](03Automatos.pdf)
+* [Análise Léxica - JFlex](04JFlex.pdf)
 
 #### Código fonte
 
 * [Compilador de sequência de comandos simples](CmdSimp.zip)
 * [Notas de aula executáveis para análise léxica](Lexico.zip) - atualizado em 28/08/2013
+* [Analisador Léxico usando JFlex para comandos simples](CmdSimp_JFlex.zip)
 
 ### Curiosidades
 
@@ -91,6 +93,16 @@ producing reduced test cases for compiler bugs contained a large table
 of results for crash bugs. Below are all of C-Reduce’s reduced programs
 for those bugs. [Ler esse
 artigo...](http://blog.regehr.org/archives/696)
+
+#### Lexical Scanning in Go
+
+Vídeo do Rob Pike mostrando como construir um analisador léxico
+manualmente, usando a linguagem Go, e como isso é preferível em relação
+a usar um gerador de analisadores léxicos.
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/HxaD_trXwRE" frameborder="0" allowfullscreen="1">
+dummy
+</iframe>
 
 ### Contato
 
