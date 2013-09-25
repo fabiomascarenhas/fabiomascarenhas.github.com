@@ -33,6 +33,29 @@ P3: 18/12/2013
 
 As provas serão feitas ou na sala DCC, no mesmo horário da aula.
 
+### Trabalhos Práticos
+
+Os trabalhos práticos correspondem às diferentes fases de um
+compilador de [TINYPy](tinypy.html). Os trabalhos podem ser feitos
+individualmente ou em dupla. As mesmas duplas valerão para todos
+os quatro trabalhos, exceto em casos de trancamento ou abandono, que serão
+resolvidos caso a caso.
+
+#### Analisador Léxico
+
+Cada dupla deverá fazer a especificação de um analisador léxico para
+a linguagem [TINYPy](tinypy.html). Baixe o esqueleto do projeto Eclipse
+para o trabalho [aqui](TINYPyLex.zip), e leia com atenção o arquivo
+`tinypy.jpage`. 
+
+A entrega do trabalho deverá ser feita até o dia 16/10/2013, uma
+quarta-feira, em formato zip, usando [esse
+formulário](http://form.jotformz.com/form/32666398519671).
+
+Se tiver qualquer dúvida sobre a especificação da linguagem ou o
+funcionamento do analisador léxico é só perguntar por email ou no
+nosso grupo.
+
 ### Lista de Discussão
 
 Temos um grupo no Facebook para perguntas e avisos sobre a matéria.
@@ -76,12 +99,20 @@ aplicabilidade venha conversar comigo, poderei ajudá-lo.
 * [Análise Léxica - Expressões Regulares](02AnaliseLexica.pdf)
 * [Análise Léxica - Autômatos Finitos](03Automatos.pdf)
 * [Análise Léxica - JFlex](04JFlex.pdf)
+* [Gramáticas, Derivações, Árvores e Ambiguidade](05Gramaticas.pdf) - atualizado 09/09/2013
+* [Especificando Sintaxe e EBNF](06Sintaxe.pdf)
+* [Análise Recursiva com Retrocesso](07Recursiva.pdf)
+* [Análise Preditiva](08Preditiva.pdf)
 
 #### Código fonte
 
 * [Compilador de sequência de comandos simples](CmdSimp.zip)
-* [Notas de aula executáveis para análise léxica](Lexico.zip) - atualizado em 28/08/2013
+* [Notas de aula executáveis para análise autômatos léxica](Lexico.zip) - atualizado em 28/08/2013
 * [Analisador Léxico usando JFlex para comandos simples](CmdSimp_JFlex.zip)
+* [Notas de aula executáveis para gramáticas e análise sintática](Parsing.zip)
+* [Analisador Recursivo com Retrocesso para TINY](Tiny_Rec.zip)
+* [Analisador Recursivo Preditivo para TINY](Tiny_Pred.zip)
+* [Analisador Recursivo Preditivo com árvore recursiva à esquerda para TINY](Tiny_Pred_RecEsq.zip)
 
 ### Curiosidades
 
@@ -107,8 +138,8 @@ dummy
 ### Contato
 
 Podem entrar em contato pelo meu [email](mailto:mascarenhas@ufrj.br) que
-responderei assim que possível. Também tenho um horário de atendimento
 de alunos na minha sala, segundas e quartas de 17 às 18 horas. A sala é
+responderei assim que possível. Também tenho um horário de atendimento
 a E-2013 do DCC.
 
 * * * * *

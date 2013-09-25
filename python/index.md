@@ -42,12 +42,18 @@ Acessem [aqui](http://www.facebook.com/groups/compipython/).
 #### 19/08/2013 - [Laboratório 1](lab1.html)
 #### 26/08/2013 - [Laboratório 2](lab2.html)
 #### 02/09/2013 - [Laboratório 3](lab3.html)
+#### 09/09/2013 - continuação Lab. 3
+#### 16/09/2013 - não houve aula
+#### 23/09/2013 - [Laboratório 4](lab4.html)
 
 ### Notas de Aula
 
 #### 19/08/2013 - [Código](defs1908.py)
 #### 26/08/2013 - [Código](defs2608.py)
 #### 02/09/2013 - [Código](defs0209.py)
+#### 09/09/2013 - [Código](defs0909.py)
+#### 16/09/2013 - não houve aula
+#### 23/09/2013 - [Código](defs2309.py)
 
 ### Instalando Python
 
