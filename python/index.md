@@ -45,6 +45,10 @@ Acessem [aqui](http://www.facebook.com/groups/compipython/).
 #### 09/09/2013 - continuação Lab. 3
 #### 16/09/2013 - não houve aula
 #### 23/09/2013 - [Laboratório 4](lab4.html)
+#### 30/09/2013 - não houve aula (JIC)
+#### 07/10/2013 - [Laboratório 5](lab5.html)
+#### 14/10/2013 - correção da P1
+#### 21/10/2013 - [Laboratório 6](lab6.html)
 
 ### Notas de Aula
 
@@ -54,6 +58,14 @@ Acessem [aqui](http://www.facebook.com/groups/compipython/).
 #### 09/09/2013 - [Código](defs0909.py)
 #### 16/09/2013 - não houve aula
 #### 23/09/2013 - [Código](defs2309.py)
+#### 30/09/2013 - não houve aula (JIC)
+#### 07/10/2013 - [Código](defs0710.py)
+#### 14/10/2013 - P1
+#### 21/10/2013 - [Código](defs2110.py)
+
+### Provas
+
+#### [P1](p1.pdf) e [gabarito](p1.py)
 
 ### Instalando Python
 
