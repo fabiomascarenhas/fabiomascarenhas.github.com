@@ -103,16 +103,33 @@ aplicabilidade venha conversar comigo, poderei ajudá-lo.
 * [Especificando Sintaxe e EBNF](06Sintaxe.pdf)
 * [Análise Recursiva com Retrocesso](07Recursiva.pdf)
 * [Análise Preditiva](08Preditiva.pdf)
+* [Análise LL(1)](09LL1.pdf)
+* [Análise Ascendente](10Ascendente.pdf)
+* [Análise SLR](11SLR.pdf)
+* [Tabelas ACTION e GOTO](12ActionGoto.pdf)
+* [JACC](13JACC.pdf)
 
 #### Código fonte
 
 * [Compilador de sequência de comandos simples](CmdSimp.zip)
 * [Notas de aula executáveis para análise autômatos léxica](Lexico.zip) - atualizado em 28/08/2013
 * [Analisador Léxico usando JFlex para comandos simples](CmdSimp_JFlex.zip)
-* [Notas de aula executáveis para gramáticas e análise sintática](Parsing.zip)
+* [Notas de aula executáveis para gramáticas e análise sintática](Parsing.zip) - atualizado em 23/10/2013
 * [Analisador Recursivo com Retrocesso para TINY](Tiny_Rec.zip)
 * [Analisador Recursivo Preditivo para TINY](Tiny_Pred.zip)
 * [Analisador Recursivo Preditivo com árvore recursiva à esquerda para TINY](Tiny_Pred_RecEsq.zip)
+* [Analisador SLR para Tiny](Tiny_SLR.zip)
+* [Analisador usando JACC para Tiny](Tiny_Jacc.zip)
+
+### Exercícios e Provas
+
+#### Listas de Exercício
+
+* [Lista 1](lista1.html) - [aula de 14/10](lista1.pdf)
+
+#### Provas
+
+* [P1](p1.pdf)  e [gabarito](p1_gabarito.pdf)
 
 ### Curiosidades
 
