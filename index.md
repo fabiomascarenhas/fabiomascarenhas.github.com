@@ -58,6 +58,10 @@ para um curso em sua escola ou empresa.
 
 ### Disciplinas
 
+#### 2014.1
+
+##### [Computação II (Computação)](java)
+
 #### 2013.2
 
 ##### [Compiladores I](comp) / [Computação I (Engenharia)](python)
@@ -68,7 +72,7 @@ para um curso em sua escola ou empresa.
 
 #### 2012.2
 
-##### [Compiladores I](comp20122) / [Computação II (Computação)](java)
+##### [Compiladores I](comp20122) / [Computação II (Computação)](java20122)
 
 #### 2012.1
 
