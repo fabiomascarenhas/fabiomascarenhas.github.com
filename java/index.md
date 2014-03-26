@@ -10,13 +10,13 @@ MAB 240 - Computação II
 Apresentação
 ------------
 
-**Atenção! As aulas de Computação II para o semestre de 2012.2 começarão
-apenas na segunda-feira dia 22/10/2012.**
+**Atenção! As aulas de Computação II para o semestre de 2014.1 começarão
+apenas na segunda-feira dia 10/02/2014.**
 
 Está é a página da disciplina Computação II, MAB 240, do professor Fabio
-Mascarenhas, para o semestre de 2012.2. As aulas da disciplina são às
-segundas, quartas e sextas, das 08 às 10 horas, no LEP I às segundas e
-na sala 006 do bloco F2 às quartas e sextas.
+Mascarenhas, para o semestre de 2014.1. As aulas da disciplina são às
+segundas, quartas e sextas, das 08 às 10 horas, no LEP I às quartas e
+na sala 006 do bloco F2 às segundas e sextas.
 
 Avaliação
 ---------
@@ -31,11 +31,11 @@ estabeleci a quantidade nem a natureza dos trabalhos práticos.
 Datas das Provas
 ----------------
 
-P1: 21/12/2012
+P1: 28/03/2014
 
-P2: 01/03/2013
+P2: 23/05/2014
 
-P3: 08/03/2013
+P3: 30/05/2014
 
 Todas as provas serão feitas no mesmo horário e local das aulas (Sala
 F2-006, 08-10), e caem na sexta-feira.
@@ -49,8 +49,8 @@ Acessem [aqui](http://www.facebook.com/groups/computacaoII/).
 Também temos uma lista de discussão no [Google
 Groups](https://groups.google.com/group/comp2-geral/).
 
-Livros
-------
+Bibliografia
+------------
 
 O livro texto recomendado para essa disciplina é o "Programação
 Orientada a Objetos com JAVA", de Barnes e Kölling. Há duas cópias desse
@@ -90,81 +90,30 @@ do BlueJ.
 Notas de Aula
 -------------
 
-### 22/10/2012 - [Apresentação, "Java com sabor de C (projeto Eclipse)"](Aula1.zip)
+Abaixo estão resumos e notas de aula. Não é possível estudar apenas por essas notas,
+a presença em sala de aula e a consulta à bibliografia são fundamentais.
 
-### 24/10/2012 - [Histórico de OO, tipos primitivos, definindo uma classe: atributos e construtor, identidade de objetos](Aula2.zip)
-
-### 26/10/2012 - [Vários construtores, incialização fora do construtor, variáveis de classe, ligações entre objetos de objetos](Aula3.zip)
-
-### 31/10/2012 - [Revisão, classes e construtores simples](RegistroNotas.zip), [Listas, inicialização de vetores, introdução a métodos](Aula4.zip)
-
-### 07/11/2012 - [Métodos, iteração, uso de bibliotecas](Aula5.zip)
-
-### 09/11/2012 - [Mais métodos, space invaders v1, controle visibilidade](Aula6.zip)
-
-### 23 e 28/11/2012 - [Introdução à interfaces: funções reais](Funcoes.zip), [Interfaces no Space Invaders](Aula8.zip)
-
-### 05 e 07/12/2012 - [Mais interfaces: implementando múltiplas interfaces, classes anônimas, herança de interfaces](Interpretador.zip), [Desacoplando Motor e Jogo](Aula10.zip)
-
-### 12/12/2012 - [Herança de classes, classes e métodos abstratos, subclasses e superclasses](Aula11.zip)
-
-### 19/12/2012 - Revisão: [formas e ações](Editor.zip) e [enumeradores](Enumerador.zip)
-
-### 09/01/2013 - [Herança de classes, subclasses e superclasses, redefinição de métodos, *super*](Aula12.zip), [classes e métodos abstratos, padrão *inner*](Interpretador_09012013.zip)
-
-### 11/01/2013 - [Mais herança, subclasses e superclasses](Aula13.zip), [métodos de *Object*: equals, hashCode, toString](Interpretador_11012013.zip)
-
-### 16/01/2013 - [Exceções não checadas](Aula14.zip)
-
-### 18/01/2013 - [Exceções checadas](Aula14_Checada.zip), [introdução a classes genéricas ou parametrizadas](Aula15.zip)
-
-### 23/01/2013 - [Classes genéricas ou parametrizadas: múltiplos parâmetros, parâmetros com restrições (extends)](Aula16.zip)
-
-### 25/01/2013 e 30/01/2013 - [Interfaces gráficas: padrão MVC, modelo de uma Calculadora, VC da Calculadora usando Swing](Calculadora.zip)
-
-### 01/02/2013 - [Interfaces gráficas: VC da calculadora em Android](CalcAndroid.zip), [APK para instalação em dispositivos](CalcAndroid.apk)
-
-### 06/02/2013 - [Interfaces gráficas: busca na API pública do Twitter](BuscaTwitter.zip), [APK](BuscaTwitter.apk)
-
-### 20/02/2013 e 22/03/2013 - [Interfaces gráficas: compartilhamento de fotos](FotogramaAndroid.zip), [APK](FotogramaAndroid.apk)
-
-### 27/02/2013 - [Revisão](Revisao.zip)
+#### 10/02 - [Slides](Aula10_02.pdf), [projeto Eclipse](JavaC.zip), [projeto BlueJ](Aula10_02.zip)
+#### 14/02 - [Slides](Aula14_02.pdf), [projeto Eclipse](JavaC.zip), [projeto BlueJ](Aula14_02.zip)
+#### 17/02 - [Slides](Aula17_02.pdf), [projeto BlueJ](Aula17_02.zip)
+#### 21/02 - [Slides](Aula21_02.pdf), [projeto BlueJ](Aula21_02.zip)
+#### 24/02 - [Slides](Aula24_02.pdf), [projeto BlueJ](Aula24_02.zip)
+#### 10/03 - [Slides](Aula10_03.pdf), [projeto BlueJ](Aula10_03.zip)
+#### 14/03 - [Slides](Aula14_03.pdf), [projeto BlueJ](Aula14_03.zip), [projeto BlueJ funções](Funcoes.zip)
+#### 17/03 - [Slides](Aula17_03.pdf), [projeto BlueJ](Aula17_03.zip)
+#### 21/03 - [Slides](Aula21_03.pdf), [projeto BlueJ](Aula21_03.zip)
+#### 24/03 - [Slides](Aula24_03.pdf), [projeto BlueJ](Aula24_03.zip)
 
 Laboratórios
 ------------
 
-### 29/10/2012 - [Lab 1](lab1.html)
+O enunciado de cada laboratório é sempre postado antes do mesmo.
 
-### 05/11/2012 - [Lab 2](lab2.html)
-
-### 12/11/2012 - [Lab 3](lab3.html)
-
-### 26/11/2012 - [Lab 4](lab4.html)
-
-### 03/12/2012 - [Lab 5](lab5.html)
-
-### 17/12/2012 - [Lab 6](lab6.html)
-
-### 07/01/2013 - [Lab 7](lab7.html)
-
-### 14/01/2013 - [Lab 8](lab8.html)
-
-### 21/01/2013 - [Lab 9](lab9.html)
-
-### 28/01/2013 - [Lab 10](lab10.html)
-
-### 04/02/2013 - [Lab 11](lab11.html)
-
-### 18/02/2013 - [Lab 12](lab12.html)
-
-Provas
-------
-
-### 21/12/2012 - [P1](p1.pdf) e [gabarito](p1.html)
-
-### 08/03/2013 - [P2](p2.pdf) e [gabarito](p2.html)
-
-### 13/03/2013 - [P3](p3.pdf) e [gabarito](p3.html)
+#### 12/02 - [Laboratório 1](lab1.html)
+#### 19/02 - [Laboratório 2](lab2.html)
+#### 26/02 - [Laboratório 3](lab3.html) - **entrega 12/03/2014**
+#### 12/03 - [Laboratório 4](lab4.html) - **entrega 19/03/2014**
+#### 19/03 - [Laboratório 5](lab5.html)
 
 Contato
 -------

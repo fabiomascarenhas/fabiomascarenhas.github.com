@@ -7,50 +7,48 @@ relpath: ..
 MAB 240 - Computação II
 =======================
 
-Laboratório 3 - 12/11/2012
+Laboratório 3 - 26/02/2014
 --------------------------
 
-Nesse laboratório vocês começarão a desenhar a interface do *Frogger*, e implementarão parte da
-mecânica do jogo. Para isso, você utilizarão as classes `Motor`, `Tela` e `Cor` usadas no Space
-Invaders, só que com uma classe `Jogo` que implementa Frogger.
+Esse laboratório é uma continuação do [laboratório 2](lab2.html) da semana
+passada, então faça uma revisão do que foi pedido no laboratório 2, e comece
+terminando de implementar o que foi pedido lá. Depois prossiga para o que
+está abaixo.
 
-Comecem baixando e abrindo no Eclipse o [esqueleto do Frogger](Frogger.zip). O Eclipse não tem
-uma opção "Open Project..." no menu "File", portanto vocês têm que abrir a opção "Import..." do
-menu "File", e na caixa de diálogo que aparece abrir a opção "General" clicando na seta ao lado
-dela, depois clicar na opção "Existing Projects into Workspace" para selecioná-la e clicar no
-botão "Next". Na tela seguinte, clique para selecionar a opção "Select archive file", depois
-clique no botão "Browse..." dela e procure o arquivo "Frogger.zip" que você baixou. Finalmente,
-clique no botão "Finish". O projeto "Frogger" deve aparecer na aba "Package Explorer" do Eclipse.
+Nesse laboratório o objetivo é implementar o movimento do sapo (respondendo aos comandos
+do teclado), assim como a colisão entre os sapos e os carros.
 
-Nesse laboratório vocês implementarão a lógica necessária para exibição do tabuleiro do jogo
-na tela, e do movimento dos carros. O movimento do sapo e a lógica do "atropelamento" ficará para
-o próximo laboratório. O tabuleiro do jogo consiste de:
+O movimento do sapo pode ser para cima, para baixo, para a esquerda, ou para a direita, usando
+as setas. Quando uma das setas é pressionada o motor de jogo chama o método `tecla(String s)` da classe
+`Jogo`, passando "up", "down", "left", ou "right", a depender se a tecla foi seta para cima, para baixo,
+para a esquerda ou para a direita.
 
-* Dois retângulos de 800 pixels por 75 pixels, marcando as duas "calçadas". Não precisam ser
-  objetos, já que são elementos estacionários do jogo;
-* Quatro faixas de carros; a primeira faixa tem 2 carros com 100 pixels de comprimento, e
-  que atravessam a tela em 5 segundos, a segunda faixa tem 1 carro com 150 pixels de comprimento
-  e que atravessa e tela em 2 segundos, a terceira faixa tem 3 carros com 60 pixels de comprimento
-  e que atravessem a tela em 8 segundos, e a quarta faixa tem 3 carros com 60 pixels de
-  comprimento e que atravessam a tela em 6 segundos. Todos os carros têm 75 pixels de altura, e
-  cores aleatórias;
-* O sapo, com 60 pixels de diâmetro, e cor verde, começa no centro da calçada de baixo;
-* O contador de vidas do sapo, no canto inferior direito, com tamanho 40.
+O sapo se move em "saltos" de 100 pixels, mas o salto não é instantâneo:
+ele leva cerca de *1/3* de segundo para completar. Uma maneira simples de implementar isso
+é fazer o sapo ter dois conjuntos de posições, uma onde ele está agora e outra indicando
+onde ele deve estar. Qualquer uma das teclas de salto atualiza a posição onde ele deve
+estar, e em cada tique o sapo se move na direção da posição onde
+deve estar com uma velocidade de 300 pixels por segundo em cada eixo.
+Se as duas posições são idênticas então o sapo simplesmente fica imóvel.
 
-A distância entre uma faixa de carros e a outra é de 100 pixels. A figura abaixo mostra
-uma possível disposição inicial de todos os elementos do jogo.
+Caso o sapo salte além dos cantos esquerdo ou direito da tela ele deve aparecer do outro lado, do mesmo
+modo que os carros. A solução para esse problema não é difícil, mas é sutil. Pensem bem a respeito. O modo
+mais fácil é implementar essa lógica no método que faz o sapo se mover em direção à sua "meta". Se o sapo já
+chegou na calçada superior um salto para cima não deve fazer ele se mover mais para cima. O mesmo em relação
+à calçada inferior e saltos para baixo.
 
-![](frogger.png)
-
-O movimento dos carros deve usar o método `mover` que vocês implementaram no [laboratório 2](lab2.html).
-O movimento do sapo será implementado no próximo laboratório.
+A colisão deve ser verificada no método de atualização do jogo, após todo o movimento
+ter sido feito. Uma colisão do sapo com um dos carros faz o contador de vidas diminuir
+em 1, e o sapo deve retornar para a posição inicial. Se o contador estiver em
+0 no momento da colisão então o jogo termina: deve ser exibida uma mensagem de "GAME OVER"
+no centro da tela, e o sapo some (os carros continuam se movendo).
 
 Enviando
 --------
 
-Use o formulário abaixo para enviar o Laboratório 3. O prazo para envio é quarta-feira, dia 28/11/2012.
+Use o formulário abaixo para enviar os Laboratórios 2 e 3. O prazo para envio é quarta-feira, dia 12/03/2014.
 
-<script type="text/javascript" src="http://form.jotformz.com/jsform/23135153352646">
+<script type="text/javascript" src="http://form.jotformz.com/jsform/40553539224655">
 dummy
 </script>
 

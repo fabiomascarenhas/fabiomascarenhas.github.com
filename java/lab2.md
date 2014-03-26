@@ -7,60 +7,63 @@ relpath: ..
 MAB 240 - Computação II
 =======================
 
-Laboratório 2 - 05/11/2012
+Laboratório 2 - 19/02/2014
 --------------------------
 
-Esse laboratório é uma continuação do laboratório da semana anterior, então
-abra a página do [Laboratório 1](lab1.html) em outra aba do browser e 
-comece completando os exercícios que você não fez. Você pode continuar
-utilizando o mesmo projeto Eclipse.
+*[Frogger](http://www.jogos-viciantes.com/frogger/)* era outro jogo
+da época do Atari em que um sapo tinha que atravessar uma auto-estrada
+sem ser atropelado pelos carros, depois atravessar um rio saltando em
+troncos e tartarugas que passavam sem se afogar. O jogador tinha um
+tempo determinado para fazer as travessias.
 
-1\. Queremos que os carros do exercício 2 do laboratório da semana passada
-tenham donos. Para isso crie uma classe `Dono` com os campos nome e idade, e
-adicione um campo dono à classe `Carro`. Queremos também que os carros tenham um 
-de fabricação (um campo `ano` do tipo `int`) *ao invés de* um campo que diz se
-ele é novo ou usado. Faça essas alterações na classe `Carro`.
-Não esqueça de corrigir o construtor `Carro` para inicializar os novos campos!
+![](http://www.atariage.com/2600/screenshots/s_Frogger_1.png)
 
-2\. Um carro é velho se ele foi fabricado antes de 2002. Implemente um
-método `public boolean carroVelho()` na classe `Carro` que diz se uma instância de
-carro é velha ou não. 
+Vocês deverão modelar as classes de uma versão simplificada de Frogger
+em que só existe a travessia da estrada com os carros. O sapo vai ser
+representado por um círculo e os carros por retângulos com tamanhos
+diferentes, e que podem se mover em direções diferentes e com
+velocidades diferentes. O sapo também tem um número de vidas.
+Os carros se movem de um canto a outro da tela.
+Quando eles "saem" da tela eles aprecem de volta vindo do lado oposto.
 
-3\. Escreva um método `public boolean feitoAntes(int ano)` que diz se um carro foi
-fabricado antes de determinado ano.
+Vocês usarão as mesmas classes `Motor`, `Tela` e `Cor` que estamos usando
+em sala de aula, mas a classe `Jogo` implementará a mecânica do Frogger.
+Comecem baixando e abrindo no Eclipse o [esqueleto do Frogger](Frogger.zip). O Eclipse não tem
+uma opção "Open Project..." no menu "File", portanto vocês têm que abrir a opção "Import..." do
+menu "File", e na caixa de diálogo que aparece abrir a opção "General" clicando na seta ao lado
+dela, depois clicar na opção "Existing Projects into Workspace" para selecioná-la e clicar no
+botão "Next". Na tela seguinte, clique para selecionar a opção "Select archive file", depois
+clique no botão "Browse..." dela e procure o arquivo "Frogger.zip" que você baixou. Finalmente,
+clique no botão "Finish". O projeto "Frogger" deve aparecer na aba "Package Explorer" do Eclipse.
 
-4\. Escreva um método `public boolean maisVelho(Carro outro)` que diz se um carro é
-mais velho que outro ou não. Use o método que você implementou no
-exercício anterior.
+Nesse laboratório vocês implementarão a lógica necessária para exibição do tabuleiro do jogo
+na tela, e do movimento dos carros. O movimento do sapo e a lógica do "atropelamento" ficará para
+o próximo laboratório. O tabuleiro do jogo consiste de:
 
-5\. Escreva um método `public boolean igual(Dono outro)` na classe `Dono` que diz se
-duas instâncias de dono são iguais; duas instâncias de dono são iguais
-se seus atributos são iguais. Números são comparados com o operador
-`==`, enquanto strings são comparadas com o método `equals`.
+* Dois retângulos de 800 pixels por 100 pixels, marcando as duas "calçadas". Não precisam ser
+  objetos, já que são elementos estacionários do jogo;
+* Quatro faixas de carros; a primeira faixa tem 2 carros com 100 pixels de comprimento, e
+  que atravessam a tela em 5 segundos, a segunda faixa tem 1 carro com 150 pixels de comprimento
+  e que atravessa e tela em 2 segundos, a terceira faixa tem 3 carros com 60 pixels de comprimento
+  e que atravessem a tela em 8 segundos, e a quarta faixa tem 3 carros com 60 pixels de
+  comprimento e que atravessam a tela em 6 segundos. Todos os carros são instâncias de uma
+  classe `Carro` e têm 100 pixels de altura, e cores aleatórias;
+* O sapo, uma instância da classe `Sapo`, com 90 pixels de diâmetro e cor verde,
+  começa no centro da calçada de baixo;
+* O contador de vidas do sapo, no canto inferior direito, com tamanho 60.
 
-6\. Escreva um método `public boolean mesmoDono(Carro outro)` na classe carro que diz
-se duas instâncias de carro têm o mesmo dono. Use o método da classe
-`Dono` definido no exercício anterior.
+A distância entre uma faixa de carros e a outra é de 100 pixels. O vídeo abaixo mostra
+uma disposição e o movimento dos carros:
 
-7\. Os carros do jogo Frogger (exercício 4 do laboratório da semana
-passada) se movem de um canto a outro da tela. Quando eles "saem" da tela eles
-aprecem de volta vindo do lado oposto. Implemente o método `void mover(double dt)`
-que faz o movimento do carro para um intervalo de tempo `dt`, em segundos. Assuma
-que a tela tem 800 pixels de largura.
-
-<iframe width="420" height="315" src="http://www.youtube.com/embed/l9fO-YuWPSk" frameborder="0" allowfullscreen="1">
+<iframe width="640" height="390" src="http://www.youtube.com/embed/hHehXLhHOc0" frameborder="0" allowfullscreen="1">
 dummy
 </iframe>
 
 Enviando
 --------
 
-Use o formulário abaixo para enviar os Laboratórios 1 e 2. O prazo para envio é sexta-feira, dia 09/11/2012.
-O trabalho pode ser feito em dupla, e já vale nota!
-
-<script type="text/javascript" src="http://form.jotformz.com/jsform/23093439523656">
-// dummy
-</script>
+O envio do Laboratório 2 será junto com o Laboratório 3. As instruções serão dadas na
+próxima semana, e o prazo de entrega para os dois laboratórios será 12/03/2014.
 
 * * * * *
 
