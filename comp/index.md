@@ -130,6 +130,7 @@ Publicarei slides e notas de aula nessa seção no decorrer do curso.
 #### 06/01 - [Slides SLR](11SLRPt2.pdf), [Slides Tabela Action/Goto](12ActionGotoPt1.pdf)
 #### 11/01 - [Slides Tabela Action/Goto](12ActionGotoPt2.pdf), [Slides JACC](13JACC.pdf), [analisador de TINY SLR](TINYSLR.zip), [analisador de TINY JACC](TINYJACC.zip), [notas de aula executáveis](Parsing.zip)
 #### 13/01 - [Slides](14SemanticaPt1.pdf), [AST para TINY](TINYAST.zip)
+#### 18/01 - [Slides](14SemanticaPt2.pdf), [análise de escopo para TINY com variáveis](TINYEscopo.zip), [análise de escopo para TINY com procedimentos](TINYEscopoProc.zip)
 
 ### Listas de Exercício
 
