@@ -82,7 +82,7 @@ verde e azul). Defina as seguintes funções:
     a média entre os valores correspondentes
 
 {% highlight python %}
-# Uma cor � uma tripla de valores float no intervalo [0.0,1.0]
+# Uma cor é uma tripla de valores float no intervalo [0.0,1.0]
 BRANCO = (1.0, 1.0, 1.0)
 PRETO = (0.0, 0.0, 0.0)
 VERMELHO = (1.0, 0.0, 0.0)
@@ -94,7 +94,7 @@ AZUL = (0.0, 0.0, 1.0)
 def complemento(cor):
     return (1.0 - cor[0], 1.0 - cor[1], 1.0 - cor[2])
 
-# Máximo entre dois n�meros
+# Máximo entre dois números
 # num num -> num
 def max(n1, n2):
     if n1 > n2:
@@ -107,7 +107,7 @@ def max(n1, n2):
 def soma(c1, c2):
     return (max(c1[0], c2[0]), max(c1[1], c2[1]), max(c1[2], c2[2]))
 
-# Média aritmética entre dois n�meros
+# Média aritmética entre dois números
 # num num -> float
 def median(n1, n2):
     return (n1 + n2) / 2.0

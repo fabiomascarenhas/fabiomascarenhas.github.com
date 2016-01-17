@@ -4,12 +4,12 @@ title: Fabio Mascarenhas
 relpath: .
 ---
 
-<div markdown="1" class = "hero-unit">
+<div class = "hero-unit">
 <div class = "row-fluid">
 <div class = "span3">
 <img class = "media-object pull-left" src="mascarenhas.jpg"/>
 </div>
-<div class = "span9">
+<div markdown="1" class = "span9">
 
 Fabio Mascarenhas
 -----------------
@@ -25,8 +25,8 @@ software libraries.
 </div>
 </div>
 
-<div markdown="1" class = "row-fluid">
-<div class = "span6">
+<div class = "row-fluid">
+<div markdown="1" class = "span6">
 
 ### Social Networks
 
@@ -42,7 +42,7 @@ software libraries.
 
 ### External Courses
 
-<div class="lead">
+<div markdown="1" class="lead">
 Send me an [email](mailto:mascarenhas@ufrj.br) if you would like to contract me for a short course at your school or company, in one of my specialties.
 </div>
 
@@ -53,9 +53,22 @@ Send me an [email](mailto:mascarenhas@ufrj.br) if you would like to contract me 
 <div class = "span1">
 </div>
 
-<div class = "span4">
+<div markdown="1" class = "span4">
 
 ### Courses at UFRJ
+
+#### 2015.2
+
+##### [Compiladores I](comp)
+##### [Linguagens de Programação](lp)
+
+#### 2015.1
+
+##### [Compiladores I](comp20151) / [Computação II (Engenharia)](pythonoo)
+
+#### 2014.1
+
+##### [Computação II (Computação)](java)
 
 #### 2013.2
 
@@ -67,7 +80,7 @@ Send me an [email](mailto:mascarenhas@ufrj.br) if you would like to contract me 
 
 #### 2012.2
 
-##### [Compiladores I](comp20122) / [Computação II (Computação)](java)
+##### [Compiladores I](comp20122) / [Computação II (Computação)](java20122)
 
 #### 2012.1
 

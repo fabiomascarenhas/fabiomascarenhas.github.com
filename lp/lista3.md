@@ -5,110 +5,62 @@ relpath: ..
 ---
 
 Terceira Lista de Exercícios
-============================
+===========================
 
 Introdução
 ----------
 
-Baixe o [projeto da lista](lista3.zip), que está preparado para funcionar tanto com o SBT quanto
-com o eclipse, para funcionar como base para implementar o que for necessário.
+Baixe o [projeto da lista](lista3.zip), importe ele na Scala IDE (Eclipse), e implemente as funções
+correspondentes a cada questão do exercício. Depois envie
+apenas o arquivo `package.scala` com os fontes da sua implementação até **18/12/2015**,
+usando [esse link](https://www.dropbox.com/request/F0mo6BuKkfrUy3ispA4B).
 
-Faça as questões extendendo o interpretador de MicroC que está no pacote `microc` do projeto.
-Questões que não são de codificação devem ser respondidas dentro do arquivo `README.md` do projeto.
+Cálculo Lambda
+--------------
 
-Para rodar o interpretador, veja o screencast (ligue a visualização em full screen):
+O *cálculo lambda* é um modelo de computação que é uma das bases da programação
+funcional, e pode ser visto como uma linguagem de programação bastante simples.
 
-<iframe width="640" height="360"
- src="http://www.youtube.com/embed/KNDWLPu0BxU?feature=player_detailpage" frameborder="0" allowfullscreen="1">
-dummy
-</iframe>
+Uma expressão do cálculo lambda pode ser uma variável (um nome), uma aplicação (um par de expressões),
+ou uma *abstração* (um par de um nome, chamado de *parâmetro* da abstração, e uma expressão, chamada de seu *corpo*).
+As abstrações também são os únicos valores da linguagem (isso mesmo, o cálculo lambda não tem números ou booleanos).
 
-Questão 1 - entrada e saída
----------------------------
+### Questão 1
 
-Um tipo bem comum de efeito colateral é a entrada e saída, onde uma linguagem
-de programação pode ler valores de algum dispositivo de entrada e escrever valores
-para algum dispositivo de saída.
+Defina um tipo algébrico para expressões no cálculo lambda, usando um trait `CL` e três construtores
+`Var`, `Ap`, e `Abs`.
 
-Podemos incorporar entrada e saída a MicroC modificando o tipo `Acao` para receber
-e produzir um "dispositivo" de entrada/saída:
+### Questão 2
 
-    trait ES {
-       def levalor: (Valor, ES);
-   	   def imprime(s: String): ES;
-	}
-    type Acao = (ES, End, Mem) => (Talvez, ES, End, Mem)
+Defina um *parser* para o cálculo lambda que transforma a seguinte sintaxe concreta
+em uma expressão do tipo `CL` (justaposição é aplicação, e associa à esquerda,
+identificadores são variáveis, e `\<nome>.<exp>` é uma abstração):
 
-Podemos acrescentar duas ações primitivas, uma para ler um valor da entrada e outra
-para imprimir uma string na saída:
+    EXP  -> AEXP {AEXP} 
+	AEXP -> id | '\' id '.' EXP | '(' EXP ')'
 
-    def levalor: Acao = ???
-	def imprime(s: String): Acao = ???
-
-Implemente a mudança no tipo `Acao`, mudando as primitivas existentes para levar em
-conta entrada/saída (em especial a `bind`), depois implemente as novas primitivas.
-Preste atenção na linearidade da entrada/saída.
-
-Modifique os casos na função eval dos termos `Read` e `Print` para usar as ações de
-entrada/saída ao invés da entrada/saída de Scala. Lembre que `Read` avalia para o
-próximo valor da entrada (consumindo um item da entrada), enquanto `Print`
-avalia e imprime os valores das	expressões de suas subexpressões separados por tabs,
-ao final imprimindo uma quebra de linha.
+Exemplos de expressões do cálculo lambda: `x`, `\x.x`, `(\x.\y.x y) (\x.x) (\x.x)`. 
 	
-Use o seguinte driver para executar programas com entrada e saída:
+### Questão 3	
+	
+A semântica do cálculo lambda call-by-value é dada por substituição: o valor de uma variável é
+indefinido; o valor de uma abstração é ela mesma; para obter o valor de uma aplicação obtemos
+o valor do seu lado esquerdo (que deverá ser uma abstração, ou a aplicação é indefinida)
+e seu lado direito, substituímos o parâmetro do lado esquerdo pelo
+valor do lado direito no corpo do lado esquerdo, e achamos o valor do resultado.
 
-    object driver extends App {
-      val sc = new java.util.Scanner(System.in)
-	  val es = new ES {
-        def levalor: (Valor, ES) = (sc.nextInt, this)
-	    def imprime(s: String) = {
-		  print(s)
-		  this
-		}
-	  }
-	  val (v, _, sp, mem) = (parser.parseFile(args(0)).eval)(es, 0, Map())
-	  println("====================")
-	  println("Valor: " + v)
-	  println("Sp: " + sp)
-	  println("Mem: " + mem)
-    }
+Para evitar capturas indevidas, adotaremos uma definição simplificada onde o valor sendo substituído não
+pode ter variáveis livres.
 
-O programa `qsort.mc` exercita as novas primitivas de entrada e saída.
+Escreva a função que acha as variáveis livres `fv(e: CL): Set[String]`, a
+função de substituição `subst(oque: String, peloque: CL, onde: CL)`, 
+o interpretador big-step `eval(e: CL): Abs` e o interpretador small-step `step(e: CL): CL`.
 
-Questão 2 - finally
--------------------
+### Questão 4
 
-Um bloco `finally` dentro de um bloco `try` contém código que deve ser sempre executado
-ao final do bloco `try`, tendo ocorrido uma exceção ou não. O valor do bloco finally é
-descartado, ele é executado apenas pelos seus efeitos colaterais.
-
-Podemos ter um bloco `finally` tanto sozinho com um `try` (termo `TryFinally`) ou junto
-com um bloco `catch` (termo `TryCatchFinally`):
-
-    case class TryFinally(et: Exp, ef: Exp) extends Exp
-    case class TryCatchFinally(et: Exp, n: String, ec: Exp, ef: Exp) extends Exp
-
-1) Um bloco `TryCatchFinally` é açúcar sintático para um bloco `TryFinally` combinado
-com um bloco `TryCatch`. Implemente essa transformação na função `desugar`.
-
-2) Implemente a primitiva `tryfinally`, que sequencia as duas ações segundo a maneira
-de funcionar do bloco `try-finally`:
-
-    def tryfinally(a1: Acao, a2: Acao): Acao = ???
-
-O programa `finally.mc` exercita o uso de `finally`. Ele também usa as primitivas de
-entrada e saída da questão 1.
-
-Entrega da lista
-----------------
-
-Use o formulário abaixo para enviar a sua lista. Lembre de enviar apenas o arquivo `package.scala` que
-você modificou. O prazo para envio é quarta-feira, dia 15/07/2013.
-
-<script type="text/javascript" src="http://form.jotformz.com/jsform/31684548072661">
-// dummy
-</script>
-
+Escreva as funções `eval_cbn` e `step_cbn` para o interpretador call-by-name do 
+cálculo lambda.
+	
 * * * * *
 
 Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}

@@ -1,0 +1,111 @@
+
+%class Parser
+%interface Tokens
+
+%token <Token> IF THEN END ELSE REPEAT UNTIL
+%token <Token> READ WRITE ATRIB VAR PROC INT REAL BOOL
+%token <Token> ID NUM '+' '-' '/' '*' '<' '=' ':'
+
+%next proximo()
+%get tipo
+%semantic Object: token
+
+%type <Cmd> cmd
+%type <Exp> exp
+%type <Proc> proc
+%type <Bloco> cmds var
+%type <java.util.List> ids procs decls
+%type <Decl> decl
+%type <String> tipo
+
+%left '='
+%left '<'
+%left '+' '-'
+%left '*' '/'
+
+%%
+
+tiny : cmds   { saida = new Tiny($1); $$ = $1; }
+     | procs ';' cmds { saida = new Tiny($1, $3); $$ = $1; }
+     ;
+
+procs : procs ';' proc { $1.add($3); $$ = $1; }
+      | proc           { java.util.List<Proc> ps = new java.util.ArrayList<Proc>();
+                         ps.add($1); $$ = ps; }
+      ;
+
+proc : PROC ID '(' ')' cmds END  { $$ = new Proc($2.val, $5, $1.lin); }
+     ;
+
+cmds : cmds ';' cmd  { $1.cmds.add($3); $$ = $1; } 
+     | var cmd       { $1.cmds.add($2); $$ = $1; }
+     ;
+
+var : VAR decls ';' { $$ = new Bloco($2, $1.lin); }
+    |               { $$ = new Bloco(); }
+    ;
+
+decls : decls ',' decl  { $1.add($3); $$ = $1; }
+      | decl        { java.util.List<Decl> ds = new java.util.ArrayList<Decl>(); ds.add($1); $$ = ds; }
+      ;
+      
+decl : ids ':' tipo { $$ = new Decl($1, $3, $2.lin); }
+     ;
+
+tipo : INT       { $$ = "int"; }
+     | REAL      { $$ = "real"; }
+     | BOOL      { $$ = "bool"; }
+     ;
+
+ids : ids ',' ID  { $1.add($3.val); $$ = $1; }
+    | ID          { java.util.List<String> ids = new java.util.ArrayList<String>();
+                    ids.add($1.val); $$ = ids; }
+    ;
+    
+cmd : IF exp THEN cmds END  { $$ = new If($2, $4, $1.lin); } 
+    | IF exp THEN cmds ELSE cmds END { $$ = new If($2, $4, $6, $1.lin); }
+    | REPEAT cmds UNTIL exp { $$ = new Repeat($2, $4, $1.lin); }
+    | ID ATRIB exp { $$ = new Atrib($1.val, $3, $1.lin); }
+    | READ ID { $$ = new Read($2.val, $1.lin); }
+    | WRITE exp { $$ = new Write($2, $1.lin); }
+    | ID '(' ')' { $$ = new Chamada($1.val, $1.lin); }
+    ;
+
+exp : exp '<' exp { $$ = new Menor($1, $3, $2.lin); }
+    | exp '=' exp { $$ = new Igual($1, $3, $2.lin); }
+    | exp '+' exp { $$ = new Soma($1, $3, $2.lin); }
+    | exp '-' exp { $$ = new Sub($1, $3, $2.lin); }
+    | exp '*' exp { $$ = new Mul($1, $3, $2.lin); }
+    | exp '/' exp { $$ = new Div($1, $3, $2.lin); }
+    | '(' exp ')' { $$ = $2; }
+    | NUM         { $$ = new Num($1.val, $1.lin); }
+    | ID          { $$ = new Id($1.val, $1.lin); }
+    ;
+
+%%
+
+Scanner scan;
+
+Token token;  // lookahead
+int tipo;     // tipo do lookahead
+
+public Tiny saida; // workaround pro bug do tipo do parse()
+
+public Parser(java.io.Reader entrada) {
+  scan = new Scanner(entrada);
+  proximo(); // inicializa o lookahead
+}
+
+int proximo() {
+  try {
+    token = scan.token();
+    tipo = token.tipo;
+    return tipo;
+  } catch(java.io.IOException e) {
+    throw new RuntimeException(e);
+  }
+}
+
+void yyerror(String msg) {
+  throw new RuntimeException("erro de sintaxe no token " + token);
+}

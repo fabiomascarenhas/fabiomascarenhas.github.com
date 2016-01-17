@@ -7,97 +7,52 @@ relpath: ..
 MAB 240 - Computação II
 =======================
 
-Laboratório 10 - 28/01/2013
+Laboratório 10 - 07/05/2014
 ---------------------------
 
-1\. Vamos usar as classes `ObjectOutputStream` e `ObjectInputStream` junto com classes genéricas
-para criar um banco de objetos que vai poder ser usado com diferentes tipos de objeto. O único
-requisito para um objeto poder ser salvo em um banco vai ser implementar a interface `Elemento`:
+Hoje iremos continuar o projeto da calculadora, que começamos no 
+[laboratório passado](lab9.html). Colocaremos uma funcionalidade de
+*histórico* na calculadora, mudando primeiro o modelo e depois
+a visão.
 
-{% highlight java %}
-public interface Elemento extends java.io.Serializable {
-	String chave();
-}
-{% endhighlight %}
+1\. O histórico da calculadora mostra algumas operações que o
+usuário fez. Toda vez que ele clica os botões `+`, `-`, `*`, `/`,
+`C` ou `=` uma nova entrada é adicionada no histórico. Crie uma classe
+`Operacao` para representar uma entrada no histórico, contendo um
+operando (um inteiro), um operador (uma string) e um resultado (um inteiro).
+Defina um construtor para essa classe.
 
-Construa uma classe genérica `BancoObjetos<TELEM extends Elemento>` para armazenar objetos.
-O construtor de `BancoObjetos` deve receber uma string dando o diretório onde os objetos serão
-gravados e lidos. Caso o diretório não exista ele deve ser criado. Use a classe `File` para isso,
-em particular os métodos `exists` e `mkdirs`. 
+2\. Adicione uma lista de operações ao modelo. Toda vez que uma das
+quatro operações aritméticas, a operação `reset` ou a operação `igual`
+for feita você deve adicionar uma nova operação à lista; o operando é
+o número que estava no display no momento da operação, o operador é o
+botão correspondente, e o resultado é o número que está no display depois
+da operação ser feita.
 
-Cada elemento do banco deve ficar armazenado em um arquivo separado nesse diretório, com o nome do arquivo é
-formado pela chave mais a extensão ".objeto". `BancoObjetos` precisa de dois métodos, `ler` e `gravar`.
-O método `ler` recebe uma chave e retorna o objeto correspondente àquela chave (ou `null` se ele não existir).
-O método `gravar` recebe um objeto e o grava no banco, e retorna `true` se a gravação foi bem sucedida ou
-`false` se ocorreu algum problema na gravação.
+3\. Adicione um método `limpa` ao modelo que apaga todas as entradas do
+histórico de operações.
 
-Para instanciar as classes `ObjectOutputStream` e `ObjectInputStream` você também vai precisar instanciar
-`FileOutputStream` e `FileInputStream`.
+4\. Mude o layout da calculadora para incluir espaço para o histórico.
+A tela ficará dividida em duas metades: na metade da esquerda ficará a
+interface atual da calculadora, na metade da direita ficará uma `ListView`
+com as entradas do histórico.
 
-A classe `ContaCorrente` abaixo exercita o banco de objetos:
+5\. Implemente uma classe derivada de `BaseAdapter` para mostrar o histórico
+na `ListView`. Use uma `TextView` com uma fonte monoespaçacada 
+(veja o atributo `Typeface` da `TextView`) para cada linha, e alinhe o
+texto à direita. Se a operação é uma das quatro operações, a linha tem
+o operando, com espaços à esquerda para completar nove caracteres, um
+espaço, o operador e dez espaços. Se a operação for
+reset, ela tem oito espaços, `0 C`, e mais dez espaços. Se a operação for igual,
+ela tem o operando com espaços à esquerda para completar nove caracteres,
+um espaço, "=", outro espaço, e o resultado com espaços à esquerda para
+completar nove caracteres.
 
-{% highlight java %}
-class ContaCorrente implements Elemento {
-    private int numero;
-    private String correntista;
-    private double saldo;
+Enviando
+--------
 
-    public ContaCorrente(int numero, String correntista, double saldo) {
-        this.numero = numero;
-        this.correntista = correntista;
-        this.saldo = saldo;
-    }
-
-    public void deposita(double valor) {
-        this.saldo += valor;
-    }
-
-    public void retira(double valor) {
-        this.saldo -= valor;
-    }
-
-    public void transfere(ContaCorrente destino, double valor) {
-        this.retira(valor);
-        destino.deposita(valor);
-    }
-    
-    public String chave() {
-    		return "" + numero;
-    }
-    
-    public String toString() {
-    		return numero + ", " + correntista + ", " + saldo;
-    }
-    
-    public static void main(String[] args) throws java.io.IOException {
-    		BancoObjetos<ContaCorrente> bd = new BancoObjetos<ContaCorrente>("banco");
-    		java.io.BufferedReader in = new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
-    		while(true) {
-    			System.out.print("Entre um número de conta: ");
-    			int numero = Integer.parseInt(in.readLine());
-    			if(numero == 0) break;
-    			ContaCorrente cc = bd.ler("" + numero);
-    			if(cc == null) {
-        			System.out.print("Entre um correntista: ");
-    				String correntista = in.readLine();
-        			System.out.print("Entre um saldo: ");
-    				double saldo = Double.parseDouble(in.readLine());
-    				bd.gravar(new ContaCorrente(numero, correntista, saldo));
-    			} else {
-    				System.out.println(cc.toString());
-    			}
-    		}
-    }
-}
-{% endhighlight %}
-
-2\. Adicione *memória* ao [modelo da calculadora](Calculadora.zip). A calculadora tem quatro operações
-envolvendo a memória: `limpa`, que zera a memória, `msoma`, que adiciona o valor do display à memória,
-`msub`, que subtrai o valor do display da memória, e `recupera`, que substitui o que está no display
-pelo valor da memória. O funcionamento da memória é o mesmo não importa qual o estado da calculadora.
-
-3\. Adicione uma operação `trocaSinal` ao modelo da calculadora do exercício anterior, que inverte o sinal
-do que está no display (negativo para positivo, positivo para negativo).
+O prazo de envio será **21/05**. As instruções para envio serão dadas no próximo laboratório, junto com as
+tarefas restantes.
 
 * * * * *
 

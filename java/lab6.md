@@ -7,135 +7,46 @@ relpath: ..
 MAB 240 - Computação II
 =======================
 
-Laboratório 6 - 17/12/2012
+Laboratório 6 - 02/04/2014
 --------------------------
 
-1\. Um programa editor gráfico usa a seguinte interface para representar
-formas geométricas, que dá as ações que o usuário pode fazer para
-manipular as formas no editor:
+No laboratório de hoje vocês irão fazer extensões ao projeto do Editor Gráfico.
+O [projeto Eclipse](Editor.zip) irá servir de base. As extensões pedidas
+abaixo são cumulativas. Lembro que as classes e interfaces que fazem parte do framework
+(`Motor`, `Cor`, `Tela`, `Jogo` e `App`) **não** devem ser modificadas.
 
-{% highlight java %}
-      interface Forma {
-        // Mover a forma, dado o deslocamento
-        void mover(int dx, int dy);
-        // Redimensiona a forma por um fator de escala
-        void redimensionar(float escala);
-        // Rotaciona a forma em tantos graus
-        void rotacionar(int graus);
-      }
-{% endhighlight %}
+1\. Um componente deveria receber um evento `solta` para cada evento `aperto`, mas
+isso não acontece atualmente, porque o usuário pode arrastar o mouse para fora
+do componente. Modifique a implementação do evento `solta` em `GuiApp` para
+consetar isso, e fazer o evento ir para o componente que havia recebido o
+evento `aperto`, ao invés do componente dado pelas coordenadas atuais. Faça
+o mesmo para o evento `arrasto`. Dica: use um novo campo em `GuiApp` para
+guardar o componente que tem o "foco".
 
-Um dos requisitos do editor é oferecer *undo* (desfazer) e *redo*
-(refazer) de vários níveis para o usuário, onde ele pode desfazer as
-últimas ações tomadas, ou refazer ações desfeitas. Um jeito de fazer
-isso é representar as ações do usuário como objetos que implementam a
-seguinte interface:
+2\. Implemente o modo de redimensionamento de figuras, de maneira análoga do
+modo de movimentação. A maneira de transformar o movimento do mouse em um fator
+de escala fica a seu critério, seja criativo!
 
-{% highlight java %}
-      interface Acao {
-        void fazer();
-        void desfazer();    
-      }
-{% endhighlight %}
+3\. Modifique o modo de desenho de novos retângulos para permitir que se arraste o
+mouse para qualquer ponto, não apenas pontos abaixo e à direita do ponto
+inicial.
 
-1\.1\. Defina classes para cada uma das três ações que o usuário pode fazer com
-uma forma: mover, redimensionar, rotacionar.
+4\. Adicione um novo modo de operação ao editor com um novo botão, "Apagar". Um
+clique em uma figura nesse modo apaga a figura.
 
-1\.2\. Complete o fragmento classe Editor abaixo (implementando os métodos
-marcados com TODO), que implementa parte do recurso desfazer/refazer do
-editor gráfico:
+5\. O objeto `Tela` do framework também permite desenhar triângulos. Implemente
+isso no editor através de um novo modo de operação ligado a um novo botão, 
+"Triângulo". Um triângulo não é desenhado arrastando e soltando. Um triângulo
+é desenhado com três cliques, um para cada ponto do triângulo. O local de cada
+um dos dois primeiros cliques é marcado com um ponto na tela.
 
-{% highlight java %}
-      import java.util.Stack;
+Para os novos modos, lembre-se de integrá-los à funcionalidade de desfazer e
+refazer do editor.
 
-      class Editor {
-        // Ações feitas
-        Stack<Acao> feitas = new Stack<Acao>();
-        // Ações desfeitas
-        Stack<Acao> desfeitas = new Stack<Acao>();;
-
-        void fazer(Acao a) {
-          // TODO: faz uma ação nova
-        }
-
-        void desfazer() {
-          // TODO: desfaz última ação,
-          // caso possível
-        }
-
-        void refazer() {
-          // TODO: refaz última ação,
-          // caso possível
-        }
-      }
-{% endhighlight %}
-
-Toda vez que o usuário faz uma ação ela deve entrar na pilha de ações
-feitas. Para desfazer uma ação remove-se a ação que está no topo dessa
-pilha depois move-se ela para a pilha de ações desfeitas. Para refazer
-uma ação remove-se a ação que está no topo de pilha de ações desfeitas
-e move-se ela para a pilha de ações feitas. Não se esqueça de chamar
-os métodos `fazer()` e `desfazer()` das ações!
-
-2\. O padrão *enumerador* é uma maneira de se percorrer uma sequência de
-elementos. Um objeto enumerador possui dois métodos, um produz os
-elementos da sequência um por um, dando um erro se já produziu o último
-elemento, e o outro diz se já se chegou ao final da sequência ou não.
-Enumeradores para sequências de inteiros podem ser modelados pela
-seguinte interface:
-
-{% highlight java %}
-    interface Enumerador {
-      int proximo();
-      boolean fim(); 
-    }
-{% endhighlight %}
-
-2\.1\. Defina a classe `EnumVetor`, que implementa Enumerador e representa um
-enumerador para um vetor de inteiros passado no construtor. O trecho a
-seguir mostra um uso desse enumerador:
-
-{% highlight java %}
-    Enumerador e = new EnumVetor(new int[] { 1, 3, 5 });
-    System.out.println(e.proximo()); // imprime 1
-    System.out.println(e.fim()); // imprime false
-    System.out.println(e.proximo()); // imprime 2
-    System.out.println(e.proximo()); // imprime 3
-    System.out.println(e.fim()); // imprime true
-{% endhighlight %}
-
-2\.2\. Escreva o corpo da função abaixo, que recebe um enumerador e retorna uma
-lista com todos os elementos que ele pode produzir:
-
-{% highlight java %}
-    static java.util.List<Integer> listaDeEnum(Enumerador e) {
-      // corpo
-    }
-{% endhighlight %}
-
-* * * * *
-
-Se você quiser testar o código que escreveu para a questão 1 pode usar a implementação teste de `Forma` abaixo:
-
-{% highlight java %}
-public class FormaParaTeste implements Forma {
-  public FormaParaTeste() { }
-
-  public void mover(int dx, int dy) {
-    System.out.println("MOVER: " + dx + ", " + dy);
-  }
-
-  public void redimensionar(float escala) {
-    System.out.println("REDIMENSIONAR: " + escala);
-  }
-  
-  public void rotacionar(int graus) {
-    System.out.println("ROTACIONAR: " + graus);
-  }
-}
-{% endhighlight %}
-
+A entrega do Laboratório 6 será feita junto com a entrega do Laboratório 7, onde
+mais extensões ao editor serão pedidas.
 
 * * * * *
 
 Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}
+

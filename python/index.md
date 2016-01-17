@@ -30,7 +30,7 @@ P2: 09/12/2013
 
 P3: 16/12/2013
 
-As provas serão feitas ou na sala DCC, no mesmo horário da aula.
+As provas serão feitas na sala, no mesmo horário da aula.
 
 ### Lista de Discussão
 
@@ -49,6 +49,12 @@ Acessem [aqui](http://www.facebook.com/groups/compipython/).
 #### 07/10/2013 - [Laboratório 5](lab5.html)
 #### 14/10/2013 - correção da P1
 #### 21/10/2013 - [Laboratório 6](lab6.html)
+#### 28/10/2013 - não houve aula (feriado servidores)
+#### 04/11/2013 - não houve aula (licença)
+#### 11/11/2013 - [Laboratório 7](lab7.html)
+#### 18/11/2013 - [Laboratório 8](lab8.html)
+#### 25/11/2013 - [Laboratório 9](lab9.html)
+#### 02/12/2013 - [Laboratório 10](lab10.html)
 
 ### Notas de Aula
 
@@ -62,10 +68,18 @@ Acessem [aqui](http://www.facebook.com/groups/compipython/).
 #### 07/10/2013 - [Código](defs0710.py)
 #### 14/10/2013 - P1
 #### 21/10/2013 - [Código](defs2110.py)
+#### 28/10/2013 - não houve aula (feriado servidores)
+#### 04/11/2013 - não houve aula (licença)
+#### 11/11/2013 - [Código](defs1111.py)
+#### 18/11/2013 - [Código](defs1811.py)
+#### 25/11/2013 - [Código](defs2511.py)
+#### 02/12/2013 - [Código](defs0212.py)
 
 ### Provas
 
 #### [P1](p1.pdf) e [gabarito](p1.py)
+#### [P2](p2.pdf) e [gabarito](p2.py)
+#### [P3](p3.pdf) e [gabarito](p3.py)
 
 ### Instalando Python
 
@@ -74,6 +88,12 @@ para instalar a versão do Python que usamos em sala. Depois de instalado é só
 IDLE. Também há um interpretador de Python que roda no browser [nessa página](http://repl.it/KJQ/1),
 é só entrar definições de constantes e funções no lado esquerdo, e no lado direito temos um
 shell parecido com o do IDLE. Para executar o arquivo de definições é só clicar no botão de "play".
+
+### Tutoriais de Python
+
+#### [Introdução a Python](pythonbasico.pdf)
+
+#### [Tutorial do Autor da Linguagem (até o cap. 6)](tutorialpython.pdf)
 
 ### Python Tutor
 

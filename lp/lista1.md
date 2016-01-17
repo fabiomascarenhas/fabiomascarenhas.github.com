@@ -10,10 +10,10 @@ Primeira Lista de Exercícios
 Introdução
 ----------
 
-Baixe o [projeto da lista](lista1.zip), que está preparado para funcionar tanto com o SBT quanto
-com o eclipse, e implemente as funções correspondentes a cada questão do exercício. Depois envie
-apenas o arquivo `package.scala` com os fontes da sua implementação, usando o formulário no final
-dessa página.
+Baixe o [projeto da lista](lista1.zip), importe ele na Scala IDE (Eclipse), e implemente as funções
+correspondentes a cada questão do exercício. Depois envie
+apenas o arquivo `package.scala` com os fontes da sua implementação até **03/11/2015**,
+usando [esse link](https://www.dropbox.com/request/nHXVKjfu7KIAFIgLmhQk).
 
 Questão 1 - Triângulo de Pascal
 -------------------------------
@@ -89,16 +89,6 @@ após o primero semestre é o CR do primeiro semestre), assim como o total de cr
 até aquele momento.
 
     def crsAcumulados(semestres: List[List[(Double, Int)]]): (List[Double], Int) = ???
-
-Entrega da lista
-----------------
-
-Use o formulário abaixo para enviar a sua lista. Lembre de enviar apenas o arquivo `package.scala` que
-você modificou. O prazo para envio é sexta-feira, dia 26/04/2013.
-
-<script type="text/javascript" src="http://form.jotformz.com/jsform/31014701317641">
-// dummy
-</script>
 
 * * * * *
 

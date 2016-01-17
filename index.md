@@ -4,12 +4,12 @@ title: Fabio Mascarenhas
 relpath: .
 ---
 
-<div markdown="1" class = "hero-unit">
+<div class = "hero-unit">
 <div class = "row-fluid">
 <div class = "span3">
 <img class = "media-object pull-left" src="mascarenhas.jpg"/>
 </div>
-<div class = "span9">
+<div markdown="1" class = "span9">
 
 Fabio Mascarenhas
 -----------------
@@ -25,8 +25,8 @@ tarefas que queremos que nossos processos executem."* &mdash; Abelson, Sussman e
 </div>
 </div>
 
-<div markdown="1" class = "row-fluid">
-<div class = "span6">
+<div class = "row-fluid">
+<div markdown="1" class = "span6">
 
 ### Redes Sociais
 
@@ -42,9 +42,8 @@ tarefas que queremos que nossos processos executem."* &mdash; Abelson, Sussman e
 
 ### Cursos de Extensão
 
-<div class="lead">
-Mande-me um [email](mascarenhas@ufrj.br) se você quiser me contratar
-para um curso em sua escola ou empresa.
+<div markdown="1" class="lead">
+Mande-me um [email](mailto:mascarenhas@ufrj.br) se você quiser me convidar para um curso em sua escola ou empresa.
 </div>
 
 #### [Programming in Lua](lua) - Nankai University, Tianjin, China, Julho de 2013
@@ -54,9 +53,22 @@ para um curso em sua escola ou empresa.
 <div class = "span1">
 </div>
 
-<div class = "span4">
+<div markdown="1" class = "span4">
 
 ### Disciplinas
+
+#### 2015.2
+
+##### [Compiladores I](comp)
+##### [Linguagens de Programação](lp)
+
+#### 2015.1
+
+##### [Compiladores I](comp20151) / [Computação II (Engenharia)](pythonoo)
+
+#### 2014.2
+
+##### [Introdução à Programação C (BCMT)](introc) / [Compiladores II](comp2)
 
 #### 2014.1
 
@@ -64,11 +76,11 @@ para um curso em sua escola ou empresa.
 
 #### 2013.2
 
-##### [Compiladores I](comp) / [Computação I (Engenharia)](python)
+##### [Compiladores I](comp20132) / [Computação I (Engenharia)](python)
 
 #### 2013.1
 
-##### [Compiladores I](comp20131) / [Linguagens de Programação](lp)
+##### [Compiladores I](comp20131) / [Linguagens de Programação](lp20131)
 
 #### 2012.2
 

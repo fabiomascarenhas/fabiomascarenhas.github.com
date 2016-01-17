@@ -7,120 +7,61 @@ relpath: ..
 MAB 240 - Computação II
 =======================
 
-Laboratório 9 - 21/01/2013
+Laboratório 9 - 30/04/2014
 --------------------------
 
-Para esse laboratório vamos usar as mesmas classes do [laboratório 8](lab8.html), então
-aproveite para terminar esse laboratório caso ainda não tenha acabado. O objetivo do
-laboratório 9 é incluir sinalização e tratamento de erros nas classes do último laboratório.
+O último projeto que vocês irão desenvolver será uma calculadora Android
+que funciona em dois modos: o modo tradicional e o modo RPN (como as
+calculadoras financeiras e científicas da HP). Nesse laboratório,
+vocês irão adicionar memória ao modelo da calculadora, com uma
+nova fileira de botões, e implementar o modelo da calculadora RPN.
 
-1\. A primeira tarefa é impedir que contas fiquem no vermelho. Crie uma nova exceção **não-checada**
-chamada `SaldoInsuficiente`. Uma tentativa de retirar dinheiro além do saldo da conta deve 
-lançar essa exceção. Modifique a classe `ContaCorrente` para fazer isso. O que acontece caso se tente transferir
-um valor maior que o saldo restante da conta?
+1\. Baixe o [projeto da calculadora](CalcAndroid.zip). 
+Você deve adicionar quatro novas funções à calculadora,
+em uma nova fileira de botões acima da primeira: `M+`, que adiciona o valor do display a uma memória interna
+da calculadora (resetar a calculadora **não** zera a memória), `MR`, que copia o valor da memória para o display,
+`MC`, que zera a memória, e `+-`, que troca o sinal do valor do display.
+Lembre de continuar seguindo a estrutura básica do padrão MVC que o projeto da Calculadora já segue,
+e não se esqueça de tratar corretamente a gravação e recuperação do estado da calculadora para
+incluir os novos dados do modelo.
 
-Relacionado à última pergunta: qual o problema com a seguinte implementação do método `transfere`?
+2\. Renomeie a classe `ModeloCalc` para `ModeloPadrao`, e crie uma nova interface `ModeloCalc`
+com os métodos que são chamados pelo controlador. Faça a aplicação ter uam referência para
+a interface `ModeloCalc` ao invés da classe `ModeloPadrao`.
 
-{% highlight java %}
-    public void transfere(ContaCorrente destino, double valor) {
-        destino.deposita(valor);
-        this.retira(valor);
-    }
-{% endhighlight %}
+3\. Implemente a calculadora RPN como uma nova classe `ModeloRPN` derivada da interface
+`ModeloCalc`. As operações da calculadora RPN tem as mesmas operações da calculadora padrão,
+mas o funcionamento por trás é bem diferente. Ela funciona com uma *pilha* de operandos; 
+toda vez uma operação `igual` (chamada de *store*, ou `STO` em uma calculadora RPN) é executada
+o valor do display é empilhado, e qualquer outro dígito após isso começa a entrada de
+outro número. Por exemplo, se o display é `1234` e se faz `STO` o número 1234 é
+empilhado e o display continua mostrando `1234`. Se depois pressiona-se o número
+`5` o valor do display passa a ser `5`, e pressionando o número `3` o valor do display
+passa a ser `53`.
 
-É necessário mudar alguma coisa na implementação de `ContaCorrenteLanc` para ter a verificação
-de saldo nela? Por quê?
+As operações aritméticas todas funcionam da mesma forma: o operando da esquerda é removido do topo da pilha
+(ou é 0 se a pilha estiver vazia), e o operando da direita é o valor do display. A operação é feita,
+e o resultado vira o novo valor do display. Qualquer outro dígito após isso começa a entrada de outro
+número, do mesmo modo que em uma operação de store.
 
-2\. Escreva um método `void processa(BufferedReader buf)` que lê uma sequência de transações de
-`buf`, uma transação por linha (usando o método `readLine()` de `BufferedReader`), convertendo
-cada linha de string para double com `Double.parseDouble` e fazendo uma retirada se o número
-resultante for menor do que 0 ou depósito se for maior do que 0. Capture e trate os erros `SaldoInsuficiente`
-e `NumberFormatException`: em um erro `SaldoInsuficiente` você deve imprimir com `System.out.println` uma mensagem
-informando que não houve saldo para a retirada, e quanto seria retirado, e erros `NumberFormatException`
-devem ser ignorados. O método `processa` deve simplesmente propagar erros `IOException` resultantes
-da leitura de `buf`.
+Um exemplo de uso: `2`, `STO`, `3`, `STO`, `5`, `*`, `+` faz a operação 2+(3\*5), deixando `17` no display e a
+pilha vazia.
 
-Teste `processa` com o seguinte código:
+A calculadora inicia com o display e a memória zerados, e a pilha vazia. Reset volta
+a calculadora para sua configuração inicial. As outras operações (`M+`, `MR`, `MC`, `+-`) funcionam do mesmo
+jeito que na calculadora normal, pois só afetam o display.
 
-{% highlight java %}
-ContaCorrente c = new ContaCorrente(1234, "Fulano", 200);
-String trans = "50\n-100.25\nFOO\n-200\n125.25\n-200\n-90\n-50\n";
-// o processamento deve imprimir duas mensagens de saldo insuficiente
-c.processa(new java.io.BufferedReader(new java.io.StringReader(trans)));
-System.out.println(c.saldo); // deve imprimir 25
-{% endhighlight %}
+*Esse é um modelo bastante simplificado do funcionamento de uma calculadora RPN, para deixar o exercício
+mais simples. Se tiver curiosidade de ver como funcionava uma calculadora RPN de verdade veja [aqui](http://www.hpmuseum.org/rpn.htm).*
 
-3\. Escreva o código de tratamento de exceções para o programa a seguir, seguindo os comentários
-no método `actionPerformed`. O usuário deve ser informado caso as exceções citadas aconteçam,
-usando o método `mostraMensagem` da classe `Transacoes`.
+4\. Teste seu modelo da calculadora RPN, fazendo a aplicação Android instanciar um `ModeloRPN` ao
+invés de um `ModeloPadrao`.
 
-{% highlight java %}
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.io.*;
+Enviando
+--------
 
-public class Transacoes extends JFrame {
-    private JTextField numero;
-    private JTextField correntista;
-    private JTextField saldo;
-	
-    public Transacoes() {
-	super("Transacoes");	
-    	setFont(new Font("SanSerif",Font.PLAIN,24));
-        setLayout(new GridLayout(4, 1));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(new Dimension(400, 200));
-        add(new JLabel("Número"));
-        numero = new JTextField();
-        add(numero);
-        add(new JLabel("Correntista"));
-        correntista = new JTextField();
-        add(correntista);
-        add(new JLabel("Saldo"));
-        saldo = new JTextField();
-        add(saldo);
-        JButton processar = new JButton("Processar");
-        processar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				// tratar exceção NumberFormatException
-				ContaCorrente conta = new Conta(Integer.parseInt(numero.getText()),
-							            correntista.getText(),
-							            Double.parseDouble(saldo.getText());
-				JFileChooser abreArq = new JFileChooser();
-				abreArq.showOpenDialog(null);
-				// tratar exceção FileNotFoundException
-				File arq = abreArq.getSelectedFile();
-				FileReader leitor = new FileReader(arq);
-				// Tratar exceção IOException e garantir que arquivo será
-				// sempre fechado com finally
-				conta.processar(new BufferedReader(new FileReader(arq)));
-				saldo.setText("" + conta.saldo);
-				leitor.close();
-			}
-        });
-        add(processar);
-        JButton limpar = new JButton("Limpar");
-        limpar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				numero.setText("");
-				correntista.setText("");
-				saldo.setText("");
-			}
-        });
-        add(limpar);
-    }
-    
-    public void mostraMensagem(String msg) {
-    	JOptionPane.showMessageDialog(this, msg);
-    }
-   
-    public static void main(String s[]) {
-    	new Transacoes().setVisible(true);
-    }
-}
-{% endhighlight %}
-
+As instruções para envio, assim como o prazo, serão dadas no próximo laboratório, junto com as
+tarefas restantes.
 
 * * * * *
 

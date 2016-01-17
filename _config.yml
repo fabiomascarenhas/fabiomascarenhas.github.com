@@ -1,0 +1,13 @@
+markdown: maruku
+pygments: true
+lsi: false
+links:
+  - url: http://github.com/mascarenhas
+    name: Github Projetos
+  - url: http://github.com/fabiomascarenhas
+    name: Github Aulas
+  - url: http://www.lua.org
+    name: Linguagem Lua
+  - url: http://www.lua.inf.puc-rio.br
+    name: Lablua
+paginate: 10

@@ -7,151 +7,96 @@ relpath: ..
 MAB 240 - Computação II
 =======================
 
-Laboratório 7 - 07/01/2013
+Laboratório 7 - 09/04/2014
 --------------------------
 
-Vamos lembrar da interface `Enumerador` do [laboratório 6](lab6.html):
+No laboratório de hoje você fará novas extensões ao projeto do Editor Gráfico,
+continuando as do [laboratório 6](lab6.html). As extensões pedidas abaixo são
+cumulativas. Lembre-se que as classes e interfaces que fazem parte do framework
+(`Motor`, `Cor`, `Tela`, `Jogo` e `App`) **não** devem ser modificadas.
+
+1\. Mude o tamanho da janela do editor para 1024 pixels de largura e 768
+pixels de altura, ao invés de 800 e 600. Não se esqueça de ajustar o 
+tamanho da área de desenho. Deixe uma área de 160 pixels à direita
+da área de desenho livre, para posicionar os sliders de cor e a caixa
+de cor.
+
+2\. Os vários estados do modelo do editor possuem várias partes em comum.
+Transforme a interface `Estado` em uma classe abstrata, e passe as partes
+em comum para essa interface.
+
+3\. Adicione cor ao modelo do editor, e às figuras, usando três
+atributos de tipo `double`, um para cada componente (**não** use a
+classe `Cor`). A cor do modelo é cor usada para desenhar uma nova figura.
+Adicione um método ao modelo para mudar a cor atual.
+
+4\. Crie um novo componente para representar um *slider*. Visualmente, um
+slider é um retângulo com no mínimo 100 pixels de altura,
+com uma borda de determinada cor e um fundo preto,
+com outro retângulo dentro, da cor da borda, com mesma largura do slider
+e 30 pixels de altura. O slider tem um *valor* associado, um número
+entre 0 e 1 (inclusive). O valor do slider dá a posição do retângulo dentro
+dele. Se for 0, o retângulo está no topo do slider, se for 1, está no
+fundo, qualquer outro valor deve ser interpolado entre essas duas posições.
+O construtor do slider permite passar a sua cor, e um valor inicial.
+Inicialmente crie apenas o necessário para instanciar um slider, e desenhá-lo
+na tela. Instancie três sliders, um vermelho, um verde, e um azul, e os
+adicione ao editor, do lado direito da área de desenho.
+
+5\. Agora você irá fazer o slider responder ao mouse. O slider permite
+arrastar o retângulo interno para mudar o seu valor. Para isso, implemente
+o método `arrasto` do slider, fazendo o cálculo inverso do feito para
+posicionar o retângulo dado o valor. Lembre que o retângulo interno não pode ser
+arrastado para fora dos limites do slider.
+
+6\. Agora você irá conectar cada slider ao resto do sistema associando um
+*observador* a um slider. Um observador do slider é um objeto que implementa
+a interface abaixo, e deve ser passado no construtor do slider. Toda vez
+que o valor do slider muda, o observador é avisado.
 
 {% highlight java %}
-public interface Enumerador {
-  int proximo();  // próximo elemento
-  boolean fim();  // acabaram os elementos?
-}
+    interface ObservadorSlider {
+	    void sliderMudou(double valor);
+	}
 {% endhighlight %}
 
-Imagine que temos a seguinte interface `Lista` para listas de inteiros:
+7\. Finalmente, conecte os sliders ao modelo no controlador, associando um
+observador a cada um deles que muda avisa o modelo de que a cor mudou.
+
+8\. Agora que temos uma maneira de mudar a cor de desenho, precisamos de uma
+maneira mais fácil do usuário ver qual a cor atual. Crie um componente
+para representar uma caixa de cor, e adicione-o ao editor,
+abaixo dos sliders. Esse componente é apenas um retângulo
+sólido de determinada cor. O componente implementa a interface abaixo, que
+permite mudar a cor que ele mostra:
 
 {% highlight java %}
-public interface Lista {
-  int quantos();     // quantos elementos a lista tem
-  int soma();        // soma dos elementos da lista
-  Enumerador enumerador(); // um enumerador para essa lista
-}
+    interface ObservadorCor {
+	    void corMudou(double r, double g, double b);
+	}
 {% endhighlight %}
 
-1\. Implemente a classe `ListaVazia`, que implementa `Lista` e representa uma lista sem elementos. Você vai
-precisar de uma implementação para `Enumerador`, experimente usar tanto a própria classe
-`ListaVazia` quanto uma classe auxiliar. O enumerador de uma lista vazia já começa com `fim()` retornando
-`true`.
+9\. Conecte a caixa de cor ao modelo, passando um `ObservadorCor` ao construtor
+do modelo. Toda vez que a cor desenho for mudada, o modelo deve avisar esse
+objeto. Assim, mexer em um dos sliders altera a cor do modelo, que altera
+a cor da caixa de cor, fechando o ciclo.
 
-2\. Implemente a classe `ListaCons`, que também implementa `Lista`. Essa classe deve ter dois campos:
-o campo primeiro, de tipo `int`, que é o primeiro elemento da lista, e o campo resto, de tipo `Lista`, 
-que é o resto da lista. Novamente, você também vai precisar implementar `Enumerador`. O enumerador
-de uma `ListaCons` produz o primeiro elemento, depois "vira" o enumerador do resto da lista (passa
-a delegar `proximo()` e `fim()` para esse enumerador).
-
-Não é estritamente necessário dar nome para uma nova classe para implementar o enumerador de `ListaCons`, 
-você pode usar uma classe anônima:
-
-{% highlight java %}
-  public Enumerador enumerador() {
-    return new Enumerador() {
-      // campos
-
-      public int proximo() {
-        // implementação de proximo
-      }
-
-      public boolean fim() {
-        // implementação de fim
-      }
-    };
-  }
-{% endhighlight %}
-
-Um exemplo de uso de `ListaCons` e `ListaVazia`, para representar a lista 1, 3, 5:
-
-{% highlight java %}
-Lista l = new ListaCons(1, new ListaCons(3, new ListaCons(5, new ListaVazia())));
-System.out.println(l.soma()); // 9
-System.out.println(l.quantos()); // 3
-Enumerador e = l.enumerador();
-System.out.println(e.fim()) // false
-System.out.println(e.proximo()); // 1
-System.out.println(e.fim()) // false
-System.out.println(e.proximo()); // 3
-System.out.println(e.fim()) // false
-System.out.println(e.proximo()); // 5
-System.out.println(e.fim()) // true
-{% endhighlight %}
-
-3\. Implemente a classe `ListaConcat`, que também implementa `Lista`, e possui dois campos, lista1
-e lista2, ambos do tipo `Lista`. `ListaConcat` representa a concatenação dessas duas listas. Pense
-em como implementar um enumerador para essa lista.
-
-{% highlight java %}
-Lista l1 = new ListaCons(1, new ListaCons(3, new ListaCons(5, new ListaVazia())));
-Lista l2 = new ListaCons(2, new ListaCons(4, new ListaCons(6, new ListaVazia())));
-Lista l3 = new ListaConcat(l1, l2);
-System.out.println(l3.quantos()); // 6
-System.out.println(l3.soma()); // 21
-Enumerador e3 = l3.enumerador();
-while(!e3.fim()) System.out.println(e3.proximo()); // 1 3 5 2 4 6
-{% endhighlight %}
-
-4\. Implemente a classe `ListaPG`, que também implementa `Lista` e representa uma progressão geométrica.
-`ListaPG` tem três campos, a0, do tipo `int`, que é o elemento inicial, `q`, a razão da progressão, e n, também
-do tipo `int`, o número de termos. Novamente, também implemente um enumerador
-para essa lista.
-
-{% highlight java %}
-Lista l1 = new ListaPG(2,4,5);
-System.out.println(l1.quantos()); // 5
-System.out.println(l1.soma()); // 682
-Enumerador e1 = l1.enumerador();
-while(!e1.fim()) System.out.println(e1.proximo()); // 2 8 32 128 512
-{% endhighlight %}
-
-5\. Um *fold à direita* (right fold) é uma construção em que pegamos uma operação binária `op`, uma lista
-de elementos l1, l2, ..., ln, e um elemento *zero* z e fazemos o seguinte:
-
-{% highlight java %}
-l1 op l2 op ... ln op z 
-{% endhighlight %}
-
-Associamos `op` à direita, ou seja, fazemos primeiro `ln op z` e depois caminhamos da direita para a
-esquerda. Se a operação é soma e a lista é 1, 2, 4, 6, 8 e o zero é 0 o fold à direita é `1 + (2 + (4 + (6 + (8 + 0))))`.
-
-Suponha que temos a seguinte interface para operações binárias com inteiros:
-
-{% highlight java %}
-public interface OpBin {
-  int op(int a, int b);  // faz a operação binária
-}
-{% endhighlight %}
-
-Adicione o método `int foldr(OpBin op, int z)` à interface `Lista`. Esse método deve fazer um fold à direita
-na lista, usando `op` como a operação e `z` como o zero. Implemente `foldr` nas classes que você implementou
-que implementam `Lista`. Dica: o fold à direita de `ListaCons` e `ListaConcat` são facilmente descritos
-através do fold de suas sublistas; para o fold à direita de `ListaPG` faz mais sentido caminhar na lista "de trás para frente",
-começando pelo último elemento.
-
-{% highlight java %}
-OpBin soma = new OpBin() { public int op(int a, int b) { return a + b; } };
-OpBin prod = new OpBin() { public int op(int a, int b) { return a * b; } };
-Lista l1 = new ListaCons(1, new ListaCons(3, new ListaCons(5, new ListaVazia())));
-System.out.println(l1.foldr(soma, 0)) // 9
-System.out.println(l1.foldr(prod, 1)) // 15
-Lista l2 = new ListaCons(2, new ListaCons(4, new ListaCons(6, new ListaVazia())));
-System.out.println(l2.foldr(soma, 0)) // 12
-System.out.println(l2.foldr(prod, 1)) // 48
-Lista l3 = new ListaConcat(l1, l2);
-System.out.println(l3.foldr(soma, 0)) // 21
-System.out.println(l3.foldr(prod, 1)) // 720
-Lista l4 = new ListaPG(2,4,5);
-System.out.println(l4.foldr(soma, 0)) // 682
-System.out.println(l4.foldr(prod, 1)) // 33554432
-{% endhighlight %}
+10\. Para encerrar, adicione um novo modo ao editor, para mudar a cor de
+uma figura da cor dela para a cor de desenho atual. Lembre-se de integrar
+esse modo ao mecanismo de desfazer/refazer.
 
 Enviando
 --------
 
-Use o formulário abaixo para enviar o Laboratório 7. O prazo para envio é segunda-feira, dia 14/01/2013.
+Use o formulário abaixo para enviar os Laboratórios 6 e 7. O prazo para envio é quarta-feira,
+dia 30/04/2014.
 
-<script type="text/javascript" src="http://form.jotformz.com/jsform/30063133820642">
-// dummy
+<script type="text/javascript" src="http://form.jotformz.com/jsform/40975826949676">
+dummy
 </script>
+
 
 * * * * *
 
 Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}
+

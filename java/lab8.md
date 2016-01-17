@@ -7,149 +7,83 @@ relpath: ..
 MAB 240 - Computação II
 =======================
 
-Laboratório 8 - 14/01/2013
+Laboratório 8 - 16/04/2014
 --------------------------
 
-1\. A classe a seguir representa uma modelagem bastante simples de uma conta
-corrente:
+No laboratório de hoje vamos instalar e executar o ambiente de desenvolvimento
+Android, e criar uma aplicação simples.
 
-{% highlight java %}
-class ContaCorrente {
-    private int numero;
-    private String correntista;
-    private double saldo;
+1\. Nas máquinas do laboratório nós vamos instalar o ambiente ADT (Android Development Tools)
+a partir de um pen drive. Em casa, você pode baixá-lo [desse link](http://developer.android.com/sdk/index.html),
+clicando em "Download the SDK" e seguindo as instruções. O ADT é distribuído como um arquivo
+zip, descompacte o seu conteúdo onde for mais conveniente.
 
-    public ContaCorrente(int numero, String correntista, double saldo) {
-        this.numero = numero;
-        this.correntista = correntista;
-        this.saldo = saldo;
-    }
+2\. Agora que temos o ADT instalado, vamos rodá-lo indo na pasta `eclipse` dentro da
+pasta do ADT, e dando um duplo clique na aplicação `eclipse` (o ícone é uma esfera).
+A inicialização demora algum tempo. Como workspace, escolha alguma pasta dentro da sua
+pasta de documentos.
 
-    public void deposita(double valor) {
-        this.saldo += valor;
-    }
+3\. Uma vez que a tela principal do Eclipse apareça, vamos nos certificar de que temos
+o emulador preparado para rodar aplicações. Vá no menu *Window*, e escolha a opção
+*Android SDK Manager* dentro dele. O Eclipse abrirá uma janela como a janela abaixo.
+Veja se a opção "Intel x86 Atom System Image" está com status "Installed". Se não
+estiver, clique na checkbox ao lado dela, e depois no botão "Install 1 package...".
+Depois disso feche o Eclipse e o abra novamente.
 
-    public void retira(double valor) {
-        this.saldo -= valor;
-    }
+![Android SDK Manager](sdkmanager.png)
 
-    public void transfere(ContaCorrente destino, double valor) {
-        this.retira(valor);
-        destino.deposita(valor);
-    }
-}
-{% endhighlight %}
+4\. Agora vá de novo ao menu *Window* e escolha *Android Virtual Device Manager*. Na janela
+que irá aparecer, caso a tabela "List of existing..." esteja vazia, clique no botão "New..."
+e preencha a janela que vai aparecer como está na figura abaixo. Clique em "Ok", depois feche
+a janela do "Android Virtual Device Manager".
 
-Defina a classe `ContaCorrenteLanc` que extende `ContaCorrente` para incluir
-uma lista de lançamentos (uma instância de `ArrayList\<String\>`). Essa
-classe deve redefinir os métodos `deposita` e `retira` de `ContaCorrente` para
-adicionar as strings *“DEPÓSITO DE n”* ou *“RETIRADA DE n”* na lista de
-lançamentos a cada depósito ou retirada, respectivamente, onde $n$ é o
-valor depositado ou retirado.
+![AVD](avd.png)
 
-Redefina o método `String toString()` na classe `ContaCorrenteLanc` para retornar
-um extrato de todos os lançamentos, com um lançamento por linha e o saldo no final:
+5\. Agora estamos prontos para criar uma aplicação. Vá no menu *File*, escolha *New*, depois
+*Android Application Project*. Isso abrirá um *wizard* com cinco partes. A primeira é a
+janela abaixo; chame a aplicação e o projeto de "HelloAndroid", e escolha "API 16" como
+"Minimum Required SDK". Depois clique em "Next".
 
-{% highlight java %}
-EXTRATO DA CONTA NO. 1234
+![Wizard passo 1](wizard1.png)
 
-DEPÓSITO DE 100.0
-RETIRADA DE 50.0
-DEPÓSITO de 20.0
+6\. A segunda parte do wizard é a janela abaixo. Não precisamos mudar nada, apenas clique em "Next".
 
-SALDO: 250.0
-{% endhighlight %}
+![Wizard passo 2](wizard2.png)
 
-2\. A classe `JTable` é uma classe padrão de Java que mostra uma tabela na tela (como uma planilha).
-Os dados que preenchem uma `JTable` são fornecidos por uma implementação da interface `TableModel`,
-o *modelo* da tabela. Essa interface tem vários métodos que muitas implementações de `TableModel` 
-provavelmente implementariam de maneira idêntica, então a biblioteca de classes Java também fornece
-`AbstractTableModel`, uma classe abstrata que implementa `TableModel` facilitando o trabalho de
-definir esses modelos. 
+7\. Na terceira parte, vamos mudar o ícone da aplicação do padrão para a letra H. Escolha
+"Text", depois entre "H" na caixa de texto. Clique em "Next".
 
-Ao invés de implementar `TableModel` e implementar todos os seus métodos, uma classe pode herdar de
-`AbstractTableModel` e implementar apenas os seguintes métodos:
+![Wizard passo 3](wizard3.png)
 
-{% highlight java %}
-public int getRowCount();       // Quantas linhas a tabela tem
-public int getColumnCount();    // Quantas colunas a tabela tem
-// Qual o rótulo da coluna
-public String getColumnName(int coluna);
-// Qual o valor de cada célula
-public Object getValueAt(int linha, int coluna);
-{% endhighlight %}
+8\. Na quarta parte escolhemos o tipo de atividade que a aplicação vai ter por padrão.
+Deixe como está, e clique em "Next".
 
-Defina uma classe `TabelaContas` que herda de `AbstractTableModel` e mostra uma tabela a partir de uma
-lista de contas (instâncias de `ContaCorrentLanc` do exercício 1). As colunas da tabela devem ser "Número", "Correntista",
-"#Lanc" (quantos lançamentos essa conta tem) e "Saldo". Teste essa classe com o seguinte programa:
+![Wizard passo 4](wizard4.png)
 
-{% highlight java %}
-import java.awt.*;
-import javax.swing.*;
+9\. Na quinta e última parte, vamos mudar o nome da atividade para "HelloActivity". Clique
+em "Finish".
 
-public class Contas extends JPanel {
-    public Contas() {
-        this.setFont(new Font("SanSerif",Font.PLAIN,24));
-        this.setLayout(new BorderLayout());
-        this.add(new JScrollPane(new JTable(new TabelaContas())));
-    }
-   
-    public static void main(String s[]) {
-        JFrame frame = new JFrame("Contas");
-       
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(new Contas(),"Center");
-        frame.setSize(new Dimension(400, 300));
-        frame.setVisible(true);
-    }
-}
-{% endhighlight %}
+![Wizard passo 5](wizard5.png)
 
-3\. A classe `Racional` abaixo representa números racionais:
+10\. O projeto "HelloAndroid" agora deve aparecer no "Package Explorer". Antes de rodá-lo,
+vamos fazer duas alterações, mostradas nas imagens abaixo. Na primeira delas, vamos no
+layout "fragment_hello.xml" mudar a posição do label do canto superior esquerdo da
+tela para o centro. Faça isso clicando no label e arrastando. Salve o arquivo.
 
-{% highlight java %}
-public class Racional {
-    private int num; // numerador
-    private int den; // denominador
+![Mudando posição do label](center.png)
 
-    public Racional(int num, int den) {
-        this.num = num;
-        this.den = den;
-    }
+11\. Na segunda mudança, vamos em "strings.xml", mudar o valor de `hello_world` para
+uma string à sua escolha. Salve o arquivo.
 
-    public String toString() {
-        return num + "/" + den;
-    }
-}
-{% endhighlight %}
+![Mudando texto do label](hello.png)
 
-Implemente métodos `boolean equals(Object outro)` e `int hashCode()` na classe `Racional`,
-de modo que dois números racionais sejam iguais se ambos podem ser simplificados para
-o mesmo numerador e denominador (por exemplo, 3/6 e 4/8 são iguais pois ambos podem ser
-simplificados para 1/2). Para simplificar um racional, divida numerador e denominador pelo
-MDC desses dois números.
-
-Executar o código a seguir no scrapbook deve imprimir "2":
-
-{% highlight java %}
-java.util.HashSet<Racional> c = new java.util.HashSet<Racional>();
-c.add(new Racional(3,6));
-c.add(new Racional(2,5));
-c.add(new Racional(4,8));
-c.add(new Racional(1,2));
-c.add(new Racional(10,25));
-System.out.println(c.size());
-{% endhighlight %}
-
-Enviando
---------
-
-Use o formulário abaixo para enviar o Laboratório 8. O prazo para envio é segunda-feira, dia 21/01/2013.
-
-<script type="text/javascript" src="http://form.jotformz.com/jsform/30125949049659">
-// dummy
-</script>
+12\. Por último, vamos rodar nosso programa no emulador. Selecione a raiz do projeto
+no "Project Manager", depois vá no menu *Run*, opção *Run As*, e escolha *Android Application*.
+Aguarde um pouco, e a janela do emulador deve aparecer. Depois que o emulador terminar de
+carregar, ele pode ficar na lock screen; para ver a aplicação, destrave o emulador arrastando
+o cadeado para a direita.
 
 * * * * *
 
 Última Atualização: {{ site.time | date: "%Y-%m-%d %H:%M" }}
+
