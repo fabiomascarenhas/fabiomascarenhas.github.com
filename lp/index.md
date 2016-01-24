@@ -113,6 +113,7 @@ As notas de aula serão publicadas aqui no decorrer do semestre.
 #### 11/01 - [Slides](Aula14.pdf), [projeto Eclipse](Aula14.zip)
 #### 13/01 - [Slides](Aula15.pdf), [projeto Eclipse](Aula15.zip)
 #### 18/01 - [Slides](Aula16.pdf), [projeto Eclipse](Aula16.zip)
+#### 25/01 - [Slides](Aula17.pdf), [projeto Eclipse](Aula17.zip)
 
 Listas de Exercício
 -------------------
