@@ -132,6 +132,7 @@ Publicarei slides e notas de aula nessa seção no decorrer do curso.
 #### 13/01 - [Slides](14SemanticaPt1.pdf), [AST para TINY](TINYAST.zip)
 #### 18/01 - [Slides](14SemanticaPt2.pdf), [análise de escopo para TINY com variáveis](TINYEscopo.zip), [análise de escopo para TINY com procedimentos](TINYEscopoProc.zip)
 #### 25/01 - [Slides](15TiposPt1.pdf), [análise de tipos para TINY com variáveis](TINYTipos.zip)
+#### 25/01 - [Slides](15TiposPt2.pdf), [análise de tipos para TINY com casts int de para real](TINYTiposCast.zip), [análise de tipos para TINY com procedimentos](TINYTiposProc.zip)
 
 ### Listas de Exercício
 
