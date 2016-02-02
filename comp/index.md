@@ -134,6 +134,7 @@ Publicarei slides e notas de aula nessa seção no decorrer do curso.
 #### 25/01 - [Slides](15TiposPt1.pdf), [análise de tipos para TINY com variáveis](TINYTipos.zip)
 #### 27/01 - [Slides](15TiposPt2.pdf), [análise de tipos para TINY com casts int de para real](TINYTiposCast.zip), [análise de tipos para TINY com procedimentos](TINYTiposProc.zip)
 #### 01/02 - [Slides análise de tipos](15TiposPt3.pdf), [Slides ambiente de execução](16AmbientePt1.pdf)
+#### 03/02 - [Slides ambiente de execução](16AmbientePt2.pdf), [Slides máquina de pilha](17CodigoPt1.pdf)
 
 ### Listas de Exercício
 
