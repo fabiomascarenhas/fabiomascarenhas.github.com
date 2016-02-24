@@ -74,6 +74,25 @@ Se tiver qualquer dúvida sobre a especificação da linguagem ou o
 funcionamento do analisador sintático é só perguntar por email ou no
 nosso grupo.
 
+#### Analisador de Tipos
+
+Cada dupla deverá terminar a implementação da análise de tipos para
+a linguagem [MiniJava](minijava.html). Baixe o esqueleto do projeto Eclipse
+para o trabalho [aqui](MiniJavaType.zip), e leia com atenção o arquivo
+`minijava.jpage`.
+
+A entrega do trabalho deverá ser feita até o dia **11/03/2015**, uma
+sexta-feira, [esse
+formulário](https://www.dropbox.com/request/mhiY7HEMedgGZcUilQCL).
+ Mande apenas um arquivo `.zip` com
+os arquivos `.java` que você modificou ou criou.
+Inclua os nomes da dupla no assunto do email e no nome do arquivo (por exemplo,
+se o trabalho foi feito pelo João e pela Maria, o arquivo anexado deve ser "minijava_joao_maria.zip").
+
+Se tiver qualquer dúvida sobre a especificação da linguagem ou o
+funcionamento do analisador de tipos é só perguntar por email ou no
+nosso grupo.
+
 ### Lista de Discussão
 
 Temos um grupo no Facebook para perguntas e avisos sobre a matéria.
@@ -135,10 +154,15 @@ Publicarei slides e notas de aula nessa seção no decorrer do curso.
 #### 27/01 - [Slides](15TiposPt2.pdf), [análise de tipos para TINY com casts int de para real](TINYTiposCast.zip), [análise de tipos para TINY com procedimentos](TINYTiposProc.zip)
 #### 01/02 - [Slides análise de tipos](15TiposPt3.pdf), [Slides ambiente de execução](16AmbientePt1.pdf)
 #### 03/02 - [Slides ambiente de execução](16AmbientePt2.pdf), [Slides máquina de pilha](17CodigoPt1.pdf)
+#### 15/02 - [Slides](17CodigoPt2.pdf), [gerador de código para TINY com procedimentos](TINYCodigo.zip)
+#### 17/02 - [Slides](17CodigoPt3.pdf), [gerador de código para TINY com procedimentos](TINYCodigo.zip)
+#### 22/02 - [Slides](17CodigoPt4.pdf), [TINY com registros](TINYRegistros.zip)
+#### 24/02 - [Slides](17CodigoPt5.pdf), [TINY com classes](TINYClasses.zip)
 
 ### Listas de Exercício
 
 #### [Lista 1](lista1.html) - Cobrindo os assuntos da P1
+#### [Lista 2](lista2.html) - Cobrindo os assuntos da P2
 
 ### Provas
 

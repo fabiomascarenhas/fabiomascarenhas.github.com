@@ -53,9 +53,9 @@ Datas das Provas
 
 P1: 16/12/2015
 
-P2: 02/03/2016
+P2: 07/03/2016
 
-P3: 09/03/2016
+P3: 14/03/2016
 
 As provas serão feitas no mesmo horário da aula.
 
@@ -116,6 +116,11 @@ As notas de aula serão publicadas aqui no decorrer do semestre.
 #### 25/01 - [Slides](Aula17.pdf), [projeto Eclipse](Aula17.zip)
 #### 27/01 - [Slides](Aula18.pdf), [projeto Eclipse](Aula18.zip)
 #### 01/02 - [Slides](Aula19.pdf), [projeto Eclipse](Aula19.zip)
+#### 03/02 - [Slides](Aula20.pdf), [projeto Eclipse](Aula20.zip)
+#### 15/02 - [Slides](Aula21.pdf), [projeto Eclipse](Aula21.zip)
+#### 17/02 - [Slides](Aula22.pdf), [projeto Eclipse](Aula22.zip)
+#### 22/02 - [Slides](Aula23.pdf), [projeto Eclipse](Aula23.zip)
+#### 24/02 - [Slides](Aula24.pdf), [projeto Eclipse](Aula24.zip)
 
 Listas de Exercício
 -------------------

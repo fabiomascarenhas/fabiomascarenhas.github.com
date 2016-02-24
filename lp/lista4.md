@@ -115,7 +115,7 @@ Podemos acrescentar duas ações primitivas, uma para ler um valor da entrada e 
 para imprimir uma string na saída:
 
     def levalor: Acao[Valor] = ???
-	def imprime(s: String): Acao[Void] = ???
+	def imprime(s: String): Acao[Unit] = ???
 
 Implemente a mudança no tipo `Acao[T]`, mudando as primitivas existentes para levar em
 conta entrada/saída (em especial a `bind`), depois implemente as novas primitivas.
@@ -134,7 +134,7 @@ imprime como uma string, separados por tabs.
 		
 Use a seguinte definição de `eval` para executar programas com entrada e saída:
 
-    val sc = new java.util.Scanner(System.in)
+    val sc = new java.util.Scanner("4 2 3 5 1 10 8 7")
     def input: Stream[Valor] = sc.nextInt #:: input
 
     def eval(p: Prog): (Talvez[Valor], Stream[Valor], List[String], End, Mem) = p match {
