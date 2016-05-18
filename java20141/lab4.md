@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Lab 3 de MAB 240
+title: Lab 4 de MAB 240
 relpath: ..
 ---
 
 MAB 240 - Computação II
 =======================
 
-Laboratório 3 - 11/05/2016
+Laboratório 4 - 12/03/2014
 --------------------------
 
 O objetivo deste laboratório é exercitar a criação de interfaces
@@ -33,15 +33,15 @@ abaixo calcula o fatorial de um número pedido na entrada e o
 mostra na saída:
 
 {% highlight java %}
-x = readDouble(); 
-if(0 < x) {
-  fact = 1;
-  while(0 < x) { 
-    fact = fact * x;
-    x = x - 1;
-  }
-  println(fact);
-}
+    x = readDouble(); 
+    if(0 < x) {
+      fact = 1;
+      while(0 < x) { 
+        fact = fact * x;
+        x = x - 1;
+      }
+      println(fact);
+    }
 {% endhighlight %}
 
 Reparem que não é necessário declarar as variávieis `x` e `fact`, muito
@@ -78,9 +78,9 @@ expressões para o lado esquerdo e direito da operação. No programa acima,
 No programa acima a `readDouble()` é uma instância de `LeNumero`.
 
 Agora vocês irão adicionar um método
-`double valor(java.util.HashMap<String, Double> vars)` à interface `Expressao`, 
+`double valor(HashMap<String, Double> vars)` à interface `Expressao`, 
 e implementar esse método para
-todas as classes acima. Nas operações de comparação `valor` deve
+todas as classes acima. Nas operações de comparação `valor()` deve
 retornar 0 se a operação for falsa e 1 se for verdadeira, pois MicroJava
 não possui valores booleanos. O mapa `vars` passado associa nomes de
 variáveis aos seus valores. Se uma variável não está nesse mapa então seu
@@ -114,7 +114,7 @@ uma atribuição e um `if`. O corpo do `If` é um bloco com três comandos, uma
 atribuição, um `while` e um `println`, e o corpo do `while` é um bloco com
 dois comandos, ambos de atribuição.
 
-Finalmente, adicionem um método `void executa(java.util.HashMap<String, Double> vars)` à
+Finalmente, adicionem um método `void executa(HashMap<String, Double> vars)` à
 interface `Comando`, e implementem esse método para todas as classes
 acima. Usem a sua intuição e seus conhecimentos de programação para
 pensar sobre como cada comando funciona. Novamente, `vars` é um mapa de nomes
@@ -123,25 +123,23 @@ de variáveis para seus valores.
 ****
 
 Dica: o código abaixo irá te ajudar na implementação do método
-`valor` da classe `LeNumero`:
+`valor()` da classe `LeNumero`:
 
 {% highlight java %}
-// Variável global para a entrada padrão
-static java.util.Scanner STDIN = new java.util.Scanner(System.in);
+      // Variável global para a entrada padrão
+      static java.util.Scanner STDIN = new java.util.Scanner(System.in);
 
-// Função para ler um double da entrada padrão
-public static double readDouble() {
-  return STDIN.nextDouble();
-}
+      // Função para ler um double da entrada padrão
+      static double readDouble() {
+        return STDIN.nextDouble();
+      }
 {% endhighlight %}
 
 O trecho de código a seguir instancia um programa MicroJava com a estrutura
 do programa fatorial acima. Note como é passado um bloco vazio para o lado `else` do
-`if`. Execute-o para ver o resultado:
+`if`. Copie-o para o scrapbook e execute para ver o resultado:
 
 {% highlight java %}
-public class Fatorial {
-  public static void main(String[] args) {
     Comando prog = 
       new Bloco(new Comando[] {
                   new Atrib("x", new LeNumero()),
@@ -161,16 +159,12 @@ public class Fatorial {
                          new Bloco(new Comando[] { }))
                 });
     prog.executa(new java.util.HashMap<String, Double>());
-  }
-}
 {% endhighlight %}
 
-O programa a seguir calcula a média final das três provas pelas
+O trecho de código a seguir calcula a média final das três provas pelas
 nossas regras de avaliação:
 
 {% highlight java %}
-public class MediaProvas {
-  public static void main(String[] args) {
     /*
     * read p1;
     * read p2;
@@ -209,9 +203,16 @@ public class MediaProvas {
                                                                                new Num(2))))) });
 
     prog.executa(new java.util.HashMap<String, Double>());
-  }
-}
 {% endhighlight %}
+
+Enviando
+--------
+
+Use o formulário abaixo para enviar o Laboratório 4. O prazo para envio é quarta-feira, dia 19/03/2014.
+
+<script type="text/javascript" src="http://form.jotformz.com/jsform/40696384359670">
+dummy
+</script>
 
 * * * * *
 

@@ -57,10 +57,14 @@ Mande-me um [email](mailto:mascarenhas@ufrj.br) se você quiser me convidar para
 
 ### Disciplinas
 
+#### 2016.1
+
+##### [Linguagens de Domínio Específico](dsl)
+##### [Computação II (Computação)](java)
+
 #### 2015.2
 
-##### [Compiladores I](comp)
-##### [Linguagens de Programação](lp)
+##### [Compiladores I](comp) / [Linguagens de Programação](lp)
 
 #### 2015.1
 
@@ -72,7 +76,7 @@ Mande-me um [email](mailto:mascarenhas@ufrj.br) se você quiser me convidar para
 
 #### 2014.1
 
-##### [Computação II (Computação)](java)
+##### [Computação II (Computação)](java20141)
 
 #### 2013.2
 

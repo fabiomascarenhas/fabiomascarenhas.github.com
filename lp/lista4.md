@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Linguagens de Programação - Terceira Lista de Exercícios
+title: Linguagens de Programação - Quarta Lista de Exercícios
 relpath: ..
 ---
 
-Terceira Lista de Exercícios
-===========================
+Quarta Lista de Exercícios
+==========================
 
 Introdução
 ----------

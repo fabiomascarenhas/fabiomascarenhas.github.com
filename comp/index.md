@@ -158,6 +158,7 @@ Publicarei slides e notas de aula nessa seção no decorrer do curso.
 #### 17/02 - [Slides](17CodigoPt3.pdf), [gerador de código para TINY com procedimentos](TINYCodigo.zip)
 #### 22/02 - [Slides](17CodigoPt4.pdf), [TINY com registros](TINYRegistros.zip)
 #### 24/02 - [Slides](17CodigoPt5.pdf), [TINY com classes](TINYClasses.zip)
+#### 29/12 - [Notas de aula](RevisaoP2.pdf)
 
 ### Listas de Exercício
 

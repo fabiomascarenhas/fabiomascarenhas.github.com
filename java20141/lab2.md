@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Lab 1 de MAB 240
+title: Lab 2 de MAB 240
 relpath: ..
 ---
 
 MAB 240 - Computação II
 =======================
 
-Laboratório 1 - 27/04/2016
+Laboratório 2 - 19/02/2014
 --------------------------
 
 *[Frogger](http://www.jogos-viciantes.com/frogger/)* era outro jogo
@@ -28,16 +28,12 @@ Quando eles "saem" da tela eles aprecem de volta vindo do lado oposto.
 
 Vocês usarão as mesmas classes `Motor`, `Tela` e `Cor` que estamos usando
 em sala de aula, mas a classe `Jogo` implementará a mecânica do Frogger.
-Comecem baixando e abrindo o projeto com o esqueleto do Frogger.
-Para o BlueJ, use [esse arquivo](FroggerBlueJ.zip), a pasta que está dentro
-dele é o projeto que pode ser aberto no BlueJ.
-
-Para o Eclipse, use [esse arquivo](FroggerEclipse.zip). O Eclipse não tem
+Comecem baixando e abrindo no Eclipse o [esqueleto do Frogger](Frogger.zip). O Eclipse não tem
 uma opção "Open Project..." no menu "File", portanto vocês têm que abrir a opção "Import..." do
 menu "File", e na caixa de diálogo que aparece abrir a opção "General" clicando na seta ao lado
 dela, depois clicar na opção "Existing Projects into Workspace" para selecioná-la e clicar no
 botão "Next". Na tela seguinte, clique para selecionar a opção "Select archive file", depois
-clique no botão "Browse..." dela e procure o arquivo "FroggerEclipse.zip" que você baixou. Finalmente,
+clique no botão "Browse..." dela e procure o arquivo "Frogger.zip" que você baixou. Finalmente,
 clique no botão "Finish". O projeto "Frogger" deve aparecer na aba "Package Explorer" do Eclipse.
 
 Nesse laboratório vocês implementarão a lógica necessária para exibição do tabuleiro do jogo
@@ -66,8 +62,8 @@ dummy
 Enviando
 --------
 
-O envio do Laboratório 1 será junto com o Laboratório 2. As instruções serão dadas na
-próxima semana, e o prazo de entrega para os dois laboratórios será 11/05/2016.
+O envio do Laboratório 2 será junto com o Laboratório 3. As instruções serão dadas na
+próxima semana, e o prazo de entrega para os dois laboratórios será 12/03/2014.
 
 * * * * *
 

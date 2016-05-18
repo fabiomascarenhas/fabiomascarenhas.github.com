@@ -121,6 +121,7 @@ As notas de aula serão publicadas aqui no decorrer do semestre.
 #### 17/02 - [Slides](Aula22.pdf), [projeto Eclipse](Aula22.zip)
 #### 22/02 - [Slides](Aula23.pdf), [projeto Eclipse](Aula23.zip)
 #### 24/02 - [Slides](Aula24.pdf), [projeto Eclipse](Aula24.zip)
+#### 29/02 - [Slides](Aula25.pdf), [projeto Eclipse](Aula25.zip)
 
 Listas de Exercício
 -------------------
@@ -131,7 +132,8 @@ o contrário para alguma lista.
 #### 24/10/2015 - [Primeira Lista](lista1.html), entrega até **03/11/2015**, [respostas](lista1_respostas.zip)
 #### 18/11/2015 - [Segunda Lista](lista2.html), entrega até **02/12/2015**, [respostas](lista2_respostas.zip)
 #### 04/12/2015 - [Terceira Lista](lista3.html), entrega até **18/12/2015**
-#### 03/02/2016 - [Quarta Lista](lista4.html), entrega até **19/02/2016**
+#### 03/02/2016 - [Quarta Lista](lista4.html), entrega até **19/02/2016**, [respostas](Lista4_Respostas.zip)
+#### 02/03/2016 - [Quinta Lista](lista5.html), entrega até **16/03/2016**
 
 ### Provas
 

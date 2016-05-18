@@ -7,212 +7,95 @@ relpath: ..
 MAB 240 - Computação II
 =======================
 
-Laboratório 4 - 12/03/2014
+Laboratório 4 - 18/05/2016
 --------------------------
 
-O objetivo deste laboratório é exercitar a criação de interfaces
-e classes que as implementam. Vocês farão isso no contexto da
-implementação de um *interpretador*, um programa que executa
-programas.
+No jogo *Asteroids* o jogador pilota uma nave e deve evitar destruir asteróides
+que aparecem na tela, enquanto desvia deles. O motor da nave sempre a
+acelera na direção na qual seu nariz está apontando, e sem aceleração a nave
+sempre mantém sua velocidade atual. Asteróides grandes se quebram em asteróides
+menores quando são atingidos:
 
-As construções dos programas que vamos executar
-serão modeladas como instâncias de classes, mas as construções
-do programa se dividem em dois tipos mais abstratos, Expressões
-e Comandos, que iremos modelar com interfaces. A implementação
-dos métodos dessas interfaces se tornará a implementação do
-interpretador.
+<iframe width="420" height="315" src="http://www.youtube.com/embed/WYSupJ5r2zo" frameborder="0" allowfullscreen="1">
+dummy
+</iframe>
 
-MicroJava é uma linguagem de programação bem simples, mas
-relativamente completa, onde pegamos um subconjunto de Java
-contendo expressões aritméticas simples (soma, subtração,
-multiplicação, divisão), variáveis e atribuição (mas sem declarações
-e tipos; todas as variáveis são do tipo `double`), entrada e
-saída simples através de comandos `readDouble` e `println`, testes
-`if` e laços `while`. Por exemplo, o programa MicroJava
-abaixo calcula o fatorial de um número pedido na entrada e o
-mostra na saída:
+1\. Crie um novo projeto, no Eclipse ou BlueJ, para o jogo, depois feche
+o Eclipse ou BlueJ. Baixe os [arquivos .java](Asteroids.zip) do motor de jogo e
+copie eles para a pasta do seu projeto (no Eclipse ela pode ser uma pasta `src` dentro da pasta do projeto, a
+depender de como ele foi criado).  Reabra o Eclipse ou BlueJ, os arquivos do projeto
+devem estar lá. Crie uma classe principal que implementa a interface `Jogo`.
 
-{% highlight java %}
-    x = readDouble(); 
-    if(0 < x) {
-      fact = 1;
-      while(0 < x) { 
-        fact = fact * x;
-        x = x - 1;
-      }
-      println(fact);
-    }
-{% endhighlight %}
+2\. Defina uma classe para representar um asteróide. Essa classe deve ter
+as coordenadas do asteróide, seu tamanho (1, 2, 3 ou 4), sua cor e os componentes
+horizontal e vertical de sua velocidade. 
 
-Reparem que não é necessário declarar as variávieis `x` e `fact`, muito
-menos declarar classes e métodos. Um programa MicroJava é simplesmente uma
-sequência de comandos MicroJava.
+3\. O jogo começa com 6 asteróides com tamanhos, cores, posições e velocidades
+aleatórias. Cada asteróide é desenhado por um círculo com diâmetro de dez pixels
+para cada unidade de tamanho. Quando um asteróide sai da tela ele aparece no canto
+oposto, mantendo a mesma velocidade. Implemente o código para desenhar e animar
+os asteróides.
 
-Nesse laboratório vocês irão implementar classes que modelam a estrutura
-de um programa MicroJava, e métodos para executar expressões e comandos MicroJava.
-As estruturas de um programa MicroJava se dividem em dois grupos, expressões
-e comandos, então comece definindo as interfaces `Expressao` e
-`Comando`, inicialmente vazias. 
+4\. Defina uma classe para representar a nave, com a posição, os componentes
+horizontal e vertical de sua velocidade, e o ângulo de sua direção no sentido
+horário (em radianos). A nave começa no centro da tela, com velocidade 0 e 
+direção 0.
 
-Agora vamos implementar as classes que modelam expressões. Todas elas devem
-implementar a interface `Expressao`. Os campos de cada classe estão implícitos
-na sua descrição. Não se esqueça de implementar um construtor também. As
-classes são:
+Vamos desenhar a nave pegando os pontos `(5, 0)`,
+`(-3, -4)` e `(-3, 4)`, fazendo sua rotação usando
+o ângulo da direção da nave, e depois somando os pontos
+resultantes à posição da nave: os três pontos dados
+por essa soma dão os cantos do triângulo.
 
-`Num` modela um numeral, e contém o valor do mesmo (um `double`). No programa
-acima, 0 e 1 são instâncias de `Num`.  
+5\. Defina uma classe `Ponto` para representar um ponto dadas
+suas coordenadas `x` e `y` (de tipo `double`).
+Implemente um método `rotacao` que faz a rotação desse ponto
+dado um ângulo `dir` em radianos. A nova coordenada `x` é
+`x * Math.cos(dir) - y * Math.sin(dir)`, e a nova coordenada `y`
+é `y * Math.cos(dir) + x * Math.sin(dir)`. Use essa classe para poder
+implementar o método `desenhar` da nave.
 
-`Var` modela uma variável, e contém o nome da variável. No programa acima, `x` e `fact`
-são instâncias de `Var`.
+6\. Quando o jogador está apertando a seta para a esquerda (tecla `left`)
+a direção diminui em `Math.PI` radianos por segundo, quando está apertando
+a seta para a direita (tecla `right`) a direção aumenta em `Math.PI` radianos por segundo.
+Quando ele está apertando a seta para cima (tecla `up`) a velocidade aumenta em cem pixels por segundo
+na direção para onde a nave está apontando (o seno da direção 
+dá o quanto o componente vertical muda e o conseno da direção quanto o componente
+vertical muda). Implemente o código para animar a nave. Do mesmo
+modo que um asteróide, quando a nave sai da tela ela aparece no canto oposto.
 
-`Soma`, `Sub`, `Mul` e `Div` modelam as quatro operações aritméticas, e
-contêm duas expressões, para o lado esquerdo e o lado direito da
-operação. No programa acima, `fact * x` é uma instância de `Mul` e `x - 1`
-é uma instância de `Sub`.
+7\. Defina um classe para representar um tiro. Ele é descrito apenas pela
+sua posição e velocidade, e desenhado como um círculo de raio 1. Quando um tiro é criado,
+sua posição é a do "nariz" da nave, o componente horizontal de sua velocidade é
+de `100*Math.cos(dir)` mais a velocidade horizontal da nave, e o componente vertical de sua
+velocidade é de `100*Math.sin(dir)` mais a velocidade vertical da nave. Um novo
+tiro é disparado toda vez que o jogador solta a tecla de espaço. Implemente
+o código para disparar, animar e desenhar os tiros.
 
-`Igual` e `Menor` modelam as operações de comparação, e também contêm
-expressões para o lado esquerdo e direito da operação. No programa acima, 
-`0 < x` e `0 < fact` são instâncias de `Menor`.
+8\. Um tiro colidiu com um asteróide se a distância entre seu centro e o
+centro do asteróide é menor que o raio do asteróide. Quando um tiro colide
+com um asteróide de tamanho 1 ou 2 o asteróide é destruído. Quando um tiro colide
+com um asteróide de tamanho 3 o asteróide se quebra em dois asteróides de tamanho 1
+que voam em direções opostas. Quando um tiro colide com um asteróide de tamanho
+4 o asteróide se quebra em um asteróide de tamanho 2 e um de tamanho 1. O tiro
+sempre é destruído nessa colisão. Implemente a verificação e os efeitos da colisão entre
+tiros e asteróides.
 
-`LeNumero` modela uma expressão de entrada, e não contém nennum campo.
-No programa acima a `readDouble()` é uma instância de `LeNumero`.
+9\. A nave colide com um asteróide quando a distância entre a posição
+da nave e o centro do asteróide é menor que o raio do asteróide mais 5.
+A colisão da nave com o asteróide destrói a nave e o asteróide.
 
-Agora vocês irão adicionar um método
-`double valor(HashMap<String, Double> vars)` à interface `Expressao`, 
-e implementar esse método para
-todas as classes acima. Nas operações de comparação `valor()` deve
-retornar 0 se a operação for falsa e 1 se for verdadeira, pois MicroJava
-não possui valores booleanos. O mapa `vars` passado associa nomes de
-variáveis aos seus valores. Se uma variável não está nesse mapa então seu
-valor é 0.
-
-As classes a seguir modelam os comandos. Todas elas implementam a
-interface `Comando`. Implemente as classes, declarando seus campos
-e seu construtor:
-
-`Imprime` modela um comando de escrita, e contém a expressão cujo valor
-será escrito. No programa acima, `println(fact);` é uma instância de `Imprime`.
-
-`Atrib` modela um comando de atribuição, e contém o **nome** da variável a ser
-atribuída e a expressão cujo valor será atribuído. No programa acima, 
-`x = readDouble();`, `fact = 1;`, `fact = fact * x` e `x = x - 1` são todos
-instâncias de `Atrib`.
-
-`If` modela um comando `if/then/else`, e contém a expressão de teste e
-dois comandos, um para a parte `then` e outro para a parte `else`. Tudo entre
-a segunda e a última linhas no programa acima é uma instância de `If`.
-
-`While` modela um comando `while`, e contém um comando para o
-corpo do laço e uma expressão para a condição do laço. Tudo entre as linhas
-4 e 7 do programa acima é uma instância de `While`.
-
-`Bloco` modela uma sequência de comandos, e contém um vetor de comandos. 
-
-O programa exemplo mostrado no início dessa página é uma instância de `Bloco`
-com dois comandos,
-uma atribuição e um `if`. O corpo do `If` é um bloco com três comandos, uma
-atribuição, um `while` e um `println`, e o corpo do `while` é um bloco com
-dois comandos, ambos de atribuição.
-
-Finalmente, adicionem um método `void executa(HashMap<String, Double> vars)` à
-interface `Comando`, e implementem esse método para todas as classes
-acima. Usem a sua intuição e seus conhecimentos de programação para
-pensar sobre como cada comando funciona. Novamente, `vars` é um mapa de nomes
-de variáveis para seus valores.
-
-****
-
-Dica: o código abaixo irá te ajudar na implementação do método
-`valor()` da classe `LeNumero`:
-
-{% highlight java %}
-      // Variável global para a entrada padrão
-      static java.util.Scanner STDIN = new java.util.Scanner(System.in);
-
-      // Função para ler um double da entrada padrão
-      static double readDouble() {
-        return STDIN.nextDouble();
-      }
-{% endhighlight %}
-
-O trecho de código a seguir instancia um programa MicroJava com a estrutura
-do programa fatorial acima. Note como é passado um bloco vazio para o lado `else` do
-`if`. Copie-o para o scrapbook e execute para ver o resultado:
-
-{% highlight java %}
-    Comando prog = 
-      new Bloco(new Comando[] {
-                  new Atrib("x", new LeNumero()),
-                  new If(new Menor(new Num(0), new Var("x")),
-                         new Bloco(new Comando[] {
-                                     new Atrib("fat", new Num(1)),
-                                     new While(new Menor(new Num(0), new Var("x")),
-                                               new Bloco(new Comando[] { 
-                                                           new Atrib("fat", new Mul(
-                                                                              new Var("fat"),
-                                                                              new Var("x"))),     
-                                                           new Atrib("x", new Sub(new Var("x"),
-                                                                                  new Num(1)))
-                                               })),
-                                     new Imprime(new Var("fat"))
-                                   }),
-                         new Bloco(new Comando[] { }))
-                });
-    prog.executa(new java.util.HashMap<String, Double>());
-{% endhighlight %}
-
-O trecho de código a seguir calcula a média final das três provas pelas
-nossas regras de avaliação:
-
-{% highlight java %}
-    /*
-    * read p1;
-    * read p2;
-    * read p3;
-    * if p1 < p2 then
-    *   if p1 < p3 then
-    *     write (p2 + p3) / 2
-    *   else
-    *     write (p1 + p2) / 2
-    *   end
-    * else
-    *   if p2 < p3 then
-    *     write (p1 + p3) / 2
-    *   else
-    *     write (p1 + p2) / 2
-    *   end
-    * end
-    */
-    Comando prog = new Bloco(new Comando[] { new Atrib("p1", new LeNumero()),
-                                             new Atrib("p2", new LeNumero()),
-                                             new Atrib("p3", new LeNumero()),
-                                             new If(new Menor(new Var("p1"), new Var("p2")),
-                                                    new If(new Menor(new Var("p1"), new Var("p3")),
-                                                           new Imprime(new Div(new Soma(new Var("p2"),
-                                                                                        new Var("p3")),
-                                                                               new Num(2))),
-                                                           new Imprime(new Div(new Soma(new Var("p1"),
-                                                                                        new Var("p2")),
-                                                                               new Num(2)))),
-                                                    new If(new Menor(new Var("p2"), new Var("p3")),
-                                                           new Imprime(new Div(new Soma(new Var("p1"),
-                                                                                        new Var("p3")),
-                                                                               new Num(2))),
-                                                           new Imprime(new Div(new Soma(new Var("p1"),
-                                                                                        new Var("p2")),
-                                                                               new Num(2))))) });
-
-    prog.executa(new java.util.HashMap<String, Double>());
-{% endhighlight %}
+10\. O jogador começa com 3 vidas. Quando a nave é destruída, se o contador de vidas
+já chegou a zero o jogo termina, mostrando a mensagem "GAME OVER" e mantendo os asteróides
+se movendo. Se o contador não chegou a zero ele diminui em 1 e uma nova nave aparece no
+centro da tela, com velocidade e direção 0.
 
 Enviando
 --------
 
-Use o formulário abaixo para enviar o Laboratório 4. O prazo para envio é quarta-feira, dia 19/03/2014.
+Use [esse link](https://www.dropbox.com/request/P1Jwkl6hZbBNsopyioS8)
+ para enviar o Laboratório 4. O prazo para envio é quarta-feira, dia **02/06/2016**.
 
-<script type="text/javascript" src="http://form.jotformz.com/jsform/40696384359670">
-dummy
-</script>
 
 * * * * *
 

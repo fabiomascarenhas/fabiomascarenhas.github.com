@@ -1,0 +1,11 @@
+
+machine := events resetEvents commands state+
+events := "events" event+ "end"
+event := name code
+commands := "commands" command+ "end"
+command := name code
+state := "state" name actions? transition* "end"
+actions := "action" '{' name+ '}'
+transition := name '=>' name
+name := [a-zA-Z]+
+code := [A-Z0-9]+
